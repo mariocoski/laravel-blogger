@@ -1,19 +1,19 @@
 const elixir = require('laravel-elixir');
+const gulp  = require('gulp');
 
-require('laravel-elixir-vue');
+//this will build all dist from ./semantic/src/ and place it in public/assets/
+const build = require('./semantic/tasks/build');
+const Task = elixir.Task;
+gulp.task('build', 'Builds all files from source',build);
+elixir.extend('semanticBuild', () => {
+     new Task('semanticBuild', () => {
+         gulp.start('build');
+     });
+});
 
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for our application, as well as publishing vendor resources.
- |
- */
-
+//run all essential tasks
 elixir(mix => {
     mix.sass('app.scss')
-       .webpack('app.js');
+       .webpack('app.js')
+       .semanticBuild();
 });
