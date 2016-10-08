@@ -7,8 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
-    <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/semantic/semantic.min.css">
+    <link href="/css/auth.css" rel="stylesheet">
 
     <title>{{ config('app.name', 'Blogger') }} - @yield('title')</title>
     <!-- Scripts -->
@@ -19,15 +19,9 @@
     </script>
 </head>
     <body>
-
-      @include('partials._nav')
-
       @yield('content')
-
-      @include('partials._footer')
-
       @yield('scripts')
-      <script src="js/app.js"></script>
-      <script src="semantic/semantic.min.js"></script>
+      <script src="/js/app.js"></script>
+      <script src="/semantic/semantic.min.js"></script>
     </body>
   </html>

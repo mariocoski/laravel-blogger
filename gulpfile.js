@@ -14,6 +14,8 @@ elixir.extend('semanticBuild', () => {
 //run all essential tasks
 elixir(mix => {
     mix.sass('app.scss')
+       .sass('auth.scss')
        .webpack('app.js')
+       .browserSync()
        .semanticBuild();
 });

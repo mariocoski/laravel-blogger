@@ -1,15 +1,17 @@
-@extends('layouts.homepage')
+@extends('layouts.auth')
+
+@section('title', 'Login')
 
 @section('content')
 
+<div class="ui middle aligned center aligned grid grid-auth">
 
-<div class="ui container text">
-<div class="ui middle  aligned center aligned grid">
-  <div class="column ten wide">
-    <h2 class="ui teal image header">
-      <img src="images/logo.png" class="image">
-      <div class="content">
-        Log-in to your account
+  <div class="column column-auth">
+
+    <h2 class="ui white header">
+    <a href="/" class="image"><img src="images/logo_default.png" ></a>
+      <div class="content white">
+        Login
       </div>
     </h2>
     <form class="ui large form">
@@ -26,7 +28,9 @@
             <input type="password" name="password" placeholder="Password">
           </div>
         </div>
-        <div class="ui fluid large teal submit button">Login</div>
+        <div class="ui fluid large orange submit button">Log in</div>
+        <div class="ui divider"></div>
+        <div class="ui "><a href="/password/reset">Forgot password?</a></div>
       </div>
 
       <div class="ui error message"></div>
@@ -34,74 +38,36 @@
     </form>
 
     <div class="ui message">
-      New to us? <a href="#">Sign Up</a>
-    </div>
-  </div>
-</div>
-<!--
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                        {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+      New to us? <a href="/register">Sign Up</a>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+      @if(config('blogger.social_login.enabled'))
+        <div class="ui horizontal divider">
+          Or
         </div>
+        @if(config('blogger.social_login.providers.facebook.enabled'))
+        <button class="ui facebook fluid button">
+          <i class="facebook icon"></i>
+          Log in with Facebook
+        </button>
+        @endif
+        @if(config('blogger.social_login.providers.twitter.enabled'))
+        <button class="ui twitter fluid button">
+          <i class="twitter icon"></i>
+        Log in with Twitter
+        </button>
+        @endif
+        @if(config('blogger.social_login.providers.google.enabled'))
+        <button class="ui google plus fluid button">
+          <i class="google plus icon"></i>
+          Log in with Google
+        </button>
+        @endif
+      @endif
     </div>
-</div> -->
+
+  </div>
+
 </div>
+
 @endsection
