@@ -1,0 +1,16 @@
+/*
+* layout
+*/
+body {
+  background-color: #029fd8; }
+
+.grid-auth {
+  height: 100%; }
+
+.column-auth {
+  max-width: 450px; }
+
+.white {
+  color: #FFFFFF; }
+
+/*# sourceMappingURL=auth.css.map */

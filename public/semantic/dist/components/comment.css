@@ -233,10 +233,10 @@
 --------------------*/
 
 .ui.mini.comments {
-  font-size: 0.78571429rem;
+  font-size: 0.8rem;
 }
 .ui.tiny.comments {
-  font-size: 0.85714286rem;
+  font-size: 0.86666667rem;
 }
 .ui.small.comments {
   font-size: 0.9em;
@@ -248,13 +248,13 @@
   font-size: 1.1em;
 }
 .ui.big.comments {
-  font-size: 1.28571429rem;
+  font-size: 1.26666667rem;
 }
 .ui.huge.comments {
   font-size: 1.2em;
 }
 .ui.massive.comments {
-  font-size: 1.71428571rem;
+  font-size: 1.73333333rem;
 }
 
 
