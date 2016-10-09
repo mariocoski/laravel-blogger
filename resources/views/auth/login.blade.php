@@ -14,21 +14,21 @@
         Login
       </div>
     </h2>
-    <form class="ui large form">
+    <form class="ui large form" method="GET" action="">
       <div class="ui stacked segment">
-        <div class="field">
+        <div class="field" >
           <div class="ui left icon input">
             <i class="user icon"></i>
             <input type="text" name="email" placeholder="E-mail address">
           </div>
         </div>
         <div class="field">
-          <div class="ui left icon input">
+          <div class="ui input left icon">
             <i class="lock icon"></i>
             <input type="password" name="password" placeholder="Password">
           </div>
         </div>
-        <div class="ui fluid large orange submit button">Log in</div>
+        <button class="ui fluid large orange submit button" type="submit">Log in</button>
         <div class="ui divider"></div>
         <div class="ui "><a href="/password/reset">Forgot password?</a></div>
       </div>
@@ -65,6 +65,7 @@
         @endif
       @endif
     </div>
+
 
   </div>
 

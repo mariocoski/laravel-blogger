@@ -9,6 +9,8 @@
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="/semantic/semantic.min.css">
     <link href="/css/auth.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"> -->
 
     <title>{{ config('app.name', 'Blogger') }} - @yield('title')</title>
     <!-- Scripts -->
@@ -20,8 +22,10 @@
 </head>
     <body>
       @yield('content')
-      @yield('scripts')
+      @include('partials._credits_footer')
       <script src="/js/app.js"></script>
       <script src="/semantic/semantic.min.js"></script>
+      @include('partials._alerts')
+      @yield('scripts')
     </body>
   </html>
