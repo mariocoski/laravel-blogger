@@ -2,7 +2,7 @@
 * layout
 */
 body {
-  background-color: #029fd8; }
+  background-color: #00B5FF; }
 
 .grid-auth {
   height: 100%; }
@@ -10,7 +10,14 @@ body {
 .column-auth {
   max-width: 450px; }
 
-.white {
-  color: #FFFFFF; }
+.credits-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #343434;
+  background-color: #FFFFFF;
+  color: #343434;
+  padding: 20px;
+  text-align: center; }
 
 /*# sourceMappingURL=auth.css.map */

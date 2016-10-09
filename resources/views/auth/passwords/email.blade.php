@@ -25,7 +25,7 @@
 
         <div class="ui fluid large orange submit button"> Send Password Reset Link</div>
 
-        <div class="ui "><a href="/login">Do you still remember your password?</a></div>
+        <div class="ui "><a href="/login">Reminded yourself a password?</a></div>
       </div>
     </form>
 

@@ -33,5 +33,5 @@ $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 */
-
+Route::get('/terms','HomeController@terms');
 Route::get('/home', 'HomeController@index');

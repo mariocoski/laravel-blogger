@@ -1,17 +1,12 @@
 import $ from 'jquery';
 import jQuery from 'jquery';
+import toastr from 'toastr';
+
 // export for others scripts to use
 window.$ = $;
 window.jQuery = jQuery;
-
-
-
-$(document)
-  .ready(function() {
-    $('.ui.dropdown').dropdown();
-
-    $('.ui.buttons .dropdown.button').dropdown({
-      action: 'combo'
-    });
-  })
-;
+window.toastr = toastr;
+$(document).ready(function() {
+  
+  console.log("Loaded");
+});
