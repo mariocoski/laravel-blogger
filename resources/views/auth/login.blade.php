@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="ui middle aligned center aligned grid grid-auth">
+<div class="ui center aligned grid grid-auth">
 
   <div class="column column-auth">
 
@@ -64,6 +64,8 @@
         </button>
         @endif
       @endif
+      <div class="ui divider"></div>
+      @include('partials._credits_footer')
     </div>
 
 

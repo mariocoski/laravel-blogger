@@ -7,19 +7,16 @@ body {
   //background-color: #dadada;
 }
 .grid-auth {
+
   height: 100%;
 }
 .column-auth {
+  margin-top: 20px;
   max-width: 450px;
 }
 
-.credits-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid #343434;
-  background-color: #FFFFFF;
-  color: #343434;
+.credits-info {
+  margin-top: 15px;
+  color: #252525;
   padding: 20px;
-  text-align: center;
 }
