@@ -29,9 +29,11 @@
           </div>
         </div>
         <div class="ui fluid large orange submit button">Register</div>
-        <div>By registering, you agree to the <a href="#">Terms of Service</a></div>
+        <div>By registering, you agree to the <a href="/terms">Terms of Service</a></div>
         <div class="ui divider"></div>
         <div class="ui "><a href="/login">Already have an account?</a></div>
+
+          @include('partials._credits_footer')
       </div>
     </form>
 

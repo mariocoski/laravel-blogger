@@ -22,7 +22,7 @@
 </head>
     <body>
       @yield('content')
-      @include('partials._credits_footer')
+      
       <script src="/js/app.js"></script>
       <script src="/semantic/semantic.min.js"></script>
       @include('partials._alerts')

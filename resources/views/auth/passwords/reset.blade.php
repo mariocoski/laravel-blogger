@@ -4,29 +4,41 @@
 
 @section('content')
 
+@extends('layouts.auth')
+
+@section('title', 'Login')
+
+@section('content')
+
 <div class="ui middle aligned center aligned grid grid-auth">
 
   <div class="column column-auth">
 
     <h2 class="ui white header">
-    <a href="/" class="image">
-      <img src="/images/logo_default.png" alt="Blogger"></a>
+    <a href="/" class="image"><img src="/images/logo_default.png" ></a>
       <div class="content white">
-        Remind password
+        Set up a new password
       </div>
     </h2>
     <form class="ui large form">
       <div class="ui stacked segment">
         <div class="field">
           <div class="ui left icon input">
-            <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="Password">
           </div>
         </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password_confirmation" placeholder="Password Confirmation">
+          </div>
+        </div>
+        <div class="ui fluid large orange submit button">Change my password</div>
+        <div class="ui divider"></div>
+        <div class="ui "><a href="/login">Reminded yourself a password?</a></div>
 
-        <div class="ui fluid large orange submit button"> Send Password Reset Link</div>
-
-        <div class="ui "><a href="/login">Do you remember your password?</a></div>
+          @include('partials._credits_footer')
       </div>
     </form>
 
