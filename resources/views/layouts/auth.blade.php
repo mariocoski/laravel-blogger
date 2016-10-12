@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="/semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/semantic/semantic.css">
     <link href="/css/auth.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
     <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"> -->
@@ -22,7 +22,7 @@
 </head>
     <body>
       @yield('content')
-      
+
       <script src="/js/app.js"></script>
       <script src="/semantic/semantic.min.js"></script>
       @include('partials._alerts')

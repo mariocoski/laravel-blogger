@@ -204,7 +204,8 @@
 @brown            : #A5673F;
 @grey             : #767676;
 @black            : #1B1C1D;
-
+@brandBlue        : #00A1FF; //added
+@white            : #FFFFFF;
 /*---  Light Colors  ---*/
 @lightRed         : #FF695E;
 @lightOrange      : #FF851B;
@@ -400,7 +401,6 @@
 /*-------------------
      Neutral Text
 --------------------*/
-
 @darkTextColor               : rgba(0, 0, 0, 0.85);
 @mutedTextColor              : rgba(0, 0, 0, 0.6);
 @lightTextColor              : rgba(0, 0, 0, 0.4);

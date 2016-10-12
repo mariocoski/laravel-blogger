@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/semantic/semantic.css">
     <link href="/css/app.css" rel="stylesheet">
 
     <title>{{ config('app.name', 'Blogger') }} - @yield('title')</title>
@@ -27,7 +27,7 @@
       @include('partials._footer')
 
       @yield('scripts')
-      <script src="js/app.js"></script>
-      <script src="semantic/semantic.min.js"></script>
+      <script src="/js/app.js"></script>
+      <script src="/semantic/semantic.js"></script>
     </body>
   </html>

@@ -16133,7 +16133,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background: #1B1C1D;
+  background: #00A1FF;
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -21533,7 +21533,6 @@ Floated Menu / Item
 .ui.secondary.pointing.menu {
   margin-left: 0em;
   margin-right: 0em;
-  border-bottom: 2px solid rgba(34, 36, 38, 0.15);
 }
 
 .ui.secondary.pointing.menu .item {
@@ -21635,7 +21634,6 @@ Floated Menu / Item
 }
 
 .ui.secondary.inverted.pointing.menu {
-  border-width: 2px;
   border-color: rgba(34, 36, 38, 0.15);
 }
 

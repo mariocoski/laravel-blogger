@@ -1,30 +1,35 @@
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
 
-            <!-- Collapsed Hamburger -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+<div class="ui inverted vertical masthead center aligned segment fixed">
+  <div class="ui container">
+    <div class="ui large secondary inverted pointing menu">
+    <a class="item" href="/">
+        <a href="/" class="image">
+          <img src="{{ LaravelLocalization::getNonLocalizedURL('images/logo_sm.png') }}">
+        </a>
+    </a>
+    <a data-order="1" class="item active" href="/">Blog</a>
+    <a data-order="2" class="item" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.authors'))}}">Authors</a>
+    <a data-order="3" class="item" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.contact'))}}">Contact</a>
+      <div class="ui right item">
+        <a class="ui inverted button" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.login'))}}">Login</a>
+        <a class="ui inverted button" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.register'))}}">Register</a>
+      </div>
+  </div>
+  </div>
+</div>
 
-            <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
-                &nbsp;
-            </ul>
-
-            <!-- Right Side Of Navbar -->
-            <ul class="nav navbar-nav navbar-right">
-                <!-- Authentication Links -->
+<!-- Sidebar Menu -->
+<!-- <div class="ui vertical inverted sidebar menu">
+  <a class="active item">Home</a>
+  <a class="item">Work</a>
+  <a class="item">Company</a>
+  <a class="item">Careers</a>
+  <a class="item">Login</a>
+  <a class="item">Signup</a>
+</div>
+<div class="pusher">
+</div> -->
+<!--
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
@@ -48,8 +53,4 @@
                             </li>
                         </ul>
                     </li>
-                @endif
-            </ul>
-        </div>
-    </div>
-</nav>
+                @endif -->
