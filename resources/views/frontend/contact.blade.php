@@ -7,7 +7,18 @@
 
 <div class="ui stackable equal width grid">
   <div class="column">
-    <button class="ui button">Default</button>
+
+<h1> Locale - {{ LaravelLocalization::getCurrentLocale() }}</h1>
+    <ul class="language_bar_chooser">
+    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+        <li>
+            <a rel="alternate" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode) }}">
+                {{ $properties['native'] }}
+            </a>
+        </li>
+    @endforeach
+</ul>
+    <!-- <button class="ui button">Default</button>
     <button class="ui primary button">Primary</button>
     <button class="ui secondary button">Secondary</button>
     <button class="ui basic button">Basic</button>
@@ -162,5 +173,5 @@
     </div>
 
   </div>
-</div>
+</div> -->
 @endsection

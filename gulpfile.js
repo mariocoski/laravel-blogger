@@ -16,6 +16,6 @@ elixir(mix => {
     mix.copy('./node_modules/toastr/build/toastr.css','./resources/assets/sass/toastr.css')
         .sass(['toastr.css','app.scss'],'./public/css/app.css')
        .sass('auth.scss')
-       .webpack('app.js');
-       //.semanticBuild();
+       .webpack('app.js')
+       .semanticBuild();
 });

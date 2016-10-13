@@ -2,22 +2,17 @@
 * layout
 */
 body {
-  background-color: #00B5FF; }
+  background-color: #00A8AA; }
 
 .grid-auth {
   height: 100%; }
 
 .column-auth {
-  margin-top: 20px;
   max-width: 450px; }
 
 .credits-info {
   margin-top: 15px;
   color: #252525;
   padding: 20px; }
-
-@media only screen and (max-width: 300px) {
-  .column-auth {
-    max-width: 230px; } }
 
 /*# sourceMappingURL=auth.css.map */
