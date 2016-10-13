@@ -908,6 +908,7 @@ Floated Menu / Item
 .ui.secondary.pointing.menu {
   margin-left: 0em;
   margin-right: 0em;
+  border-bottom: 2px solid rgba(34, 36, 38, 0.15);
 }
 .ui.secondary.pointing.menu .item {
   border-bottom-color: transparent;
@@ -995,6 +996,7 @@ Floated Menu / Item
   border-color: rgba(255, 255, 255, 0.1);
 }
 .ui.secondary.inverted.pointing.menu {
+  border-width: 2px;
   border-color: rgba(34, 36, 38, 0.15);
 }
 .ui.secondary.inverted.pointing.menu .item {
@@ -1340,7 +1342,7 @@ Floated Menu / Item
 
 .ui.inverted.menu {
   border: 0px solid transparent;
-  background: #1B1C1D;
+  background: #00A8AA;
   box-shadow: none;
 }
 

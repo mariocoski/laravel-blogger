@@ -1,4 +1,4 @@
 /*******************************
     User Variable Overrides
 *******************************/
-@invertedBackground: @brandBlue;
+@invertedBackground : @brandTeal;

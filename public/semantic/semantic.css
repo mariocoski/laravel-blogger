@@ -687,7 +687,7 @@ input::selection {
   background: #E0E1E2 none;
   color: rgba(0, 0, 0, 0.6);
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  margin: 0em 0.25em 0.75em 0em;
+  margin: 0em 0.35em 0.75em 0em;
   padding: 0.93333333em 1.5em 0.93333333em;
   text-transform: none;
   text-shadow: none;
@@ -4526,7 +4526,7 @@ input::selection {
   flex-direction: row;
   font-size: 0em;
   vertical-align: baseline;
-  margin: 0.75em 0.25em 0em 0em;
+  margin: 0.75em 0.35em 0em 0em;
 }
 
 .ui.buttons:not(.basic):not(.inverted) {
@@ -16133,7 +16133,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background: #00A1FF;
+  background: #00A8AA;
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -21533,6 +21533,7 @@ Floated Menu / Item
 .ui.secondary.pointing.menu {
   margin-left: 0em;
   margin-right: 0em;
+  border-bottom: 2px solid rgba(34, 36, 38, 0.15);
 }
 
 .ui.secondary.pointing.menu .item {
@@ -21634,6 +21635,7 @@ Floated Menu / Item
 }
 
 .ui.secondary.inverted.pointing.menu {
+  border-width: 2px;
   border-color: rgba(34, 36, 38, 0.15);
 }
 
@@ -22019,7 +22021,7 @@ Floated Menu / Item
 
 .ui.inverted.menu {
   border: 0px solid transparent;
-  background: #1B1C1D;
+  background: #00A8AA;
   box-shadow: none;
 }
 

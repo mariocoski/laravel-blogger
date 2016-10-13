@@ -23,7 +23,7 @@
   background: #E0E1E2 none;
   color: rgba(0, 0, 0, 0.6);
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  margin: 0em 0.25em 0.75em 0em;
+  margin: 0em 0.35em 0.75em 0em;
   padding: 0.93333333em 1.5em 0.93333333em;
   text-transform: none;
   text-shadow: none;
@@ -3367,7 +3367,7 @@
           flex-direction: row;
   font-size: 0em;
   vertical-align: baseline;
-  margin: 0.75em 0.25em 0em 0em;
+  margin: 0.75em 0.35em 0em 0em;
 }
 .ui.buttons:not(.basic):not(.inverted) {
   box-shadow: none;
