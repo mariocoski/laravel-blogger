@@ -1,4 +1,4 @@
-@extends('layouts.app)
+@extends('layouts.app')
 
 @section('title', 'Page Title')
 
@@ -7,7 +7,7 @@
 <div class="ui grid stackable">
   <div class="ui container">
     <div class="column">
-      <h1>Terms</h1>
+      <h1>About</h1>
 
     </div><!--end of column-->
   </div><!--end of container-->

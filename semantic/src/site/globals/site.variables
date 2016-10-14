@@ -117,7 +117,7 @@
         Page
 --------------------*/
 
-@pageBackground      : #FFFFFF;
+@pageBackground      : #f2f5f7;//#FFFFFF;
 @pageOverflowX       : hidden;
 
 @lineHeight          : 1.4285em;
@@ -134,7 +134,7 @@
        Links
 --------------------*/
 
-@linkColor           : #4183C4;
+@linkColor           : @darkTeal;//@orange;//original #4183C4;
 @linkUnderline       : none;
 @linkHoverColor      : darken(saturate(@linkColor, 20), 15, relative);
 @linkHoverUnderline  : @linkUnderline;
@@ -205,6 +205,7 @@
 @grey             : #767676;
 @black            : #1B1C1D;
 @brandBlue        : #00A1FF; //added
+@darkTeal         :  #006363;
 @brandTeal        : #00A8AA;
 @white            : #FFFFFF;
 /*---  Light Colors  ---*/

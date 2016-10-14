@@ -523,7 +523,7 @@ body {
   padding: 0px;
   overflow-x: hidden;
   min-width: 320px;
-  background: #FFFFFF;
+  background: #f2f5f7;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 15px;
   line-height: 1.4285em;
@@ -606,12 +606,12 @@ p:last-child {
 --------------------*/
 
 a {
-  color: #4183C4;
+  color: #006363;
   text-decoration: none;
 }
 
 a:hover {
-  color: #1e70bf;
+  color: #005454;
   text-decoration: none;
 }
 
@@ -13224,7 +13224,7 @@ a.ui.basic.black.label:hover {
 a.ui.basic.label:hover {
   text-decoration: none;
   background: none #FFFFFF;
-  color: #1e70bf;
+  color: #005454;
   box-shadow: 1px solid rgba(34, 36, 38, 0.15);
   box-shadow: none;
 }
@@ -13691,12 +13691,12 @@ ol.ui.list ol li,
 .ui.list .list > a.item,
 .ui.list > a.item {
   cursor: pointer;
-  color: #4183C4;
+  color: #006363;
 }
 
 .ui.list .list > a.item:hover,
 .ui.list > a.item:hover {
-  color: #1e70bf;
+  color: #005454;
 }
 
 /* Linked Item Icons */
@@ -13711,12 +13711,12 @@ ol.ui.list ol li,
 .ui.list .list > .item a.header,
 .ui.list > .item a.header {
   cursor: pointer;
-  color: #4183C4 !important;
+  color: #006363 !important;
 }
 
 .ui.list .list > .item a.header:hover,
 .ui.list > .item a.header:hover {
-  color: #1e70bf !important;
+  color: #005454 !important;
 }
 
 /* Floated Content */
@@ -13892,7 +13892,7 @@ ol.ui.list ol li,
 
 .ui.inverted.list .list > a.item:hover,
 .ui.inverted.list > a.item:hover {
-  color: #1e70bf;
+  color: #005454;
 }
 
 /* Linking Content */
@@ -13902,7 +13902,7 @@ ol.ui.list ol li,
 }
 
 .ui.inverted.list .item a:not(.ui):hover {
-  color: #1e70bf !important;
+  color: #005454 !important;
 }
 
 /*-------------------
@@ -16676,7 +16676,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.steps .step.active .title {
-  color: #4183C4;
+  color: #006363;
 }
 
 .ui.ordered.steps .step.active:before,
@@ -17018,11 +17018,11 @@ ol.ui.horizontal.list li:before,
 /* Link */
 
 .ui.breadcrumb a {
-  color: #4183C4;
+  color: #006363;
 }
 
 .ui.breadcrumb a:hover {
-  color: #1e70bf;
+  color: #005454;
 }
 
 /* Icon Divider */
@@ -25208,7 +25208,7 @@ Floated Menu / Item
 
 .ui.cards > .card > .content > a.header:hover,
 .ui.card > .content > a.header:hover {
-  color: #1e70bf;
+  color: #005454;
 }
 
 /* Meta */
@@ -25327,7 +25327,7 @@ Floated Menu / Item
 
 .ui.cards > .card > .extra a:not(.ui):hover,
 .ui.card > .extra a:not(.ui):hover {
-  color: #1e70bf;
+  color: #005454;
 }
 
 /*******************************
@@ -26072,7 +26072,7 @@ a.ui.card:hover,
 }
 
 .ui.comments .comment a.author:hover {
-  color: #1e70bf;
+  color: #005454;
 }
 
 /*--------------
@@ -26810,7 +26810,7 @@ a.ui.card:hover,
 }
 
 .ui.items > .item > .content > a.header:hover {
-  color: #1e70bf;
+  color: #005454;
 }
 
 /* Meta */
@@ -27041,7 +27041,7 @@ a.ui.card:hover,
 
 .ui.items a.item:hover .content .header,
 .ui.link.items > .item:hover .content .header {
-  color: #1e70bf;
+  color: #005454;
 }
 
 /*--------------
@@ -32970,7 +32970,7 @@ a.ui.nag {
   white-space: normal;
   background: #FFFFFF;
   margin-top: 0.5em;
-  width: 18em;
+  width: 100%;
   border-radius: 0.26666667rem;
   box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
   border: 1px solid #D4D4D5;
@@ -33645,7 +33645,7 @@ body.pushable {
 }
 
 body.pushable > .pusher {
-  background: #FFFFFF;
+  background: #f2f5f7;
 }
 
 /* Pusher should inherit background from context */

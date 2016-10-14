@@ -45,25 +45,28 @@
         <div class="ui horizontal divider">
           Or
         </div>
+        <div class="ui tiny buttons">
+
         @if(config('blogger.social_login.providers.facebook.enabled'))
-        <button class="ui facebook fluid button">
+        <button class="ui facebook button">
           <i class="facebook icon"></i>
-          Log in with Facebook
+          Log in
         </button>
         @endif
         @if(config('blogger.social_login.providers.twitter.enabled'))
-        <button class="ui twitter fluid button">
+        <button class="ui twitter button">
           <i class="twitter icon"></i>
-        Log in with Twitter
+        Log in
         </button>
         @endif
         @if(config('blogger.social_login.providers.google.enabled'))
-        <button class="ui google plus fluid button">
+        <button class="ui google plus button">
           <i class="google plus icon"></i>
-          Log in with Google
+          Log in
         </button>
         @endif
       @endif
+      </div>
       <div class="ui divider"></div>
       @include('partials._credits_footer')
     </div>
