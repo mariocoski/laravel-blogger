@@ -3,6 +3,19 @@
   color: #FFFFFF;
 }
 
+.search-form-sm{
+  margin-bottom: 0;
+}
+
+.ui.search .prompt {
+  border-radius: 4px;
+}
+
+.content-wrapper{
+  padding-top: 73px;
+  padding-bottom: 20px;
+}
+
 /* overriding css */
 .toast {
     border: 1px solid #fff;
@@ -19,4 +32,45 @@
   .ui.footer.segment {
     margin: 5em 0em 0em;
     padding: 5em 0em;
+  }
+  /* Mobile */
+
+  @media only screen and (max-width: 767px) {
+      .hidden-mobile{
+          display: none !important;
+      }
+
+      .content-wrapper{
+        padding-top: 60px;
+
+      }
+  }
+
+  /* Tablet */
+
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .hidden-tablet{
+          display: none !important;
+      }
+
+      .content-wrapper{
+        padding-top: 60px;
+      }
+  }
+
+  /* Small Monitor */
+
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      .hidden-small-desktop{
+          display: none !important;
+      }
+  }
+
+
+  /* Large Monitor */
+
+  @media only screen and (min-width: 1200px) {
+      .hidden-large-desktop{
+          display: none !important;
+      }
   }

@@ -7,5 +7,6 @@ return [
   'password_reset_token' => 'password/reset/{token}',
   'password_email' => 'password/email',
   'contact' => 'contact',
-  'authors' => 'authors',
+  'about' => 'about',
+  'search' => 'search',
 ];

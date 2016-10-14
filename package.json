@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "prismjs": "^1.5.1",
+    "rrssb": "^1.11.0",
     "semantic-ui": "^2.2.4",
     "simplemde": "^1.11.2",
     "toastr": "^2.1.2"

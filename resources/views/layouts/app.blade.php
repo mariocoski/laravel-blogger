@@ -19,13 +19,13 @@
     </script>
 </head>
     <body>
-
-      @include('partials._nav')
-
-      @yield('content')
-
-      @include('partials._footer')
-
+      @include('partials._nav_sidebar')
+      <div class="pusher">
+        @include('partials._nav_top')
+        @include('partials._breadcrumbs')
+        @yield('content')
+        @include('partials._footer')
+      </div><!--end of pusher-->
       @yield('scripts')
       <script src="/js/app.js"></script>
       <script src="/semantic/semantic.js"></script>

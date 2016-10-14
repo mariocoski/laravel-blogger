@@ -14,7 +14,8 @@ elixir.extend('semanticBuild', () => {
 //run all essential tasks
 elixir(mix => {
     mix.copy('./node_modules/toastr/build/toastr.css','./resources/assets/sass/toastr.css')
-        .sass(['toastr.css','app.scss'],'./public/css/app.css')
+       .copy('./node_modules/rrssb/css/rrssb.css','./resources/assets/sass/rrssb.css')
+       .sass(['toastr.css','app.scss','rrssb.css'],'./public/css/app.css')
        .sass('auth.scss')
        .webpack('app.js')
        .semanticBuild();
