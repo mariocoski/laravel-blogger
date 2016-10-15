@@ -4,12 +4,12 @@
 
 
 @section('content')
-<div class="ui grid stackable">
-  <div class="ui container">
-    <div class="column">
-      <h1>About</h1>
+<div class="ui grid grid-with-margin">
+<div class="ui container">
+  <div class="column">
+    <h1>About</h1>
 
-    </div><!--end of column-->
-  </div><!--end of container-->
-</div><!--end of grid stackable-->
+  </div>
+</div><!--end of container-->
+</div>
 @endsection

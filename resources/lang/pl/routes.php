@@ -1,5 +1,6 @@
 <?php
 return [
+  'home' => 'home',
   'login' => 'logowanie',
   'logout' => 'wyloguj',
   'register' => 'rejestracja',

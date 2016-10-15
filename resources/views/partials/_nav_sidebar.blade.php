@@ -4,9 +4,9 @@
     <img src="{{ LaravelLocalization::getNonLocalizedURL('images/logo_sm.png') }}" alt="{{config('app.name')}}">
   </a>
   <a href="#" class="item sidebar-trigger"><i class="close icon"></i> Close menu</a>
-  <a data-order="1" class="item" href="/">Home</a>
-  <a data-order="2" class="item" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.about'))}}">About</a>
-  <a data-order="3" class="item" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.contact'))}}">Contact</a>
+  <a class="item" href="/">Blog</a>
+  <a class="item" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.about'))}}">About</a>
+  <a class="item" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.contact'))}}">Contact</a>
   @if(config('blogger.search_engine.enabled'))
     <div class="item">
       <form class="search-form-sm" action="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.search'))}}">
@@ -22,7 +22,7 @@
   @endif
   @if(config('blogger.multilingual'))
     <div class="item">
-      <div class="ui floating dropdown labeled search icon orange button">
+      <div class="ui floating dropdown labeled fluid search icon orange button">
         <i class="world icon"></i>
         <span class="text">{{ LaravelLocalization::getCurrentLocaleName() }}</span>
         <div class="menu">
@@ -36,4 +36,5 @@
     </div>
   @endif
  </div>
+
 <!--END OF SIDEBAR MENU -->

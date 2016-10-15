@@ -1,13 +1,35 @@
 import $ from 'jquery';
 import jQuery from 'jquery';
 import toastr from 'toastr';
-// export for others scripts to use
+import Scroller from './libs/Scroller';
+import SocialShare from './libs/SocialShare';
 window.$ = $;
 window.jQuery = jQuery;
 window.toastr = toastr;
-const rrssb = require('rrssb');
+
+
+toastr.options = {
+  closeButton : true,
+  timeOut : 5000,
+  positionClass: "toast-bottom-left"
+}
+
+
 $(document).ready(function() {
-//  $('#search-item').popup();
+
+(new Scroller).init('.scroller');
+
+SocialShare.init("id",{
+  title:'This is the email subject and/or tweet text',
+  url:  'http://rrssb.ml/',
+  // optional:
+  description:  'Longer description used with some providers',
+  emailBody:  'Usually email body is just the description + url, but you can customize it if you want'
+});
+
+$('.ui.dropdown').dropdown();
+$('.left.sidebar').first().sidebar('attach events', '.sidebar-trigger');
+
 $('.ui.search')
   .search({
     apiSettings: {
@@ -16,7 +38,6 @@ $('.ui.search')
     type: 'standard'
   })
 ;
-
 $('img.image')
   .visibility({
     type       : 'image',
@@ -25,60 +46,20 @@ $('img.image')
   })
 ;
 
-$('.rrssb-buttons').rrssb({
-  // required:
-  title: 'This is the email subject and/or tweet text',
-  url: 'http://rrssb.ml/',
+$('.favorite').popup();
 
-  // optional:
-  description: 'Longer description used with some providers',
-  emailBody: 'Usually email body is just the description + url, but you can customize it if you want'
+$('.favorite').click(function(){
+  var star = $(this).children().first();
+
+  if($(this).children().first().hasClass('yellow active')){
+    star.removeClass('yellow active');
+    toastr.success("Removed from favourite articles");
+  }else{
+    star.addClass('yellow active');
+    toastr.success("Added to favourite articles");
+  }
+
 });
 
 
-// let delay = (()=>{
-//   let timer = 0;
-//   return (callback, ms)=>{
-//     clearTimeout (timer);
-//     timer = setTimeout(callback, ms);
-//   };
-// })();
-//
-// $('#search-box').keyup(()=>{
-//     delay(()=>{
-//       let word = $('#search-box').val();
-//       console.log(word);
-//       if(word.length > 2){
-//           $('#search-item').attr('data-tooltip','All users to your feed: '+word+'\n'+"dasdasdasd");
-//       }else{
-//           $('#search-item').removeAttr('data-tooltip')
-//       }
-//
-//     }, 500 );
-// });
-
-//menu active items
-$('.ui.dropdown').dropdown();
-$('.left.sidebar').first().sidebar('attach events', '.sidebar-trigger');
-  // let activeMenuItem = parseInt(localStorage.getItem('menu_active_item'));
-  // if(activeMenuItem){
-  //   let item = $('.item[data-order="'+activeMenuItem+'"]');
-  //   if(!item.hasClass('dropdown')){
-  //     item.addClass('active')
-  //         .siblings('.item')
-  //         .removeClass('active');
-  //   }
-  // }
-  //
-  //
-  //    $('.ui.menu')
-  //       .on('click', '.item', function() {
-  //         if(!$(this).hasClass('dropdown')) {
-  //           localStorage.setItem('menu_active_item',$(this).attr('data-order'));
-  //           $(this)
-  //             .addClass('active')
-  //             .siblings('.item')
-  //               .removeClass('active');
-  //         }
-  //   });
 });

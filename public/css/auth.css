@@ -5,6 +5,8 @@ body {
   background-color: #00A8AA; }
 
 .grid-auth {
+  text-align: center;
+  margin: auto;
   height: 100%; }
 
 .column-auth {

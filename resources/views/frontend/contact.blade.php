@@ -4,7 +4,7 @@
 
 
 @section('content')
-<div class="ui grid stackable">
+<div class="ui grid grid-with-margin">
   <div class="ui container">
     <div class="column">
       <h1>Contact</h1>

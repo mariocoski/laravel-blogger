@@ -96,7 +96,56 @@ class HomepageController extends Controller
     }
 
     public function about(){
-        return view('frontend.about');
+      $articles = [
+        [
+          'title' => 'Result Title',
+          'body' => 'Lorem ipsum',
+          'author' => 'John Doe',
+        ],
+        [
+          'title' => 'Result Title',
+          'body' => 'Lorem ipsum',
+          'author' => 'John Doe',
+        ],
+        [
+          'title' => 'Result Title',
+          'body' => 'Lorem ipsum',
+          'author' => 'John Doe',
+        ],
+        [
+          'title' => 'Result Title',
+          'body' => 'Lorem ipsum',
+          'author' => 'John Doe',
+        ],
+        [
+          'title' => 'Result Title',
+          'body' => 'Lorem ipsum',
+          'author' => 'John Doe',
+        ],
+        [
+          'title' => 'Result Title',
+          'body' => 'Lorem ipsum',
+          'author' => 'John Doe',
+        ],
+        [
+          'title' => 'Result Title',
+          'body' => 'Lorem ipsum',
+          'author' => 'John Doe',
+        ],
+        [
+          'title' => 'Result Title',
+          'body' => 'Lorem ipsum',
+          'author' => 'John Doe',
+        ],
+        [
+          'title' => 'Result Title',
+          'body' => 'Lorem ipsum',
+          'author' => 'John Doe',
+        ],
+
+
+      ];
+        return view('frontend.about', compact('articles'));
     }
 
     public function contact(){

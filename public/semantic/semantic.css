@@ -30125,7 +30125,7 @@ select.ui.dropdown {
 }
 
 .ui.floating.dropdown > .menu {
-  margin-top: 0.5em !important;
+  margin-top: 0 !important;
   border-radius: 0.26666667rem !important;
 }
 

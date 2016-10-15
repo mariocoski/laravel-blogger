@@ -1,5 +1,8 @@
 <?php
 use Illuminate\Http\Request;
+
+Route::get('autocomplete','Frontend\HomepageController@autocomplete');
+
 Route::group([
        'prefix' => LaravelLocalization::setLocale(),
        'middleware' => [ 'localize','localeSessionRedirect', 'localizationRedirect' ]
@@ -29,11 +32,12 @@ Route::post(LaravelLocalization::transRoute('routes.password_reset'), 'Auth\Rese
 | Front-end routes
 |--------------------------------------------------------------------------
 */
-Route::get("/",'Frontend\HomepageController@index');
+
+Route::get("/", 'Frontend\HomepageController@index');
 Route::get(LaravelLocalization::transRoute('routes.contact'),'Frontend\HomepageController@contact');
 Route::get(LaravelLocalization::transRoute('routes.about'),'Frontend\HomepageController@about');
 Route::get(LaravelLocalization::transRoute('routes.search'),'Frontend\HomepageController@search');
-Route::get('autocomplete','Frontend\HomepageController@autocomplete');
+
 
 //       Route::get(LaravelLocalization::transRoute('routes.login'),'Auth\LoginController@showLoginForm');
 //       Route::get(LaravelLocalization::transRoute('routes.articles'),function($slug){

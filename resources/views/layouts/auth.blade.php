@@ -21,8 +21,9 @@
     </script>
 </head>
     <body>
-      @yield('content')
 
+      @yield('content')
+      
       <script src="/js/app.js"></script>
       <script src="/semantic/semantic.min.js"></script>
       @include('partials._alerts')
