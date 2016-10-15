@@ -8,9 +8,10 @@
     <div class="item hidden-large-desktop hidden-small-desktop">
       <a href="#" class="sidebar-trigger"><i class="sidebar icon"></i></a>
     </div>
-    <a data-order="1" class="item hidden-mobile hidden-tablet" href="/">Home</a>
-    <a data-order="2" class="item hidden-mobile hidden-tablet" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.about'))}}">About</a>
-    <a data-order="3" class="item hidden-mobile hidden-tablet" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.contact'))}}">Contact</a>
+    <a class="item icon hidden-mobile hidden-tablet" href="/">Blog</a>
+    <a class="item hidden-mobile hidden-tablet" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.about'))}}">About</a>
+    <!-- <a data-order="3" class="item hidden-mobile hidden-tablet" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.contact'))}}">Contact</a> -->
+    <a class="item hidden-mobile hidden-tablet" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.contact'))}}">Contact</a>
     @if(config('blogger.search_engine.enabled'))
     <form class="search-form-sm hidden-mobile hidden-tablet" action="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.search'))}}">
       <div class="item">
@@ -25,46 +26,38 @@
     </form>
     @endif
     @if(config('blogger.multilingual'))
-      <div class="item hidden-mobile hidden-tablet">
-        <div class="ui floating dropdown labeled search icon orange button">
-          <i class="world icon"></i>
-          <span class="text">{{ LaravelLocalization::getCurrentLocaleName() }}</span>
-          <div class="menu">
-            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-              <a rel="alternate" class="item" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode) }}">
-                {{ $properties['name'] }}
-              </a>
-            @endforeach
-          </div>
-        </div>
+    <div class="ui item hidden-mobile hidden-tablet floating  dropdown labeled icon">
+      <i class="world icon"></i>&nbsp;
+      <span class="text">{{ LaravelLocalization::getCurrentLocaleName() }}</span>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+      @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+        <a rel="alternate" class="item" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode) }}">
+          {{ $properties['name'] }}
+        </a>
+      @endforeach
       </div>
-    @endif
-    <div class="ui right item">
-    @if (Auth::guest())
-      <a class="ui inverted button" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.login'))}}">Login</a>
-      &nbsp;
-      <a class="ui inverted button" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.register'))}}">Register</a>
-    @else
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-        {{ Auth::user()->name }} <span class="caret"></span>
-    </a>
-
-    <ul class="dropdown-menu" role="menu">
-        <li>
-            <a href="{{ url('/logout') }}"
-                onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();">
-                Logout
-            </a>
-
-            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                {{ csrf_field() }}
-            </form>
-        </li>
-    </ul>
-
-    @endif
     </div>
+    @endif
+    @if (Auth::guest())
+      <a class="ui right item" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.login'))}}">Login</a>
+      <a class="ui item" href="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.register'))}}">Register</a>
+    @else
+
+    <div class="ui right item floating dropdown icon">
+
+      <img class="ui avatar mini image" src="/images/avatar_default.png">
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item"><i class="user icon"></i>Profile</a>
+        <a class="item"><i class="dashboard icon"></i>Dashboard</a>
+        <a class="item"><i class="settings icon"></i>Settings</a>
+        <a class="item"><i class="help icon"></i>Help</a>
+      </div>
+    </div>
+
+    <a class="item" href="/"><i class="power icon"></i> Log out</a>
+    @endif
   </div>
 </div>
 <!--END OF FULL SIZE MENU-->

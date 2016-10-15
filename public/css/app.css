@@ -194,26 +194,34 @@ button.toast-close-button {
 .ui.search .prompt {
   border-radius: 4px; }
 
-.content-wrapper {
-  padding-top: 73px;
-  padding-bottom: 20px; }
-
 /* overriding css */
 .toast {
-  border: 1px solid #fff; }
+  border: 1px solid #fff;
+  opacity: 1 !important; }
 
-.ui.menu .item img.logo {
-  margin-right: 1.5em; }
+.scroller {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 9999;
+  background-color: #F27F13;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+  cursor: pointer;
+  box-shadow: 0px 2px 3px 0 #434343; }
 
-.main.container {
-  margin-top: 7em; }
+.grid-with-margin {
+  min-height: 100%;
+  height: auto !important;
+  /* This line and the next line are not necessary unless you need IE6 support */
+  height: 100%;
+  margin-bottom: 50px !important; }
 
-.wireframe {
-  margin-top: 2em; }
-
-.ui.footer.segment {
-  margin: 5em 0em 0em;
-  padding: 5em 0em; }
+.footer-container {
+  margin-top: 40px !important;
+  margin-bottom: 20px; }
 
 /* Mobile */
 @media only screen and (max-width: 767px) {

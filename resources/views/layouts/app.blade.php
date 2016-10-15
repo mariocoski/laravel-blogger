@@ -21,10 +21,14 @@
     <body>
       @include('partials._nav_sidebar')
       <div class="pusher">
+        <div class="main-content">
         @include('partials._nav_top')
         @include('partials._breadcrumbs')
-        @yield('content')
+
+          @yield('content')
+        <div>
         @include('partials._footer')
+        @include('partials._scroll_top')
       </div><!--end of pusher-->
       @yield('scripts')
       <script src="/js/app.js"></script>

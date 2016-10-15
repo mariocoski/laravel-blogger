@@ -2,8 +2,11 @@
 <script>
 
 // import toastr from 'toastr';
-toastr.options.closeButton = true;
- toastr.options.timeOut = 15000;
+toastr.options = {
+  closeButton : true,
+  timeOut : 15000,
+  positionClass: "toast-bottom-left"
+}
 
 toastr["success"]("You have been registered successfully. We have sent you an email to verify your account."+
  "Please check your SPAM folder");
