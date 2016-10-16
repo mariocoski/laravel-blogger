@@ -13,7 +13,7 @@
         </div>
 
         <div class="content">
-          <h3><a href="">{{$article['title']}}</a></h3>
+
           <div class="ui fluid image">
               <!--TODO: change to auth check -->
                 @if(Auth::guest())
@@ -22,11 +22,14 @@
                 </a>
                 @endif
                 <a href="">
-                  <img class="ui fluid image" data-src="images/fox_unsplash.jpeg" class="transition visible"
-                  src="images/fox_unsplash.jpeg" alt="obrazek">
+                  <img class="ui fluid image lazy" data-original="images/{{$article['image']}}"
+                  src="images/placeholder.gif" height="480" width="640" alt="picture">
+                  <noscript>
+                    <img class="ui fluid image" height="480" width="640" src="images/{{$article['image']}}">
+                  </noscript>
                 </a>
-              </div>
-
+        </div>
+        <h3><a href="">{{$article['title']}}</a></h3>
       </div>
         <div class="extra content">
           <i class="share icon"></i> Share via:

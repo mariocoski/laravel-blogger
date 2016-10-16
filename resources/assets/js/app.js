@@ -3,10 +3,10 @@ import jQuery from 'jquery';
 import toastr from 'toastr';
 import Scroller from './libs/Scroller';
 import SocialShare from './libs/SocialShare';
+import lazyload from 'jquery-lazyload';
 window.$ = $;
 window.jQuery = jQuery;
 window.toastr = toastr;
-
 
 toastr.options = {
   closeButton : true,
@@ -38,13 +38,16 @@ $('.ui.search')
     type: 'standard'
   })
 ;
-$('img.image')
-  .visibility({
-    type       : 'image',
-    transition : 'fade in',
-    duration   : 1000
-  })
-;
+//initialize placeholders for lazy loading$("img.lazy").lazyload({
+
+$("img.lazy.ui.fluid").show().lazyload({effect : "fadeIn",threshold : 500});
+// $('img.image')
+//   .visibility({
+//     type       : 'image',
+//     transition : 'fade in',
+//     duration   : 1000
+//   })
+// ;
 
 $('.favorite').popup();
 
