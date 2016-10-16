@@ -188,11 +188,18 @@ button.toast-close-button {
 .white {
   color: #FFFFFF; }
 
+img.lazy.ui.fluid {
+  display: none; }
+
 .search-form-sm {
   margin-bottom: 0; }
 
 .ui.search .prompt {
   border-radius: 4px; }
+
+.content-wrapper {
+  padding-top: 73px;
+  padding-bottom: 20px; }
 
 /* overriding css */
 .toast {
