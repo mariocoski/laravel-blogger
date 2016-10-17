@@ -5,7 +5,7 @@
     @if(isset($articles))
       @if(config('blogger.articles_render_type') === 'single')
         @include('partials._articles_single')
-      @elseif(config('blogger.articles_render_type') === 'multiple')
+      @elseif(config('blogger.articles_render_type') === 'multi')
         @include('partials._articles_multiple')
       @else
       <div class="ui grid">
