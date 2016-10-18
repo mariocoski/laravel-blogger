@@ -28,6 +28,7 @@
           @yield('content')
         <div>
         @include('partials._footer')
+        @include('partials._contact_form_modal')
         @include('partials._scroll_top')
       </div><!--end of pusher-->
       @yield('scripts')

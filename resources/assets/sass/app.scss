@@ -3,10 +3,6 @@
   color: #FFFFFF;
 }
 
-.pusher{
-  //min-height: 100%;
-
-}
 
 img.lazy.ui.fluid {
     display: none;
@@ -43,8 +39,43 @@ img.lazy.ui.fluid {
   border-radius: 5px;
   display: none;
   cursor: pointer;
-  box-shadow: 0px 2px 3px 0 #434343;
-  //box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 4px 3px 0 #434343;
+}
+
+a#contact-form-trigger{
+  position: fixed;
+  bottom: 60px;
+  right: 10px;
+  z-index: 9999;
+  background-color: #F27F13;//#F17A1F
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 50%;
+  // display: none;
+  cursor: pointer;
+  box-shadow: 0px 4px 3px 0 #434343;
+  i {
+    margin: 0em;
+  }
+}
+
+a#contact-form-trigger:hover{
+  box-shadow: 0px 6px 5px 0px #434343;
+}
+
+div#contact-form-modal{
+  display:none;
+  position:fixed;
+  z-index: 99999;
+  top: 10%;
+  height:60%;
+  right: 15px;
+  width: 100%;
+  min-height: 240px;
+  max-width: 300px;
+  padding: 15px;
+  box-shadow: 0px 6px 5px 0px #434343;
 }
 
 .grid-with-margin{

@@ -3,6 +3,7 @@ import jQuery from 'jquery';
 import toastr from 'toastr';
 import Scroller from './libs/Scroller';
 import SocialShare from './libs/SocialShare';
+import ContactForm from './libs/ContactForm';
 import lazyload from 'jquery-lazyload';
 window.$ = $;
 window.jQuery = jQuery;
@@ -18,7 +19,7 @@ toastr.options = {
 $(document).ready(function() {
 
 (new Scroller).init('.scroller');
-
+ContactForm.init('#contact-form-trigger');
 SocialShare.init("id",{
   title:'This is the email subject and/or tweet text',
   url:  'http://rrssb.ml/',

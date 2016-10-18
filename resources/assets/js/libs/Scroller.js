@@ -19,6 +19,7 @@ export default class Scroller{
   }
 
   scrollToTop(){
+  
     $(this.element).click(()=>{
         $("html, body").animate({ scrollTop: 0 }, 600);
         return false;
