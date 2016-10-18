@@ -3,3 +3,4 @@
 *.scss linguist-vendored
 *.rb linguist-language=php
 semantic/* linguist-vendored
+public/semantic/* linguist-vendored
