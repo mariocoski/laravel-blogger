@@ -65,9 +65,9 @@
            <a href="#" class="item">Registration</a>
          </div>
        </div>
-       <div class="four wide column">
+       <div class="six wide column">
          <h4 class="ui inverted header">Address</h4>
-         <div class="ui inverted list">
+         <div class="ui inverted link list text-center">
           <div class="item">
             <i class="users icon"></i>
             <div class="content">
@@ -94,7 +94,7 @@
           </div>
         </div>
        </div>
-       <div class="eight wide column">
+       <div class="six wide column">
          <h4 class="ui inverted header">Footer Header</h4>
          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
        </div>

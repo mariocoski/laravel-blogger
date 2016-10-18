@@ -5,7 +5,7 @@
 toastr.options = {
   closeButton : true,
   timeOut : 15000,
-  positionClass: "toast-bottom-left"
+  positionClass: "toast-top-center"
 }
 
 toastr["success"]("You have been registered successfully. We have sent you an email to verify your account."+

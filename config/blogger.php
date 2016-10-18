@@ -9,10 +9,10 @@ return [
     |
     | You can specify how would you like to display your articles
     |
-    | Supported: "single", "multi"
+    | Supported: "single", "multiple"
     |
     */
-    'articles_render_type' => "multi",
+    'articles_render_type' => "single",
 
     /*
     |--------------------------------------------------------------------------
