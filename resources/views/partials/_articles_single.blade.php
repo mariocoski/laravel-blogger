@@ -1,11 +1,11 @@
 <div class="ui grid grid-with-margin">
 <div class="ui container text">
-  
+
   <div class="column">
 
 
     @foreach($articles as $article)
-      <div class="ui card fluid teal">
+      <div class="ui card blogger-card fluid teal">
         <div class="content">
 
           <div class="right floated meta">2 days ago</div>
@@ -22,11 +22,11 @@
                   <i class="white star icon" ></i>
                 </a>
                 @endif
-                <a href="">
-                  <img class="ui fluid image lazy" data-original="images/{{$article['image']}}"
+                <a href="" >
+                  <img class="ui fluid image lazy hoverable " data-original="images/{{$article['image']}}"
                   src="images/placeholder.gif" height="480" width="640" alt="picture">
                   <noscript>
-                    <img class="ui fluid image" height="480" width="640" src="images/{{$article['image']}}">
+                    <img class="ui fluid image hoverable" height="480" width="640" src="images/{{$article['image']}}">
                   </noscript>
                 </a>
         </div>
