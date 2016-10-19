@@ -201,6 +201,14 @@ img.lazy.ui.fluid {
   padding-top: 73px;
   padding-bottom: 20px; }
 
+div.ui.card.blogger-card {
+  max-width: 500px;
+  margin: 0 auto 25px; }
+
+.hoverable:hover {
+  opacity: 0.8;
+  background-color: #434343; }
+
 /* overriding css */
 .toast {
   border: 1px solid #fff;

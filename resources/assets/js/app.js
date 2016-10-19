@@ -28,6 +28,8 @@ SocialShare.init("id",{
   emailBody:  'Usually email body is just the description + url, but you can customize it if you want'
 });
 
+
+
 $('.ui.dropdown').dropdown();
 $('.left.sidebar').first().sidebar('attach events', '.sidebar-trigger');
 
