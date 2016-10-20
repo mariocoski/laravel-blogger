@@ -1,9 +1,6 @@
 <div class="ui grid grid-with-margin">
 <div class="ui container text">
-
   <div class="column">
-
-
     @foreach($articles as $article)
       <div class="ui card blogger-card fluid teal">
         <div class="content">
@@ -69,7 +66,37 @@
 
 
     @endforeach
-</div>
+
+    <div class="ui card blogger-card fluid text-center">
+      <div class="ui content"><button class="ui orange fluid button"> Next page</div>
+      <div class="ui content">
+      <div class="ui pagination menu ">
+        <a class="active item">
+          1
+        </a>
+        <div class="disabled item">
+          ...
+        </div>
+        <a class="item">
+          10
+        </a>
+        <a class="item">
+          11
+        </a>
+        <a class="item">
+          12
+        </a>
+        <a class="item">
+          13
+        </a>
+      </div>
+    </div>
+  </div>
+    <div class="ui card blogger-card fluid ">
+      <div class="ui content text-center brand-teal">
+      @include('partials._subscribe')
+      </div>
+    </div>
   </div>
 
 </div>

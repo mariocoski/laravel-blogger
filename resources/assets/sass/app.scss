@@ -3,9 +3,13 @@
   color: #FFFFFF;
 }
 
+.text-center{
+  text-align: center;
+}
+
 
 img.lazy.ui.fluid {
-    display: none;
+  display: none;
 }
 
 .search-form-sm{
@@ -40,31 +44,44 @@ div.ui.card.blogger-card{
     opacity: 1 !important;
 }
 
-.scroller{
+a.scroller{
   position: fixed;
   bottom: 10px;
   right: 10px;
   z-index: 9999;
-  background-color: #F27F13;
+  opacity: 0.7;
+  background-color: #434343;
   color: #ffffff;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 20px;
+  border-radius: 50%;
   display: none;
   cursor: pointer;
-  box-shadow: 0px 4px 3px 0 #434343;
+  box-shadow: 0px 4px 3px 0 #000000;
+  i {
+    margin: 0em;
+  }
+}
+
+a.scroller:hover{
+  opacity: 1;
+}
+
+.ui.menu.fixed{
+    box-shadow: 0px 2px 3px 0 #434343;
 }
 
 a#contact-form-trigger{
   position: fixed;
-  bottom: 60px;
-  right: 10px;
+  bottom: 10px;
+  left: 10px;
   z-index: 9999;
   background-color: #F27F13;//#F17A1F
   color: #ffffff;
   padding: 20px;
+  opacity: 0.7;
   text-align: center;
   border-radius: 50%;
-  // display: none;
+  display: none;
   cursor: pointer;
   box-shadow: 0px 4px 3px 0 #434343;
   i {
@@ -72,21 +89,26 @@ a#contact-form-trigger{
   }
 }
 
+.brand-teal {
+  color: #FFFFFF;
+  background-color: #00A8AA !important;
+}
+
 a#contact-form-trigger:hover{
   box-shadow: 0px 6px 5px 0px #434343;
+  opacity: 1;
 }
 
 div#contact-form-modal{
   display:none;
   position:fixed;
-  z-index: 99999;
-  top: 10%;
-  height:60%;
-  right: 15px;
+  z-index: 999;
+  bottom: 70px;
+  height: 320px;
+  left: 10px;
   width: 100%;
-  min-height: 240px;
-  max-width: 300px;
-  padding: 15px;
+  max-width:300px;
+  padding: 12px;
   box-shadow: 0px 6px 5px 0px #434343;
 }
 

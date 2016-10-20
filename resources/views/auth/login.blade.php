@@ -25,6 +25,12 @@
             <input type="password" name="password" placeholder="{{trans('views.auth.login.password')}}">
           </div>
         </div>
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox">
+            <label>Remember me</label>
+          </div>
+        </div>
         <button class="ui fluid large orange submit button" type="submit">{{trans('views.auth.login.form_action')}}</button>
         <div class="ui divider"></div>
         <div class="ui "><a href="password/reset">Forgot password?</a></div>
@@ -57,7 +63,7 @@
           @endif
         </div>
        @endif
-       @include('partials._credits_footer')
+       <!-- @include('partials._credits_footer') -->
     </div>
   </div>
 </div>

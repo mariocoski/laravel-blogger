@@ -33,7 +33,7 @@
         <div class="ui divider"></div>
         <div class="ui "><a href="/login">Already have an account?</a></div>
 
-          @include('partials._credits_footer')
+          <!-- @include('partials._credits_footer') -->
       </div>
     </form>
 
