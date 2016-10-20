@@ -12,11 +12,12 @@ window.toastr = toastr;
 toastr.options = {
   closeButton : true,
   timeOut : 5000,
-  positionClass: "toast-bottom-left"
+  positionClass: "toast-top-center"
 }
 
 
 $(document).ready(function() {
+
 
 (new Scroller).init('.scroller');
 ContactForm.init('#contact-form-trigger');
@@ -28,7 +29,7 @@ SocialShare.init("id",{
   emailBody:  'Usually email body is just the description + url, but you can customize it if you want'
 });
 
-
+$('.ui.checkbox').checkbox();
 
 $('.ui.dropdown').dropdown();
 $('.left.sidebar').first().sidebar('attach events', '.sidebar-trigger');

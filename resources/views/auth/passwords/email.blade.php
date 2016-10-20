@@ -26,7 +26,7 @@
         <div class="ui fluid large orange submit button"> Send Password Reset Link</div>
 
         <div class="ui "><a href="/login">Reminded yourself a password?</a></div>
-        @include('partials._credits_footer')
+        <!-- @include('partials._credits_footer') -->
       </div>
     </form>
 
