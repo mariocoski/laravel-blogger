@@ -49,8 +49,7 @@ a.scroller{
   bottom: 10px;
   right: 10px;
   z-index: 9999;
-  opacity: 0.7;
-  background-color: #434343;
+  background-color: #595454;
   color: #ffffff;
   padding: 20px;
   border-radius: 50%;
@@ -63,7 +62,7 @@ a.scroller{
 }
 
 a.scroller:hover{
-  opacity: 1;
+  background-color: #434343;
 }
 
 .ui.menu.fixed{
@@ -75,10 +74,9 @@ a#contact-form-trigger{
   bottom: 10px;
   left: 10px;
   z-index: 9999;
-  background-color: #F27F13;//#F17A1F
+  background-color: #ef9b4c;//#F27F13;//#F17A1F
   color: #ffffff;
   padding: 20px;
-  opacity: 0.7;
   text-align: center;
   border-radius: 50%;
   display: none;
@@ -95,8 +93,8 @@ a#contact-form-trigger{
 }
 
 a#contact-form-trigger:hover{
+  background-color: #F27F13;
   box-shadow: 0px 6px 5px 0px #434343;
-  opacity: 1;
 }
 
 div#contact-form-modal{
