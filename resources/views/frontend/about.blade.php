@@ -7,7 +7,10 @@
 <div class="ui grid grid-with-margin">
 <div class="ui container">
   <div class="column">
-    <h1>About</h1>
+    <h1>Authors</h1>
+    <div class="ui segment">
+      
+    </div>
 
   </div>
 </div><!--end of container-->

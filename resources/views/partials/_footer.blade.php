@@ -5,7 +5,7 @@
          <h4 class="ui inverted header">Shortcuts</h4>
          <div class="ui inverted link list">
            <a href="#" class="item">Blog</a>
-           <a href="#" class="item">About</a>
+           <a href="#" class="item">Authors</a>
            <a href="#" class="item">Contact</a>
            <a href="#" class="item">Login</a>
            <a href="#" class="item">Registration</a>

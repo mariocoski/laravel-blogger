@@ -7,7 +7,6 @@
   text-align: center;
 }
 
-
 img.lazy.ui.fluid {
   display: none;
 }
@@ -65,6 +64,7 @@ a.scroller:hover{
   background-color: #434343;
 }
 
+
 .ui.menu.fixed{
     box-shadow: 0px 2px 3px 0 #434343;
 }
@@ -74,7 +74,7 @@ a#contact-form-trigger{
   bottom: 10px;
   left: 10px;
   z-index: 9999;
-  background-color: #ef9b4c;//#F27F13;//#F17A1F
+  background-color: #F27F13;//#F17A1F
   color: #ffffff;
   padding: 20px;
   text-align: center;
@@ -93,7 +93,6 @@ a#contact-form-trigger{
 }
 
 a#contact-form-trigger:hover{
-  background-color: #F27F13;
   box-shadow: 0px 6px 5px 0px #434343;
 }
 
