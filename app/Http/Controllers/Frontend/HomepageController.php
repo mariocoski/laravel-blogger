@@ -109,56 +109,7 @@
       }
 
       public function about(){
-        $articles = [
-          [
-                  'title' => 'Result Title',
-            'body' => 'Lorem ipsum',
-            'author' => 'John Doe',
-          ],
-          [
-            'title' => 'Result Title',
-            'body' => 'Lorem ipsum',
-            'author' => 'John Doe',
-          ],
-          [
-            'title' => 'Result Title',
-            'body' => 'Lorem ipsum',
-            'author' => 'John Doe',
-          ],
-          [
-            'title' => 'Result Title',
-            'body' => 'Lorem ipsum',
-            'author' => 'John Doe',
-          ],
-          [
-            'title' => 'Result Title',
-            'body' => 'Lorem ipsum',
-            'author' => 'John Doe',
-          ],
-          [
-            'title' => 'Result Title',
-            'body' => 'Lorem ipsum',
-            'author' => 'John Doe',
-          ],
-          [
-            'title' => 'Result Title',
-            'body' => 'Lorem ipsum',
-            'author' => 'John Doe',
-          ],
-          [
-            'title' => 'Result Title',
-            'body' => 'Lorem ipsum',
-            'author' => 'John Doe',
-          ],
-          [
-            'title' => 'Result Title',
-            'body' => 'Lorem ipsum',
-            'author' => 'John Doe',
-          ],
-
-
-        ];
-        return view('frontend.about', compact('articles'));
+        return view('frontend.about');
       }
 
       public function contact(){
