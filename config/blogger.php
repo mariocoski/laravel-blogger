@@ -21,25 +21,13 @@ return [
     |
     | You can specify whether your support search
     |
-    | Supported: "ElasticSearch", "TNTSearch"
+    | Supported: "ElasticSearch", "MysqlFullTextSearch"
     |
     */
     'search_engine' => [
       'enabled' => true,
       'provider' => 'ElasticSearch'
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Multilingual
-    |--------------------------------------------------------------------------
-    |
-    | You can specify whether your support multilingual website
-    |
-    | Supported: true, false
-    |
-    */
-    'multilingual' => true,
 
 
     /*

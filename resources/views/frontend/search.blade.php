@@ -7,7 +7,7 @@
 <div class="ui grid grid-with-margin">
   <div class="ui container">
     <div class="column">
-      <form class="search-form-sm" action="{{ LaravelLocalization::getLocalizedURL(null, trans('routes.search'))}}">
+      <form class="search-form-sm" action="search">
 
           <div class="ui search fluid">
             <div class="ui icon input">
