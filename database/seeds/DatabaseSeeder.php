@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -10,6 +10,17 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run(){
-        // $this->call(UsersTableSeeder::class);
+        //$this->cleanDatabase();
+        $this->call(UsersTableSeeder::class);
+    }
+
+
+    public function cleanDatabase()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        foreach ($this->tables as $table) {
+            DB::table($table)->truncate();
+        }
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }
