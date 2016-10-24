@@ -2,9 +2,22 @@
 
 return [
 
+
     /*
     |--------------------------------------------------------------------------
-    | Articles render type
+    | Blogger  Installed Version
+    |--------------------------------------------------------------------------
+    |
+    | The version of Canvas that will be utilized in the initial installation
+    | process.
+    |
+    */
+    'version' => 'v1.0.0',
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Articles Render Type
     |--------------------------------------------------------------------------
     |
     | You can specify how would you like to display your articles
@@ -13,6 +26,19 @@ return [
     |
     */
     'articles_render_type' => "single",
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Posts Per Page
+    |--------------------------------------------------------------------------
+    |
+    | Pretty self-explanatory here. Indicate how many posts you would like
+    | to appear on each page. If you are using Disqus, specify the
+    | identifier in your .env file.
+    |
+    */
+    'posts_per_page' => 10,
 
     /*
     |--------------------------------------------------------------------------
@@ -44,15 +70,21 @@ return [
         'providers' => [
             'facebook' => [
                 'enabled' => true,
-                'redirect_url' => '',
+                'client_id' => env('FACEBOOK_ID'),
+                'client_secret' => env('FACEBOOK_SECRET'),
+                'redirect_url' => env('FACEBOOK_URL'),
             ],
             'twitter' => [
                 'enabled' => true,
-                'redirect_url' => '',
+                'client_id' => env('TWITTER_ID'),
+                'client_secret' => env('TWITTER_SECRET'),
+                'redirect_url' => env('TWITTER_URL'),
             ],
             'google' => [
                 'enabled' => true,
-                'redirect_url' => '',
+                'client_id' => env('GOOGLE_ID'),
+                'client_secret' => env('GOOGLE_SECRET'),
+                'redirect_url' => env('GOOGLE_URL'),
             ],
         ],
 
