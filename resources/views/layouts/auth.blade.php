@@ -11,12 +11,7 @@
     <link href="/css/auth.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
     <title>{{ config('app.name', 'Blogger') }} - @yield('title')</title>
-    <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
+
 </head>
     <body>
 
@@ -24,7 +19,6 @@
 
       <script src="/js/app.js"></script>
       <script src="/semantic/semantic.min.js"></script>
-      @include('partials._alerts')
       @yield('scripts')
     </body>
   </html>
