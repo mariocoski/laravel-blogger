@@ -38,7 +38,6 @@
         <div class="ui divider"></div>
         <div class="ui "><a href="/login">Reminded yourself a password?</a></div>
 
-          <!-- @include('partials._credits_footer') -->
       </div>
     </form>
 

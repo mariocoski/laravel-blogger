@@ -9,7 +9,7 @@ Route::get('autocomplete','Frontend\HomepageController@autocomplete');
 */
 //Authentication routes
 Route::auth();
-
+Route::get('dashboard','Backend\DashboardController@index');
 
 /*
 |--------------------------------------------------------------------------

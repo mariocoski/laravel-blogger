@@ -11,18 +11,31 @@
         Login
       </div>
     </h2>
-    <form class="ui large form" method="GET" action="">
+    <form class="ui large form" method="POST" action="{{ url('/login') }}">
+      {{ csrf_field() }}
       <div class="ui stacked segment">
-        <div class="field" >
+        @if (count($errors) > 0)
+          <div class="ui message red">
+              <ul class="list-unstyled">
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+        @endif
+        <div class="field {{ $errors->has('email') ? 'error' : '' }}">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
+            <input type="text" name="email" placeholder="E-mail address" value="{{ old('email') }}" autofocus>
           </div>
         </div>
-        <div class="field">
-          <div class="ui input left icon">
+        <div class="field {{ $errors->has('password') ? 'error' : '' }}">
+          <div class="ui input left icon action">
             <i class="lock icon"></i>
             <input type="password" name="password" placeholder="Password">
+            <button class="ui icon orange button">
+             <i class="eye icon"></i>
+           </button>
           </div>
         </div>
         <div class="field">
@@ -31,7 +44,8 @@
             <label>Remember me</label>
           </div>
         </div>
-        <button class="ui fluid large orange submit button" type="submit">Log in</button>
+
+        <button class="ui fluid large orange submit button" type="submit" name="submit">Log in</button>
         <div class="ui divider"></div>
         <div class="ui "><a href="password/reset">Forgot password?</a></div>
       </div>
@@ -63,7 +77,6 @@
           @endif
         </div>
        @endif
-       <!-- @include('partials._credits_footer') -->
     </div>
   </div>
 </div>
