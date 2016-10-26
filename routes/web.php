@@ -9,7 +9,9 @@ Route::get('autocomplete','Frontend\HomepageController@autocomplete');
 */
 //Authentication routes
 Route::auth();
-Route::get('dashboard','Backend\DashboardController@index');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +56,6 @@ Route::get('search','Frontend\HomepageController@search');
 | Back-end routes
 |--------------------------------------------------------------------------
 */
+Route::group(['middleware'=>['auth']],function(){
+  Route::get('dashboard','Backend\DashboardController@index');
+});

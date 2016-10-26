@@ -188,8 +188,9 @@ button.toast-close-button {
 .white {
   color: #FFFFFF; }
 
-.list-unstyled {
-  list-style: none; }
+ul.list-unstyled {
+  list-style: none;
+  padding-left: 0; }
 
 .text-center {
   text-align: center; }
