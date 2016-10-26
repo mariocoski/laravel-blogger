@@ -5,6 +5,7 @@ import Scroller from './libs/Scroller';
 import SocialShare from './libs/SocialShare';
 import ContactForm from './libs/ContactForm';
 import lazyload from 'jquery-lazyload';
+import ShowPassword from './libs/ShowPassword';
 window.$ = $;
 window.jQuery = jQuery;
 window.toastr = toastr;
@@ -20,7 +21,9 @@ $(document).ready(function() {
 
 
 (new Scroller).init('.scroller');
+
 ContactForm.init('#contact-form-trigger');
+ShowPassword.init('.show-password','.show-password-field');
 SocialShare.init("id",{
   title:'This is the email subject and/or tweet text',
   url:  'http://rrssb.ml/',
@@ -43,6 +46,9 @@ $('.ui.search')
   })
 ;
 //initialize placeholders for lazy loading$("img.lazy").lazyload({
+
+
+
 
 $("img.lazy.ui.fluid").show().lazyload({effect : "fadeIn",threshold : 500});
 // $('img.image')

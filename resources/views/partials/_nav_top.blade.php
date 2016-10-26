@@ -48,8 +48,7 @@
         <a class="item"><i class="help icon"></i>Help</a>
       </div>
     </div>
-
-    <a class="item" href="/logout"><i class="power icon"></i> Log out</a>
+    <a class="item" href="{{ url('/logout') }}" name="logout"><i class="power icon"></i> Log out</a>
     @endif
   </div>
 </div>
