@@ -24,6 +24,11 @@ $(document).ready(function() {
 
 ContactForm.init('#contact-form-trigger');
 ShowPassword.init('.show-password','.show-password-field');
+ShowPassword.init('.show-new-password','.show-new-password-field');
+ShowPassword.init('.show-new-password-confirmation','.show-new-password-confirmation-field');
+
+
+
 SocialShare.init("id",{
   title:'This is the email subject and/or tweet text',
   url:  'http://rrssb.ml/',

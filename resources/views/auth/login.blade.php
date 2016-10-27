@@ -6,13 +6,13 @@
 <div class="ui middle aligned center aligned grid grid-auth">
   <div class="column column-auth">
     <h2 class="ui white header">
-    <a href="/" class="image"><img src="images/logo_sm.png"></a>
+    <a href="/" class="image"><img src="{{url('images/logo_sm.png')}}"></a>
       <div class="content white">
         Login
       </div>
     </h2>
     <form class="ui large form" method="POST" action="{{ url('/login') }}">
-      {{ csrf_field() }}
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="ui stacked segment">
         @include('partials._errors')
         <div class="field {{ $errors->has('email') ? 'error' : '' }}">

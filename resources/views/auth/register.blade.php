@@ -9,12 +9,14 @@
   <div class="column column-auth">
 
     <h2 class="ui white header">
-    <a href="/" class="image"><img src="images/logo_sm.png" ></a>
+    <a href="/" class="image"><img src="{{url('images/logo_sm.png')}}" ></a>
       <div class="content white">
         Registration
       </div>
     </h2>
     <form class="ui large form">
+
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="ui stacked segment">
         <div class="field">
           <div class="ui left icon input">
