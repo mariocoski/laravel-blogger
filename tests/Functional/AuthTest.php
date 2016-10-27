@@ -66,8 +66,7 @@ class AuthTest extends TestCase
 
     public function test_if_remind_password_form_validates_empty_input()
     {
-       $this->visit('/login')
-             ->click('forgot')
+       $this->visit('/password/reset')
              ->see('Send Password Reset Link')
              ->press('submit')
              ->see('The email field is required');
@@ -75,23 +74,19 @@ class AuthTest extends TestCase
 
     public function test_if_remind_password_form_validates_wrong_email()
     {
-       $this->visit('/login')
-             ->click('forgot')
-             ->see('Send Password Reset Link')
+       $this->visit('/password/reset')
              ->type('wrong_email@foo.com', 'email')
              ->press('submit')
              ->see('We can\'t find a user with that e-mail address');
     }
 
-    // public function test_if_remind_password_form_display_success_image()
-    // {
-    //    $this->visit('/login')
-    //          ->click('forgot')
-    //          ->see('Send Password Reset Link')
-    //          ->type($this->user->email, 'email')
-    //          ->press('submit')
-    //          ->see('We have e-mailed your password reset link!');
-    // }
+    public function test_if_remind_password_form_display_success_image()
+    {
+       $this->visit('/password/reset')
+             ->type($this->user->email, 'email')
+             ->press('submit')
+             ->see('We have e-mailed your password reset link');
+    }
 
     public function test_if_can_return_to_login_form_from_remind_password_form()
     {

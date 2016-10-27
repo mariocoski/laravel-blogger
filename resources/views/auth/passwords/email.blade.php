@@ -16,17 +16,16 @@
     </h2>
 
     <form class="ui large form" method="POST" action="{{ url('/password/email') }}">
-      {{ csrf_field() }}
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="ui stacked segment">
         @include('partials._errors')
-        @include('partials._success',['$flashSuccess'=>'success'])
-        <div class="field">
+        @include('partials._success',['flashSuccess'=>'status'])
+        <div class="field {{ $errors->has('email') ? 'error' : '' }}">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
+            <input type="text" name="email" placeholder="E-mail address" autofocus>
           </div>
         </div>
-
         <button class="ui fluid large orange submit button" name="submit"> Send Password Reset Link</button>
         <div class="ui "><a href="/login" name="login">Reminded yourself a password?</a></div>
       </div>
