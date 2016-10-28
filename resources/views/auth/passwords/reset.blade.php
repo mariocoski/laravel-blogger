@@ -23,14 +23,14 @@
         <div class="field {{ $errors->has('email') ? 'error' : '' }}">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address" value="{{ $email or old('email') }}" autofocus>
+            <input type="text" name="email" placeholder="E-mail address" value="{{ $email or old('email') }}" >
           </div>
         </div>
         <div class="field {{ $errors->has('password') ? 'error' : '' }}">
           <div class="ui input left icon action">
             <i class="lock icon"></i>
-            <input type="password" name="password" class="show-new-password-field" placeholder="Password">
-            <button class="ui icon orange button show-new-password">
+            <input type="password" name="password" class="show-new-password-field" placeholder="Password" autofocus>
+            <button class="ui icon orange button show-new-password" tabindex="-1">
              <i class="eye icon"></i>
            </button>
           </div>
@@ -39,7 +39,7 @@
           <div class="ui input left icon action">
             <i class="lock icon"></i>
             <input type="password"  name="password_confirmation" class="show-new-password-confirmation-field" placeholder="Password Confirmation">
-            <button class="ui icon orange button show-new-password-confirmation">
+            <button class="ui icon orange button show-new-password-confirmation" tabindex="-1">
              <i class="eye icon"></i>
            </button>
           </div>
