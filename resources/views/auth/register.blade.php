@@ -14,23 +14,26 @@
         Registration
       </div>
     </h2>
-    <form class="ui large form">
-
+    <form class="ui large form" method="POST" action="{{ url('/register') }}">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="ui stacked segment">
-        <div class="field">
+        @include('partials._errors')
+        <div class="field {{ $errors->has('email') ? 'error' : '' }}">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
+            <input type="text" name="email" placeholder="E-mail address" value="{{ old('email') }}" autofocus>
           </div>
         </div>
-        <div class="field">
-          <div class="ui left icon input">
+        <div class="field {{ $errors->has('password') ? 'error' : '' }}">
+          <div class="ui input left icon action">
             <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="password" class="show-password-field" placeholder="Password">
+            <button class="ui icon orange button show-password">
+             <i class="eye icon"></i>
+           </button>
           </div>
         </div>
-        <div class="ui fluid large orange submit button">Register</div>
+        <button type="submit" class="ui fluid large orange button" name="submit">Register</button>
         <div>By registering, you agree to the <a href="/terms">Terms of Service</a></div>
         <div class="ui divider"></div>
         <div class="ui "><a href="/login">Already have an account?</a></div>

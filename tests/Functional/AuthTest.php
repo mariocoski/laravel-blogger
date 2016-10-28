@@ -95,8 +95,34 @@ class AuthTest extends TestCase
             ->seePageIs('/login');
     }
 
+    public function test_if_register_form_validates_empty_input()
+    {
+        $this->visit('/register')
+             ->press('submit')
+             ->dontSeeIsAuthenticated()
+             ->see('The email field is required')
+             ->see('The password field is required');
+    }
 
+    public function test_if_register_form_validates_email_which_already_exists()
+    {
+        $this->visit('/register')
+             ->type($this->user->email, 'email')
+             ->type('secret', 'password')
+             ->press('submit')
+             ->dontSeeIsAuthenticated()
+             ->see('The email has already been taken.');
+    }
 
+    public function test_if_register_allow_to_register_properly()
+    {
+        $this->visit('/register')
+             ->type("brand_new_email@blogger.com", 'email')
+             ->type('secret', 'password')
+             ->press('submit')
+             ->seeIsAuthenticated()
+             ->seePageIs('/dashboard');
+    }
 
 
 
