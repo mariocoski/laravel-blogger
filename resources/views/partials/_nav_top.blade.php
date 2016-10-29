@@ -36,10 +36,8 @@
       <a class="ui right item" href="login">Login</a>
       <a class="ui item" href="register">Register</a>
     @else
-
     <div class="ui right item floating dropdown icon">
-
-      <img class="ui avatar mini image" src="/images/avatar_default.png">
+        <img class="ui avatar mini image" src="{{(!empty(Auth::user()->avatar))? url(Auth::user()->avatar) : url("images/avatar_default.png")}}">
       <i class="dropdown icon"></i>
       <div class="menu">
         <a class="item"><i class="user icon"></i>Profile</a>
