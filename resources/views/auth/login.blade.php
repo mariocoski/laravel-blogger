@@ -50,22 +50,22 @@
           </div>
           <div class="ui tiny buttons">
           @if(config('blogger.social_login.providers.facebook.enabled'))
-          <button class="ui facebook button">
-            <i class="facebook icon"></i>
-            Log in
-          </button>
+            <a class="ui facebook button" href="{{url('auth/facebook')}}">
+              <i class="facebook icon"></i>
+              Log in
+            </a>
           @endif
           @if(config('blogger.social_login.providers.twitter.enabled'))
-          <button class="ui twitter button">
-            <i class="twitter icon"></i>
-          Log in
-          </button>
+            <a class="ui twitter button" href="{{url('auth/twitter')}}">
+              <i class="twitter icon"></i>
+              Log in
+            </a>
           @endif
           @if(config('blogger.social_login.providers.google.enabled'))
-          <button class="ui google plus button">
-            <i class="google plus icon"></i>
-            Log in
-          </button>
+            <a class="ui google plus button" href="{{url('auth/google')}}">
+              <i class="google plus icon"></i>
+              Log in
+            </a>
           @endif
         </div>
        @endif

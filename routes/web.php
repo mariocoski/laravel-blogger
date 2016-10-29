@@ -12,6 +12,15 @@ Route::auth();
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('password/reset/{token}/{email}','Auth\ResetPasswordController@showResetForm');
 
+//OAuth routes
+Route::get('auth/facebook', 'OAuth\FacebookController@login');
+Route::get('auth/facebook/callback',"OAuth\FacebookController@callback");
+
+Route::get('auth/twitter', 'OAuth\TwitterController@login');
+Route::get('auth/twitter/callback',"OAuth\TwitterController@callback");
+
+Route::get('auth/google', 'OAuth\GoogleController@login');
+Route::get('auth/google/callback',"OAuth\GoogleController@callback");
 
 /*
 |--------------------------------------------------------------------------
