@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-
 use App\Http\Controllers\Controller;
 use View;
 
-class DashboardController extends Controller {
+class PostsController extends Controller {
 	public function index() {
-		return View::make('backend.dashboard.index');
+		return View::make('backend.posts.index');
 	}
 }
