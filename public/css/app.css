@@ -188,6 +188,29 @@ button.toast-close-button {
 .white {
   color: #FFFFFF; }
 
+.backend-dashboard {
+  width: 100%;
+  height: 100%; }
+  .backend-dashboard > .sidebar {
+    overflow: scroll;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(51, 51, 51, 0.38);
+    color: #FFFFFF;
+    width: 20%;
+    float: left;
+    height: 100%;
+    padding: 90px 20px 20px 20px; }
+    .backend-dashboard > .sidebar > .ui.menu.vertical {
+      width: 100%; }
+  .backend-dashboard > .view {
+    width: 80%;
+    float: left;
+    height: 100%;
+    padding: 90px 20px 20px 20px; }
+    .backend-dashboard > .view > .segments {
+      background-color: #fff;
+      min-height: 50%; }
+
 ul.list-unstyled {
   list-style: none;
   padding-left: 0; }
@@ -293,12 +316,18 @@ div#contact-form-modal {
   .hidden-mobile {
     display: none !important; }
   .content-wrapper {
-    padding-top: 60px; } }
+    padding-top: 60px; }
+  .backend-dashboard > .view {
+    width: 100%;
+    padding: 90px 20px 20px 20px; } }
 
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .hidden-tablet {
     display: none !important; }
+  .backend-dashboard > .view {
+    width: 100%;
+    padding: 90px 20px 20px 20px; }
   .content-wrapper {
     padding-top: 60px; } }
 

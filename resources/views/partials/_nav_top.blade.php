@@ -3,12 +3,13 @@
   <div class="ui container">
 
     <a href="/" class="item">
-      <img src="images/logo_sm.png" alt="{{config('app.name')}}">
+      <img src="{{ url('images/logo_sm.png') }}" alt="{{config('app.name')}}">
     </a>
     <div class="item hidden-large-desktop hidden-small-desktop">
       <a href="#" class="sidebar-trigger"><i class="sidebar icon"></i></a>
     </div>
-    <a class="item icon hidden-mobile hidden-tablet" href="/">Blog</a>
+
+    <a class="item icon hidden-mobile hidden-tablet" href="{{ url('/') }}">Blog</a>
     <div class="ui item hidden-mobile hidden-tablet floating  dropdown labeled icon">
       <span class="text">Categories</span>
       <i class="dropdown icon"></i>
@@ -16,9 +17,16 @@
         <a class="item" href="/category1">
           Category 1
         </a>
+         <a class="item" href="/category1">
+          Category 2
+        </a>
+         <a class="item" href="/category1">
+          Category 3
+        </a>
       </div>
     </div>
-    <a class="item hidden-mobile hidden-tablet" href="about">About</a>
+    <a class="item hidden-mobile hidden-tablet" href="{{ url('about') }}">About</a>
+
     @if(config('blogger.search_engine.enabled'))
     <form class="search-form-sm hidden-mobile hidden-tablet" action="search">
       <div class="item">
@@ -32,21 +40,17 @@
       </div>
     </form>
     @endif
+
     @if (Auth::guest())
-      <a class="ui right item" href="login">Login</a>
-      <a class="ui item" href="register">Register</a>
+
+      <a class="ui right item" href="{{ url('/login') }}">Login</a>
+      <a class="ui item" href="{{ url('register') }}">Register</a>
+
     @else
-    <div class="ui right item floating dropdown icon">
-        <img class="ui avatar mini image" src="{{(!empty(Auth::user()->avatar))? url(Auth::user()->avatar) : url("images/avatar_default.png")}}">
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <a class="item"><i class="user icon"></i>Profile</a>
-        <a class="item"><i class="dashboard icon"></i>Dashboard</a>
-        <a class="item"><i class="settings icon"></i>Settings</a>
-        <a class="item"><i class="help icon"></i>Help</a>
-      </div>
-    </div>
+
+    <a class="ui right item"  href="{{ url('/dashboard') }}"> <img class="ui avatar mini image" src="{{(!empty(Auth::user()->avatar))? url(Auth::user()->avatar) : url("images/avatar_default.png")}}">&nbsp;Dashboard</a>
     <a class="item" href="{{ url('/logout') }}" name="logout"><i class="power icon"></i> Log out</a>
+
     @endif
   </div>
 </div>

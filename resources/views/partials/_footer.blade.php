@@ -29,7 +29,7 @@
      </div>
      <div class="ui inverted section divider"></div>
      <a href="/">
-       <img src="images/logo_sm.png" class="ui centered mini image" alt="{{config('app.name')}}">
+       <img src="{{ url('images/logo_sm.png') }}" class="ui centered mini image" alt="{{config('app.name')}}">
      </a>
      <div class="ui horizontal inverted small divided link list">
        <a class="item" href="#">Site Map</a>
