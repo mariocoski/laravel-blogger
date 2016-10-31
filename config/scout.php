@@ -13,7 +13,7 @@ return [
     |
     | Supported: "algolia", "elasticsearch", "null"
     |
-    */
+     */
 
     'driver' => env('SCOUT_DRIVER', 'elasticsearch'),
 
@@ -26,7 +26,7 @@ return [
     | names used by Scout. This prefix may be useful if you have multiple
     | "tenants" or applications sharing the same search infrastructure.
     |
-    */
+     */
 
     'prefix' => env('SCOUT_PREFIX', ''),
 
@@ -39,7 +39,7 @@ return [
     | with your search engines are queued. When this is set to "true" then
     | all automatic data syncing will get queued for better performance.
     |
-    */
+     */
 
     'queue' => false,
 
@@ -52,7 +52,7 @@ return [
     | search engine which works great with Scout out of the box. Just plug
     | in your application ID and admin API key to get started searching.
     |
-    */
+     */
 
     'algolia' => [
         'id' => env('ALGOLIA_APP_ID', ''),
@@ -68,14 +68,14 @@ return [
     | distributed, open source search and analytics engine. Feel free
     | to add as many Elasticsearch servers as required by your app.
     |
-    */
+     */
 
     'elasticsearch' => [
         'index' => env('ELASTICSEARCH_INDEX', 'laravel'),
 
         'config' => [
             'hosts' => [
-               env('ELASTICSEARCH_HOST', 'http://localhost'),
+                env('ELASTICSEARCH_HOST', 'http://localhost'),
             ],
         ],
     ],

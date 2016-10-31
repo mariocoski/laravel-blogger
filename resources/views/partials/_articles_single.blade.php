@@ -20,14 +20,14 @@
                 </a>
                 @endif
                 <a href="" >
-                  <img class="ui fluid image lazy hoverable " data-original="images/{{$article['image']}}"
+                  <img class="ui fluid image lazy hoverable " data-original="images/{{$article->article_image}}"
                   src="images/placeholder.gif" height="480" width="640" alt="picture">
                   <noscript>
-                    <img class="ui fluid image hoverable" height="480" width="640" src="images/{{$article['image']}}">
+                    <img class="ui fluid image hoverable" height="480" width="640" src="images/{{$article->article_image}}">
                   </noscript>
                 </a>
         </div>
-        <h3><a href="">{{$article['title']}}</a></h3>
+        <h3><a href="">{{$article->title}}</a></h3>
       </div>
         <div class="extra content">
           <i class="share icon"></i> Share via:
@@ -68,7 +68,8 @@
     @endforeach
 
     <div class="ui card blogger-card fluid text-center">
-      <div class="ui content"><button class="ui orange fluid button"> Next page</div>
+      {{ $articles->links() }}
+      <!--  <div class="ui content"><button class="ui orange fluid button"> Next page</div>
       <div class="ui content">
       <div class="ui pagination menu ">
         <a class="active item">
@@ -90,7 +91,7 @@
           13
         </a>
       </div>
-    </div>
+    </div> -->
   </div>
     <div class="ui card blogger-card fluid ">
       <div class="ui content text-center brand-teal">

@@ -14,7 +14,7 @@
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
-	'csrfToken' => csrf_token(),
+    'csrfToken' => csrf_token(),
 ]); ?>
     </script>
 </head>
@@ -25,13 +25,13 @@
         <div class="ui backend-grid">
 		  <div class="backend-dashboard">
 		    <div class="sidebar hidden-mobile hidden-tablet">
-		    	<div class="ui vertical menu inverted">
+		    	<div class="ui vertical menu">
 		    		<div class="item text-center">
 						<div class="header">
 							{{(!empty(Auth::user()->display_name))? Auth::user()->display_name : "User"}}
 						</div>
 						<div class="ui image center aligned">
-							<a href="{{url('/profile')}}"><img class="" src="{{(!empty(Auth::user()->avatar))? url(Auth::user()->avatar) : url("images/avatar_default.png")}}"></a>
+							<a href="{{url('/profile')}}"><img src="{{(!empty(Auth::user()->avatar))? url(Auth::user()->avatar) : url("images/avatar_default.png")}}"></a>
 						</div>
 						<div class="menu">
 							<a class="item">Administrator</a>

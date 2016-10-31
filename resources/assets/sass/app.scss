@@ -12,14 +12,12 @@
     overflow: scroll;
     > .ui.menu.vertical{
       width: 100%;
+      box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
     }
-    background-color: #FFFFFF;
-    box-shadow: 0 0 10px rgba(51, 51, 51, 0.38);
-    color: #FFFFFF;
     width: 20%;
     float:left;
     height: 100%;
-    padding: 90px 20px 20px 20px;
+    padding: 90px 10px 20px 20px;
   }
   > .view {
     width: 80%;
