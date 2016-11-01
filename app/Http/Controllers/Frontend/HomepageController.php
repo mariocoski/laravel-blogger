@@ -48,9 +48,7 @@ class HomepageController extends Controller
 
     public function index()
     {
-        $articles = Article::paginate(config('blogger.articles_per_page'));
-        return view('index', compact('articles'));
-
+        $articles = Article::paginate(config('blogger.pagination.articles_per_page'));
         return view('index', compact('articles'));
     }
 

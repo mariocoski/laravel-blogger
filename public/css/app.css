@@ -233,6 +233,9 @@ div.ui.card.blogger-card {
   max-width: 500px;
   margin: 0 auto 25px; }
 
+div.no-box-shadow {
+  box-shadow: none !important; }
+
 .hoverable:hover {
   opacity: 0.8;
   background-color: #434343; }
