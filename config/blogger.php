@@ -33,7 +33,7 @@ return [
     |
      */
     'pagination' => [
-        'articles_per_page' => 4,
+        'articles_per_page' => 10,
     ],
 
     /*
