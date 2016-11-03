@@ -1,18 +1,3 @@
-<!-- <div class="ui grid grid-with-margin">
-  <div class="ui  row">
-    <div class="column five wide">1</div>
-    <div class="column four wide">2</div>
-    <div class="column four wide">3</div>
-    <div class="column four wide">4</div>
-  </div>
-  <div class="ui row">
-  <div class="column four wide">5</div>
-  <div class="column four wide">6</div>
-  <div class="column four wide">7</div>
-  <div class="column four wide">8</div>
-</div>
-</div> -->
-
 <div class="ui container grid-with-margin">
 <div class="ui grid center aligned stackable">
 
