@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "mariocoski/laravel-blogger",
+    "description": "simple and elegant blog platform powered by Laravel",
+    "keywords": ["laravel", "blog", "blogger", "articles"],
     "license": "MIT",
     "type": "project",
     "require": {
