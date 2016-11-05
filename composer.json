@@ -1,7 +1,9 @@
 {
     "name": "mariocoski/laravel-blogger",
+    "author": "Mariusz Rajczakowski",
     "description": "simple and elegant blog platform powered by Laravel",
     "keywords": ["laravel", "blog", "blogger", "articles"],
+    "homepage": "https://github.com/mariocoski/laravel-blogger",
     "license": "MIT",
     "type": "project",
     "require": {

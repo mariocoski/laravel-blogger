@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use App\Models\Role;
 use App\Models\User;
 use Auth;
 use Redirect;
@@ -80,11 +81,13 @@ class Socializer
 
     private function createUser($user)
     {
-        return User::create([
+        $user = User::create([
             'display_name' => $user->name,
             'email' => $user->email,
             $this->providerColumnName => $user->id,
             'avatar' => $user->avatar,
         ]);
+        $user->toggleRoles([Role::user()]);
+        return $user;
     }
 }

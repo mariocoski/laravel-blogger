@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use View;
 
-class SettingsController extends Controller
+class ArticleController extends Controller
 {
     public function index()
     {
-        return View::make('backend.settings.index');
+
+        return View::make('backend.article.index');
     }
 }

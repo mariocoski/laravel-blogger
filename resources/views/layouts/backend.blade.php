@@ -28,13 +28,13 @@
 		    	<div class="ui vertical menu">
 		    		<div class="item text-center">
 						<div class="header">
-							{{(!empty(Auth::user()->display_name))? Auth::user()->display_name : "User"}}
+							{{Auth::user()->getDisplayName()}}
 						</div>
 						<div class="ui image center aligned">
 							<a href="{{url('/profile')}}"><img src="{{(!empty(Auth::user()->avatar))? url(Auth::user()->avatar) : url("images/avatar_default.png")}}"></a>
 						</div>
 						<div class="menu">
-							<a class="item">Administrator</a>
+							<a class="item">{{Auth::user()->getRoleDisplayName()}}</a>
 						</div>
 					</div>
 		    		@include('partials._nav_dashboard')
@@ -52,14 +52,16 @@
 		  			<div class="ui segment teal">
 		  				@yield('content')
 		  			</div>
+		  			<div class="ui segment secondary text-center">  @include('partials._credits_footer')</div>
 		    	</div>
 		    </div>
+
 		  </div><!--end of container-->
 		</div><!--end of grid stackable-->
-        @include('partials._footer')
+        <!-- @include('partials._footer') -->
       </div><!--end of pusher-->
-      @yield('scripts')
       <script src="/js/app.js"></script>
+      @yield('scripts')
       <script src="/semantic/semantic.js"></script>
     </body>
   </html>

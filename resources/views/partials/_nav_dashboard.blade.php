@@ -2,6 +2,7 @@
     <i class="user icon"></i>
     Profile
 </a>
+@if(Auth::user()->hasRole('admin'))
 <a class="item" href="{{ url('/dashboard/settings') }}">
     <i class="settings icon"></i>
     Settings
@@ -10,6 +11,7 @@
     <i class="wrench layout icon"></i>
     Tools
 </a>
+
 <a class="item" href="{{ url('/dashboard/users') }}">
     <i class="users icon"></i>
     Users
@@ -18,9 +20,11 @@
     <i class="rss icon"></i>
     Subscriptions
 </a>
-<a class="item" href="{{ url('/dashboard/posts') }}">
+@endif
+@if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('editor'))
+<a class="item" href="{{ url('/dashboard/articles') }}">
     <i class="write icon"></i>
-    Posts
+    Articles
 </a>
 <a class="item" href="{{ url('/dashboard/categories') }}">
     <i class="list layout icon"></i>
@@ -34,6 +38,7 @@
     <i class="image icon"></i>
     Media
 </a>
+@endif
 <a class="item" href="{{ url('/dashboard/help') }}">
     <i class="help circle icon"></i>
     Help
