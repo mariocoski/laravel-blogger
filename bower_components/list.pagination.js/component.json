@@ -1,0 +1,24 @@
+{
+  "name": "list.pagination.js",
+  "repo": "javve/list.pagination.js",
+  "description": "A pagination plugin for List.js",
+  "version": "0.1.1",
+  "keywords": [],
+  "dependencies": {
+    "component/classes": "*",
+    "component/event": "*",
+    "component/indexof": "*"
+  },
+  "development": {
+    "visionmedia/mocha": "*",
+    "techjacker/expect.js": "*",
+    "component/jquery": "1.9.1",
+    "javve/list.js": "*"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "twitter": "@javve"
+}

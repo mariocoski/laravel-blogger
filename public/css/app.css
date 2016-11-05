@@ -188,6 +188,22 @@ button.toast-close-button {
 .white {
   color: #FFFFFF; }
 
+.pushable > .pusher {
+  width: 100%;
+  position: absolute; }
+
+div.ui.input.table-list-search-input {
+  margin-bottom: 10px; }
+
+.list-pagination {
+  list-style: none;
+  vertical-align: middle; }
+  .list-pagination > li {
+    padding: 10px;
+    border: 1px solid #434343;
+    background-color: #F9FAFB;
+    display: inline; }
+
 .backend-dashboard {
   width: 100%;
   height: 100%; }
@@ -203,11 +219,9 @@ button.toast-close-button {
   .backend-dashboard > .view {
     width: 80%;
     float: left;
-    height: 100%;
     padding: 90px 20px 20px 20px; }
     .backend-dashboard > .view > .segments {
-      background-color: #fff;
-      min-height: 50%; }
+      background-color: #fff; }
 
 ul.list-unstyled {
   list-style: none;
@@ -357,9 +371,6 @@ div#contact-form-modal {
 .rrssb-buttons:after, .rrssb-buttons:before {
   content: ' ';
   display: table; }
-
-.rrssb-buttons > {
-  border: 1px solid green; }
 
 .rrssb-buttons li {
   box-sizing: border-box;
@@ -577,6 +588,9 @@ div#contact-form-modal {
 .rrssb-buttons.tiny-format li a {
   background-color: transparent;
   padding: 0; }
+
+.rrssb-buttons.tiny-format li a .rrssb-icon {
+  height: 100%; }
 
 .rrssb-buttons.tiny-format li a .rrssb-icon svg {
   height: 70%;

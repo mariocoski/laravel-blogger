@@ -98,6 +98,6 @@ return [
         ],
 
     ],
-    'github_repository' => "https://github.com/mariocoski/blogger",
+    'github_repository' => "https://github.com/mariocoski/laravel-blogger",
 
 ];

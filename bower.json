@@ -1,0 +1,26 @@
+{
+  "name": "blogger.dev",
+  "description": "simple and elegant blog platform powered by Laravel",
+  "main": "",
+  "authors": [
+    "Mariusz Rajczakowski"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "[\"laravel\"",
+    "\"blog\"",
+    "\"blogger\"",
+    "\"articles\""
+  ],
+  "homepage": "https://github.com/mariocoski/laravel-blogger",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "list.pagination.js": "^0.1.1"
+  }
+}

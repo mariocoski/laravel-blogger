@@ -3,6 +3,28 @@
   color: #FFFFFF;
 }
 
+.pushable > .pusher{
+  width: 100%;
+  position: absolute;
+}
+
+div.ui.input.table-list-search-input{
+  margin-bottom: 10px;
+}
+
+.list-pagination {
+   list-style: none;
+   vertical-align: middle;
+   > li {
+
+      padding: 10px;
+      border: 1px solid #434343;
+      background-color: #F9FAFB;
+      display: inline;
+    
+
+   }
+}
 
 
 .backend-dashboard{
@@ -22,13 +44,12 @@
   > .view {
     width: 80%;
     float:left;
-    height: 100%;
     padding: 90px 20px 20px 20px;
     > .segments {
       background-color: #fff;
-      min-height: 50%;
     }
   }
+
 }
 
 ul.list-unstyled {

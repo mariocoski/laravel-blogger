@@ -1,14 +1,17 @@
 import $ from 'jquery';
-import jQuery from 'jquery';
+window.$ = window.jQuery = $;
 import toastr from 'toastr';
+window.toastr = toastr;
+
 import Scroller from './libs/Scroller';
 import SocialShare from './libs/SocialShare';
 import ContactForm from './libs/ContactForm';
 import lazyload from 'jquery-lazyload';
 import ShowPassword from './libs/ShowPassword';
-window.$ = $;
-window.jQuery = jQuery;
-window.toastr = toastr;
+
+
+import List from 'list.js';
+import ListPagination from './libs/list.pagination';
 
 toastr.options = {
   closeButton : true,
@@ -18,7 +21,36 @@ toastr.options = {
 
 
 $(document).ready(function() {
+ var paginationOptions = {
+    paginationClass: "list-pagination",
+    outerWindow: 2,
+  };
 
+var options = {
+  valueNames: [ 
+    'user-table-id',
+    'user-table-avatar',
+    'user-table-role',
+    'user-table-email',
+    'user-table-display-name',
+    'user-table-created-at',
+    'user-table-updated-at'
+  ],
+  page: 5,
+  item: "user-table-no-results",
+  plugins: [
+    ListPagination(paginationOptions)
+  ]
+};
+
+
+var userTableList = new List('user-table-list', options);
+
+$('#user-list-search').keyup(function(){
+  let needle = $(this).val();
+  console.log('value',needle);
+  userTableList.search(needle);
+});
 if (window.location.hash == '#_=_'){
   
     history.replaceState 

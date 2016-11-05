@@ -1,5 +1,10 @@
 {
-  "private": true,
+  "name": "mariocoski/laravel-blogger",
+  "author": "Mariusz Rajczakowski",
+  "description": "simple and elegant blog platform powered by Laravel",
+  "keywords": ["laravel", "blog", "blogger", "articles"],
+  "homepage": "https://github.com/mariocoski/laravel-blogger",
+  "license": "MIT",
   "scripts": {
     "prod": "gulp --production",
     "dev": "gulp watch"
@@ -11,7 +16,9 @@
     "laravel-elixir-webpack-official": "^1.0.2"
   },
   "dependencies": {
+    "bower": "^1.7.9",
     "jquery-lazyload": "^1.9.7",
+    "list.js": "^1.2.0",
     "prismjs": "^1.5.1",
     "rrssb": "^1.11.0",
     "semantic-ui": "^2.2.4",
