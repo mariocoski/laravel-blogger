@@ -21,6 +21,7 @@
     "tests"
   ],
   "dependencies": {
-    "list.pagination.js": "^0.1.1"
+    "list.pagination.js": "^0.1.1",
+    "filemanager-ui": "^0.1.5"
   }
 }

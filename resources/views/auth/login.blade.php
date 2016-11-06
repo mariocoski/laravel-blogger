@@ -25,9 +25,9 @@
           <div class="ui input left icon action">
             <i class="lock icon"></i>
             <input type="password" name="password" class="show-password-field" placeholder="Password">
-            <button class="ui icon orange button show-password" tabindex="-1">
+            <div class="ui icon orange button show-password" tabindex="-1">
              <i class="eye icon"></i>
-           </button>
+           </div>
           </div>
         </div>
         <div class="field">
