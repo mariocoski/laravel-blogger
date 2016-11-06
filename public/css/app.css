@@ -197,12 +197,22 @@ div.ui.input.table-list-search-input {
 
 .list-pagination {
   list-style: none;
-  vertical-align: middle; }
+  vertical-align: middle;
+  margin: 10px 0px; }
   .list-pagination > li {
     padding: 10px;
     border: 1px solid #434343;
     background-color: #F9FAFB;
     display: inline; }
+
+.ui.segment.segment-padding {
+  padding-left: 30px;
+  padding-right: 30px; }
+
+.avatar-sm {
+  max-width: 60px;
+  width: 100%;
+  height: auto; }
 
 .backend-dashboard {
   width: 100%;

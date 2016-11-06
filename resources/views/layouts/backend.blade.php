@@ -30,8 +30,8 @@
 						<div class="header">
 							{{Auth::user()->getDisplayName()}}
 						</div>
-						<div class="ui image center aligned">
-							<a href="{{url('/profile')}}"><img src="{{(!empty(Auth::user()->avatar))? url(Auth::user()->avatar) : url("images/avatar_default.png")}}"></a>
+						<div class="ui center aligned">
+							<a href="{{url('/profile')}}"><img class="avatar-sm" src="{{(!empty(Auth::user()->avatar))? url(Auth::user()->avatar) : url("images/avatar_default.png")}}"></a>
 						</div>
 						<div class="menu">
 							<a class="item">{{Auth::user()->getRoleDisplayName()}}</a>
@@ -49,7 +49,7 @@
 						    <div class="active section">Profile</div>
 						  </div>
 		  			</div>
-		  			<div class="ui segment teal">
+		  			<div class="ui segment teal segment-padding">
 		  				@yield('content')
 		  			</div>
 		  			<div class="ui segment secondary text-center">  @include('partials._credits_footer')</div>

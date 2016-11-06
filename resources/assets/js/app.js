@@ -21,8 +21,15 @@ toastr.options = {
 
 
 $(document).ready(function() {
- var paginationOptions = {
-    paginationClass: "list-pagination",
+
+
+
+  var topPaginationOptions = {
+    paginationClass: "top-list-pagination",
+    outerWindow: 2,
+  };
+  var bottomPaginationOptions = {
+    paginationClass: "bottom-list-pagination",
     outerWindow: 2,
   };
 
@@ -39,7 +46,8 @@ var options = {
   page: 5,
   item: "user-table-no-results",
   plugins: [
-    ListPagination(paginationOptions)
+    ListPagination(topPaginationOptions),
+    ListPagination(bottomPaginationOptions)
   ]
 };
 
