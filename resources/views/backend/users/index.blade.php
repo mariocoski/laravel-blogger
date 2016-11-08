@@ -5,10 +5,11 @@
 
 
 @section('content')
-<h2>Users&nbsp;
-	<div class="ui right floated mini primary labeled icon button">
+<h2>Users
+	&nbsp;
+	<a class="ui right floated tiny primary labeled icon button" href="{{url('dashboard/users/create')}}">
 	   	<i class="user add icon"></i> Add User
-	</div>
+	</a>
 </h2>
 
 <div class="ui left icon input table-list-search-input">
@@ -36,14 +37,17 @@
 		    	<tr>
 		    		<td class="user-table-id">{{$user->id}}</td>
 		    		<td class="user-table-avatar">
-					<a href="{{url('/profile')}}"><img class="ui image avatar" src="{{(!empty($user->avatar))? url($user->avatar) : url("images/avatar_default.png")}}"></a>
+					<a href="{{url('dashboard/users/'.$user->id)}}"><img class="ui image avatar" src="{{(!empty($user->avatar))? url($user->avatar) : url("images/avatar_default.png")}}"></a>
 		    		</td>
 		    		<td class="user-table-role">{{$user->getRoleDisplayName()}}</td>
 		    		<td class="user-table-email">{{$user->email}}</td>
 		    		<td class="user-table-display-name">{{$user->display_name}}</td>
 		    		<td class="user-table-created-at">{{$user->created_at->format('d M Y')}}</td>
 		    		<td>
-		    			<a href="" class="ui mini button orange "><i class="edit icon"></i> Edit</a><a href="" class="ui mini button "><i class="icon spy"></i> Login</a>
+		    			<a href="{{url('dashboard/users/'.$user->id)}}" class="mini ui button orange"><i class="edit icon"></i> Edit</a>
+		    			@if(Auth::user()->id !== $user->id)
+		    				<a href="{{url('dashboard/login-as/'.$user->id)}}" class="mini ui  button "><i class="icon spy"></i> Login</a>
+		    			@endif
 		    		</td>
 		    	</tr>
 
