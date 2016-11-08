@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Site
+ * # Semantic UI 2.2.6 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19,7 +19,7 @@ body {
   height: 100%;
 }
 html {
-  font-size: 15px;
+  font-size: 13px;
 }
 body {
   margin: 0px;
@@ -28,7 +28,7 @@ body {
   min-width: 320px;
   background: #f2f5f7;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.87);
   font-smoothing: antialiased;

@@ -14,4 +14,16 @@ class UserController extends Controller
 
         return View::make('backend.users.index', compact('users'));
     }
+
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+
+        return View::make('backend.users.show', compact('user'));
+    }
+
+    public function create()
+    {
+        return View::make('backend.users.create');
+    }
 }

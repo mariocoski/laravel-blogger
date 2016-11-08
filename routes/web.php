@@ -65,14 +65,20 @@ Route::get('search', 'Frontend\HomepageController@search');
  */
 Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     Route::get('/', 'Backend\DashboardController@index');
-    Route::get('/profile', 'Backend\ProfileController@index');
-    Route::get('/settings', 'Backend\SettingsController@index');
-    Route::get('/tools', 'Backend\ToolsController@index');
-    Route::get('/users', 'Backend\UserController@index')->middleware('role:admin');
-    Route::get('/subscriptions', 'Backend\SubscriptionController@index');
-    Route::get('/articles', 'Backend\ArticleController@index');
-    Route::get('/categories', 'Backend\CategoryController@index');
-    Route::get('/tags', 'Backend\TagController@index');
-    Route::get('/media', 'Backend\MediaController@index');
-    Route::get('/help', 'Backend\HelpController@index');
+    Route::get('profile', 'Backend\ProfileController@index');
+    Route::get('settings', 'Backend\SettingsController@index');
+    Route::get('tools', 'Backend\ToolsController@index');
+
+    //admin only
+    Route::group(['middleware' => 'role:admin'], function () {
+        Route::resource('users', 'Backend\UserController');
+
+    });
+
+    Route::get('subscriptions', 'Backend\SubscriptionController@index');
+    Route::get('articles', 'Backend\ArticleController@index');
+    Route::get('categories', 'Backend\CategoryController@index');
+    Route::get('tags', 'Backend\TagController@index');
+    Route::get('media', 'Backend\MediaController@index');
+    Route::get('help', 'Backend\HelpController@index');
 });

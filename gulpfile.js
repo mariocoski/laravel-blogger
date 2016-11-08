@@ -19,5 +19,5 @@ elixir(mix => {
        .sass(['toastr.css','app.scss','rrssb.css'],'./public/css/app.css')
        .sass('auth.scss')
        .webpack('app.js');
-      // .semanticBuild();
+       //.semanticBuild();
 });

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Comment
+ * # Semantic UI 2.2.6 - Comment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -233,10 +233,10 @@
 --------------------*/
 
 .ui.mini.comments {
-  font-size: 0.8rem;
+  font-size: 0.76923077rem;
 }
 .ui.tiny.comments {
-  font-size: 0.86666667rem;
+  font-size: 0.84615385rem;
 }
 .ui.small.comments {
   font-size: 0.9em;
@@ -248,13 +248,13 @@
   font-size: 1.1em;
 }
 .ui.big.comments {
-  font-size: 1.26666667rem;
+  font-size: 1.30769231rem;
 }
 .ui.huge.comments {
   font-size: 1.2em;
 }
 .ui.massive.comments {
-  font-size: 1.73333333rem;
+  font-size: 1.69230769rem;
 }
 
 
