@@ -180,6 +180,7 @@ return [
         Laravel\Scout\ScoutServiceProvider::class,
         ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Pqb\FilemanagerLaravel\FilemanagerLaravelServiceProvider::class,
     ],
 
     /*
@@ -228,6 +229,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'FilemanagerLaravel'=> Pqb\FilemanagerLaravel\Facades\FilemanagerLaravel::class,
 
     ],
 
