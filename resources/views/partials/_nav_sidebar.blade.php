@@ -22,10 +22,10 @@
     Blog
   </a>
   <div class="ui item">
-     <div class="ui fluid selection dropdown">
+     <div class="ui fluid dropdown">
       <div class="text">Categories</div>
       <i class="dropdown icon"></i>
-      <div class="menu">
+      <div class="menu menu-sidebar">
         <div class="item">Category 1</div>
         <div class="item">Category 2</div>
         <div class="item">Category 3</div>
@@ -39,6 +39,9 @@
   @if(Auth::check())
     @include('partials._nav_dashboard')
   @endif
+  <a class="item" href="{{ url('/logout') }}" name="logout">
+    <i class="power icon"></i> Log out
+  </a>
  </div>
 
 <!--END OF SIDEBAR MENU -->

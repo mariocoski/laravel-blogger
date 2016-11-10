@@ -12,6 +12,12 @@ div.ui.input.table-list-search-input{
   margin-bottom: 10px;
 }
 
+.menu-sidebar{
+    > .item {
+      width: 200px;
+    }
+}
+
 .list-pagination {
    font-size: 0.85rem;
    list-style: none;
@@ -204,6 +210,14 @@ div#contact-form-modal{
   /* Mobile */
 
   @media only screen and (max-width: 767px) {
+        
+
+      .ui.segment.segment-padding{
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+
       .hidden-mobile{
           display: none !important;
       }
