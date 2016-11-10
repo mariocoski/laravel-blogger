@@ -48,7 +48,7 @@
 
     @else
 
-    <a class="ui right item"  href="{{ url('/dashboard') }}"> <img class="ui avatar mini image" src="{{(!empty(Auth::user()->avatar))? url(Auth::user()->avatar) : url("images/avatar_default.png")}}">&nbsp;Dashboard</a>
+    <a class="ui right item"  href="{{ url('/dashboard') }}"> <img class="ui avatar mini image  hidden-mobile" src="{{(!empty(Auth::user()->avatar))? url(Auth::user()->avatar) : url("images/avatar_default.png")}}">&nbsp;Dashboard</a>
     <a class="item" href="{{ url('/logout') }}" name="logout"><i class="power icon"></i> Log out</a>
 
     @endif
