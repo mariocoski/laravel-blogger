@@ -53,12 +53,11 @@ return [
     |
     | You can specify whether your support search
     |
-    | Supported: "ElasticSearch", "MysqlFullTextSearch"
+    | Supported: "ElasticSearch"
     |
      */
     'search_engine' => [
         'enabled' => true,
-        'provider' => 'ElasticSearch',
     ],
 
     /*
