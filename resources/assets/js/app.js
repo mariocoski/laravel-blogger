@@ -8,7 +8,7 @@ import SocialShare from './libs/SocialShare';
 import ContactForm from './libs/ContactForm';
 import lazyload from 'jquery-lazyload';
 import ShowPassword from './libs/ShowPassword';
-
+import Flatpickr from 'Flatpickr';
 
 import List from 'list.js';
 import ListPagination from './libs/list.pagination';
@@ -22,6 +22,18 @@ toastr.options = {
 
 $(document).ready(function() {
 
+$('.ui.rating').rating({
+  'clearable': false,
+  'onRate' : ()=>{
+    console.log('changed rating');
+
+    let rating = $('.ui.rating').rating('get rating');
+    console.log("rating",rating);
+  }
+});
+
+
+$(".date-only").flatpickr({});
 
 
   var topPaginationOptions = {

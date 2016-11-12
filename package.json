@@ -1,8 +1,13 @@
 {
-  "name": "mariocoski/laravel-blogger",
+  "name": "laravel-blogger",
   "author": "Mariusz Rajczakowski",
   "description": "simple and elegant blog platform powered by Laravel",
-  "keywords": ["laravel", "blog", "blogger", "articles"],
+  "keywords": [
+    "laravel",
+    "blog",
+    "blogger",
+    "articles"
+  ],
   "homepage": "https://github.com/mariocoski/laravel-blogger",
   "license": "MIT",
   "scripts": {
@@ -17,6 +22,7 @@
   },
   "dependencies": {
     "bower": "^1.7.9",
+    "flatpickr": "^2.0.8",
     "jquery-lazyload": "^1.9.7",
     "list.js": "^1.2.0",
     "prismjs": "^1.5.1",
