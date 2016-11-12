@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use View;
 
@@ -17,13 +18,14 @@ class UserController extends Controller
 
     public function show($id)
     {
-        $user = User::findOrFail($id);
-
-        return View::make('backend.users.show', compact('user'));
+        $user = User::findOrFail($id)->with('roles');
+        $roles = Role::all();
+        return View::make('backend.users.edit', compact('user', 'roles'));
     }
 
     public function create()
     {
-        return View::make('backend.users.create');
+        $roles = Role::all();
+        return View::make('backend.users.edit', compact('roles'));
     }
 }
