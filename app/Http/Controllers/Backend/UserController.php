@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserCreateRequest;
 use App\Models\Role;
 use App\Models\User;
 use View;
@@ -26,6 +27,18 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::all();
-        return View::make('backend.users.edit', compact('roles'));
+        return View::make('backend.users.create', compact('roles'));
+    }
+
+    public function store(UserCreateRequest $request)
+    {
+        $user = User::create($request->getValidRequest());
+
+        if (User::isValidRoleId($request->role)) {
+            $user->attachAllRoles($request->role);
+        } else {
+            $user->toggleRole(Role::user());
+        }
+        return redirect('dashboard/users')->with('status', 'New user has been created');
     }
 }

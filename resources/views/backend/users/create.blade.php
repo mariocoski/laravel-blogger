@@ -6,12 +6,13 @@
 
 <h2>Create a User</h2>
 
-<form class="ui form"  action="{{url('dashboard/users',$user->id)}}">
-  <input name="_method" type="hidden" value="PUT">
+@include('partials._errors')
+<form class="ui form" method="POST" action="{{url('dashboard/users')}}">
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <div class="field fluid {{ $errors->has('email') ? 'error' : '' }}">
     <label for="email">E-mail address *</label>
     <div class="ui input">
-      <input type="text" name="email" id="email" placeholder="E-mail address" value="{{ (!empty($user->email))? $user->email : '' or old('email') }}" autofocus>
+      <input type="text" name="email" id="email" placeholder="E-mail address" value="{{ old('email')}}" autofocus>
     </div>
   </div>
 
@@ -35,116 +36,127 @@
     </div>
   </div>
 
-
-<?php print_r($roles[1]->display_name);?>
+  <div class="field fluid {{ $errors->has('role') ? 'error' : '' }}">
+    <label for="first_name">Role *</label>
+    <select class="ui dropdown" name="role" value="{{old('role')}}">
+      <option value="">Role</option>
+      @foreach($roles as $role)
+        @if(old('role') == $role->id)
+              <option value="{{ $role->id }}" selected>{{$role->display_name}}</option>
+        @else
+              <option value="{{ $role->id }}">{{$role->display_name}} [{{$role->description}}]</option>
+        @endif
+      @endforeach
+  </select>
+  </div>
 
   <div class="field fluid {{ $errors->has('first_name') ? 'error' : '' }}">
     <label for="first_name">First Name *</label>
     <div class="ui input">
-      <input type="text" name="first_name" id="first_name" placeholder="First Name" value="{{ (!empty($user->first_name))? $user->first_name : '' or old('first_name') }}" >
+      <input type="text" name="first_name" id="first_name" placeholder="First Name" value="{{  old('first_name') }}" >
     </div>
   </div>
 
   <div class="field fluid {{ $errors->has('last_name') ? 'error' : '' }}">
     <label for="last_name">Last Name *</label>
     <div class="ui input">
-      <input type="text" name="last_name" id="last_name" placeholder="Last Name" value="{{ (!empty($user->last_name))? $user->last_name : '' or old('last_name') }}" >
+      <input type="text" name="last_name" id="last_name" placeholder="Last Name" value="{{ old('last_name') }}" >
     </div>
   </div>
 
    <div class="field fluid {{ $errors->has('display_name') ? 'error' : '' }}">
     <label for="display_name">Display Name *</label>
     <div class="ui input">
-      <input type="text" name="display_name" id="display_name" placeholder="Display Name" value="{{ (!empty($user->display_name))? $user->display_name : '' or old('display_name') }}" >
+      <input type="text" name="display_name" id="display_name" placeholder="Display Name" value="{{ old('display_name') }}" >
     </div>
   </div>
 
    <div class="field fluid {{ $errors->has('date_of_birth') ? 'error' : '' }}">
     <label for="date_of_birth">Date Of Birth</label>
     <div class="ui input">
-      <input type="text" name="date_of_birth" class="date-only" id="date_of_birth" placeholder="YYYY-MM-DD" value="{{ (!empty($user->date_of_birth))? $user->date_of_birth : '' or old('date_of_birth') }}" >
+      <input type="text" name="date_of_birth" class="date-only" id="date_of_birth" placeholder="YYYY-MM-DD" value="{{ old('date_of_birth') }}" >
     </div>
   </div>
 
    <div class="field fluid">
     <label for="address">Address</label>
     <div class="ui input">
-      <input type="text" name="address" id="address" placeholder="Address" value="{{ (!empty($user->address))? $user->address : '' or old('address') }}" >
+      <input type="text" name="address" id="address" placeholder="Address" value="{{ old('address') }}" >
     </div>
   </div>
 
    <div class="field fluid">
     <label for="postcode">Postcode</label>
     <div class="ui input">
-      <input type="text" name="postcode" id="postcode" placeholder="Postcode" value="{{ (!empty($user->postcode))? $user->postcode : '' or old('postcode') }}" >
+      <input type="text" name="postcode" id="postcode" placeholder="Postcode" value="{{ old('postcode') }}" >
     </div>
    </div>
 
    <div class="field fluid">
     <label for="town">Town</label>
     <div class="ui input">
-      <input type="text" name="town" id="town" placeholder="Town" value="{{ (!empty($user->town))? $user->town : '' or old('town') }}" >
+      <input type="text" name="town" id="town" placeholder="Town" value="{{ old('town') }}" >
     </div>
    </div>
 
    <div class="field fluid">
     <label for="country">Country</label>
     <div class="ui input">
-      <input type="text" name="country" id="country" placeholder="Country" value="{{ (!empty($user->country))? $user->country : '' or old('country') }}" >
+      <input type="text" name="country" id="country" placeholder="Country" value="{{ old('country') }}" >
     </div>
    </div>
 
     <div class="field fluid">
     <label for="phone">Phone</label>
     <div class="ui input">
-      <input type="text" name="phone" id="phone" placeholder="Phone" value="{{ (!empty($user->phone))? $user->phone : '' or old('phone') }}" >
+      <input type="text" name="phone" id="phone" placeholder="Phone" value="{{ old('phone') }}" >
     </div>
    </div>
 
    <div class="field fluid">
     <label for="job">Job</label>
     <div class="ui input">
-      <input type="text" name="job" id="job" placeholder="Job" value="{{ (!empty($user->job))? $user->job : '' or old('job') }}" >
+      <input type="text" name="job" id="job" placeholder="Job" value="{{ old('job') }}" >
     </div>
    </div>
 
     <div class="field fluid">
     <label for="bio">Bio</label>
-    <textarea rows="2" id="bio" name="bio" placeholder="Bio">{{(!empty($user->bio))? $user-bio : '' or old('bio')}}</textarea>
+    <textarea rows="2" id="bio" name="bio" placeholder="Bio">{{old('bio')}}</textarea>
     </div>
 
     <div class="field fluid">
     <label for="facebook_name">Facebook Name</label>
     <div class="ui input">
-      <input type="text" name="facebook_name" id="facebook_name" placeholder="Facebook Name" value="{{ (!empty($user->facebook_name))? $user->facebook_name : '' or old('facebook_name') }}" >
+      <input type="text" name="facebook_name" id="facebook_name" placeholder="Facebook Name" value="{{ old('facebook_name') }}" >
     </div>
    </div>
 
     <div class="field fluid">
     <label for="twitter_name">Twitter Name</label>
     <div class="ui input">
-      <input type="text" name="twitter_name" id="twitter_name" placeholder="Twitter Name" value="{{ (!empty($user->twitter_name))? $user->twitter_name : '' or old('twitter_name') }}" >
+      <input type="text" name="twitter_name" id="twitter_name" placeholder="Twitter Name" value="{{ old('twitter_name') }}" >
     </div>
    </div>
 
    <div class="field fluid">
     <label for="linked_in_name">LinkedIn Name</label>
     <div class="ui input">
-      <input type="text" name="linked_in_name" id="linked_in_name" placeholder="LinkedIn Name" value="{{ (!empty($user->linked_in_name))? $user->linked_in_name : '' or old('linked_in_name') }}" >
+      <input type="text" name="linked_in_name" id="linked_in_name" placeholder="LinkedIn Name" value="{{ old('linked_in_name') }}" >
     </div>
    </div>
 
     <div class="field fluid">
     <label for="github_name">Github Name</label>
     <div class="ui input">
-      <input type="text" name="github_name" id="github_name" placeholder="Github Name" value="{{ (!empty($user->github_name))? $user->github_name : '' or old('github_name') }}" >
+      <input type="text" name="github_name" id="github_name" placeholder="Github Name" value="{{ old('github_name') }}" >
     </div>
    </div>
 
    <div class="field fluid">
     <label for="website_url">Website Url</label>
     <div class="ui input">
-      <input type="text" name="website_url" id="website_url" placeholder="Website Url" value="{{ (!empty($user->website_url))? $user->website_url : '' or old('website_url') }}" >
+      <input type="text" name="website_url" id="website_url" placeholder="Website Url" value="{{ old('website_url') }}" >
     </div>
    </div>
    <button class="ui fluid fluid orange submit button" type="submit" name="submit">Create user</button>
