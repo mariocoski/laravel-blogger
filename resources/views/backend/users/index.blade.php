@@ -5,6 +5,7 @@
 
 
 @section('content')
+@include('partials._success',['flashSuccess'=>'status'])
 <h2>Users
 	&nbsp;
 	<a class="ui right floated tiny primary labeled icon button" href="{{url('dashboard/users/create')}}">

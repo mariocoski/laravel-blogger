@@ -3,13 +3,18 @@
 namespace App\Models;
 
 use App\Notifications\ResetPasswordNotification;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    public $timestamps = true;
+
     protected $guarded = [];
+
     protected $hidden = [
         'password', 'remember_token',
     ];
@@ -61,6 +66,30 @@ class User extends Authenticatable
     {
         foreach ($roles as $role) {
             $this->toggleRole($role);
+        }
+    }
+
+    public static function isValidRoleId($roleId)
+    {
+        return Role::pluck('id')->contains($roleId);
+    }
+
+    public function attachAllRoles($roleId)
+    {
+        $allRoles = Role::pluck('id')->toArray();
+        $rolesToAttach = array_filter($allRoles, function ($id) use ($roleId) {
+            return $id <= $roleId;
+        });
+        $this->toggleRoles($rolesToAttach);
+
+    }
+
+    public function setDateOfBirthAttribute($value)
+    {
+        if (strlen($value)) {
+            $this->attributes['date_of_birth'] = Carbon::createFromFormat('Y-m-d', $value);
+        } else {
+            $this->attributes['date_of_birth'] = null;
         }
     }
 
