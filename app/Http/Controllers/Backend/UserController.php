@@ -34,11 +34,8 @@ class UserController extends Controller
     {
         $user = User::create($request->getValidRequest());
 
-        if (User::isValidRoleId($request->role)) {
-            $user->attachAllRoles($request->role);
-        } else {
-            $user->toggleRole(Role::user());
-        }
+        $user->resolveRole($request->role);
+
         return redirect('dashboard/users')->with('status', 'New user has been created');
     }
 }
