@@ -22,27 +22,23 @@ toastr.options = {
 
 $(document).ready(function() {
 
-$('.ui.rating').rating({
-  'clearable': false,
-  'onRate' : ()=>{
-    console.log('changed rating');
 
-    let rating = $('.ui.rating').rating('get rating');
-    console.log("rating",rating);
-  }
+
+
+$(".date-of-birth").flatpickr({
+    maxDate: new Date(),
 });
-
-
-$(".date-only").flatpickr({});
 
 
   var topPaginationOptions = {
     paginationClass: "top-list-pagination",
-    outerWindow: 2,
+    outerWindow: 1,
+    innerWindow: 1,
   };
   var bottomPaginationOptions = {
     paginationClass: "bottom-list-pagination",
-    outerWindow: 2,
+    outerWindow: 1,
+     innerWindow: 1,
   };
 
 var options = {

@@ -69,6 +69,19 @@ class User extends Authenticatable
         }
     }
 
+    public function resolveRole($role = null)
+    {
+        if ($role && $this->isValidRoleId($role)) {
+            return $this->attachAllRoles($role);
+        }
+        return $this->attachDefaultRole();
+    }
+
+    public function attachDefaultRole()
+    {
+        $this->toggleRole(Role::user());
+    }
+
     public static function isValidRoleId($roleId)
     {
         return Role::pluck('id')->contains($roleId);
