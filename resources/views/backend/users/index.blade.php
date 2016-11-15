@@ -24,7 +24,6 @@
 	 	<thead>
 	        <tr class="text-center">
 	            <th>Id</th>
-	            <th>Avatar</th>
 	            <th>Role</th>
 	            <th>Email</th>
 	            <th>Display Name</th>
@@ -37,9 +36,7 @@
 	    	@foreach($users as $user)
 		    	<tr>
 		    		<td class="user-table-id">{{$user->id}}</td>
-		    		<td class="user-table-avatar">
-					<a href="{{url('dashboard/users/'.$user->id)}}"><img class="ui image avatar" src="{{(!empty($user->avatar))? url($user->avatar) : url("images/avatar_default.png")}}"></a>
-		    		</td>
+
 		    		<td class="user-table-role">{{$user->getRoleDisplayName()}}</td>
 		    		<td class="user-table-email">{{$user->email}}</td>
 		    		<td class="user-table-display-name">{{$user->display_name}}</td>
@@ -47,8 +44,17 @@
 		    		<td>
 		    			<a href="{{url('dashboard/users/'.$user->id)}}" class="mini ui button orange"><i class="edit icon"></i> Edit</a>
 		    			@if(Auth::user()->id !== $user->id)
-		    				<a href="{{url('dashboard/login-as/'.$user->id)}}" class="mini ui  button "><i class="icon spy"></i> Login</a>
+		    				<a href="{{url('dashboard/login-as/'.$user->id)}}" class="ui mini button "><i class="icon spy"></i> Login</a>
 		    			@endif
+		    			@if(!$user->hasRole('admin'))
+		    			<form class="form-inline" method="POST" action="/dashboard/users/{{$user->id}}">
+		    				{{csrf_field()}}
+		    				 <input name="_method" type="hidden" value="DELETE">
+		    				 <button class="ui mini button red" id="list-user-{{$user->id}}" type="submit"><i class="icon remove user"></i> Delete</button>
+
+		    			</form>
+		    			@endif
+
 		    		</td>
 		    	</tr>
 

@@ -509,8 +509,9 @@ span.flatpickr-weekday {
 .white {
   color: #FFFFFF; }
 
-.text-red {
-  color: red; }
+form.form-inline {
+  display: inline-block;
+  margin: 0; }
 
 .pushable > .pusher {
   width: 100%;
