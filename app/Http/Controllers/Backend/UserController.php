@@ -38,4 +38,11 @@ class UserController extends Controller
 
         return redirect('dashboard/users')->with('status', 'New user has been created');
     }
+
+    public function destroy($id)
+    {
+        User::findOrFail($id)->delete($id);
+
+        return redirect('dashboard/users')->with('status', 'User has been deleted');
+    }
 }

@@ -23,6 +23,18 @@ toastr.options = {
 $(document).ready(function() {
 
 
+function updateDisplayName(){
+  let newValue = $('#first_name').val().trim() +" "+$('#last_name').val().trim();
+  $('#display_name').attr('value',  newValue);
+}
+
+$('#first_name').change(() => {
+  updateDisplayName();
+});
+
+$('#last_name').change(() => {
+  updateDisplayName();
+});
 
 
 $(".date-of-birth").flatpickr({
