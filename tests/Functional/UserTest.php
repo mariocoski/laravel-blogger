@@ -92,8 +92,7 @@ class UserTest extends TestCase
             ->dontSeeInDatabase('users', [
                 'email' => $insertedUser->email,
             ])
-            ->see('User ');
-
+            ->see('User has been deleted');
     }
 
 }

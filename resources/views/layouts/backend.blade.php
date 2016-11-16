@@ -11,12 +11,8 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <title>{{ config('app.name', 'Blogger') }} - @yield('title')</title>
-    <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-    'csrfToken' => csrf_token(),
-]); ?>
-    </script>
+
+
 </head>
     <body>
       @include('partials._nav_sidebar')
@@ -61,7 +57,8 @@
         <!-- @include('partials._footer') -->
       </div><!--end of pusher-->
       <script src="/js/app.js"></script>
-      @yield('scripts')
       <script src="/semantic/semantic.js"></script>
+     <!--  @include('partials._alerts') -->
+      @yield('scripts')
     </body>
   </html>

@@ -47,7 +47,7 @@
 		    				<a href="{{url('dashboard/login-as/'.$user->id)}}" class="ui mini button "><i class="icon spy"></i> Login</a>
 		    			@endif
 		    			@if(!$user->hasRole('admin'))
-		    			<form class="form-inline" method="POST" action="/dashboard/users/{{$user->id}}">
+		    			<form class="form-inline form-delete-user" method="POST" action="/dashboard/users/{{$user->id}}">
 		    				{{csrf_field()}}
 		    				 <input name="_method" type="hidden" value="DELETE">
 		    				 <button class="ui mini button red" id="list-user-{{$user->id}}" type="submit"><i class="icon remove user"></i> Delete</button>

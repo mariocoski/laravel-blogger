@@ -23,6 +23,13 @@ toastr.options = {
 $(document).ready(function() {
 
 
+$('.form-delete-user').submit(function(){
+
+  if(!confirm('Do you really want to delete this user?')){
+     return false;
+  }
+});
+
 function updateDisplayName(){
   let newValue = $('#first_name').val().trim() +" "+$('#last_name').val().trim();
   $('#display_name').attr('value',  newValue);
