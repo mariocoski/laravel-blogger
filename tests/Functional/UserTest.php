@@ -17,7 +17,7 @@ class UserTest extends TestCase
         $this->seed('RolesTableSeeder');
         $newUser = factory(App\Models\User::class)->create();
         $newUser->toggleRole(Role::admin());
-        $this->user = $newUser;
+        $this->admin = $newUser;
     }
 
     public function tearDown()
@@ -31,13 +31,13 @@ class UserTest extends TestCase
      *
      * @var App\Models\User
      */
-    private $user;
+    private $admin;
 
     public function testIfCanValidateWhenUserAlreadyExists()
     {
         $insertedUser = factory(App\Models\User::class)->create();
         $role = Role::user();
-        $this->actingAs($this->user)
+        $this->actingAs($this->admin)
             ->visit('/dashboard/users/create')
             ->type($insertedUser->email, 'email')
             ->type('password123', 'password')
@@ -55,7 +55,7 @@ class UserTest extends TestCase
     public function testIfCanCreateNewUser()
     {
         $role = Role::editor();
-        $this->actingAs($this->user)
+        $this->actingAs($this->admin)
             ->visit('/dashboard/users/create')
             ->type('foo@bar.com', 'email')
             ->type('password123', 'password')
@@ -82,11 +82,35 @@ class UserTest extends TestCase
 
     }
 
+    public function testIfCanEditAUser()
+    {
+        $createdUser = factory(App\Models\User::class)->create();
+        $id = $createdUser->id;
+        $this->actingAs($this->admin)
+            ->put(
+                '/dashboard/users/' . $id,
+                [
+                    'email' => 'foooo@barrr.com',
+                    'first_name' => 'foooo',
+                    'last_name' => 'barrrr',
+                    'display_name' => 'foooo barrrr',
+                ]
+
+            );
+
+        $updatedUser = User::find($id);
+
+        $this->assertNotEquals($createdUser->email, $updatedUser->email);
+        $this->assertNotEquals($createdUser->first_name, $updatedUser->first_name);
+        $this->assertNotEquals($createdUser->last_name, $updatedUser->last_name);
+        $this->assertNotEquals($createdUser->display_name, $updatedUser->display_name);
+    }
+
     public function testIfCanDeleteAUser()
     {
         $insertedUser = factory(App\Models\User::class)->create();
 
-        $this->actingAs($this->user)
+        $this->actingAs($this->admin)
             ->visit('/dashboard/users')
             ->press('list-user-' . $insertedUser->id)
             ->dontSeeInDatabase('users', [

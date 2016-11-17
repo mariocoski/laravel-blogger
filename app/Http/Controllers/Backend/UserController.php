@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\Role;
 use App\Models\User;
 use View;
@@ -17,9 +18,9 @@ class UserController extends Controller
         return View::make('backend.users.index', compact('users'));
     }
 
-    public function show($id)
+    public function edit($id)
     {
-        $user = User::findOrFail($id)->with('roles');
+        $user = User::with('roles')->findOrFail($id);
         $roles = Role::all();
         return View::make('backend.users.edit', compact('user', 'roles'));
     }
@@ -27,7 +28,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::all();
-        return View::make('backend.users.create', compact('roles'));
+        return View::make('backend.users.edit', compact('roles'));
     }
 
     public function store(UserCreateRequest $request)
@@ -37,6 +38,13 @@ class UserController extends Controller
         $user->resolveRole($request->role);
 
         return redirect('dashboard/users')->with('status', 'New user has been created');
+    }
+
+    public function update(UserUpdateRequest $request, $id)
+    {
+        $user = User::find($id)->update($request->getValidRequest());
+
+        return redirect('dashboard/users')->with('status', 'User has been updated');
     }
 
     public function destroy($id)
