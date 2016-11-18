@@ -33,7 +33,7 @@ class UserTest extends TestCase
      */
     private $admin;
 
-    public function testIfCanValidateWhenUserAlreadyExists()
+    public function test_if_can_validate_when_user_already_exists()
     {
         $insertedUser = factory(App\Models\User::class)->create();
         $role = Role::user();
@@ -52,7 +52,7 @@ class UserTest extends TestCase
             ->see('The email has already been taken');
     }
 
-    public function testIfCanCreateNewUser()
+    public function test_if_can_create_new_user()
     {
         $role = Role::editor();
         $this->actingAs($this->admin)
@@ -82,21 +82,20 @@ class UserTest extends TestCase
 
     }
 
-    public function testIfCanEditAUser()
+    public function test_if_can_edit_a_user()
     {
         $createdUser = factory(App\Models\User::class)->create();
+        $createdUser->toggleRole(Role::user());
         $id = $createdUser->id;
         $this->actingAs($this->admin)
-            ->put(
-                '/dashboard/users/' . $id,
-                [
-                    'email' => 'foooo@barrr.com',
-                    'first_name' => 'foooo',
-                    'last_name' => 'barrrr',
-                    'display_name' => 'foooo barrrr',
-                ]
-
-            );
+            ->visit('/dashboard/users')
+            ->click('edit-user-' . $id)
+            ->seePageIs('/dashboard/users/' . $id . '/edit')
+            ->type('foo@bar.com', 'email')
+            ->type('foo', 'first_name')
+            ->type('bar', 'last_name')
+            ->type('foo bar', 'display_name')
+            ->press('submit');
 
         $updatedUser = User::find($id);
 
@@ -106,13 +105,13 @@ class UserTest extends TestCase
         $this->assertNotEquals($createdUser->display_name, $updatedUser->display_name);
     }
 
-    public function testIfCanDeleteAUser()
+    public function test_if_can_delete_a_user()
     {
         $insertedUser = factory(App\Models\User::class)->create();
 
         $this->actingAs($this->admin)
             ->visit('/dashboard/users')
-            ->press('list-user-' . $insertedUser->id)
+            ->press('delete-user-' . $insertedUser->id)
             ->dontSeeInDatabase('users', [
                 'email' => $insertedUser->email,
             ])

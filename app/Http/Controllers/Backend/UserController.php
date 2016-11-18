@@ -44,13 +44,13 @@ class UserController extends Controller
     {
         $user = User::find($id)->update($request->getValidRequest());
 
-        return redirect('dashboard/users')->with('status', 'User has been updated');
+        return redirect()->back()->with('status', 'User has been updated');
     }
 
     public function destroy($id)
     {
         User::findOrFail($id)->delete($id);
 
-        return redirect('dashboard/users')->with('status', 'User has been deleted');
+        return redirect()->back()->with('status', 'User has been deleted');
     }
 }

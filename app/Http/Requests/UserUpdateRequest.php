@@ -2,8 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UserUpdateRequest extends FormRequest
 {
@@ -20,8 +22,18 @@ class UserUpdateRequest extends FormRequest
 
     public function rules()
     {
-        return [
 
+        return [
+            'email' => [
+                'required', 'email', 'max:255',
+                Rule::unique('users', 'email')->ignore($this->email, 'email'),
+            ],
+            'password' => 'sometimes|min:6|confirmed',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'display_name' => 'required',
+            'role' => 'required|numeric',
+            'date_of_birth' => 'sometimes|date',
         ];
     }
 
@@ -34,7 +46,7 @@ class UserUpdateRequest extends FormRequest
     {
         return [
             'email' => $this->email,
-            // 'password' => bcrypt($this->password),
+            'password' => $this->password,
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'display_name' => $this->display_name,
@@ -45,7 +57,7 @@ class UserUpdateRequest extends FormRequest
             'phone' => $this->phone,
             'bio' => $this->bio,
             'job' => $this->job,
-            // 'date_of_birth' => $this->date_of_birth,
+            'date_of_birth' => $this->date_of_birth,
             'facebook_name' => $this->facebook_name,
             'twitter_name' => $this->twitter_name,
             'linked_in_name' => $this->linked_in_name,

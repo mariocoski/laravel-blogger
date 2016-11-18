@@ -25,12 +25,13 @@ class UserCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:6|confirmed',
             'first_name' => 'required',
             'last_name' => 'required',
             'display_name' => 'required',
             'role' => 'required|numeric',
+            'date_of_birth' => 'sometimes|date',
         ];
     }
 
@@ -38,7 +39,7 @@ class UserCreateRequest extends FormRequest
     {
         return [
             'email' => $this->email,
-            'password' => bcrypt($this->password),
+            'password' => $this->password,
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'display_name' => $this->display_name,
