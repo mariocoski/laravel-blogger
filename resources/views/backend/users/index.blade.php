@@ -42,7 +42,7 @@
 		    		<td class="user-table-display-name">{{$user->display_name}}</td>
 		    		<td class="user-table-created-at">{{$user->created_at->format('d M Y')}}</td>
 		    		<td>
-		    			<a href="{{url('dashboard/users/'.$user->id.'/edit')}}" class="mini ui button orange"><i class="edit icon"></i> Edit</a>
+		    			<a href="{{url('dashboard/users/'.$user->id.'/edit')}}" id="edit-user-{{$user->id}}"  class="mini ui button orange"><i class="edit icon"></i> Edit</a>
 		    			@if(Auth::user()->id !== $user->id)
 		    				<a href="{{url('dashboard/login-as/'.$user->id)}}" class="ui mini button "><i class="icon spy"></i> Login</a>
 		    			@endif
@@ -50,7 +50,7 @@
 		    			<form class="form-inline form-delete-user" method="POST" action="/dashboard/users/{{$user->id}}">
 		    				{{csrf_field()}}
 		    				 <input name="_method" type="hidden" value="DELETE">
-		    				 <button class="ui mini button red" id="list-user-{{$user->id}}" type="submit"><i class="icon remove user"></i> Delete</button>
+		    				 <button class="ui mini button red" id="delete-user-{{$user->id}}" type="submit"><i class="icon remove user"></i> Delete</button>
 
 		    			</form>
 		    			@endif

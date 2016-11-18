@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Notifications\ResetPasswordNotification;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -99,6 +100,21 @@ class User extends Authenticatable
         });
         $this->toggleRoles($rolesToAttach);
 
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+    public function setDateOfBirthAttribute($value)
+    {
+        if (empty($value)) {
+            return null;
+        }
+
+        $dateToSet = Carbon::createFromFormat('Y-m-d', $value);
+        $this->attributes['date_of_birth'] = ($dateToSet !== false) ? $dateToSet : null;
     }
 
     public function roles()

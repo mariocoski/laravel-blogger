@@ -7,7 +7,7 @@
 <h2>Create a User</h2>
 
 @include('partials._errors')
-
+@include('partials._success',['flashSuccess'=>'status'])
 
 @if(!empty($user))
 <form class="ui form" method="POST" action="{{url('dashboard/users/'.$user->id)}}">
