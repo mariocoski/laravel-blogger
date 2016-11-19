@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('partials._nav_categories', function ($view) {
+            $view->with([
+                'categories' => Category::getFiveMostPopularOnes(),
+                'numberOfCategories' => Category::all()->count(),
+            ]);
+        });
     }
 
     /**

@@ -71,6 +71,9 @@ return [
      */
     'auth' => [
         'success' => 'dashboard',
+        'impersonification' => [
+            'session_name' => 'back_to_admin',
+        ],
     ],
 
     /*

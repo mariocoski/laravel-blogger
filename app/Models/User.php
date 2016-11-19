@@ -37,6 +37,14 @@ class User extends Authenticatable
         return $this->email;
     }
 
+    public static function articlesAssignable()
+    {
+        return (new static )->all()->filter(function ($user) {
+            //at least editor is required to edit the articles
+            return $user->hasRole('editor');
+        });
+    }
+
     public function getRoleDisplayName()
     {
         if (!$this->roles || !$this->roles->sortByDesc('permissions_level')->first()) {
@@ -74,10 +82,10 @@ class User extends Authenticatable
         }
     }
 
-    public function resolveRole($role = null)
+    public function resolveRole($roleId = null)
     {
-        if ($role && $this->isValidRoleId($role)) {
-            return $this->attachAllRoles($role);
+        if ($roleId && $this->isValidRoleId($roleId)) {
+            return $this->attachAllRoles($roleId);
         }
         return $this->attachDefaultRole();
     }
@@ -98,7 +106,7 @@ class User extends Authenticatable
         $rolesToAttach = array_filter($allRoles, function ($id) use ($roleId) {
             return $id <= $roleId;
         });
-        $this->toggleRoles($rolesToAttach);
+        $this->roles()->sync($rolesToAttach);
 
     }
 

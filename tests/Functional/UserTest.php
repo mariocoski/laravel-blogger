@@ -15,9 +15,13 @@ class UserTest extends TestCase
         parent::setUp();
         Artisan::call('migrate');
         $this->seed('RolesTableSeeder');
+        $newAdmin = factory(App\Models\User::class)->create();
+        $newAdmin->toggleRole(Role::admin());
+        $this->admin = $newAdmin;
+
         $newUser = factory(App\Models\User::class)->create();
-        $newUser->toggleRole(Role::admin());
-        $this->admin = $newUser;
+        $newUser->toggleRole(Role::user());
+        $this->user = $newUser;
     }
 
     public function tearDown()
@@ -26,20 +30,15 @@ class UserTest extends TestCase
         parent::tearDown();
     }
 
-    /**
-     * The user model.
-     *
-     * @var App\Models\User
-     */
     private $admin;
+    private $user;
 
     public function test_if_can_validate_when_user_already_exists()
     {
-        $insertedUser = factory(App\Models\User::class)->create();
         $role = Role::user();
         $this->actingAs($this->admin)
             ->visit('/dashboard/users/create')
-            ->type($insertedUser->email, 'email')
+            ->type($this->user->email, 'email')
             ->type('password123', 'password')
             ->type('password123', 'password_confirmation')
             ->type('foo', 'first_name')
@@ -82,40 +81,92 @@ class UserTest extends TestCase
 
     }
 
-    public function test_if_can_edit_a_user()
+    public function test_if_can_edit_user_data()
     {
-        $createdUser = factory(App\Models\User::class)->create();
-        $createdUser->toggleRole(Role::user());
-        $id = $createdUser->id;
+        $role = Role::user();
+
         $this->actingAs($this->admin)
             ->visit('/dashboard/users')
-            ->click('edit-user-' . $id)
-            ->seePageIs('/dashboard/users/' . $id . '/edit')
+            ->click('edit-user-' . $this->user->id)
+            ->seePageIs('/dashboard/users/' . $this->user->id . '/edit')
             ->type('foo@bar.com', 'email')
             ->type('foo', 'first_name')
             ->type('bar', 'last_name')
             ->type('foo bar', 'display_name')
+            ->select($role->id, 'role')
             ->press('submit');
 
-        $updatedUser = User::find($id);
+        $updatedUser = User::find($this->user->id);
 
-        $this->assertNotEquals($createdUser->email, $updatedUser->email);
-        $this->assertNotEquals($createdUser->first_name, $updatedUser->first_name);
-        $this->assertNotEquals($createdUser->last_name, $updatedUser->last_name);
-        $this->assertNotEquals($createdUser->display_name, $updatedUser->display_name);
+        $this->assertNotEquals($this->user->email, $updatedUser->email);
+        $this->assertNotEquals($this->user->first_name, $updatedUser->first_name);
+        $this->assertNotEquals($this->user->last_name, $updatedUser->last_name);
+        $this->assertNotEquals($this->user->display_name, $updatedUser->display_name);
+    }
+
+    public function test_if_can_edit_user_role()
+    {
+        $currentRoleId = $this->user->getTheHighestRoleId();
+        $adminRoleId = Role::admin()->id;
+
+        $this->actingAs($this->admin)
+            ->visit('/dashboard/users')
+            ->click('edit-user-' . $this->user->id)
+            ->seePageIs('/dashboard/users/' . $this->user->id . '/edit')
+            ->select($adminRoleId, 'role')
+            ->press('submit');
+
+        $updatedUser = User::find($this->user->id);
+
+        $this->assertEquals($adminRoleId, $updatedUser->getTheHighestRoleId());
+    }
+
+    public function test_if_can_edit_users_password()
+    {
+        $newPassword = "newpassword123";
+        $this->actingAs($this->admin)
+            ->visit('/dashboard/users')
+            ->click('edit-user-' . $this->user->id)
+            ->seePageIs('/dashboard/users/' . $this->user->id . '/edit')
+            ->type($newPassword, 'password')
+            ->type($newPassword, 'password_confirmation')
+            ->press('submit');
+
+        $updatedUser = User::find($this->user->id);
+
+        $this->assertTrue(Hash::check($newPassword, $updatedUser->password));
     }
 
     public function test_if_can_delete_a_user()
     {
-        $insertedUser = factory(App\Models\User::class)->create();
-
         $this->actingAs($this->admin)
             ->visit('/dashboard/users')
-            ->press('delete-user-' . $insertedUser->id)
+            ->press('delete-user-' . $this->user->id)
             ->dontSeeInDatabase('users', [
-                'email' => $insertedUser->email,
+                'email' => $this->user->email,
             ])
             ->see('User has been deleted');
+    }
+
+    public function test_if_admin_can_impersonate_into_user()
+    {
+        $this->actingAs($this->admin)
+            ->visit('/dashboard/users')
+            ->click('impersonate-user-' . $this->user->id)
+            ->seeIsAuthenticatedAs($this->user)
+            ->seePageIs('/dashboard')
+            ->see('Back to Admin Mode');
+    }
+
+    public function test_if_admin_can_return_back_to_admin_mode_after_impersonification()
+    {
+        $this->actingAs($this->admin)
+            ->visit('/dashboard/users')
+            ->click('impersonate-user-' . $this->user->id)
+            ->seeIsAuthenticatedAs($this->user)
+            ->click('back-to-admin-mode')
+            ->seeIsAuthenticatedAs($this->admin)
+            ->seePageIs('/dashboard');
     }
 
 }

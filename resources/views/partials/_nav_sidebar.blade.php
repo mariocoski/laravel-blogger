@@ -17,6 +17,9 @@
       </form>
     </div>
   @endif
+  @if(Session::has( config('blogger.auth.impersonification.session_name')))
+    <a class="item" href="{{ url('/dashboard/back-to-admin-mode') }}" name="back-to-admin-mode"><i class="spy icon"></i> Back to Admin Mode</a>
+  @endif
   <a class="item" href="/">
      <i class="newspaper icon"></i>
     Blog
@@ -26,9 +29,7 @@
       <div class="text">Categories</div>
       <i class="dropdown icon"></i>
       <div class="menu menu-sidebar">
-        <div class="item">Category 1</div>
-        <div class="item">Category 2</div>
-        <div class="item">Category 3</div>
+        @include('partials._nav_categories')
       </div>
      </div>
   </div>

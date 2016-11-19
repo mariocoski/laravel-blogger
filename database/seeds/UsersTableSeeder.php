@@ -1,5 +1,4 @@
 <?php
-
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -13,7 +12,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-
         DB::table('users')->truncate();
         DB::table('users')->insert([
             'email' => 'admin@blogger.com',
@@ -24,7 +22,6 @@ class UsersTableSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
-
         $admin = User::findByEmail('admin@blogger.com');
         $admin->toggleRoles([Role::user(), Role::editor(), Role::admin()]);
 

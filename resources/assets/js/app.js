@@ -30,6 +30,13 @@ $('.form-delete-user').submit(function(){
   }
 });
 
+$('.form-delete-category').submit(function(){
+
+  if(!confirm('Do you really want to delete this category and all related articles?')){
+     return false;
+  }
+});
+
 function updateDisplayName(){
   let newValue = $('#first_name').val().trim() +" "+$('#last_name').val().trim();
   $('#display_name').attr('value',  newValue);
@@ -60,7 +67,7 @@ $(".date-of-birth").flatpickr({
      innerWindow: 1,
   };
 
-var options = {
+var userOptions = {
   valueNames: [ 
     'user-table-id',
     'user-table-avatar',
@@ -68,7 +75,6 @@ var options = {
     'user-table-email',
     'user-table-display-name',
     'user-table-created-at',
-    'user-table-updated-at'
   ],
   page: 5,
   item: "user-table-no-results",
@@ -77,14 +83,35 @@ var options = {
     ListPagination(bottomPaginationOptions)
   ]
 };
+var userTableList = new List('user-table-list', userOptions);
 
+var categoryOptions = {
+  valueNames: [ 
+    'category-table-id',
+    'category-table-name',
+    'category-table-articles-count',
+    'category-table-email',
+    'category-table-created-at',
+  ],
+  page: 5,
+  item: "category-table-no-results",
+  plugins: [
+    ListPagination(topPaginationOptions),
+    ListPagination(bottomPaginationOptions)
+  ]
+};
+var categoryTableList = new List('category-table-list', categoryOptions);
 
-var userTableList = new List('user-table-list', options);
 
 $('#user-list-search').keyup(function(){
   let needle = $(this).val();
-  console.log('value',needle);
   userTableList.search(needle);
+});
+
+
+$('#category-list-search').keyup(function(){
+  let needle = $(this).val();
+  categoryTableList.search(needle);
 });
 if (window.location.hash == '#_=_'){
   

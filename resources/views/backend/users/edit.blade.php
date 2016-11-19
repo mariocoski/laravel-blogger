@@ -49,8 +49,8 @@
     <select class="ui dropdown" name="role" value="{{ old('role')}}">
       <option value="">Role</option>
       @foreach($roles as $role)
-        @if((!empty($user) && $user->getTheHighestRoleId()) || old('role') == $role->id)
-              <option value="{{ $role->id }}" selected>{{$role->display_name}} [{{$role->description}}]</option>
+        @if((!empty($user) && $user->getTheHighestRoleId() == $role->id) || old('role') == $role->id)
+              <option value="{{ $role->id }}" selected>{{$role->display_name}} [{{$role->description}}] </option>
         @else
               <option value="{{ $role->id }}">{{$role->display_name}} [{{$role->description}}]</option>
         @endif
@@ -162,10 +162,17 @@
    <div class="field fluid">
     <label for="website_url">Website Url (optional)</label>
     <div class="ui input">
-      <input type="text" name="website_url" id="website_url" placeholder="Website Url" value="{{ ($user->website_url) ?? old('website_url') }}" >
+      <input type="text" name="website_url" id="website_url" placeholder="www.example.com" value="{{ ($user->website_url) ?? old('website_url') }}" >
     </div>
    </div>
-   <button class="ui fluid fluid orange submit button" type="submit" name="submit">Create user</button>
+   <button class="ui fluid fluid orange submit button" type="submit" name="submit">
+    @if(!empty($user))
+      Update
+    @else
+      Create
+    @endif
+    User
+   </button>
 </form>
 
 
