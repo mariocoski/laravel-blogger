@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserCreateRequest;
-use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\User\UserCreateRequest;
+use App\Http\Requests\User\UserUpdateRequest;
 use App\Models\Role;
 use App\Models\User;
 use View;
 
 class UserController extends Controller
 {
+
     public function index()
     {
         $users = User::all();
@@ -18,16 +19,28 @@ class UserController extends Controller
         return View::make('backend.users.index', compact('users'));
     }
 
+    public function show($id)
+    {
+        $user = User::with('roles')->findOrFail($id);
+
+        $roles = Role::all();
+
+        return View::make('backend.users.edit', compact('user', 'roles'));
+    }
+
     public function edit($id)
     {
         $user = User::with('roles')->findOrFail($id);
+
         $roles = Role::all();
+
         return View::make('backend.users.edit', compact('user', 'roles'));
     }
 
     public function create()
     {
         $roles = Role::all();
+
         return View::make('backend.users.edit', compact('roles'));
     }
 
@@ -42,9 +55,14 @@ class UserController extends Controller
 
     public function update(UserUpdateRequest $request, $id)
     {
-        $user = User::find($id)->update($request->getValidRequest());
 
-        return redirect()->back()->with('status', 'User has been updated');
+        $user = User::findOrFail($id);
+
+        $user->update($request->getValidRequest());
+
+        $user->resolveRole($request->role);
+
+        return redirect()->to('dashboard/users/' . $id . "/edit")->with('status', 'User has been updated');
     }
 
     public function destroy($id)

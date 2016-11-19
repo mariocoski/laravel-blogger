@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\User;
 
-use App\Models\User;
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UserUpdateRequest extends FormRequest
+class UserCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,18 +15,18 @@ class UserUpdateRequest extends FormRequest
     public function authorize()
     {
         return Auth::user()->hasRole('admin');
-
     }
 
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
     public function rules()
     {
-
         return [
-            'email' => [
-                'required', 'email', 'max:255',
-                Rule::unique('users', 'email')->ignore($this->email, 'email'),
-            ],
-            'password' => 'sometimes|min:6|confirmed',
+            'email' => 'required|email|max:255|unique:users,email',
+            'password' => 'required|min:6|confirmed',
             'first_name' => 'required',
             'last_name' => 'required',
             'display_name' => 'required',
@@ -37,11 +35,6 @@ class UserUpdateRequest extends FormRequest
         ];
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function getValidRequest()
     {
         return [
@@ -65,4 +58,5 @@ class UserUpdateRequest extends FormRequest
             'website_url' => $this->website_url,
         ];
     }
+
 }

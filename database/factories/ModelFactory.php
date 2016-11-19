@@ -22,13 +22,22 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Models\Article::class, function ($faker) use ($factory) {
+$factory->define(App\Models\Category::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => 1,
-        'slug' => $faker->unique()->safeEmail,
-        'title' => $faker->sentence,
+        'name' => $name = $faker->unique()->sentence(2),
+        'slug' => str_slug($name),
+    ];
+});
+
+$factory->define(App\Models\Article::class, function ($faker) use ($factory) {
+
+    return [
+        'author_id' => $factory->create(App\Models\User::class)->id,
+        'category_id' => $factory->create(App\Models\Category::class)->id,
+        'title' => $title = $faker->sentence,
+        'slug' => str_slug($title),
         'subtitle' => $faker->sentence,
-        'content' => $faker->sentence,
+        'content' => $faker->paragraph,
         'references' => $faker->sentence,
         'article_image' => 'fox_unsplash.jpeg',
         'meta_keywords' => $faker->sentence,

@@ -9,7 +9,7 @@
 <h2>Users
 	&nbsp;
 	<a class="ui right floated tiny primary labeled icon button" href="{{url('dashboard/users/create')}}">
-	   	<i class="user add icon"></i> Add User
+	   	<i class="user add icon"></i> Add New User
 	</a>
 </h2>
 
@@ -44,7 +44,7 @@
 		    		<td>
 		    			<a href="{{url('dashboard/users/'.$user->id.'/edit')}}" id="edit-user-{{$user->id}}"  class="mini ui button orange"><i class="edit icon"></i> Edit</a>
 		    			@if(Auth::user()->id !== $user->id)
-		    				<a href="{{url('dashboard/login-as/'.$user->id)}}" class="ui mini button "><i class="icon spy"></i> Login</a>
+		    				<a href="{{url('dashboard/impersonate/'.$user->id)}}" id="impersonate-user-{{$user->id}}" class="ui mini button "><i class="icon spy"></i> Login</a>
 		    			@endif
 		    			@if(!$user->hasRole('admin'))
 		    			<form class="form-inline form-delete-user" method="POST" action="/dashboard/users/{{$user->id}}">

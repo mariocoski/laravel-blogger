@@ -72,12 +72,18 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     //admin only
     Route::group(['middleware' => 'role:admin'], function () {
         Route::resource('users', 'Backend\UserController');
+        Route::get('impersonate/{id}', 'Backend\ImpersonificationController@impersonate');
 
     });
+    Route::group(['middleware' => 'role:editor'], function () {
+        Route::resource('categories', 'Backend\CategoryController');
+
+    });
+    Route::get('/back-to-admin-mode', 'Backend\ImpersonificationController@backToAdminMode');
 
     Route::get('subscriptions', 'Backend\SubscriptionController@index');
     Route::get('articles', 'Backend\ArticleController@index');
-    Route::get('categories', 'Backend\CategoryController@index');
+    //Route::get('categories', 'Backend\CategoryController@index');
     Route::get('tags', 'Backend\TagController@index');
     Route::get('media', 'Backend\MediaController@index');
     Route::get('help', 'Backend\HelpController@index');

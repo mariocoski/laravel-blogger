@@ -9,7 +9,58 @@ class ArticleController extends Controller
 {
     public function index()
     {
+        return View::make('backend.articles.index');
+    }
 
-        return View::make('backend.article.index');
+    public function show($id)
+    {
+        // $user = Ca::with('roles')->findOrFail($id);
+
+        // $roles = Role::all();
+
+        // return View::make('backend.users.edit', compact('user', 'roles'));
+    }
+
+    public function edit($id)
+    {
+        // $user = User::with('roles')->findOrFail($id);
+
+        // $roles = Role::all();
+
+        // return View::make('backend.users.edit', compact('user', 'roles'));
+    }
+
+    public function create()
+    {
+        // $roles = Role::all();
+        // return View::make('backend.users.edit', compact('roles'));
+    }
+
+    public function store(UserCreateRequest $request)
+    {
+        // $user = User::create($request->getValidRequest());
+
+        // $user->resolveRole($request->role);
+
+        // return redirect('dashboard/users')->with('status', 'New user has been created');
+    }
+
+    public function update(UserUpdateRequest $request, $id)
+    {
+
+        // $user = User::findOrFail($id);
+
+        // $user->update($request->getValidRequest());
+
+        // $user->resolveRole($request->role);
+
+        // return redirect()->back()->with('status', 'User has been updated');
+    }
+
+    public function destroy($id)
+    {
+        // User::findOrFail($id)->delete($id);
+
+        // return redirect()->back()->with('status', 'User has been deleted');
     }
 }

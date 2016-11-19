@@ -18,8 +18,9 @@ class Role
     {
 
         if (auth()->guest() || !auth()->user()->hasRole($role)) {
-            redirect('login');
+            return redirect()->to('login');
         }
+
         return $next($request);
     }
 }

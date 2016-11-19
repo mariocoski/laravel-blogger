@@ -14,15 +14,7 @@
       <span class="text">Categories</span>
       <i class="dropdown icon"></i>
       <div class="menu">
-        <a class="item" href="/category1">
-          Category 1
-        </a>
-         <a class="item" href="/category1">
-          Category 2
-        </a>
-         <a class="item" href="/category1">
-          Category 3
-        </a>
+          @include('partials._nav_categories')
       </div>
     </div>
     <a class="item hidden-mobile hidden-tablet" href="{{ url('about') }}">About</a>
@@ -49,6 +41,9 @@
     @else
 
     <a class="ui right item"  href="{{ url('/dashboard') }}"> <img class="ui avatar mini image  hidden-mobile" src="{{(!empty(Auth::user()->avatar))? url(Auth::user()->avatar) : url("images/avatar_default.png")}}">&nbsp;Dashboard</a>
+    @if(Session::has( config('blogger.auth.impersonification.session_name')))
+       <a class="item hidden-mobile hidden-tablet" href="{{ url('/dashboard/back-to-admin-mode') }}" name="back-to-admin-mode"><i class="spy icon"></i> Back to Admin Mode</a>
+    @endif
     <a class="item" href="{{ url('/logout') }}" name="logout"><i class="power icon"></i> Log out</a>
 
     @endif
