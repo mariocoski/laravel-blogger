@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Category\CategoryCreateRequest;
-use App\Http\Requests\Category\CategoryUpdateRequest;
+use App\Http\Requests\Category\CategoryRequest;
 use App\Models\Category;
 use View;
 
@@ -34,29 +33,22 @@ class CategoryController extends Controller
 
     public function create()
     {
-
-        return View::make('backend.categories.edit', compact('category', 'users'));
+        return View::make('backend.categories.edit');
     }
 
-    public function store(CategoryCreateRequest $request)
+    public function store(CategoryRequest $request)
     {
-        // $user = User::create($request->getValidRequest());
+        $category = Category::create($request->getValidRequest());
 
-        // $user->resolveRole($request->role);
-
-        // return redirect('dashboard/users')->with('status', 'New user has been created');
+        return redirect('dashboard/categories')->with('status', 'New category has been created');
     }
 
-    public function update(CategoryUpdateRequest $request, $id)
+    public function update(CategoryRequest $request, $id)
     {
 
-        // $user = User::findOrFail($id);
+        $category = Category::findOrFail($id)->update($request->getValidRequest());
 
-        // $user->update($request->getValidRequest());
-
-        // $user->resolveRole($request->role);
-
-        // return redirect()->back()->with('status', 'User has been updated');
+        return redirect()->back()->with('status', 'Category has been updated');
     }
 
     public function destroy($id)
