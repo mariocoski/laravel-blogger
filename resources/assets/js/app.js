@@ -37,9 +37,24 @@ $('.form-delete-category').submit(function(){
   }
 });
 
+function convertToSlug(text)
+{
+    return text
+        .toLowerCase()
+        .replace(/[^\w ]+/g,'')
+        .replace(/ +/g,'-')
+        ;
+}
+
 function updateDisplayName(){
   let newValue = $('#first_name').val().trim() +" "+$('#last_name').val().trim();
   $('#display_name').attr('value',  newValue);
+}
+
+function updateCategorySlug(){
+  let name = $('#category-name').val().trim();
+  let newValue = (name)? convertToSlug(name) : "";
+  $('#category-slug').attr('value', newValue);
 }
 
 $('#first_name').change(() => {
@@ -48,6 +63,10 @@ $('#first_name').change(() => {
 
 $('#last_name').change(() => {
   updateDisplayName();
+});
+
+$('#category-name').change(() => {
+  updateCategorySlug();
 });
 
 

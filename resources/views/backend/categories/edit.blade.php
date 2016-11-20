@@ -18,16 +18,16 @@
   {{csrf_field()}}
 
   <div class="field fluid {{ $errors->has('name') ? 'error' : '' }}">
-    <label for="name">Name</label>
+    <label for="category-name">Name</label>
     <div class="ui input">
-      <input type="text" name="name" id="name" placeholder="Name" value="{{  ($category->name) ?? old('name') }}" >
+      <input type="text" name="name" id="category-name" placeholder="Name" value="{{  ($category->name) ?? old('name') }}" >
     </div>
   </div>
 
   <div class="field fluid {{ $errors->has('slug') ? 'error' : '' }}">
-    <label for="slug">Slug</label>
+    <label for="category-slug">Slug</label>
     <div class="ui input">
-      <input type="text" name="slug" id="slug" placeholder="Slug" value="{{ ($category->slug) ?? old('slug') }}" >
+      <input type="text" name="slug" id="category-slug" placeholder="Slug" value="{{ ($category->slug) ?? old('slug') }}" >
     </div>
   </div>
 
