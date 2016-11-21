@@ -24,7 +24,14 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Models\Category::class, function (Faker\Generator $faker) {
     return [
-        'name' => $name = $faker->unique()->sentence(2),
+        'name' => $name = $faker->unique()->word,
+        'slug' => str_slug($name),
+    ];
+});
+
+$factory->define(App\Models\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $name = $faker->unique()->word,
         'slug' => str_slug($name),
     ];
 });

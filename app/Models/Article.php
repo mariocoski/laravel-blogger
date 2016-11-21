@@ -12,4 +12,9 @@ class Article extends Model
     {
         return $this->belongsTo('App\Models\Category');
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany('App\Models\Tag', 'articles_tags', 'tag_id', 'article_id');
+    }
 }
