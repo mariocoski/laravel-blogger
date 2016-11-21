@@ -4,19 +4,17 @@
 
 @section('content')
 
-<h2>Create a User</h2>
-
-@include('partials._errors')
-@include('partials._success',['flashSuccess'=>'status'])
-
 @if(!empty($user))
+<h2>Update a User</h2>
 <form class="ui form" method="POST" action="{{url('dashboard/users/'.$user->id)}}">
 {{method_field('PUT')}}
 @else
+<h2>Create a User</h2>
 <form class="ui form" method="POST" action="{{url('dashboard/users')}}">
 @endif
   {{csrf_field()}}
-
+  @include('partials._errors')
+  @include('partials._success',['flashSuccess'=>'status'])
   <div class="field fluid {{ $errors->has('email') ? 'error' : '' }}">
     <label for="email">E-mail address</label>
     <div class="ui input">

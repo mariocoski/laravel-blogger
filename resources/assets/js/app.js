@@ -37,6 +37,13 @@ $('.form-delete-category').submit(function(){
   }
 });
 
+$('.form-delete-tag').submit(function(){
+
+  if(!confirm('Do you really want to delete this tag and all related articles?')){
+     return false;
+  }
+});
+
 function convertToSlug(text)
 {
     return text
@@ -56,6 +63,13 @@ function updateCategorySlug(){
   let newValue = (name)? convertToSlug(name) : "";
   $('#category-slug').attr('value', newValue);
 }
+
+function updateTagSlug(){
+  let name = $('#tag-name').val().trim();
+  let newValue = (name)? convertToSlug(name) : "";
+  $('#tag-slug').attr('value', newValue);
+}
+
 
 $('#first_name').change(() => {
   updateDisplayName();
@@ -121,6 +135,23 @@ var categoryOptions = {
 };
 var categoryTableList = new List('category-table-list', categoryOptions);
 
+var categoryOptions = {
+  valueNames: [ 
+    'tag-table-id',
+    'tag-table-name',
+    'tag-table-articles-count',
+    'tag-table-email',
+    'tag-table-created-at',
+  ],
+  page: 5,
+  item: "tag-table-no-results",
+  plugins: [
+    ListPagination(topPaginationOptions),
+    ListPagination(bottomPaginationOptions)
+  ]
+};
+var tagTableList = new List('tag-table-list', categoryOptions);
+
 
 $('#user-list-search').keyup(function(){
   let needle = $(this).val();
@@ -132,6 +163,14 @@ $('#category-list-search').keyup(function(){
   let needle = $(this).val();
   categoryTableList.search(needle);
 });
+
+$('#tag-list-search').keyup(function(){
+  let needle = $(this).val();
+  tagTableList.search(needle);
+});
+
+
+
 if (window.location.hash == '#_=_'){
   
     history.replaceState 

@@ -73,6 +73,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     Route::group(['middleware' => 'role:admin'], function () {
         Route::resource('users', 'Backend\UserController');
         Route::resource('categories', 'Backend\CategoryController');
+        Route::resource('tags', 'Backend\TagController');
         Route::get('impersonate/{id}', 'Backend\ImpersonificationController@impersonate');
 
     });
