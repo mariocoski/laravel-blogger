@@ -20,6 +20,7 @@ toastr.options = {
 }
 
 
+
 $(document).ready(function() {
 
 
@@ -197,6 +198,9 @@ SocialShare.init("id",{
 $('.ui.checkbox').checkbox();
 
 $('.ui.dropdown').dropdown();
+
+$('.multiple-dropdown').dropdown({allowAdditions: true});
+
 $('.left.sidebar').first().sidebar('attach events', '.sidebar-trigger');
 
 $('.ui.search')
