@@ -201,6 +201,12 @@ $('.ui.dropdown').dropdown();
 
 $('.multiple-dropdown').dropdown({allowAdditions: true});
 
+$('.field-prevent-send').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+    }
+});
+
 $('.left.sidebar').first().sidebar('attach events', '.sidebar-trigger');
 
 $('.ui.search')

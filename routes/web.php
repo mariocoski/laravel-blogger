@@ -66,16 +66,22 @@ Route::get('search', 'Frontend\HomepageController@search');
 Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     Route::get('/', 'Backend\DashboardController@index');
     Route::get('profile', 'Backend\ProfileController@index');
-    Route::get('settings', 'Backend\SettingsController@index');
+
     Route::get('tools', 'Backend\ToolsController@index');
 
     //admin only
     Route::group(['middleware' => 'role:admin'], function () {
         Route::resource('users', 'Backend\UserController');
+
+        Route::get('impersonate/{id}', 'Backend\ImpersonificationController@impersonate');
+        Route::get('settings', 'Backend\SettingsController@index');
+        Route::post('settings/update', 'Backend\SettingsController@update');
+    });
+
+    //admin and editor
+    Route::group(['middleware' => 'role:editor'], function () {
         Route::resource('categories', 'Backend\CategoryController');
         Route::resource('tags', 'Backend\TagController');
-        Route::get('impersonate/{id}', 'Backend\ImpersonificationController@impersonate');
-
     });
 
     Route::get('/back-to-admin-mode', 'Backend\ImpersonificationController@backToAdminMode');
