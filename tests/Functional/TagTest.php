@@ -17,7 +17,7 @@ class TagTest extends TestCase
         Artisan::call('migrate');
         $this->seed('RolesTableSeeder');
         $newAdmin = factory(App\Models\User::class)->create();
-        $newAdmin->toggleRole(Role::admin());
+        $newAdmin->resolveRole(Role::admin()->id);
         $this->admin = $newAdmin;
 
         $this->tag = factory(App\Models\Tag::class)->create();

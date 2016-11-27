@@ -513,6 +513,12 @@ span.flatpickr-weekday {
 .white {
   color: #FFFFFF; }
 
+.italic-description {
+  font-style: italic;
+  font-size: 0.9em;
+  color: #838587;
+  padding-bottom: 0.5em; }
+
 form.form-inline {
   display: inline-block;
   margin: 0; }

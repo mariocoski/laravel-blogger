@@ -16,11 +16,11 @@ class UserTest extends TestCase
         Artisan::call('migrate');
         $this->seed('RolesTableSeeder');
         $newAdmin = factory(App\Models\User::class)->create();
-        $newAdmin->toggleRole(Role::admin());
+        $newAdmin->resolveRole(Role::admin()->id);
         $this->admin = $newAdmin;
 
         $newUser = factory(App\Models\User::class)->create();
-        $newUser->toggleRole(Role::user());
+        $newUser->resolveRole(Role::user()->id);
         $this->user = $newUser;
     }
 
