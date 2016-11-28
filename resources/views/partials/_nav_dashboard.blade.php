@@ -23,7 +23,7 @@
 @endif
 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('editor'))
 <a class="item" href="{{ url('/dashboard/articles') }}">
-    <i class="write icon"></i>
+    <i class="file text outline icon"></i>
     Articles
 </a>
 <a class="item" href="{{ url('/dashboard/categories') }}">

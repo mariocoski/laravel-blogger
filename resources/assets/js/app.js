@@ -136,7 +136,7 @@ var categoryOptions = {
 };
 var categoryTableList = new List('category-table-list', categoryOptions);
 
-var categoryOptions = {
+var tagOptions = {
   valueNames: [ 
     'tag-table-id',
     'tag-table-name',
@@ -151,7 +151,25 @@ var categoryOptions = {
     ListPagination(bottomPaginationOptions)
   ]
 };
-var tagTableList = new List('tag-table-list', categoryOptions);
+var tagTableList = new List('tag-table-list', tagOptions);
+
+var articleOptions = {
+  valueNames: [ 
+    'article-table-id',
+    'article-table-title',
+    'article-table-category-name',
+    'article-table-author-name',
+    'article-table-status',
+    'article-table-created-at',
+  ],
+  page: 5,
+  item: "article-table-no-results",
+  plugins: [
+    ListPagination(topPaginationOptions),
+    ListPagination(bottomPaginationOptions)
+  ]
+};
+var articleTableList = new List('article-table-list', articleOptions);
 
 
 $('#user-list-search').keyup(function(){
@@ -168,6 +186,12 @@ $('#category-list-search').keyup(function(){
 $('#tag-list-search').keyup(function(){
   let needle = $(this).val();
   tagTableList.search(needle);
+});
+
+
+$('#article-list-search').keyup(function(){
+  let needle = $(this).val();
+  articleTableList.search(needle);
 });
 
 
