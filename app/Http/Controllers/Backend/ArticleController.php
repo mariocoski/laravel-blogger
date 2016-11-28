@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use View;
 
 class ArticleController extends Controller
 {
     public function index()
     {
-        return View::make('backend.articles.index');
+        $articles = Article::with('tags', 'author')->orderBy('created_at')->get();
+        return View::make('backend.articles.index', compact('articles'));
     }
 
     public function show($id)

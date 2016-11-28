@@ -45,11 +45,10 @@ $factory->define(App\Models\Article::class, function ($faker) use ($factory) {
         'slug' => str_slug($title),
         'subtitle' => $faker->sentence,
         'content' => $faker->paragraph,
-        'references' => $faker->sentence,
+        'raw_content' => $faker->paragraph,
         'article_image' => 'fox_unsplash.jpeg',
         'meta_keywords' => $faker->sentence,
         'meta_description' => $faker->sentence,
-        'references' => $faker->sentence,
         'is_published' => true,
         'published_at' => date('Y-m-d H:i:s'),
     ];

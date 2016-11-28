@@ -45,6 +45,11 @@ class User extends Authenticatable
         });
     }
 
+    public function articles()
+    {
+        return $this->hasMany('App\Models\Article');
+    }
+
     public function getRoleDisplayName()
     {
         if (!$this->roles || !$this->roles->sortByDesc('permissions_level')->first()) {

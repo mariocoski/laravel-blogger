@@ -36,6 +36,7 @@ class SettingsController extends Controller
     protected function getMetaRobotsOptions()
     {
         return [
+            ['name' => 'INDEX, FOLLOW', 'value' => 'INDEX, FOLLOW'],
             ['name' => 'NOINDEX, FOLLOW', 'value' => 'NOINDEX, FOLLOW'],
             ['name' => 'INDEX, NOFOLLOW', 'value' => 'INDEX, NOFOLLOW'],
             ['name' => 'INDEX, NOFOLLOW', 'value' => 'NOINDEX, NOFOLLOW'],
