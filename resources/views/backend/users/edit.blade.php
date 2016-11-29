@@ -76,12 +76,13 @@
     </div>
   </div>
 
-   <div class="field fluid {{ $errors->has('date_of_birth') ? 'error' : '' }}">
+  <div class="field fluid {{ $errors->has('date_of_birth') ? 'error' : '' }}">
     <label for="date_of_birth">Date Of Birth (optional)</label>
     <div class="ui input">
       <input type="text" name="date_of_birth" class="date-of-birth" id="date_of_birth" placeholder="YYYY-MM-DD" value="{{ ($user->date_of_birth) ?? old('date_of_birth') }}" >
     </div>
   </div>
+
    <div class="field fluid">
     <label for="address">Address (optional)</label>
     <div class="ui input">

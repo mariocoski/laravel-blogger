@@ -13,7 +13,7 @@
 
 <div class="ui left icon input table-list-search-input">
 	<input type="text" placeholder="Search tags..." id="tag-list-search">
-	 <i class="list layout icon"></i>
+	 <i class="tags icon"></i>
 </div>
 
 <div id="tag-table-list">

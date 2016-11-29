@@ -82,12 +82,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     Route::group(['middleware' => 'role:editor'], function () {
         Route::resource('categories', 'Backend\CategoryController');
         Route::resource('tags', 'Backend\TagController');
+        Route::resource('articles', 'Backend\ArticleController');
     });
 
     Route::get('/back-to-admin-mode', 'Backend\ImpersonificationController@backToAdminMode');
 
     Route::get('subscriptions', 'Backend\SubscriptionController@index');
-    Route::get('articles', 'Backend\ArticleController@index');
+
     //Route::get('categories', 'Backend\CategoryController@index');
     Route::get('tags', 'Backend\TagController@index');
     Route::get('media', 'Backend\MediaController@index');
