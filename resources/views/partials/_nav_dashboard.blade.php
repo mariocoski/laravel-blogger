@@ -31,7 +31,7 @@
     Categories
 </a>
 <a class="item" href="{{ url('/dashboard/tags') }}">
-    <i class="tag icon"></i>
+    <i class="tags icon"></i>
     Tags
 </a>
 <a class="item" href="{{ url('/dashboard/media') }}">

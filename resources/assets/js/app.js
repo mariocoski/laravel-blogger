@@ -86,7 +86,11 @@ $('#category-name').change(() => {
 
 
 $(".date-of-birth").flatpickr({
-    maxDate: new Date(),
+   maxDate: new Date(),
+});
+
+$(".published-at").flatpickr({
+   enableTime: true
 });
 
 
