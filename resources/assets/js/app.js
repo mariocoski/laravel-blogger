@@ -31,6 +31,13 @@ $('.form-delete-user').submit(function(){
   }
 });
 
+$('.form-delete-article').submit(function(){
+
+  if(!confirm('Do you really want to delete this article?')){
+     return false;
+  }
+});
+
 $('.form-delete-category').submit(function(){
 
   if(!confirm('Do you really want to delete this category and all related articles?')){
