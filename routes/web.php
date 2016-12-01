@@ -85,6 +85,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
         Route::resource('articles', 'Backend\ArticleController');
     });
 
+    Route::group(['prefix' => 'filemanager', 'middleware' => 'auth'], function () {
+        Route::get('show', 'FilemanagerLaravelController@getShow');
+        Route::get('connectors', 'FilemanagerLaravelController@getConnectors');
+        Route::post('connectors', 'FilemanagerLaravelController@postConnectors');
+    });
+
     Route::get('/back-to-admin-mode', 'Backend\ImpersonificationController@backToAdminMode');
 
     Route::get('subscriptions', 'Backend\SubscriptionController@index');

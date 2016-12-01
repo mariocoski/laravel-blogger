@@ -13,15 +13,24 @@ import Flatpickr from 'Flatpickr';
 import List from 'list.js';
 import ListPagination from './libs/list.pagination';
 
+
+
+
+$(document).ready(function() {
+
 toastr.options = {
   closeButton : true,
   timeOut : 5000,
   positionClass: "toast-top-center"
 }
 
+// <script type="text/javascript" src="{{ url('') }}/tinymce/tinymce.min.js"></script>
+// <script type="text/javascript" src="{{ url('') }}/tinymce/tinymce_editor.js"></script>
+// var editor_config = {};
+// editor_config.selector = "textarea";
+// editor_config.path_absolute = "http://blogger.dev/";
+// tinymce.init(editor_config);
 
-
-$(document).ready(function() {
 
 
 $('.form-delete-user').submit(function(){
