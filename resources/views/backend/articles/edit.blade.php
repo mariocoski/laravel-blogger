@@ -76,6 +76,7 @@
     </div>
   </div>
 
+    <textarea id="mytextarea">Hello, World!</textarea>
 
   <!--
    'author_id' => $factory->create(App\Models\User::class)->id,
