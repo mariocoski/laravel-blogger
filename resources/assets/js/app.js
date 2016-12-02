@@ -87,6 +87,12 @@ function updateTagSlug(){
   $('#tag-slug').attr('value', newValue);
 }
 
+function updateArticleSlug(){
+  let name = $('#article-title').val().trim();
+  let newValue = (name)? convertToSlug(name) : "";
+  $('#article-slug').attr('value', newValue);
+}
+
 
 $('#first_name').change(() => {
   updateDisplayName();
@@ -98,6 +104,10 @@ $('#last_name').change(() => {
 
 $('#category-name').change(() => {
   updateCategorySlug();
+});
+
+$('#article-title').change(() => {
+  updateArticleSlug();
 });
 
 

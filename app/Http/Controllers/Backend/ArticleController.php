@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Tag;
 use App\Models\User;
 use View;
 
@@ -20,22 +21,26 @@ class ArticleController extends Controller
     {
         $users = User::all();
 
+        $tags = Tag::all();
+
         $categories = Category::all();
 
         $article = Article::with('tags', 'author', 'category')->findOrFail($id);
 
-        return View::make('backend.articles.edit', compact('article', 'users', 'categories'));
+        return View::make('backend.articles.edit', compact('article', 'users', 'categories', 'tags'));
     }
 
     public function edit($id)
     {
         $users = User::all();
 
+        $tags = Tag::all();
+
         $categories = Category::all();
 
         $article = Article::with('tags', 'author', 'category')->findOrFail($id);
 
-        return View::make('backend.articles.edit', compact('article', 'users', 'categories'));
+        return View::make('backend.articles.edit', compact('article', 'users', 'categories', 'tags'));
     }
 
     public function create()

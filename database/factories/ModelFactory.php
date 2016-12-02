@@ -47,8 +47,6 @@ $factory->define(App\Models\Article::class, function ($faker) use ($factory) {
         'content' => $faker->paragraph,
         'raw_content' => $faker->paragraph,
         'article_image' => 'fox_unsplash.jpeg',
-        'meta_keywords' => $faker->sentence,
-        'meta_description' => $faker->sentence,
         'is_published' => true,
         'published_at' => date('Y-m-d H:i:s'),
     ];
