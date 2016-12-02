@@ -67,6 +67,7 @@
          path_absolute : '',
           // language : 'en_GB',
          // selector: "textarea",
+         height: 500,
          theme: "modern",
          plugins: [
              "advlist autolink lists link image charmap print preview hr anchor pagebreak",
@@ -117,7 +118,7 @@
 
              }
      };
-     editor_config.selector = "#mytextarea";
+     editor_config.selector = "#article-content";
      editor_config.path_absolute = "http://php-filemanager.rhcloud.com/examples/basic.html";
      tinymce.init(editor_config);
   </script>

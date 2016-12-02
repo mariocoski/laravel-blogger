@@ -22,6 +22,13 @@ class Article extends Model
         return $this->belongsToMany('App\Models\Tag', 'articles_tags', 'tag_id', 'article_id');
     }
 
+    public function getAssociatedTagsAttribute()
+    {
+        return $this->tags->map(function ($tag) {
+            return $tag->id;
+        })->implode(',');
+    }
+
     public function author()
     {
         return $this->belongsTo('App\Models\User', 'author_id');

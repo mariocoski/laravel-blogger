@@ -54,12 +54,12 @@
   </div>
 
   <div class="field fluid {{ $errors->has('author_id') ? 'error' : '' }}">
-    <label>Author</label>
-    <select class="ui dropdown" name="author_id" value="{{ old('author_id')}}">
+    <label for="author_id">Author</label>
+    <select class="ui dropdown" name="author_id" id="author_id" value="{{ old('author_id')}}">
       <option value="">Author</option>
       @if(isset($categories))
         @foreach($users as $user)
-          @if((!empty($article) && $article->author_id == $user->id) || old('author_id') == $article->author_id)
+          @if((!empty($article) && $article->author_id == $user->id) || old('author_id') == $user->id || $user->id == Auth::user()->id)
             <option value="{{ $user->id }}" selected>{{ ($user->display_name) ?? $user->email}} </option>
           @else
             <option value="{{ $user->id }}">{{ ($user->display_name) ?? $user->email}}</option>
@@ -69,29 +69,76 @@
     </select>
   </div>
 
-  <div class="field fluid {{ $errors->has('published_at') ? 'error' : '' }}">
-    <label for="published_at">Published at</label>
+   <div class="field fluid {{ $errors->has('tags') ? 'error' : '' }}">
+     <label for="tags">Tags</label>
+     <div class="ui multiple selection dropdown multiple-dropdown field-prevent-send">
+        <input type="hidden" name="tags" id="tags" value="{{ ($article->associated_tags) ?? old('tags') }}">
+         <div class="default text">Tags</div>
+         <div class="menu">
+          @if(isset($tags) && count($tags))
+            @foreach($tags as $tag)
+              <div class="item" data-value="{{$tag->id}}">{{$tag->name}}</div>
+            @endforeach
+          @endif
+         </div>
+     </div>
+   </div>
+
+
+   <div class="field">
+     <label for="article-image">Article Image</label>
+     <div class="ui left action input">
+      <button class="ui teal labeled icon button">
+        <i class="image icon"></i>
+        Pick Image
+      </button>
+      <input type="text" name="article_image" id="article-image" value="{{($article->article_image) ?? old('article_image') }}" placeholder="relative image url">
+    </div>
+   <div class="ui segment left floated segment-margin">
+     <div class="ui medium bordered image">
+        <img src="{{url('images/'.$article->article_image)}}">
+      </div>
+     </div>
+   </div>
+
+
+  <div class="field {{ $errors->has('content') ? 'error' : '' }}">
+    <label for="article-content">Content</label>
+    <textarea id="article-content" name="content">{{ ($article->content) ?? old('content') }}</textarea>
+  </div>
+
+    <div class="field fluid {{ $errors->has('meta_description') ? 'error' : '' }}">
+    <label for="meta_description">Meta Description</label>
     <div class="ui input">
-      <input type="text" name="published_at" class="published-at" id="published_at" placeholder="YYYY-MM-DD H:i:s" value="{{ ($user->published_at) ?? old('published_at') }}" >
+      <input type="text" name="meta_description" id="meta_description" placeholder="Meta Description" value="{{($article->meta->description) ?? old('meta_description') }}" >
     </div>
   </div>
 
-    <textarea id="mytextarea">Hello, World!</textarea>
+   <div class="field fluid {{ $errors->has('meta_keywords') ? 'error' : '' }}">
+     <label for="meta_keywords">Meta Keywords</label>
+     <div class="ui multiple search selection dropdown multiple-dropdown field-prevent-send">
+        <input type="hidden" name="meta_keywords" value="{{ ($article->meta_keywords) ?? old('meta_keywords') }}">
+         <div class="default text">Meta Keywords</div>
+         <div class="menu"></div>
+     </div>
+   </div>
 
-  <!--
-   'author_id' => $factory->create(App\Models\User::class)->id,
-        'category_id' => $factory->create(App\Models\Category::class)->id,
-        'title' => $title = $faker->sentence,
-        'slug' => str_slug($title),
-        'subtitle' => $faker->sentence,
-        'content' => $faker->paragraph,
-        'raw_content' => $faker->paragraph,
-        'article_image' => 'fox_unsplash.jpeg',
-        'meta_keywords' => $faker->sentence,
-        'meta_description' => $faker->sentence,
-        'is_published' => true,
-        'published_at' => date('Y-m-d H:i:s'),
--->
+  <div class="field">
+  <label for="is_published">Is published</label>
+    <div class="ui left floated compact segment segment-margin">
+      <div class="ui fitted toggle checkbox">
+        <input type="checkbox" name="is_published" value="1" {{ ($article->is_published === 1 || old('is_published')) ? 'checked' : '' }}>
+      </div>
+   </div>
+  </div>
+
+  <div class="field fluid {{ $errors->has('published_at') ? 'error' : '' }}">
+    <label for="published_at">Published at</label>
+    <div class="ui input">
+      <input type="text" name="published_at" class="published-at" id="published_at" placeholder="YYYY-MM-DD H:i:s" value="{{ ($article->published_at) ?? old('published_at') }}" >
+    </div>
+  </div>
+
 
     <button class="ui fluid fluid orange submit button" type="submit" name="submit">
     @if(!empty($article))

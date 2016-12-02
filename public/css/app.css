@@ -806,6 +806,10 @@ span.flatpickr-weekday {
   padding-bottom: 0.5em;
 }
 
+.ui.segment.segment-margin {
+  margin: 1em 0 1em 0;
+}
+
 form.form-inline {
   display: inline-block;
   margin: 0;
