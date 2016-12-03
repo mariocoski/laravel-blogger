@@ -63,6 +63,13 @@ Route::get('search', 'Frontend\HomepageController@search');
 | Back-end routes
 |--------------------------------------------------------------------------
  */
+
+Route::group(['prefix' => 'filemanager', 'middleware' => 'role:editor'], function () {
+    Route::get('show', 'Backend\FilemanagerLaravelController@getShow');
+    Route::get('connectors', 'Backend\FilemanagerLaravelController@getConnectors');
+    Route::post('connectors', 'Backend\FilemanagerLaravelController@postConnectors');
+});
+
 Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     Route::get('/', 'Backend\DashboardController@index');
     Route::get('profile', 'Backend\ProfileController@index');
@@ -83,12 +90,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
         Route::resource('categories', 'Backend\CategoryController');
         Route::resource('tags', 'Backend\TagController');
         Route::resource('articles', 'Backend\ArticleController');
-    });
-
-    Route::group(['prefix' => 'filemanager', 'middleware' => 'auth'], function () {
-        Route::get('show', 'FilemanagerLaravelController@getShow');
-        Route::get('connectors', 'FilemanagerLaravelController@getConnectors');
-        Route::post('connectors', 'FilemanagerLaravelController@postConnectors');
+        Route::get('manager', 'Backend\MediaController@manager');
     });
 
     Route::get('/back-to-admin-mode', 'Backend\ImpersonificationController@backToAdminMode');

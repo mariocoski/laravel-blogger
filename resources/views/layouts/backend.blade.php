@@ -119,7 +119,8 @@
              }
      };
      editor_config.selector = "#article-content";
-     editor_config.path_absolute = "http://php-filemanager.rhcloud.com/examples/basic.html";
+     // editor_config.path_absolute = "http://php-filemanager.rhcloud.com/examples/basic.html";
+     editor_config.path_absolute = "http://blogger.dev/filemanager/show";
      tinymce.init(editor_config);
   </script>
      <!--  @include('partials._alerts') -->

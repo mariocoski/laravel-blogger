@@ -7,7 +7,7 @@ class FilemanagerLaravelController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('role:editor');
 
     }
     public function getShow()
