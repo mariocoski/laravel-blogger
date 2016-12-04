@@ -88,15 +88,15 @@
    <div class="field">
      <label for="article-image">Article Image</label>
      <div class="ui left action input">
-      <button class="ui teal labeled icon button">
+      <button class="ui teal labeled icon button" id="article-pick-image">
         <i class="image icon"></i>
         Pick Image
       </button>
-      <input type="text" name="article_image" id="article-image" value="{{($article->article_image) ?? old('article_image') }}" placeholder="relative image url">
+      <input type="text" name="article_image" id="article-image-path" value="{{($article->article_image) ?? old('article_image') }}" placeholder="relative image url">
     </div>
    <div class="ui segment left floated segment-margin">
      <div class="ui medium bordered image">
-        <img src="{{url('images/'.$article->article_image)}}">
+        <img id="article-image-preview" src="{{url('images/'.$article->article_image)}}">
       </div>
      </div>
    </div>

@@ -13,8 +13,4 @@ class MediaController extends Controller
         return View::make('backend.media.index');
     }
 
-    public function manager()
-    {
-        return View::make('backend.media.manager');
-    }
 }

@@ -3,5 +3,7 @@
 @section('title', 'Page Title')
 
 @section('content')
-  <h1>Content</h1>
+<h2>Media Manager</h2>
+<iframe src="{{url('filemanager/show')}}" class="media-manager-frame"></iframe>
+
 @endsection

@@ -1,6 +1,9 @@
 /bower_components
 /node_modules
 /public/storage
+/public/filemanager
+/public/tinymce
+/public/js/tinymce
 /vendor
 /.idea
 Homestead.json
