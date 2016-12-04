@@ -1,7 +1,5 @@
 <?php
 
-Route::get('autocomplete', 'Frontend\HomepageController@autocomplete');
-
 /*
 |--------------------------------------------------------------------------
 | Auth routes
@@ -32,31 +30,7 @@ Route::get("/", 'Frontend\HomepageController@index');
 Route::get('contact', 'Frontend\HomepageController@contact');
 Route::get('about', 'Frontend\HomepageController@about');
 Route::get('search', 'Frontend\HomepageController@search');
-
-//       Route::get(LaravelLocalization::transRoute('routes.login'),'Auth\LoginController@showLoginForm');
-//       Route::get(LaravelLocalization::transRoute('routes.articles'),function($slug){
-//         return $slug;
-//       });
-//             Route::get(LaravelLocalization::transRoute('routes.about'),function(){
-//                 return View::make('about');
-//             });
-//             Route::get(LaravelLocalization::transRoute('routes.view'),function($id){
-//                 return View::make('view',['id'=>$id]);
-//             });
-//
-//     //  Route::get('/{login}/','Auth\LoginController@showLoginForm')->where('login', trans('routes.auth.login.url'));
-//
-//       Route::get('/', function () {
-//           return view('welcome');
-//       });
-//       // Auth::routes();
-//
-//       Route::get('/{articles}/{slug}', function ($slug) {
-//           return "Artykul ".$slug;
-//       })->where('articles', trans('routes.blog.articles.url'));;
-//
-// Route::get('/terms','Frontend\HomeController@terms');
-// Route::get('/home', 'HomeController@index');
+Route::get('autocomplete', 'Frontend\HomepageController@autocomplete');
 
 /*
 |--------------------------------------------------------------------------
@@ -94,11 +68,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     });
 
     Route::get('/back-to-admin-mode', 'Backend\ImpersonificationController@backToAdminMode');
-
     Route::get('subscriptions', 'Backend\SubscriptionController@index');
 
-    //Route::get('categories', 'Backend\CategoryController@index');
-    Route::get('tags', 'Backend\TagController@index');
     Route::get('media', 'Backend\MediaController@index');
     Route::get('help', 'Backend\HelpController@index');
 });

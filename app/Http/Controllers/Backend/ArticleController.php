@@ -72,8 +72,8 @@ class ArticleController extends Controller
 
     public function destroy($id)
     {
-        // User::findOrFail($id)->delete($id);
+        Article::findOrFail($id)->delete($id);
 
-        // return redirect()->back()->with('status', 'User has been deleted');
+        return redirect()->back()->with('status', 'Article has been deleted');
     }
 }
