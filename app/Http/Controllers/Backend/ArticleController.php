@@ -45,8 +45,13 @@ class ArticleController extends Controller
 
     public function create()
     {
-        // $roles = Role::all();
-        // return View::make('backend.users.edit', compact('roles'));
+        $users = User::all();
+
+        $tags = Tag::all();
+
+        $categories = Category::all();
+
+        return View::make('backend.articles.edit', compact('users', 'categories', 'tags'));
     }
 
     public function store(UserCreateRequest $request)
