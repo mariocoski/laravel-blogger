@@ -43,7 +43,7 @@
       <option value="">Category</option>
       @if(isset($categories))
         @foreach($categories as $category)
-          @if((!empty($article) && $article->category->id == $category->id) || old('category') == $article->category->id)
+          @if(!empty($article) && (($article->category->id == $category->id) || old('category') == $article->category->id))
                 <option value="{{ $category->id }}" selected>{{$category->name}} </option>
           @else
                 <option value="{{ $category->id }}">{{$category->name}} </option>
@@ -94,9 +94,10 @@
       </button>
       <input type="text" name="article_image" id="article-image-path" value="{{($article->article_image) ?? old('article_image') }}" placeholder="relative image url">
     </div>
+
    <div class="ui segment left floated segment-margin">
      <div class="ui medium bordered image">
-        <img id="article-image-preview" src="{{url('images/'.$article->article_image)}}">
+        <img id="article-image-preview" src="{{ (isset($article) && $article->article_image)? url('images/'.$article->article_image): "" }}">
       </div>
      </div>
    </div>
@@ -127,7 +128,7 @@
   <label for="is_published">Is published</label>
     <div class="ui left floated compact segment segment-margin">
       <div class="ui fitted toggle checkbox">
-        <input type="checkbox" name="is_published" value="1" {{ ($article->is_published === 1 || old('is_published')) ? 'checked' : '' }}>
+        <input type="checkbox" name="is_published" value="1" {{ (isset($article) && $article->is_published === 1 || old('is_published')) ? 'checked' : '' }}>
       </div>
    </div>
   </div>

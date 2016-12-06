@@ -43,6 +43,7 @@
      var pickImage = document.querySelector('#article-pick-image');
      pickImage.onclick = function(){
      	BrowseServer('article-image-path');
+      return false;
      }
 
 
