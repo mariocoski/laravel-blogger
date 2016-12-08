@@ -9,12 +9,8 @@ import ContactForm from './libs/ContactForm';
 import lazyload from 'jquery-lazyload';
 import ShowPassword from './libs/ShowPassword';
 import Flatpickr from 'Flatpickr';
-
 import List from 'list.js';
 import ListPagination from './libs/list.pagination';
-
-
-
 
 $(document).ready(function() {
 
@@ -24,38 +20,25 @@ toastr.options = {
   positionClass: "toast-top-center"
 }
 
-// <script type="text/javascript" src="{{ url('') }}/tinymce/tinymce.min.js"></script>
-// <script type="text/javascript" src="{{ url('') }}/tinymce/tinymce_editor.js"></script>
-// var editor_config = {};
-// editor_config.selector = "textarea";
-// editor_config.path_absolute = "http://blogger.dev/";
-// tinymce.init(editor_config);
-
-
-
 $('.form-delete-user').submit(function(){
-
   if(!confirm('Do you really want to delete this user?')){
      return false;
   }
 });
 
 $('.form-delete-article').submit(function(){
-
   if(!confirm('Do you really want to delete this article?')){
      return false;
   }
 });
 
 $('.form-delete-category').submit(function(){
-
   if(!confirm('Do you really want to delete this category and all related articles?')){
      return false;
   }
 });
 
 $('.form-delete-tag').submit(function(){
-
   if(!confirm('Do you really want to delete this tag and all related articles?')){
      return false;
   }
@@ -93,7 +76,6 @@ function updateArticleSlug(){
   $('#article-slug').attr('value', newValue);
 }
 
-
 $('#first_name').change(() => {
   updateDisplayName();
 });
@@ -110,7 +92,6 @@ $('#article-title').change(() => {
   updateArticleSlug();
 });
 
-
 $(".date-of-birth").flatpickr({
    maxDate: new Date(),
 });
@@ -119,17 +100,17 @@ $(".published-at").flatpickr({
    enableTime: true
 });
 
-
-  var topPaginationOptions = {
+var topPaginationOptions = {
     paginationClass: "top-list-pagination",
     outerWindow: 1,
     innerWindow: 1,
-  };
-  var bottomPaginationOptions = {
+};
+
+var bottomPaginationOptions = {
     paginationClass: "bottom-list-pagination",
     outerWindow: 1,
      innerWindow: 1,
-  };
+};
 
 var userOptions = {
   valueNames: [ 
@@ -147,6 +128,7 @@ var userOptions = {
     ListPagination(bottomPaginationOptions)
   ]
 };
+
 var userTableList = new List('user-table-list', userOptions);
 
 var categoryOptions = {
@@ -224,22 +206,18 @@ $('#article-list-search').keyup(function(){
   articleTableList.search(needle);
 });
 
-
-
-if (window.location.hash == '#_=_'){
-  
+if (window.location.hash == '#_=_'){  
     history.replaceState 
         ? history.replaceState(null, null, window.location.href.split('#')[0])
         : window.location.hash = '';
 }
+
 (new Scroller).init('.scroller');
 
 ContactForm.init('#contact-form-trigger');
 ShowPassword.init('.show-password','.show-password-field');
 ShowPassword.init('.show-new-password','.show-new-password-field');
 ShowPassword.init('.show-new-password-confirmation','.show-new-password-confirmation-field');
-
-
 
 SocialShare.init("id",{
   title:'This is the email subject and/or tweet text',
@@ -269,21 +247,9 @@ $('.ui.search')
       url: '/autocomplete/?q={query}'
     },
     type: 'standard'
-  })
-;
-//initialize placeholders for lazy loading$("img.lazy").lazyload({
-
-
-
+  });
 
 $("img.lazy.ui.fluid").show().lazyload({effect : "fadeIn",threshold : 500});
-// $('img.image')
-//   .visibility({
-//     type       : 'image',
-//     transition : 'fade in',
-//     duration   : 1000
-//   })
-// ;
 
 $('.favorite').popup();
 
