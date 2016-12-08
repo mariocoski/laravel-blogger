@@ -87,7 +87,7 @@ class Socializer
             $this->providerColumnName => $user->id,
             'avatar' => $user->avatar,
         ]);
-        $user->toggleRoles([Role::user()]);
+        $user->resolveRole(Role::user()->id);
         return $user;
     }
 }
