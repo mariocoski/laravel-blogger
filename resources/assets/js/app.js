@@ -44,6 +44,12 @@ $('.form-delete-tag').submit(function(){
   }
 });
 
+$('.form-remove-cache').submit(function(){
+  if(!confirm('Do you really want to delete all cached files? It might take a while')){
+     return false;
+  }
+});
+
 function convertToSlug(text)
 {
     return text
