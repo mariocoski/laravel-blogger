@@ -48,11 +48,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     Route::get('/', 'Backend\DashboardController@index');
     Route::get('profile', 'Backend\ProfileController@index');
 
-    Route::get('tools', 'Backend\ToolsController@index');
-
     //admin only
     Route::group(['middleware' => 'role:admin'], function () {
         Route::resource('users', 'Backend\UserController');
+
+        Route::get('tools', 'Backend\ToolsController@index');
+        Route::post('clear-cache', 'Backend\ToolsController@clearCache');
 
         Route::get('impersonate/{id}', 'Backend\ImpersonificationController@impersonate');
         Route::get('settings', 'Backend\SettingsController@index');
