@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Article\ArticleCreateRequest;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
@@ -54,13 +55,14 @@ class ArticleController extends Controller
         return View::make('backend.articles.edit', compact('users', 'categories', 'tags'));
     }
 
-    public function store(UserCreateRequest $request)
+    public function store(ArticleCreateRequest $request)
     {
-        // $user = User::create($request->getValidRequest());
 
-        // $user->resolveRole($request->role);
+        $article = Article::create($request->getValidRequest());
 
-        // return redirect('dashboard/users')->with('status', 'New user has been created');
+        $article->fresh()->updateTags($request->tags);
+
+        return redirect('dashboard/articles')->with('status', 'Article has been created');
     }
 
     public function update(UserUpdateRequest $request, $id)

@@ -11,7 +11,9 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('categories')->truncate();
         factory(App\Models\Category::class, 3)->create();
+
     }
 }

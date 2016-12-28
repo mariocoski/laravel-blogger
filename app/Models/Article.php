@@ -8,8 +8,6 @@ class Article extends Model
 {
     protected $guarded = [];
 
-    protected $dates = ['published_at'];
-
     protected $append = ['author_name'];
 
     public function category()
@@ -19,7 +17,13 @@ class Article extends Model
 
     public function tags()
     {
-        return $this->belongsToMany('App\Models\Tag', 'articles_tags', 'tag_id', 'article_id');
+        return $this->belongsToMany('App\Models\Tag', 'articles_tags', 'article_id', 'tag_id');
+    }
+
+    public function updateTags($commaDelimittedTags)
+    {
+        $tags = explode(',', $commaDelimittedTags);
+        $this->tags()->sync($tags);
     }
 
     public function getAssociatedTagsAttribute()

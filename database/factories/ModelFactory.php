@@ -29,6 +29,33 @@ $factory->define(App\Models\Category::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Models\Role::class, function (Faker\Generator $faker) {
+    return [
+        'name' => 'user',
+        'display_name' => 'User',
+        'description' => 'Can view and edit own profile',
+        'permissions_level' => 1,
+    ];
+});
+
+$factory->state(App\Models\Role::class, 'editor', function (Faker\Generator $faker) {
+    return [
+        'name' => 'editor',
+        'display_name' => 'Editor',
+        'description' => 'Can view and edit own profile, can create/update articles',
+        'permissions_level' => 2,
+    ];
+});
+
+$factory->state(App\Models\Role::class, 'admin', function (Faker\Generator $faker) {
+    return [
+        'name' => 'admin',
+        'display_name' => 'Admin',
+        'description' => 'Can view and edit own profile, can create/update/publish/delete articles, can create/update/delete users',
+        'permissions_level' => 3,
+    ];
+});
+
 $factory->define(App\Models\Tag::class, function (Faker\Generator $faker) {
     return [
         'name' => $name = $faker->unique()->word,

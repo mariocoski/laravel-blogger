@@ -14,19 +14,12 @@ class CategoryTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        Artisan::call('migrate');
-        $this->seed('RolesTableSeeder');
+        Artisan::call('db:seed');
         $newAdmin = factory(App\Models\User::class)->create();
         $newAdmin->resolveRole(Role::admin()->id);
         $this->admin = $newAdmin;
 
         $this->category = factory(App\Models\Category::class)->create();
-    }
-
-    public function tearDown()
-    {
-        Artisan::call('migrate:reset');
-        parent::tearDown();
     }
 
     private $admin;

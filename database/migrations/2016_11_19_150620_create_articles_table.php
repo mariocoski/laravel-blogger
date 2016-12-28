@@ -28,7 +28,7 @@ class CreateArticlesTable extends Migration
             $table->string('meta_keywords')->nullable();
             $table->string('meta_description')->nullable();
             $table->boolean('is_published')->default(false);
-            $table->timestamp('published_at')->nullable()->index();
+            $table->datetime('published_at')->nullable()->index();
             $table->string('layout')->default(config('blogger.article_layout'));
             $table->timestamps();
         });

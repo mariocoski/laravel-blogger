@@ -11,6 +11,7 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('roles')->truncate();
         DB::table('roles')->insert([
             'id' => 1,
@@ -34,5 +35,6 @@ class RolesTableSeeder extends Seeder
             'description' => 'Can view and edit own profile, can create/update/publish/delete articles, can create/update/delete users',
             'permissions_level' => 3,
         ]);
+
     }
 }
