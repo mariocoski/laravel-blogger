@@ -11,6 +11,7 @@ class SettingsTableSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('settings')->truncate();
         DB::table('settings')->insert(['name' => 'meta_title']);
         DB::table('settings')->insert(['name' => 'meta_author']);
@@ -19,6 +20,7 @@ class SettingsTableSeeder extends Seeder
         DB::table('settings')->insert(['name' => 'meta_robots']);
         DB::table('settings')->insert(['name' => 'disqus_shortname']);
         DB::table('settings')->insert(['name' => 'google_analytics_id']);
+
     }
 
 }

@@ -14,18 +14,10 @@ class SettingsTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        Artisan::call('migrate');
-        $this->seed('RolesTableSeeder');
-        $this->seed('SettingsTableSeeder');
+        Artisan::call('db:seed');
         $newAdmin = factory(App\Models\User::class)->create();
         $newAdmin->resolveRole(Role::admin()->id);
         $this->admin = $newAdmin;
-    }
-
-    public function tearDown()
-    {
-        Artisan::call('migrate:reset');
-        parent::tearDown();
     }
 
     private $admin;

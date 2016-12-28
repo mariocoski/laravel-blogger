@@ -13,21 +13,15 @@ class UserTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        Artisan::call('migrate');
-        $this->seed('RolesTableSeeder');
+        Artisan::call('db:seed');
         $newAdmin = factory(App\Models\User::class)->create();
         $newAdmin->resolveRole(Role::admin()->id);
         $this->admin = $newAdmin;
 
         $newUser = factory(App\Models\User::class)->create();
-        $newUser->resolveRole(Role::user()->id);
+        $newUser->resolveRole(Role::editor()->id);
         $this->user = $newUser;
-    }
 
-    public function tearDown()
-    {
-        Artisan::call('migrate:reset');
-        parent::tearDown();
     }
 
     private $admin;

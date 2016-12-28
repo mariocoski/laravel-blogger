@@ -6,11 +6,11 @@
 
 @if(!empty($article))
 <h2>Update an Article</h2>
-<form class="ui form" method="POST" action="{{url('dashboard/categories/'.$article->id)}}">
+<form class="ui form" method="POST" action="{{url('dashboard/articles/'.$article->id)}}">
 {{method_field('PUT')}}
 @else
 <h2>Create an Article</h2>
-<form class="ui form" method="POST" action="{{url('dashboard/categories')}}">
+<form class="ui form" method="POST" action="{{url('dashboard/articles')}}">
 @endif
   {{csrf_field()}}
   @include('partials._errors')
@@ -43,7 +43,7 @@
       <option value="">Category</option>
       @if(isset($categories))
         @foreach($categories as $category)
-          @if(!empty($article) && (($article->category->id == $category->id) || old('category') == $article->category->id))
+          @if((!empty($article) && $article->category->id == $category->id) || old('category') == $category->id)
                 <option value="{{ $category->id }}" selected>{{$category->name}} </option>
           @else
                 <option value="{{ $category->id }}">{{$category->name}} </option>

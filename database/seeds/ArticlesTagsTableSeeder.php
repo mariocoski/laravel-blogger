@@ -13,6 +13,7 @@ class ArticlesTagsTableSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('articles_tags')->truncate();
         $articles = Article::all();
         $tags = Tag::all()->toArray();
@@ -20,5 +21,6 @@ class ArticlesTagsTableSeeder extends Seeder
             $tagsToAttach = array_unique(array_rand($tags, 3));
             $article->tags()->sync($tagsToAttach);
         }
+
     }
 }

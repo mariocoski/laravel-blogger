@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('users')->truncate();
         DB::table('users')->insert([
             'email' => 'admin@blogger.com',
@@ -48,5 +49,6 @@ class UsersTableSeeder extends Seeder
         ]);
         $user = User::findByEmail('user@blogger.com');
         $user->toggleRoles([Role::user()]);
+
     }
 }
