@@ -27,7 +27,7 @@
 							{{Auth::user()->getDisplayName()}}
 						</div>
 						<div class="ui center aligned">
-							<a href="{{url('/profile')}}"><img class="avatar-sm" src="{{(!empty(Auth::user()->avatar))? url(Auth::user()->avatar) : url("images/avatar_default.png")}}"></a>
+							<a href="{{url('/profile')}}"><img class="avatar-sm" src="{{(!empty(Auth::user()->avatar))? url('images/avatars/'.Auth::user()->avatar) : url("images/avatars/avatar_default.png")}}"></a>
 						</div>
 						<div class="menu">
 							<a class="item">{{Auth::user()->getRoleDisplayName()}}</a>

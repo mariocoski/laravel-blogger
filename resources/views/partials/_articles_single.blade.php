@@ -5,25 +5,23 @@
       <div class="ui card blogger-card fluid teal">
         <div class="content">
 
-          <div class="right floated meta">2 days ago</div>
-          <a href=""><img class="ui avatar mini image" src="/images/avatar_default.png"> John Doe, Journalist</a>
+          <div class="right floated meta">{{ $article->published_at->diffForHumans()}}</div>
+          <a href=""><img class="ui avatar mini image" src="{{(!empty($article->author->avatar))? url('images/avatars/'.$article->author->avatar) : url('images/avatars/avatar_default.png')}}"> {{$article->author_name}} {{ $article->author->job}}</a>
 
         </div>
 
         <div class="content">
-
           <div class="ui fluid image">
-              <!--TODO: change to auth check -->
-                @if(Auth::guest())
+                @if(Auth::check())
                 <a class="ui right  teal corner label favorite" href="javascript:void(0)" data-content="Add to favorites" data-variation="inverted">
                   <i class="white star icon" ></i>
                 </a>
                 @endif
                 <a href="" >
-                  <img class="ui fluid image lazy hoverable " data-original="images/{{$article->article_image}}"
+                  <img class="ui fluid image lazy hoverable " data-original="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}"
                   src="images/placeholder.gif" height="480" width="640" alt="picture">
                   <noscript>
-                    <img class="ui fluid image hoverable" height="480" width="640" src="images/{{$article->article_image}}">
+                    <img class="ui fluid image hoverable" height="480" width="640" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}">
                   </noscript>
                 </a>
         </div>

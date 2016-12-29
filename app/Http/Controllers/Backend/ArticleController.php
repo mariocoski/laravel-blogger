@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Article\ArticleCreateRequest;
+use App\Http\Requests\Article\ArticleUpdateRequest;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
@@ -65,16 +66,15 @@ class ArticleController extends Controller
         return redirect('dashboard/articles')->with('status', 'Article has been created');
     }
 
-    public function update(UserUpdateRequest $request, $id)
+    public function update(ArticleUpdateRequest $request, $id)
     {
+        $article = Article::findOrFail($id);
 
-        // $user = User::findOrFail($id);
+        $article->update($request->getValidRequest());
 
-        // $user->update($request->getValidRequest());
+        $article->fresh()->updateTags($request->tags);
 
-        // $user->resolveRole($request->role);
-
-        // return redirect()->back()->with('status', 'User has been updated');
+        return redirect()->back()->with('status', 'Article has been updated');
     }
 
     public function destroy($id)

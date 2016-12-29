@@ -36,7 +36,7 @@
         @foreach($articles as $article)
           <tr>
             <td class="article-table-id">{{$article->id}}</td>
-            <td class="article-table-title">{{$article->title}}</td>
+            <td class="article-table-title">{{ str_limit($article->title, $limit = 50, $end = '...') }}</td>
              <td class="article-table-category-name">{{$article->category_name}}</td>
             <td class="article-table-author-name">{{$article->author_name}}</td>
             <td class="article-table-status">
