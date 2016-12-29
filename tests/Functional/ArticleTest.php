@@ -58,6 +58,32 @@ class ArticleTest extends TestCase
         ]);
     }
 
+    public function test_if_can_update_an_article()
+    {
+        $this->actingAs($this->admin)
+            ->visit('/dashboard/articles/' . $this->article->id)
+            ->type("new title", 'title')
+            ->type("new subtitle", 'subtitle')
+            ->type("new slug", "slug")
+            ->type("new content", "content")
+            ->select($this->category->id, 'category')
+            ->select($this->editor->id, 'author_id')
+            ->type($this->tag->id, "tags")
+            ->press('submit');
+
+        $this->seePageIs('/dashboard/articles/' . $this->article->id);
+        $this->see('Article has been updated');
+
+        $this->seeInDatabase('articles', [
+            'title' => 'new title',
+            'subtitle' => 'new subtitle',
+            'slug' => 'new slug',
+            'content' => 'new content',
+            'category_id' => $this->category->id,
+            'author_id' => $this->editor->id,
+        ]);
+    }
+
     public function test_if_can_delete_an_article()
     {
         $this->actingAs($this->admin)

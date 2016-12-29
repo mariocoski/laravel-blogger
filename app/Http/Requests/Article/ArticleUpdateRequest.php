@@ -4,9 +4,10 @@ namespace App\Http\Requests\Article;
 
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Input;
 
-class ArticleCreateRequest extends FormRequest
+class ArticleUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,12 +27,13 @@ class ArticleCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:articles,title',
-            'slug' => 'required|unique:articles,slug',
-            'category' => 'required',
-            'author_id' => 'required',
+            'title' => ['required', Rule::unique('articles', 'title')->ignore($this->title, 'title')],
+            'title' => ['required', Rule::unique('articles', 'slug')->ignore($this->slug, 'slug')],
+            'category' => 'required|numeric',
+            'author_id' => 'required|numeric',
             'content' => 'required',
         ];
+
     }
 
     public function getValidRequest()

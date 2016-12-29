@@ -72,9 +72,8 @@ $factory->define(App\Models\Article::class, function ($faker) use ($factory) {
         'slug' => str_slug($title),
         'subtitle' => $faker->sentence,
         'content' => $faker->paragraph,
-        'raw_content' => $faker->paragraph,
         'article_image' => 'fox_unsplash.jpeg',
-        'is_published' => true,
+        'is_draft' => true,
         'published_at' => date('Y-m-d H:i:s'),
     ];
 });

@@ -97,7 +97,7 @@
 
    <div class="ui segment left floated segment-margin">
      <div class="ui medium bordered image">
-        <img id="article-image-preview" src="{{ (isset($article) && $article->article_image)? url('images/'.$article->article_image): "" }}">
+        <img id="article-image-preview" src="{{ (isset($article) && $article->article_image)? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): "" }}">
       </div>
      </div>
    </div>
@@ -111,7 +111,7 @@
     <div class="field fluid {{ $errors->has('meta_description') ? 'error' : '' }}">
     <label for="meta_description">Meta Description</label>
     <div class="ui input">
-      <input type="text" name="meta_description" id="meta_description" placeholder="Meta Description" value="{{($article->meta->description) ?? old('meta_description') }}" >
+      <input type="text" name="meta_description" id="meta_description" placeholder="Meta Description" value="{{($article->meta_description) ?? old('meta_description') }}" >
     </div>
   </div>
 
@@ -125,10 +125,10 @@
    </div>
 
   <div class="field">
-  <label for="is_published">Is published</label>
+  <label for="is_draft">Is draft</label>
     <div class="ui left floated compact segment segment-margin">
       <div class="ui fitted toggle checkbox">
-        <input type="checkbox" name="is_published" value="1" {{ (isset($article) && $article->is_published === 1 || old('is_published')) ? 'checked' : '' }}>
+        <input type="checkbox" name="is_draft" value="1" {{ (isset($article) && $article->is_draft === 1 || old('is_draft')) ? 'checked' : '' }}>
       </div>
    </div>
   </div>
