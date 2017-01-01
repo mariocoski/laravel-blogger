@@ -73,7 +73,7 @@ $factory->define(App\Models\Article::class, function ($faker) use ($factory) {
         'subtitle' => $faker->sentence,
         'content' => $faker->paragraph,
         'article_image' => 'fox_unsplash.jpeg',
-        'is_draft' => true,
+        'is_published' => true,
         'published_at' => date('Y-m-d H:i:s'),
     ];
 });

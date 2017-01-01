@@ -125,10 +125,10 @@
    </div>
 
   <div class="field">
-  <label for="is_draft">Is draft</label>
+  <label for="is_published">Is published</label>
     <div class="ui left floated compact segment segment-margin">
       <div class="ui fitted toggle checkbox">
-        <input type="checkbox" name="is_draft" value="1" {{ (isset($article) && $article->is_draft === 1 || old('is_draft')) ? 'checked' : '' }}>
+        <input type="checkbox" name="is_published" value="1" {{ (isset($article) && $article->is_published === 1 || old('is_published')) ? 'checked' : '' }}>
       </div>
    </div>
   </div>

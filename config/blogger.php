@@ -55,7 +55,7 @@ return [
     | Defines layout of the article
     |
      */
-    'article_layout' => 'layouts.article_standard',
+    'article_layout' => 'layouts.article',
 
     /*
     |--------------------------------------------------------------------------
