@@ -40,10 +40,10 @@
              <td class="article-table-category-name">{{$article->category_name}}</td>
             <td class="article-table-author-name">{{$article->author_name}}</td>
             <td class="article-table-status">
-              @if($article->is_published)
-               <span class="ui label green">Published</span>
+              @if($article->is_draft)
+               <span class="ui label grey">Draft</span>
               @else
-                <span class="ui label grey">Draft</span>
+                <span class="ui label green">Published</span>
               @endif
             </td>
             <td class="article-table-created-at">{{$article->created_at->format('d M Y')}}</td>

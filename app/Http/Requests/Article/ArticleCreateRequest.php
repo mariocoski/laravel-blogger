@@ -46,7 +46,7 @@ class ArticleCreateRequest extends FormRequest
             'article_image' => $this->input('article_image'),
             'meta_keywords' => $this->input('meta_keywords'),
             'meta_description' => $this->input('meta_description'),
-            'is_draft' => $this->input('is_draft') ?? false,
+            'is_published' => $this->input('is_published') ?? false,
             'published_at' => $this->input('published_at'),
         ];
     }

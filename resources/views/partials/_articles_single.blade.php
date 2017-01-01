@@ -17,7 +17,7 @@
                   <i class="white star icon" ></i>
                 </a>
                 @endif
-                <a href="" >
+                <a href="{{url('/blog/'.$article->slug)}}">
                   <img class="ui fluid image lazy hoverable " data-original="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}"
                   src="images/placeholder.gif" height="480" width="640" alt="picture">
                   <noscript>
@@ -25,7 +25,7 @@
                   </noscript>
                 </a>
         </div>
-        <h3><a href="">{{$article->title}}</a></h3>
+        <h3><a href="{{url('/blog/'.$article->slug)}}">{{$article->title}}</a></h3>
       </div>
         <div class="extra content">
           <i class="share icon"></i> Share via:
