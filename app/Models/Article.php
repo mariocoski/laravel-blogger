@@ -24,6 +24,11 @@ class Article extends Model
         return $this->belongsToMany('App\Models\Tag', 'articles_tags', 'article_id', 'tag_id');
     }
 
+    public function scopePublished($query)
+    {
+        return $query->where('is_published', 1)->whereNotNull("published_at")->where('published_at', '<', Carbon::now());
+    }
+
     public function updateTags($commaDelimittedTags)
     {
         $tags = explode(',', $commaDelimittedTags);
