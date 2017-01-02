@@ -26,7 +26,7 @@ Route::get('auth/google/callback', "OAuth\GoogleController@callback");
 |--------------------------------------------------------------------------
  */
 
-Route::get("/", 'Frontend\HomepageController@index');
+Route::get("/", 'Frontend\ArticleController@index');
 Route::get('contact', 'Frontend\HomepageController@contact');
 Route::get('about', 'Frontend\HomepageController@about');
 Route::get('search', 'Frontend\HomepageController@search');
