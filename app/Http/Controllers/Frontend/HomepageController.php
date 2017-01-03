@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Article;
 
 class HomepageController extends Controller
 {
@@ -44,12 +43,6 @@ class HomepageController extends Controller
             ],
         ]);
         return response()->json(['searched for' => $request->input('q')]);
-    }
-
-    public function index()
-    {
-        $articles = Article::paginate(config('blogger.pagination.articles_per_page'));
-        return view('index', compact('articles'));
     }
 
     public function about()

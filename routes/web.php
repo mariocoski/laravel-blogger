@@ -7,7 +7,7 @@
  */
 //Authentication routes
 Route::auth();
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('logout', 'Auth\LoginController@logout');
 Route::get('password/reset/{token}/{email}', 'Auth\ResetPasswordController@showResetForm');
 
 //OAuth routes
