@@ -14,7 +14,7 @@ class AvatarController extends Controller
     {
         $user = Auth::user();
 
-        return View::make('backend.profile.edit', compact('user'));
+        return View::make('backend.avatar.edit', compact('user'));
     }
 
     public function update(Request $request)
