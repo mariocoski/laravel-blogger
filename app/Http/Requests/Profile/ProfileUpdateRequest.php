@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Profile;
 
 use App\Models\User;
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UserUpdateRequest extends FormRequest
+class ProfileUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,7 +16,7 @@ class UserUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->hasRole('admin');
+        return Auth::check();
 
     }
 
@@ -24,12 +24,11 @@ class UserUpdateRequest extends FormRequest
     {
 
         return [
-            'email'         => 'required|email|max:255|unique:users,id,' . Auth::user()->id,
+            'email'         => 'required|email|max:255|unique:users,email,' . $this->email,
             'password'      => 'sometimes|min:6|confirmed',
             'first_name'    => 'required',
             'last_name'     => 'required',
             'display_name'  => 'required',
-            'role'          => 'required|numeric',
             'date_of_birth' => 'sometimes|date',
         ];
     }
