@@ -24,15 +24,12 @@ class UserUpdateRequest extends FormRequest
     {
 
         return [
-            'email' => [
-                'required', 'email', 'max:255',
-                Rule::unique('users', 'email')->ignore($this->email, 'email'),
-            ],
-            'password' => 'sometimes|min:6|confirmed',
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'display_name' => 'required',
-            'role' => 'required|numeric',
+            'email'         => 'required|email|max:255|unique:users,id,' . Auth::user()->id,
+            'password'      => 'sometimes|min:6|confirmed',
+            'first_name'    => 'required',
+            'last_name'     => 'required',
+            'display_name'  => 'required',
+            'role'          => 'required|numeric',
             'date_of_birth' => 'sometimes|date',
         ];
     }
@@ -45,24 +42,24 @@ class UserUpdateRequest extends FormRequest
     public function getValidRequest()
     {
         return [
-            'email' => $this->email,
-            'password' => $this->password,
-            'first_name' => $this->first_name,
-            'last_name' => $this->last_name,
-            'display_name' => $this->display_name,
-            'address' => $this->address,
-            'postcode' => $this->postcode,
-            'town' => $this->town,
-            'country' => $this->country,
-            'phone' => $this->phone,
-            'bio' => $this->bio,
-            'job' => $this->job,
-            'date_of_birth' => $this->date_of_birth,
-            'facebook_name' => $this->facebook_name,
-            'twitter_name' => $this->twitter_name,
+            'email'          => $this->email,
+            'password'       => $this->password,
+            'first_name'     => $this->first_name,
+            'last_name'      => $this->last_name,
+            'display_name'   => $this->display_name,
+            'address'        => $this->address,
+            'postcode'       => $this->postcode,
+            'town'           => $this->town,
+            'country'        => $this->country,
+            'phone'          => $this->phone,
+            'bio'            => $this->bio,
+            'job'            => $this->job,
+            'date_of_birth'  => $this->date_of_birth,
+            'facebook_name'  => $this->facebook_name,
+            'twitter_name'   => $this->twitter_name,
             'linked_in_name' => $this->linked_in_name,
-            'github_name' => $this->github_name,
-            'website_url' => $this->website_url,
+            'github_name'    => $this->github_name,
+            'website_url'    => $this->website_url,
         ];
     }
 }

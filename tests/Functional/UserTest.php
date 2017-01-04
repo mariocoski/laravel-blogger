@@ -60,9 +60,9 @@ class UserTest extends TestCase
             ->press('submit');
 
         $this->seeInDatabase('users', [
-            'email' => 'foo@bar.com',
-            'first_name' => 'foo',
-            'last_name' => 'bar',
+            'email'        => 'foo@bar.com',
+            'first_name'   => 'foo',
+            'last_name'    => 'bar',
             'display_name' => 'foo bar',
         ]);
 
@@ -101,7 +101,7 @@ class UserTest extends TestCase
     public function test_if_can_edit_user_role()
     {
         $currentRoleId = $this->user->getTheHighestRoleId();
-        $adminRoleId = Role::admin()->id;
+        $adminRoleId   = Role::admin()->id;
 
         $this->actingAs($this->admin)
             ->visit('/dashboard/users')
@@ -110,8 +110,7 @@ class UserTest extends TestCase
             ->select($adminRoleId, 'role')
             ->press('submit');
 
-        $updatedUser = User::find($this->user->id);
-
+        $updatedUser = $this->user->fresh();
         $this->assertEquals($adminRoleId, $updatedUser->getTheHighestRoleId());
     }
 
@@ -126,7 +125,7 @@ class UserTest extends TestCase
             ->type($newPassword, 'password_confirmation')
             ->press('submit');
 
-        $updatedUser = User::find($this->user->id);
+        $updatedUser = $this->user->fresh();
 
         $this->assertTrue(Hash::check($newPassword, $updatedUser->password));
     }

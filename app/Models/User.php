@@ -107,10 +107,13 @@ class User extends Authenticatable
 
     public function attachAllRoles($roleId)
     {
+
         $allRoles = Role::pluck('id')->toArray();
+
         $rolesToAttach = array_filter($allRoles, function ($id) use ($roleId) {
             return $id <= $roleId;
         });
+
         $this->roles()->sync($rolesToAttach);
 
     }
@@ -126,7 +129,7 @@ class User extends Authenticatable
             return null;
         }
 
-        $dateToSet = Carbon::createFromFormat('Y-m-d', $value);
+        $dateToSet                         = Carbon::createFromFormat('Y-m-d', $value);
         $this->attributes['date_of_birth'] = ($dateToSet !== false) ? $dateToSet : null;
     }
 
