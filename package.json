@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "bower": "^1.7.9",
+    "croppie": "^2.4.0",
     "flatpickr": "^2.0.8",
     "jquery-lazyload": "^1.9.7",
     "list.js": "^1.2.0",

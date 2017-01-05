@@ -13,7 +13,7 @@ return [
     |
     | Supported: "local", "ftp", "s3", "rackspace"
     |
-    */
+     */
 
     'default' => 'local',
 
@@ -26,9 +26,9 @@ return [
     | reason, you may specify a default "cloud" driver here. This driver
     | will be bound as the Cloud disk implementation in the container.
     |
-    */
+     */
 
-    'cloud' => 's3',
+    'cloud'   => 's3',
 
     /*
     |--------------------------------------------------------------------------
@@ -39,24 +39,28 @@ return [
     | may even configure multiple disks of the same driver. Defaults have
     | been setup for each driver as an example of the required options.
     |
-    */
+     */
 
-    'disks' => [
+    'disks'   => [
 
-        'local' => [
+        'local'   => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root'   => storage_path('app'),
+        ],
+        'avatars' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/images/avatars',
         ],
 
-        'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
+        'public'  => [
+            'driver'     => 'local',
+            'root'       => storage_path('app/public'),
             'visibility' => 'public',
         ],
 
-        's3' => [
+        's3'      => [
             'driver' => 's3',
-            'key' => 'your-key',
+            'key'    => 'your-key',
             'secret' => 'your-secret',
             'region' => 'your-region',
             'bucket' => 'your-bucket',

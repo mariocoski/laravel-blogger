@@ -40,7 +40,7 @@
 
     @else
 
-    <a class="ui right item"  href="{{ url('/dashboard') }}"> <img class="ui avatar mini image  hidden-mobile" src="{{(!empty(Auth::user()->avatar))? url(Auth::user()->avatar) : url("images/avatars/avatar_default.png")}}">&nbsp;Dashboard</a>
+    <a class="ui right item"  href="{{ url('/dashboard') }}"> <img class="ui avatar mini image  hidden-mobile" src="{{(!empty(Auth::user()->avatar))? url('images/avatars/'.Auth::user()->avatar) : url('images/avatars/avatar_default.png') }}">&nbsp;Dashboard</a>
     @if(Session::has( config('blogger.auth.impersonification.session_name')))
        <a class="item hidden-mobile hidden-tablet" href="{{ url('/dashboard/back-to-admin-mode') }}" name="back-to-admin-mode"><i class="spy icon"></i> Back to Admin Mode</a>
     @endif
