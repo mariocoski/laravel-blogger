@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     Route::put('profile', 'Backend\ProfileController@update');
 
     Route::get('avatar', 'Backend\AvatarController@edit');
-    Route::put('avatar', 'Backend\AvatarController@update');
+    Route::post('avatar', 'Backend\AvatarController@update');
 
     //admin only
     Route::group(['middleware' => 'role:admin'], function () {

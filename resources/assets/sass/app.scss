@@ -1,8 +1,21 @@
 @import "node_modules/flatpickr/dist/flatpickr.min";
+@import "node_modules/croppie/croppie";
+
+
+.short-segment{
+  height: 350px;
+}
 
 
 .white {
   color: #FFFFFF;
+}
+
+.upload-input{
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
 .italic-description{

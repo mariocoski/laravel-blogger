@@ -2,7 +2,6 @@ import $ from 'jquery';
 window.$ = window.jQuery = $;
 import toastr from 'toastr';
 window.toastr = toastr;
-
 import Scroller from './libs/Scroller';
 import SocialShare from './libs/SocialShare';
 import ContactForm from './libs/ContactForm';
@@ -14,6 +13,10 @@ import ListPagination from './libs/list.pagination';
 
 $(document).ready(function() {
 
+ $.ajaxSetup({
+    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+ });
+ 
 toastr.options = {
   closeButton : true,
   timeOut : 5000,
