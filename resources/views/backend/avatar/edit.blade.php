@@ -6,9 +6,8 @@
 
 <h2>Upload Avatar</h2>
 
-
-
 <img class="ui centered middle aligned tiny image rounded" src="{{(!empty(Auth::user()->avatar))? url('images/avatars/'.Auth::user()->avatar) : url('images/avatars/avatar_default.png') }}">
+
 <span><button class="ui button orange" id="upload-avatar">Upload avatar</button></span>
 
 <div class="ui modal small" id="avatar-modal">
@@ -16,12 +15,11 @@
   <div class="header" >
     Update your avatar
   </div>
-
   <div class="content">
   	<div class="description">
 	    <div class="ui segment short-segment">
 			<form action="" id="avatar-form" method="post" enctype="multipart/form-data">
-				<div id="upload-demo"></div>
+			<div id="upload-demo"></div>
 		</div>
 	</div>
   </div>
@@ -31,7 +29,6 @@
     </div>
 	 <label class="ui button orange" for="upload">Upload Image</label>
    	 <input type="file" id="upload" class="upload-input" >
-
     <div class="ui positive button update-avatar" id="avatar-update">
       Update avatar
     </div>
@@ -43,9 +40,8 @@
 @endsection
 
 @section('scripts')
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.4.0/croppie.js"></script>
+<script type="text/javascript" src="{{ url('js/croppie.min.js') }}"></script>
 <script>
-
 $(document).ready(function() {
 
 	var croppedFile;
@@ -72,10 +68,8 @@ $(document).ready(function() {
 		}
     }
 
-
     function readFile(input) {
         if (input.files && input.files[0]) {
-
         	var file = input.files[0];
         	if(isNotAnImage(file)){
         		return false;
@@ -87,8 +81,6 @@ $(document).ready(function() {
                 $uploadCrop.croppie('bind', {
                     url: e.target.result
                 });
-
-                $('.upload-demo').addClass('ready');
             }
             reader.readAsDataURL(file);
         }
@@ -106,36 +98,34 @@ $(document).ready(function() {
 		resetUpload();
 	});
 
-
-	$('#avatar-modal').modal({onHidden:function(){
-		resetUpload();
-	}});
-
+	$('#avatar-modal').modal({
+		onHidden : function(){
+			resetUpload();
+		}
+	});
 
     $('#upload').on('change', function () { readFile(this); });
 
     $('#avatar-update').click(function () {
+
         $uploadCrop.croppie('result', {
             type: 'canvas',
-            size: 'original'
+            size:{ width: 200, height: 200 }
         }).then(function (croppedImage) {
         	$.ajax({
 				type: "POST",
 				url: "{{ url('dashboard/avatar') }}",
-				data: { endodedData:croppedImage },
+				data: { encodedData : croppedImage },
 				cache: false,
-				contentType: "application/x-www-form-urlencoded",
-				success: function (result) {
-					location.reload();
-				},
-				error: function(error){
-					console.log(error);
-				}
+			}).done(function(response){
+				location.reload();
+			}).fail(function(error){
+				console.log(error);
 			});
         });
     });
 
 });
-	</script>
+</script>
 
 @endsection
