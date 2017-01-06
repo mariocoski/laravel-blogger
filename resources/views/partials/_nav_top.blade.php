@@ -20,11 +20,11 @@
     <a class="item hidden-mobile hidden-tablet" href="{{ url('about') }}">About</a>
 
     @if(config('blogger.search_engine.enabled'))
-    <form class="search-form-sm hidden-mobile hidden-tablet" action="search">
+    <form class="search-form-sm hidden-mobile hidden-tablet" action="{{ url('search') }}">
       <div class="item">
         <div class="ui search">
           <div class="ui icon input">
-            <input class="prompt" type="text" name="q" placeholder="Search...">
+            <input class="prompt" type="text" name="query" placeholder="Search...">
             <i class="search icon"></i>
           </div>
           <div class="results"></div>
