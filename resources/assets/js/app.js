@@ -13,6 +13,8 @@ import ListPagination from './libs/list.pagination';
 
 $(document).ready(function() {
 
+ const ROOT_DIR = "http://blogger.dev"; 
+
  $.ajaxSetup({
     headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
  });
@@ -253,8 +255,11 @@ $('.left.sidebar').first().sidebar('attach events', '.sidebar-trigger');
 $('.ui.search')
   .search({
     apiSettings: {
-      url: '/autocomplete/?q={query}'
+      url: ROOT_DIR+'/autocomplete/?query={query}',
     },
+    minCharacters: 2,
+    maxResults: 4,
+    searchDelay: 300,
     type: 'standard'
   });
 

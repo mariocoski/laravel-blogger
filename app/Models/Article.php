@@ -5,9 +5,18 @@ namespace App\Models;
 use App\Services\ParsedownService;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Article extends Model
 {
+
+    use Searchable;
+
+    public function searchableAs()
+    {
+        return 'articles_index';
+    }
+
     protected $guarded = [];
 
     protected $dates = ['published_at'];
@@ -37,7 +46,7 @@ class Article extends Model
 
     public function setContentAttribute($value)
     {
-        $this->attributes['content'] = $value;
+        $this->attributes['content']      = $value;
         $this->attributes['html_content'] = ParsedownService::toHTML($value);
     }
 
