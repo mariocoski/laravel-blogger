@@ -269,7 +269,7 @@ $('.favorite').popup();
 
 function toggleFavorite(articleId, star){
   $.ajax({
-    url : ROOT_DIR +  "/favorite",
+    url : ROOT_DIR +  "/favourite",
     method: "POST",
     data: { id : articleId}
   }).done((response)=>{

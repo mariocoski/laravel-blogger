@@ -33,7 +33,7 @@ Route::get('search', 'Frontend\HomepageController@search');
 Route::get('blog/{slug}', 'Frontend\ArticleController@show')->where('slug', '[\w\d\-\_]+');
 Route::get('autocomplete', 'Frontend\HomepageController@autocomplete');
 
-Route::post("/favorite", 'Frontend\ArticleController@favorite')->middleware('auth');
+Route::post("/favourite", 'Frontend\ArticleController@favourite')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Back-end routes
@@ -50,6 +50,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     Route::get('/', 'Backend\DashboardController@index');
     Route::get('profile', 'Backend\ProfileController@edit');
     Route::put('profile', 'Backend\ProfileController@update');
+
+    Route::get('favourited-articles', 'Backend\ArticleController@favourited-articles');
 
     Route::get('avatar', 'Backend\AvatarController@edit');
     Route::post('avatar', 'Backend\AvatarController@update');
