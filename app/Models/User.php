@@ -19,6 +19,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function favorites()
+    {
+        return $this->belongsToMany(Article::class, 'favorites');
+    }
+
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($this, $token));
@@ -129,7 +134,7 @@ class User extends Authenticatable
             return null;
         }
 
-        $dateToSet                         = Carbon::createFromFormat('Y-m-d', $value);
+        $dateToSet = Carbon::createFromFormat('Y-m-d', $value);
         $this->attributes['date_of_birth'] = ($dateToSet !== false) ? $dateToSet : null;
     }
 
