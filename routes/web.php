@@ -33,6 +33,7 @@ Route::get('search', 'Frontend\HomepageController@search');
 Route::get('blog/{slug}', 'Frontend\ArticleController@show')->where('slug', '[\w\d\-\_]+');
 Route::get('autocomplete', 'Frontend\HomepageController@autocomplete');
 
+Route::post("/favorite", 'Frontend\ArticleController@favorite')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Back-end routes

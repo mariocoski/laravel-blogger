@@ -267,18 +267,30 @@ $("img.lazy.ui.fluid").show().lazyload({effect : "fadeIn",threshold : 500});
 
 $('.favorite').popup();
 
+function toggleFavorite(articleId, star){
+  $.ajax({
+    url : ROOT_DIR +  "/favorite",
+    method: "POST",
+    data: { id : articleId}
+  }).done((response)=>{
+     if(star.hasClass('yellow active')){
+        star.removeClass('yellow active');
+      }else{
+        star.addClass('yellow active');
+      }
+  }).fail((error)=>{
+    console.log(error);
+  });
+}
+
 $('.favorite').click(function(){
   var star = $(this).children().first();
-
-  if($(this).children().first().hasClass('yellow active')){
-    star.removeClass('yellow active');
-    toastr.success("Removed from favourite articles");
-  }else{
-    star.addClass('yellow active');
-    toastr.success("Added to favourite articles");
-  }
-
+  var articleId = $(this).attr('data-id');
+  toggleFavorite(articleId, star);
 });
+
+
+
 
 
 });

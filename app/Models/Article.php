@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Services\ParsedownService;
+use Auth;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
@@ -15,6 +16,16 @@ class Article extends Model
     public function searchableAs()
     {
         return 'articles_index';
+    }
+
+    public function fans()
+    {
+        return $this->belongsToMany(User::class, 'favorites');
+    }
+
+    public function isFavorited()
+    {
+        return $this->fans()->get()->contains(Auth::user()->id);
     }
 
     protected $guarded = [];
@@ -46,7 +57,7 @@ class Article extends Model
 
     public function setContentAttribute($value)
     {
-        $this->attributes['content']      = $value;
+        $this->attributes['content'] = $value;
         $this->attributes['html_content'] = ParsedownService::toHTML($value);
     }
 
