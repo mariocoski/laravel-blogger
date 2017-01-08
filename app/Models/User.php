@@ -19,9 +19,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function favorites()
+    public function favourites()
     {
-        return $this->belongsToMany(Article::class, 'favorites');
+        return $this->belongsToMany(Article::class, 'favourites');
     }
 
     public function sendPasswordResetNotification($token)

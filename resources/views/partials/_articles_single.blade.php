@@ -14,7 +14,7 @@
           <div class="ui fluid image">
                 @if(Auth::check())
                 <a class="ui right  teal corner label favorite" href="javascript:void(0)" data-id="{{ $article->id }}" data-content="Add to favorites" data-variation="inverted">
-                  <i class="{{($article->isFavorited())? 'yellow active ': 'white '}}star icon"></i>
+                  <i class="{{($article->isFavourite())? 'yellow active ': 'white '}}star icon"></i>
                 </a>
                 @endif
                 <a href="{{url('/blog/'.$article->slug)}}">

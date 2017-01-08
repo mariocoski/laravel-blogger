@@ -22,11 +22,11 @@ class ArticleController extends Controller
         return view('frontend.articles.show', compact('article'));
     }
 
-    public function favorite(Request $request)
+    public function favourite(Request $request)
     {
         $article = Article::findOrFail($request->input('id'));
 
-        $user = Auth::user()->favorites()->toggle($article->id);
+        $user = Auth::user()->favourites()->toggle($article->id);
 
         return response()->json(['success' => true]);
     }

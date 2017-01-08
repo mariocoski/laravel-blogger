@@ -20,10 +20,10 @@ class Article extends Model
 
     public function fans()
     {
-        return $this->belongsToMany(User::class, 'favorites');
+        return $this->belongsToMany(User::class, 'favourites');
     }
 
-    public function isFavorited()
+    public function isFavourite()
     {
         return $this->fans()->get()->contains(Auth::user()->id);
     }
