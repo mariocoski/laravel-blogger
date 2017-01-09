@@ -6,12 +6,16 @@
         <div class="content">
 
           <div class="right floated meta">{{ $article->published_at->diffForHumans()}}</div>
-          <a href=""><img class="ui avatar mini image" src="{{(!empty($article->author->avatar))? url('images/avatars/'.$article->author->avatar) : url('images/avatars/avatar_default.png')}}"> {{$article->author_name}} {{ (!empty($article->author->job))? ', '.$article->author->job : "" }}</a>
+          <a href="{{url('about/'.$article->id)}}"><img class="ui avatar mini image" src="{{(!empty($article->author->avatar))? url('images/avatars/'.$article->author->avatar) : url('images/avatars/avatar_default.png')}}">
+          {{$article->author_name}} {{ (!empty($article->author->job))? ', '.$article->author->job : "" }}</a>
 
         </div>
 
         <div class="content">
           <div class="ui fluid image">
+               <div class="ui teal ribbon label z-index-top">
+                    <a href="{{ url('categories/'.$article->category->slug) }}" class="white-font">{{$article->category_name}}</a>
+                </div>
                 @if(Auth::check())
                 <a class="ui right  teal corner label favorite" href="javascript:void(0)" data-id="{{ $article->id }}" data-content="Add to favourites" data-variation="inverted">
                   <i class="{{($article->isFavourite())? 'yellow active ': 'white '}}star icon"></i>

@@ -21,8 +21,9 @@
                   </a>
               </div>
                 <div class="middle aligned content">
-                <a class="header">{{ $article->author_name }}</a>
+
                 <div class="description">
+                  <h4>{{ $article->author_name }}</h4>
                   <div class="item-mute">{{ (!empty($article->author->job))? $article->author->job : "" }}</div>
                   <div class="item-mute"> {{ $article->published_at->diffForHumans()}}</div>
                 </div>

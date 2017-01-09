@@ -1,18 +1,30 @@
 <a id="contact-form-trigger" href="javascript:void(0)">
   <i class="write large icon text-center"></i>
 </a>
-<div id="contact-form-modal" class="ui segment">
-  <div class="ui form" id="contact-form-wrapper">
-    <h4>Contact us! <a href=""><i class="close icon right floated"></i><a/></h4>
-    <div class="field fluid">
-      <input type="text" placeholder="E-mail address">
-    </div>
-    <div class="field fluid">
-      <input type="text" placeholder="Name">
-    </div>
-    <div class="field fluid">
-      <textarea rows="2" placeholder="Message"></textarea>
-    </div>
-    <button class="ui primary button fluid" id="contact-form-submit"><i class="send icon"></i> Submit</button>
+<div class="ui modal small contact-form-modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Contact us!
+  </div>
+  <div class=" content">
+    <form class="ui form">
+      <div class="field">
+        <label>Name</label>
+        <input type="text" name="contact-name" placeholder="Name">
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="text" name="contact-name" placeholder="Email">
+      </div>
+      <div class="field">
+        <label>Message</label>
+        <textarea rows="4" name="contact-message" placeholder="Message"></textarea>
+      </div>
 
-</div></div>
+  </div>
+  <div class="actions">
+    <button class="ui orange fluid button">
+       Send!
+    </button>
+  </div>
+</div>
