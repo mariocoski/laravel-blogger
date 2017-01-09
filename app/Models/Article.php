@@ -57,7 +57,7 @@ class Article extends Model
 
     public function setContentAttribute($value)
     {
-        $this->attributes['content'] = $value;
+        $this->attributes['content']      = $value;
         $this->attributes['html_content'] = ParsedownService::toHTML($value);
     }
 

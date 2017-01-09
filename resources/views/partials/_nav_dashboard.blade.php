@@ -2,9 +2,9 @@
     <i class="user icon"></i>
     Profile
 </a>
-<a class="item" href="{{ url('/dashboard/favorited') }}">
+<a class="item" href="{{ url('/dashboard/favourite-articles') }}">
     <i class="star icon"></i>
-    Favorited articles
+    Favourite articles
 </a>
 @if(Auth::user()->hasRole('admin'))
 <a class="item" href="{{ url('/dashboard/settings') }}">

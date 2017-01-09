@@ -267,17 +267,13 @@ $("img.lazy.ui.fluid").show().lazyload({effect : "fadeIn",threshold : 500});
 
 $('.favorite').popup();
 
-function toggleFavorite(articleId, star){
+function toggleFavorite(articleId){
   $.ajax({
-    url : ROOT_DIR +  "/favourite",
+    url : ROOT_DIR +  "/favourites",
     method: "POST",
     data: { id : articleId}
   }).done((response)=>{
-     if(star.hasClass('yellow active')){
-        star.removeClass('yellow active');
-      }else{
-        star.addClass('yellow active');
-      }
+    
   }).fail((error)=>{
     console.log(error);
   });
@@ -285,8 +281,13 @@ function toggleFavorite(articleId, star){
 
 $('.favorite').click(function(){
   var star = $(this).children().first();
+  if(star.hasClass('yellow active')){
+        star.removeClass('yellow active');
+      }else{
+        star.addClass('yellow active');
+  }
   var articleId = $(this).attr('data-id');
-  toggleFavorite(articleId, star);
+  toggleFavorite(articleId);
 });
 
 

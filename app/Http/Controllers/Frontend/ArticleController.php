@@ -22,7 +22,7 @@ class ArticleController extends Controller
         return view('frontend.articles.show', compact('article'));
     }
 
-    public function favourite(Request $request)
+    public function favourites(Request $request)
     {
         $article = Article::findOrFail($request->input('id'));
 

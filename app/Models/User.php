@@ -24,6 +24,12 @@ class User extends Authenticatable
         return $this->belongsToMany(Article::class, 'favourites');
     }
 
+    public function scopeFavouritesArticles($query)
+    {
+
+        return $this->favourites();
+    }
+
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($this, $token));
@@ -70,7 +76,8 @@ class User extends Authenticatable
 
     public function getTheHighestRoleId()
     {
-        return $this->roles->sortByDesc('permissions_level')->first()->id;
+        $highestRole = $this->roles->sortByDesc('permissions_level')->first();
+        return ($highestRole && $highestRole->id) ? $highestRole->id : 1;
     }
 
     public function toggleRole($role)
@@ -134,7 +141,7 @@ class User extends Authenticatable
             return null;
         }
 
-        $dateToSet = Carbon::createFromFormat('Y-m-d', $value);
+        $dateToSet                         = Carbon::createFromFormat('Y-m-d', $value);
         $this->attributes['date_of_birth'] = ($dateToSet !== false) ? $dateToSet : null;
     }
 

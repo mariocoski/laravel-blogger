@@ -5,7 +5,12 @@
 @section('content')
 
 @if(!empty($article))
-<h2>Update an Article</h2>
+<h2>Update an Article
+  &nbsp;
+  <a class="ui right floated tiny primary labeled icon button" href="{{url('dashboard/preview/'.$article->id)}}">
+      <i class="eye icon"></i> Preview Article
+  </a>
+</h2>
 <form class="ui form" method="POST" action="{{url('dashboard/articles/'.$article->id)}}">
 {{method_field('PUT')}}
 @else
