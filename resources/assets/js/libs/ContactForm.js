@@ -2,14 +2,15 @@ import $ from 'jquery';
 import toastr from 'toastr';
 export default class ContactForm{
 
-  static init(element){
+  static init(element, cta){
     this.element = element;
     $(element).show();
     $(element).click(()=>{
-      //invoke modal window
+       console.log("invoke");
+       $('.ui.modal.contact-form-modal').modal('show');
     });
 
-    $('#contact-form-submit').click(()=>{
+    $(cta).click(()=>{
       console.log("ok");
     });
 

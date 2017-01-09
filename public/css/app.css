@@ -1052,6 +1052,10 @@ span.flatpickr-weekday {
   height: 350px;
 }
 
+.ui.modal .actions > .button {
+  margin-right: 0;
+}
+
 .white {
   color: #FFFFFF;
 }
@@ -1164,6 +1168,7 @@ div.ui.input.table-list-search-input {
 
 .container-narrowed {
   max-width: 750px;
+  width: 100%;
   margin: 0 auto;
 }
 

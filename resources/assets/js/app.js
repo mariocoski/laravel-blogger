@@ -55,6 +55,8 @@ $('.form-remove-cache').submit(function(){
   }
 });
 
+
+
 function convertToSlug(text)
 {
     return text
@@ -225,7 +227,7 @@ if (window.location.hash == '#_=_'){
 
 (new Scroller).init('.scroller');
 
-ContactForm.init('#contact-form-trigger');
+ContactForm.init('#contact-form-trigger','#contact-form-submit');
 ShowPassword.init('.show-password','.show-password-field');
 ShowPassword.init('.show-new-password','.show-new-password-field');
 ShowPassword.init('.show-new-password-confirmation','.show-new-password-confirmation-field');
