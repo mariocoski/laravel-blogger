@@ -1,4 +1,4 @@
-<div class="ui vertical segment inverted">
+<div class="ui vertical segment inverted footer">
    <div class="ui center aligned middle aligned container footer-container">
      <div class="ui stackable inverted divided grid">
        <div class="five wide column">

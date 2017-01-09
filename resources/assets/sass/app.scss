@@ -1,10 +1,8 @@
 @import "node_modules/flatpickr/dist/flatpickr.min";
 @import "node_modules/croppie/croppie";
-@import url("http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700");
-@import url("https://fonts.googleapis.com/css?family=Bitter");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 // Font Variables
-$roboto-slab: 'Roboto Slab', serif; 
-$bitter: 'Bitter', serif; 
+$open-sans: 'Open Sans', serif; 
 
 .short-segment{
   height: 350px;
@@ -128,22 +126,13 @@ div.ui.input.table-list-search-input{
   margin: 0 auto;
 }
 
+
+
 article {
   color: #333333;
   header{
      margin: 20px 15px !important;
   }
-  p { 
-    font-family: $roboto-slab, Cambria,"Times New Roman",Times,serif;
-     font-weight: 400;
-     font-size: 18px;
-     letter-spacing: +0.2;
-     line-height: 1.6;
-     margin: 20px 15px !important;
-     text-indent: 50px;
-     word-wrap: break-word;
-  }
- 
 
   .article-content{
     b, strong {
@@ -151,10 +140,22 @@ article {
       font-weight: 800;
       font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     }
+     
+    p { 
+     font-family: $open-sans, Georgia,Cambria,"Times New Roman",Times,serif;
+     text-align: justify;
+     font-size: 19px !important;
+     letter-spacing: +0.1;
+     line-height: 1.6;
+     margin: 20px 15px !important;
+     text-indent: 50px;
+     word-break: break-word;
+     word-wrap: break-word;
+    }
   }
 
   h3 {
-    font-family: $bitter;
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     margin-top: 0;
     margin-bottom: 20px !important;
     font-weight: 800;
@@ -307,6 +308,11 @@ div#contact-form-modal{
   height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
   height: 100%;
   margin-bottom: 50px !important;
+}
+
+.footer{
+  /*box-shadow: 0 -3px 10px 0 rgba(0,0,0,.0785) !important;*/
+  box-shadow: 0px -3px 5px 0 rgba(34, 36, 38, 0.15) !important;
 }
 
 .footer-container{
