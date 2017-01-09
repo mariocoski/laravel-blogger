@@ -9,6 +9,7 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\User;
+use Auth;
 use View;
 
 class ArticleController extends Controller
@@ -82,5 +83,20 @@ class ArticleController extends Controller
         Article::findOrFail($id)->delete($id);
 
         return redirect()->back()->with('status', 'Article has been deleted');
+    }
+
+    public function favouriteArticles()
+    {
+        $articles = Auth::user()->favourites;
+
+        return view('backend.articles.favourites', compact('articles'));
+    }
+
+    public function preview($id)
+    {
+        $article = Article::with('tags', 'author', 'category')->findOrFail($id);
+
+        return View::make('frontend.articles.show', compact('article', 'users', 'categories', 'tags'));
+
     }
 }

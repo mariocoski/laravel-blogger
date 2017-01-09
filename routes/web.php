@@ -33,7 +33,7 @@ Route::get('search', 'Frontend\HomepageController@search');
 Route::get('blog/{slug}', 'Frontend\ArticleController@show')->where('slug', '[\w\d\-\_]+');
 Route::get('autocomplete', 'Frontend\HomepageController@autocomplete');
 
-Route::post("/favourite", 'Frontend\ArticleController@favourite')->middleware('auth');
+Route::post("favourites", 'Frontend\ArticleController@favourites')->middleware('auth');
 /*
 |--------------------------------------------------------------------------
 | Back-end routes
@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     Route::get('profile', 'Backend\ProfileController@edit');
     Route::put('profile', 'Backend\ProfileController@update');
 
-    Route::get('favourited-articles', 'Backend\ArticleController@favourited-articles');
+    Route::get('favourite-articles', 'Backend\ArticleController@favouriteArticles');
 
     Route::get('avatar', 'Backend\AvatarController@edit');
     Route::post('avatar', 'Backend\AvatarController@update');
@@ -74,6 +74,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
         Route::resource('tags', 'Backend\TagController');
         Route::resource('articles', 'Backend\ArticleController');
         Route::get('manager', 'Backend\MediaController@manager');
+        Route::get('preview/{id}', 'Backend\ArticleController@preview');
     });
 
     Route::get('/back-to-admin-mode', 'Backend\ImpersonificationController@backToAdminMode');

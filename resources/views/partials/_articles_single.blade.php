@@ -6,14 +6,14 @@
         <div class="content">
 
           <div class="right floated meta">{{ $article->published_at->diffForHumans()}}</div>
-          <a href=""><img class="ui avatar mini image" src="{{(!empty($article->author->avatar))? url('images/avatars/'.$article->author->avatar) : url('images/avatars/avatar_default.png')}}"> {{$article->author_name}} {{ $article->author->job}}</a>
+          <a href=""><img class="ui avatar mini image" src="{{(!empty($article->author->avatar))? url('images/avatars/'.$article->author->avatar) : url('images/avatars/avatar_default.png')}}"> {{$article->author_name}} {{ (!empty($article->author->job))? ', '.$article->author->job : "" }}</a>
 
         </div>
 
         <div class="content">
           <div class="ui fluid image">
                 @if(Auth::check())
-                <a class="ui right  teal corner label favorite" href="javascript:void(0)" data-id="{{ $article->id }}" data-content="Add to favorites" data-variation="inverted">
+                <a class="ui right  teal corner label favorite" href="javascript:void(0)" data-id="{{ $article->id }}" data-content="Add to favourites" data-variation="inverted">
                   <i class="{{($article->isFavourite())? 'yellow active ': 'white '}}star icon"></i>
                 </a>
                 @endif
@@ -25,7 +25,7 @@
                   </noscript>
                 </a>
         </div>
-        <h3><a href="{{url('/blog/'.$article->slug)}}">{{$article->title}}</a></h3>
+        <h2><a href="{{url('/blog/'.$article->slug)}}">{{$article->title}}</a></h2>
       </div>
         <div class="extra content">
           <i class="share icon"></i> Share via:
