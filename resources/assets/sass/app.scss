@@ -1,11 +1,17 @@
 @import "node_modules/flatpickr/dist/flatpickr.min";
 @import "node_modules/croppie/croppie";
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
 // Font Variables
 $open-sans: 'Open Sans', serif; 
+$roboto-slab: 'Roboto Slab', serif; 
 
 .short-segment{
   height: 350px;
+}
+
+.hidden {
+  display: none;
 }
 
 .ui.modal .actions > .button{
@@ -127,7 +133,6 @@ div.ui.input.table-list-search-input{
 }
 
 
-
 article {
   color: #333333;
   header{
@@ -135,17 +140,20 @@ article {
   }
 
   .article-content{
-    b, strong {
+    h2, h3 {
       color: #ce642b;
+      margin-right: 15px !important;
+      margin-left: 15px !important;
       font-weight: 800;
-      font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+     /* font-family: $roboto-slab,"Droid Serif","AvenirNext-Bold","Avenir Bold","Georgia","Times New Roman","Times",serif;*/
+         font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     }
      
     p { 
      font-family: $open-sans, Georgia,Cambria,"Times New Roman",Times,serif;
      text-align: justify;
      font-size: 19px !important;
-     letter-spacing: +0.1;
+     letter-spacing: +0.2;
      line-height: 1.6;
      margin: 20px 15px !important;
      text-indent: 50px;
@@ -154,7 +162,9 @@ article {
     }
   }
 
-  h3 {
+
+  h3, {
+    font-family: $roboto-slab,"Droid Serif","AvenirNext-Bold","Avenir Bold","Georgia","Times New Roman","Times",serif;
     font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     margin-top: 0;
     margin-bottom: 20px !important;

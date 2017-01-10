@@ -4,7 +4,6 @@ import toastr from 'toastr';
 window.toastr = toastr;
 import Scroller from './libs/Scroller';
 import SocialShare from './libs/SocialShare';
-import ContactForm from './libs/ContactForm';
 import lazyload from 'jquery-lazyload';
 import ShowPassword from './libs/ShowPassword';
 import Flatpickr from 'Flatpickr';
@@ -18,6 +17,8 @@ $(document).ready(function() {
  $.ajaxSetup({
     headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
  });
+
+
  
 toastr.options = {
   closeButton : true,
@@ -227,7 +228,62 @@ if (window.location.hash == '#_=_'){
 
 (new Scroller).init('.scroller');
 
-ContactForm.init('#contact-form-trigger','#contact-form-submit');
+$('#contact-form-trigger').show();
+
+$('#contact-form-trigger').click(()=>{
+    $('.ui.modal.contact-form-modal').modal('show');
+     $('#contact-form').form({
+      fields: {
+        name : 'empty',
+        email : 'empty',
+        message : 'empty'
+      }
+   });
+});
+
+
+$('#contact-form-submit').click(()=>{
+
+    $('#contact-form').form('validate form');
+
+    if($('#contact-form').form('is valid') !== true){
+       return false;
+    }
+
+    $('#contact-form').addClass("loading");
+
+    $.ajax({
+      url: ROOT_DIR + "/contact",
+      type: "POST",
+      data: $('#contact-form').form('get values')
+
+    }).done((response)=>{
+      let res = JSON.parse(response);
+      if(res.success === true){
+        $('#contact-success').removeClass("hidden");
+        setTimeout(()=>{
+             $('#contact-success').addClass("hidden");
+          },4000);
+      }else{
+        $('#contact-errors').text("You must complete all fields!").show();
+        setTimeout(()=>{
+             $('#contact-errors').text("").hide();
+          },4000);
+      }
+     
+    }).fail((error)=>{
+      console.log(error);
+    }).always(()=>{
+       $('#contact-form').removeClass("loading"); 
+    });
+    
+    return false;
+  });
+
+
+
+
+
 ShowPassword.init('.show-password','.show-password-field');
 ShowPassword.init('.show-new-password','.show-new-password-field');
 ShowPassword.init('.show-new-password-confirmation','.show-new-password-confirmation-field');
