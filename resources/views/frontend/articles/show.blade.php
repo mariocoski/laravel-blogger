@@ -9,29 +9,28 @@
 <div class="ui grid grid-with-margin">
   <div class="ui container-narrowed">
     <div class="column text">
-
       @if($article)
       <article class="ui segment">
-
         <header>
-          <div class="ui items relaxed">
+          @if(Auth::user() && Auth::user()->hasRole('editor'))
+            <a class="ui right floated tiny primary labeled icon button" href="{{ url('dashboard/articles/'.$article->id.'/edit') }}">
+                <i class="edit icon"></i> Edit
+            </a>
+          @endif
+          <div class="ui horizontal list">
             <div class="item">
-               <div class="item-image">
-                  <a href=""><img class="avatar-sm" src="{{(!empty($article->author->avatar))? url('images/avatars/'.$article->author->avatar) : url('images/avatars/avatar_default.png')}}">
-                  </a>
-              </div>
-                <div class="middle aligned content">
+              <img class="ui circular tiny image" src="{{(!empty($article->author->avatar))? url('images/avatars/'.$article->author->avatar) : url('images/avatars/avatar_default.png')}}">
+              <div class="content">
+                <a class="ui header item-mute" href="">{{ $article->author_name }}</a>
+                <div class="item-mute">{{ (!empty($article->author->job))? $article->author->job : "Editor" }}</div>
 
-                <div class="description">
-                  <h4>{{ $article->author_name }}</h4>
-                  <div class="item-mute">{{ (!empty($article->author->job))? $article->author->job : "" }}</div>
-                  <div class="item-mute"> {{ $article->published_at->diffForHumans()}}</div>
-                </div>
-
+                <div class="item-mute">{{ $article->published_at->diffForHumans()}}</div>
               </div>
             </div>
           </div>
+
           <h1 class="article-title"><a href="">{{ $article->title }}</a></h1>
+
          <!--  <h3>{{ $article->subtitle }}</h3> -->
         </header>
 
@@ -57,12 +56,16 @@
              <a class="ui large label" href="{{ url('tags/'.$tag->slug) }}">{{ $tag->name }}</a>
             @endforeach
           </div>
+
           disqus
         </footer>
 
       </article>
       @endif
     </div><!--end of column-->
+
+
   </div><!--end of container-->
+
 </div><!--end of grid stackable-->
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Validator;
 
 class HomepageController extends Controller
 {
@@ -69,9 +70,20 @@ class HomepageController extends Controller
         return view('frontend.about');
     }
 
-    public function contact()
+    public function contact(Request $request)
     {
-        return view('frontend.contact');
+        $validator = Validator::make($request->all(), [
+            [
+                'name'    => 'required',
+                'email'   => 'required|email',
+                'message' => 'required',
+            ],
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'errors' => 'Please complete a form']);
+        }
+
+        return response()->json(['success' => true]);
     }
 
     public function search()
