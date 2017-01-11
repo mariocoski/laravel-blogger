@@ -1,33 +1,30 @@
-import $ from 'jquery';
-window.$ = window.jQuery = $;
+
+import bootstrap from './bootstrap';
 import Scroller from './libs/Scroller';
-
 import ShowPassword from './libs/ShowPassword';
-
 import List from 'list.js';
 import ListPagination from './libs/list.pagination';
-
 import flatpickr from 'flatpickr';
 import lazyload from 'jquery-lazyload';
+window.rrssb = require('rrssb');
 
 $(document).ready(function() {
-console.log("loaded");
+
  const ROOT_DIR = "http://blogger.dev"; 
 
  $.ajaxSetup({
     headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
  });
 
+$(".date-of-birth").flatpickr({
+   maxDate: new Date(),
+});
 
-// $(".date-of-birth").flatpickr({
-//    maxDate: new Date(),
-// });
-
-// $(".published-at").flatpickr({
-//    enableTime: true
-// });
+$(".published-at").flatpickr({
+   enableTime: true
+});
  
-$("img.lazy.ui.fluid").show().lazyload({effect : "fadeIn",threshold : 500});
+$("img.lazy.ui.fluid").lazyload({effect : "fadeIn",threshold : 500});
 
 
 $('.form-delete-user').submit(function(){
