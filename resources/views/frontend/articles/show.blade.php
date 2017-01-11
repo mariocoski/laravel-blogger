@@ -59,7 +59,7 @@
             @endforeach
           </div>
 
-          disqus
+          @include('partials._disqus',['url'=>url('blog/'.$article->slug), 'identifier' => $article->id])
         </footer>
 
       </article>

@@ -24,7 +24,7 @@ $(".published-at").flatpickr({
    enableTime: true
 });
  
-$("img.lazy.ui.fluid").lazyload({effect : "fadeIn",threshold : 500});
+$("img.lazy.ui.fluid").show().lazyload({effect : "fadeIn",threshold : 500});
 
 
 $('.form-delete-user').submit(function(){
