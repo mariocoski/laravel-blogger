@@ -27,8 +27,16 @@ Route::get('auth/google/callback', "OAuth\GoogleController@callback");
  */
 
 Route::get("/", 'Frontend\ArticleController@index');
+
+Route::get("categories", 'Frontend\CategoryController@index');
+Route::get("categories/{slug}", 'Frontend\CategoryController@show')->where('slug', '[\w\d\-\_]+');
+
+Route::get("tags", 'Frontend\TagController@index');
+Route::get("tags/{slug}", 'Frontend\TagController@show')->where('slug', '[\w\d\-\_]+');
+
 Route::post('contact', 'Frontend\HomepageController@contact');
 Route::get('about', 'Frontend\HomepageController@about');
+
 Route::get('search', 'Frontend\HomepageController@search');
 Route::get('blog/{slug}', 'Frontend\ArticleController@show')->where('slug', '[\w\d\-\_]+');
 Route::get('autocomplete', 'Frontend\HomepageController@autocomplete');

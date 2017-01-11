@@ -7,6 +7,7 @@
 <h2>Favourite Articles</h2>
 
 @if($articles)
+  <div class="ui relaxed divided list">
 	<div class="ui divided items">
 	@foreach($articles as $article)
 
@@ -17,11 +18,18 @@
 		        </a>
 		    </div>
 		    <div class="middle aligned content">
-		       <a href="{{url('/blog/'.$article->slug)}}">{{$article->title}}</a>
-		    </div>
+	            <a class="header" href="{{url('/blog/'.$article->slug)}}"><h3>{{ $article->title }} </h3></a>
+	            <div class="description"><a href="">{{ $article->author_name }}</a> <span class=" item-mute">| {{$article->published_at->diffForHumans()}}</span></div>
+	        </div>
+		    <div class="middle aligned content right floated">
+				<a class="ui right floated tiny  basic icon button no-wrap"  href="{{url('/blog/'.$article->slug)}}">
+		            <i class="eye icon"></i> Read article
+		    	 </a>
+			</div>
 		  </div>
 
 	@endforeach
+	</div>
 	</div>
 @endif
 

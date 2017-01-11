@@ -18,7 +18,7 @@
         </div>
         <div class="field">
           <label>Message</label>
-          <textarea rows="4" name="message" placeholder="Message"></textarea>
+          <textarea rows="4" name="message" id="message" placeholder="Message" maxlength="2000"></textarea>
         </div>
         <div class="ui error message" id="contact-errors"></div>
          <div class="ui success message hidden" id="contact-success">
