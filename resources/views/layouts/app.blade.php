@@ -12,11 +12,7 @@
 
     <title>{{ config('app.name', 'Blogger') }} - @yield('title')</title>
     <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-    'csrfToken' => csrf_token(),
-]); ?>
-    </script>
+
 </head>
     <body>
       @include('partials._nav_sidebar')
@@ -31,8 +27,9 @@
         @include('partials._contact_form_modal')
         @include('partials._scroll_top')
       </div><!--end of pusher-->
+    <script src="/js/app.js"></script>
+    <script src="/semantic/semantic.js"></script>
       @yield('scripts')
-      <script src="/js/app.js"></script>
-      <script src="/semantic/semantic.js"></script>
+
     </body>
   </html>

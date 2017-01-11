@@ -1056,6 +1056,10 @@ span.flatpickr-weekday {
   display: none;
 }
 
+.no-wrap {
+  white-space: nowrap;
+}
+
 .ui.modal .actions > .button {
   margin-left: 0;
 }
@@ -1174,6 +1178,10 @@ div.ui.input.table-list-search-input {
   max-width: 750px;
   width: 100%;
   margin: 0 auto;
+}
+
+.ui.segment.segment-padding {
+  padding: 50px;
 }
 
 article {

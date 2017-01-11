@@ -3,49 +3,17 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ContactFormMessage;
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Validator;
+use Mail;
 
 class HomepageController extends Controller
 {
 
     public function autocomplete()
     {
-
-        // return response()->json([
-        //     "results" => [
-        //         [
-        //             "title"       => "Result Title",
-        //             "url"         => "/optional/url/on/click",
-        //             "description" => "Optional Description",
-        //             'image'       => 'fox_unsplash.jpg',
-        //         ],
-        //         [
-        //             "title"       => "Result Title",
-        //             "url"         => "/optional/url/on/click",
-        //             "description" => "Optional Description",
-        //             'image'       => 'fox_unsplash.jpeg',
-        //         ],
-        //         [
-        //             "title"       => "Result Title",
-        //             "url"         => "/optional/url/on/click",
-        //             "description" => "Optional Description",
-        //             'image'       => 'fox_unsplash.jpeg',
-        //         ],
-        //         [
-        //             "title"       => "Result Title",
-        //             "url"         => "/optional/url/on/click",
-        //             "description" => "Optional Description",
-        //             'image'       => 'fox_unsplash.jpeg',
-        //         ],
-        //     ],
-        //     // optional action below results
-        //     "action"  => [
-        //         "url"  => '/path/to/results',
-        //         "text" => "View all 202 results",
-        //     ],
-        // ]);
         $response = [];
 
         $articles = Article::search(request('query'))->where('is_published', 1)->get();
@@ -67,21 +35,22 @@ class HomepageController extends Controller
 
     public function about()
     {
-        return view('frontend.about');
+
+        $authors = User::all()->filter(function ($user) {
+            return $user->hasRole('editor');
+        });
+        return view('frontend.about', compact('authors'));
     }
 
     public function contact(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            [
-                'name'    => 'required',
-                'email'   => 'required|email',
-                'message' => 'required',
-            ],
+        $this->validate($request, [
+            'name'    => 'required',
+            'email'   => 'required|email',
+            'message' => 'required',
         ]);
-        if ($validator->fails()) {
-            return response()->json(['success' => false, 'errors' => 'Please complete a form']);
-        }
+
+        Mail::send(new ContactFormMessage($request));
 
         return response()->json(['success' => true]);
     }

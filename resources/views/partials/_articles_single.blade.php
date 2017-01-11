@@ -33,7 +33,7 @@
       </div>
         <div class="extra content">
           <i class="share icon"></i> Share via:
-          @include('partials._share_buttons')
+          @include('partials._share_buttons',['article' => $article])
         </div>
     </div>
 

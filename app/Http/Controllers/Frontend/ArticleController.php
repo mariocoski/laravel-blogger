@@ -13,7 +13,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::published()->paginate(config('blogger.pagination.articles_per_page'));
-        return view('index', compact('articles'));
+        return view('frontend.articles.index', compact('articles'));
     }
 
     public function show($slug)

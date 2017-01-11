@@ -13,9 +13,11 @@
       <article class="ui segment">
         <header>
           @if(Auth::user() && Auth::user()->hasRole('editor'))
-            <a class="ui right floated tiny primary labeled icon button" href="{{ url('dashboard/articles/'.$article->id.'/edit') }}">
+          <div class="middle aligned content right floated">
+            <a class="ui right floated tiny  basic icon button no-wrap"  href="{{ url('dashboard/articles/'.$article->id.'/edit') }}">
                 <i class="edit icon"></i> Edit
             </a>
+          </div>
           @endif
           <div class="ui horizontal list">
             <div class="item">

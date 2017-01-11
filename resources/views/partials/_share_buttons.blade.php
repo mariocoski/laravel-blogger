@@ -1,4 +1,4 @@
-  <ul class="rrssb-buttons">
+  <ul class="rrssb-buttons" id="rrssb-buttons">
 
           <li class="rrssb-email" >
             <!-- Replace subject with your message using URL Endocding: http://meyerweb.com/eric/tools/dencoder/ -->
@@ -28,3 +28,16 @@
                      </svg></span><span class="rrssb-text"> Whatsapp          </span></a></li>
 
         </ul>
+<!--
+        <script type="text/javascript">
+
+          var settings = {
+            // required:
+            title: '{{$article->title}}',
+            url:   '{{url('blog/'.$article->slug)}}',
+            // optional:
+            description:  '{{$article->title}}',
+            emailBody:  'Usually email body is just the description + url, but you can customize it if you want'
+          }
+         // $('#rrssb-buttons'+'-<?php// echo $article->id ?>').rrssb(settings);
+        </script> -->

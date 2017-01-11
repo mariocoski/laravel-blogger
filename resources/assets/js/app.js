@@ -1,17 +1,17 @@
 import $ from 'jquery';
 window.$ = window.jQuery = $;
-import toastr from 'toastr';
-window.toastr = toastr;
 import Scroller from './libs/Scroller';
-import SocialShare from './libs/SocialShare';
-import lazyload from 'jquery-lazyload';
+
 import ShowPassword from './libs/ShowPassword';
-import Flatpickr from 'Flatpickr';
+
 import List from 'list.js';
 import ListPagination from './libs/list.pagination';
 
-$(document).ready(function() {
+import flatpickr from 'flatpickr';
+import lazyload from 'jquery-lazyload';
 
+$(document).ready(function() {
+console.log("loaded");
  const ROOT_DIR = "http://blogger.dev"; 
 
  $.ajaxSetup({
@@ -19,12 +19,16 @@ $(document).ready(function() {
  });
 
 
+// $(".date-of-birth").flatpickr({
+//    maxDate: new Date(),
+// });
+
+// $(".published-at").flatpickr({
+//    enableTime: true
+// });
  
-toastr.options = {
-  closeButton : true,
-  timeOut : 5000,
-  positionClass: "toast-top-center"
-}
+$("img.lazy.ui.fluid").show().lazyload({effect : "fadeIn",threshold : 500});
+
 
 $('.form-delete-user').submit(function(){
   if(!confirm('Do you really want to delete this user?')){
@@ -106,13 +110,6 @@ $('#article-title').change(() => {
   updateArticleSlug();
 });
 
-$(".date-of-birth").flatpickr({
-   maxDate: new Date(),
-});
-
-$(".published-at").flatpickr({
-   enableTime: true
-});
 
 var topPaginationOptions = {
     paginationClass: "top-list-pagination",
@@ -235,7 +232,7 @@ $('#contact-form-trigger').click(()=>{
      $('#contact-form').form({
       fields: {
         name : 'empty',
-        email : 'empty',
+        email : ['empty', 'email'],
         message : 'empty'
       }
    });
@@ -258,23 +255,22 @@ $('#contact-form-submit').click(()=>{
       data: $('#contact-form').form('get values')
 
     }).done((response)=>{
-      let res = JSON.parse(response);
-      if(res.success === true){
-        $('#contact-success').removeClass("hidden");
-        setTimeout(()=>{
-             $('#contact-success').addClass("hidden");
-          },4000);
-      }else{
-        $('#contact-errors').text("You must complete all fields!").show();
-        setTimeout(()=>{
-             $('#contact-errors').text("").hide();
-          },4000);
-      }
-     
+
+      $('#contact-success').removeClass("hidden");
+      setTimeout(()=>{
+        $('#contact-success').addClass("hidden");
+      },4000);
+
     }).fail((error)=>{
-      console.log(error);
+
+      $('#contact-errors').text("There was a problem with processing your data").show();
+      setTimeout(()=>{
+         $('#contact-errors').text("").hide();
+      },4000);
+
     }).always(()=>{
        $('#contact-form').removeClass("loading"); 
+       $('#contact-form').form('clear');
     });
     
     return false;
@@ -288,13 +284,7 @@ ShowPassword.init('.show-password','.show-password-field');
 ShowPassword.init('.show-new-password','.show-new-password-field');
 ShowPassword.init('.show-new-password-confirmation','.show-new-password-confirmation-field');
 
-SocialShare.init("id",{
-  title:'This is the email subject and/or tweet text',
-  url:  'http://rrssb.ml/',
-  // optional:
-  description:  'Longer description used with some providers',
-  emailBody:  'Usually email body is just the description + url, but you can customize it if you want'
-});
+
 
 $('.ui.checkbox').checkbox();
 
@@ -321,7 +311,6 @@ $('.ui.search')
     type: 'standard'
   });
 
-$("img.lazy.ui.fluid").show().lazyload({effect : "fadeIn",threshold : 500});
 
 $('.favorite').popup();
 
