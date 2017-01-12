@@ -70,6 +70,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
 
         Route::get('tools', 'Backend\ToolsController@index');
         Route::post('clear-cache', 'Backend\ToolsController@clearCache');
+        Route::post('maintenance-mode', 'Backend\ToolsController@maintenanceMode');
+        Route::post('reset-search-index', 'Backend\ToolsController@resetIndex');
 
         Route::get('impersonate/{id}', 'Backend\ImpersonificationController@impersonate');
         Route::get('settings', 'Backend\SettingsController@index');

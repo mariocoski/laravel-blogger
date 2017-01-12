@@ -14,7 +14,7 @@
 
                 @foreach($tags as $tag)
                     <div class="item">
-                      <a class="ui right floated tiny  basic icon button no-wrap" href="{{ url('tags/'.$tag->slug) }}">
+                      <a class="ui right floated tiny primary icon button no-wrap" href="{{ url('tags/'.$tag->slug) }}">
                         <i class="eye icon"></i> See articles
                       </a>
 

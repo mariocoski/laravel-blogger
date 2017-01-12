@@ -11,11 +11,8 @@ class TagController extends Controller
     public function index()
     {
         $tags = Tag::all()->sort(function ($previousTag, $nextTag) {
-            if ($previousTag->getArticlesCountAttribute() === $nextTag->getArticlesCountAttribute()) {
-                return 0;
-            }
-            return ($previousTag->getArticlesCountAttribute() < $nextTag->getArticlesCountAttribute()) ? 1 : -1;
-        });
+            return $previousTag->getArticlesCountAttribute() <=> $nextTag->getArticlesCountAttribute();
+        })->reverse();
 
         return view('frontend.tags.index', compact('tags'));
     }

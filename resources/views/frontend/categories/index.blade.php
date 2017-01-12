@@ -14,7 +14,7 @@
 
                 @foreach($categories as $category)
                     <div class="item">
-                      <a class="ui right floated tiny  basic icon button no-wrap" href="{{ url('categories/'.$category->slug) }}">
+                      <a class="ui right floated tiny  primary icon button no-wrap" href="{{ url('categories/'.$category->slug) }}">
                         <i class="eye icon"></i> See articles
                       </a>
 

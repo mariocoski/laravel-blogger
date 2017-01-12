@@ -11,11 +11,8 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all()->sort(function ($previousCategory, $nextCategory) {
-            if ($previousCategory->getArticlesCountAttribute() === $nextCategory->getArticlesCountAttribute()) {
-                return 0;
-            }
-            return ($previousCategory->getArticlesCountAttribute() < $nextCategory->getArticlesCountAttribute()) ? 1 : -1;
-        });
+            return $previousCategory->getArticlesCountAttribute() <=> $nextCategory->getArticlesCountAttribute();
+        })->reverse();
 
         return view('frontend.categories.index', compact('categories'));
     }

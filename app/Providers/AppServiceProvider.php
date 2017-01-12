@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Category;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Scout\Console\FlushCommand;
+use Laravel\Scout\Console\ImportCommand;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,10 +18,11 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('partials._nav_categories', function ($view) {
             $view->with([
-                'categories' => Category::getFiveMostPopularOnes(),
+                'categories'         => Category::getFiveMostPopularOnes(),
                 'numberOfCategories' => Category::all()->count(),
             ]);
         });
+
     }
 
     /**
@@ -29,6 +32,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        if (config('blogger.search_engine.enabled')) {
+            $this->commands([
+                ImportCommand::class,
+                FlushCommand::class,
+            ]);
+        }
 
     }
 }

@@ -56,9 +56,8 @@
 		</div><!--end of grid stackable-->
         <!-- @include('partials._footer') -->
       </div><!--end of pusher-->
-      <script src="/js/app.js"></script>
-      <script src="/semantic/semantic.js"></script>
-
+	    <script src="{{ url('js/app.js') }}" ></script>
+	    <script src="{{ url('semantic/semantic.js') }}" ></script>
       @include('partials._filemanager_scripts')
      <!--  @include('partials._alerts') -->
       @yield('scripts')

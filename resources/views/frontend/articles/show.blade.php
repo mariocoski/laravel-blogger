@@ -14,7 +14,7 @@
         <header>
           @if(Auth::user() && Auth::user()->hasRole('editor'))
           <div class="middle aligned content right floated">
-            <a class="ui right floated tiny  basic icon button no-wrap"  href="{{ url('dashboard/articles/'.$article->id.'/edit') }}">
+            <a class="ui right floated tiny primary icon button no-wrap"  href="{{ url('dashboard/articles/'.$article->id.'/edit') }}">
                 <i class="edit icon"></i> Edit
             </a>
           </div>

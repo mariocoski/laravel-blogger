@@ -3,18 +3,43 @@
 @section('title', 'Page Title')
 
 @section('content')
+
   <h2>Tools</h2>
+
   @include('partials._success',['flashSuccess'=>'success'])
 
+  @if(Session::has('error'))
+    <div class="ui message red">
+      {{Session::get('error')}}
+    </div>
+  @endif
   <h3>Maintenance Mode</h3>
 
-  <h3>Reset Search Engine Index</h3>
-
-  <h3>Clear cache</h3>
-  <form method="POST" action="{{url('dashboard/clear-cache')}}" class="form-remove-cache">
+   <form method="POST" action="{{ url('dashboard/maintenance-mode') }}">
     {{ csrf_field() }}
-  	<button class="ui button orange"><i class="remove icon"></i> Clear cache</button>
+    <button type="submit" class="ui primary button no-wrap">
+      <i class="{{($isMaintenanceModeEnabled)? 'check circle':'minus circle' }} icon"></i>
+      {{ ($isMaintenanceModeEnabled)? "Disable":" Enable" }} Maintenance Mode
+    </button>
   </form>
 
-  <h3>Make database backup</h3>
+  @if(config('blogger.search_engine.enabled'))
+  <h3>Reset Search Engine Index</h3>
+
+  <form method="POST" action="{{ url('dashboard/reset-search-index') }}" class="form-search-index">
+    {{ csrf_field() }}
+    <button type="submit" class="ui primary button no-wrap">
+      <i class="search icon"></i>
+      Reset Index
+    </button>
+  </form>
+  @endif
+
+  <h3>Clear cache</h3>
+
+  <form method="POST" action="{{ url('dashboard/clear-cache') }}" class="form-remove-cache">
+    {{ csrf_field() }}
+  	<button class="ui primary button no-wrap"><i class="remove circle icon"></i> Clear Cache</button>
+  </form>
+
 @endsection

@@ -99,9 +99,13 @@ div.ui.input.table-list-search-input{
    }  
 }
 
+.ui.left.sidebar{
+  z-index: 1000;
+}
+
 .ui.segment.segment-padding{
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .avatar-sm{
@@ -285,7 +289,7 @@ a#contact-form-trigger{
   position: fixed;
   bottom: 10px;
   left: 10px;
-  z-index: 9999;
+  z-index: 10;
   background-color: #F27F13;//#F17A1F
   color: #ffffff;
   padding: 20px;
