@@ -25,7 +25,7 @@
 
 	                    </div>
 	                    <div class="middle aligned content right floated">
-							   <a class="ui right floated tiny  basic icon button no-wrap"  href="{{url('/blog/'.$article->slug)}}">
+							   <a class="ui right floated tiny  primary icon button no-wrap"  href="{{url('/blog/'.$article->slug)}}">
 		                        <i class="eye icon"></i> Read article
 		                      </a>
 						</div>

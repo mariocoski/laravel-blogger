@@ -57,6 +57,13 @@ $('.form-remove-cache').submit(function(){
   }
 });
 
+$('.form-search-index').submit(function(){
+  if(!confirm('Do you really want to reset all search indices? It might take a while')){
+     return false;
+  }
+});
+
+
 
 
 function convertToSlug(text)
