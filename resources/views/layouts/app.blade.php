@@ -22,9 +22,12 @@
   <div class="pusher">
     <div class="main-content">
       @include('partials._nav_top')
-      @include('partials._breadcrumbs')
+      <div class="ui grid-with-margin padded">
+        <div class="ui container narrowed padded">
+          @yield('content')
+        </div>
+      </div>
 
-      @yield('content')
       @include('partials._footer')
     </div>
 
