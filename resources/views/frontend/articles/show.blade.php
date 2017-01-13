@@ -1,16 +1,17 @@
 @extends('layouts.article')
 
-@section('title', 'Page Title')
-
-
+@section('title', 'About')
 @section('content')
+<div class="ui segments raised">
 
+  <div class="ui segment">
+    {!! Breadcrumbs::render('frontend.articles.show', $article) !!}
+  </div><!--end of segment-->
 
-<div class="ui grid grid-with-margin">
-  <div class="ui container-narrowed">
-    <div class="column text">
+  <div class="ui segment teal">
+
       @if($article)
-      <article class="ui segment">
+      <article>
         <header>
           @if(Auth::user() && Auth::user()->hasRole('editor'))
           <div class="middle aligned content right floated">
@@ -64,10 +65,8 @@
 
       </article>
       @endif
-    </div><!--end of column-->
 
 
-  </div><!--end of container-->
-
-</div><!--end of grid stackable-->
+    </div><!--end of segment-->
+</div><!--end of segments-->
 @endsection

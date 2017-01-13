@@ -26,19 +26,19 @@ Route::get('auth/google/callback', "OAuth\GoogleController@callback");
 |--------------------------------------------------------------------------
  */
 
-Route::get("/", 'Frontend\ArticleController@index');
+Route::get("/", ['as' => 'home', 'uses' => 'Frontend\ArticleController@index']);
 
-Route::get("categories", 'Frontend\CategoryController@index');
-Route::get("categories/{slug}", 'Frontend\CategoryController@show')->where('slug', '[\w\d\-\_]+');
+Route::get("categories", ['as' => 'frontend.categories', 'uses' => 'Frontend\CategoryController@index']);
+Route::get("categories/{slug}", ['as' => 'frontend.categories.show', 'uses' => 'Frontend\CategoryController@show'])->where('slug', '[\w\d\-\_]+');
 
-Route::get("tags", 'Frontend\TagController@index');
-Route::get("tags/{slug}", 'Frontend\TagController@show')->where('slug', '[\w\d\-\_]+');
+Route::get("tags", ['as' => 'frontend.tags', 'uses' => 'Frontend\TagController@index']);
+Route::get("tags/{slug}", ['as' => 'frontend.tags.show', 'uses' => 'Frontend\TagController@show'])->where('slug', '[\w\d\-\_]+');
 
 Route::post('contact', 'Frontend\HomepageController@contact');
-Route::get('about', 'Frontend\HomepageController@about');
+Route::get('about', ['as' => 'frontend.about', 'uses' => 'Frontend\HomepageController@about']);
+Route::get('search', ['as' => 'frontend.search', 'uses' => 'Frontend\HomepageController@search']);
+Route::get('blog/{slug}', ['as' => 'frontend.articles.show', 'uses' => 'Frontend\ArticleController@show'])->where('slug', '[\w\d\-\_]+');
 
-Route::get('search', 'Frontend\HomepageController@search');
-Route::get('blog/{slug}', 'Frontend\ArticleController@show')->where('slug', '[\w\d\-\_]+');
 Route::get('autocomplete', 'Frontend\HomepageController@autocomplete');
 
 Route::post("favourites", 'Frontend\ArticleController@favourites')->middleware('auth');

@@ -134,9 +134,9 @@ div.ui.input.table-list-search-input{
   opacity: 0.9;
 }
 
-.container-narrowed {
-  max-width: 750px;
-  width: 100%;
+.ui.container.narrowed {
+  max-width: 750px !important;
+  width: 100% !important;
   margin: 0 auto;
 }
 
@@ -327,10 +327,10 @@ div#contact-form-modal{
 
 .grid-with-margin{
   min-height: 100%;
-  height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
-  height: 100%;
-  margin-bottom: 50px !important;
+  padding-top: 80px !important;
+  padding-bottom: 50px !important;
 }
+
 
 .footer{
   /*box-shadow: 0 -3px 10px 0 rgba(0,0,0,.0785) !important;*/
@@ -345,6 +345,9 @@ div#contact-form-modal{
 
   @media only screen and (max-width: 767px) {
         
+      .ui.container.narrowed{
+        width: 95% !important;
+      }
 
       .ui.segment.segment-padding{
         padding-left: 10px;
