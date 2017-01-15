@@ -8,11 +8,14 @@
   </div><!--end of content-->
 
   <div class="content">
+    <h2><a href="{{url('/blog/'.$article->slug)}}">{{$article->title}}</a></h2>
     <div class="ui fluid image">
 
       <div class="ui teal ribbon label z-index-top">
         <a href="{{ url('categories/'.$article->category->slug) }}" class="white-font">{{$article->category_name}}</a>
       </div><!--end of category-name-->
+
+
 
       @if(Auth::check())
         <a class="ui right  teal corner label favorite" href="javascript:void(0)" data-id="{{ $article->id }}" data-content="Add to favourites" data-variation="inverted">
@@ -29,11 +32,10 @@
       </a>
 
     </div><!--end of image-->
-    <h2><a href="{{url('/blog/'.$article->slug)}}">{{$article->title}}</a></h2>
+
   </div><!--end of content-->
 
   <div class="extra content">
-          <i class="share icon"></i> Share via:
           @include('partials._share_buttons',['article' => $article])
   </div><!--end of content-->
 

@@ -1,9 +1,13 @@
 @extends('layouts.backend')
 
-@section('title', 'Page Title')
-
+@section('title', 'Favourite Articles')
 
 @section('content')
+<div class="ui segment large">
+  {!! Breadcrumbs::render('backend.articles.favourites') !!}
+</div><!--end of segment-->
+
+<div class="ui segment teal padded">
 <h2>Favourite Articles</h2>
 
 @if($articles)
@@ -32,5 +36,5 @@
 	</div>
 	</div>
 @endif
-
+</div>
 @endsection

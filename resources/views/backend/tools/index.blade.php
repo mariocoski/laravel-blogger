@@ -3,9 +3,12 @@
 @section('title', 'Page Title')
 
 @section('content')
+<div class="ui segment large">
+  {!! Breadcrumbs::render('backend.tools') !!}
+</div><!--end of segment-->
 
+<div class="ui segment teal padded">
   <h2>Tools</h2>
-
   @include('partials._success',['flashSuccess'=>'success'])
 
   @if(Session::has('error'))
@@ -41,5 +44,5 @@
     {{ csrf_field() }}
   	<button class="ui primary button no-wrap"><i class="remove circle icon"></i> Clear Cache</button>
   </form>
-
+</div>
 @endsection

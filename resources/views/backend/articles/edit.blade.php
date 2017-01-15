@@ -4,6 +4,15 @@
 
 @section('content')
 
+<div class="ui segment large">
+@if(!empty($article))
+  {!! Breadcrumbs::render('backend.articles.edit',$article) !!}
+@else
+  {!! Breadcrumbs::render('backend.articles.create') !!}
+@endif
+</div><!--end of segment-->
+
+<div class="ui segment teal padded">
 @if(!empty($article))
 <h2>Update an Article
   &nbsp;
@@ -155,6 +164,6 @@
     Article
    </button>
 </form>
-
+</div><!--end of segment-->
 
 @endsection

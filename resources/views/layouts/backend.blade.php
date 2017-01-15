@@ -38,16 +38,7 @@
 		    </div>
 		    <div class="view">
 		    	<div class="ui raised segments">
-		    		<div class="ui segment">
-		    			 <div class="ui breadcrumb">
-						    <a class="section" href="{{url('/dashboard')}}">Dashboard</a>
-						    <div class="divider"> / </div>
-						    <div class="active section">Profile</div>
-						  </div>
-		  			</div>
-		  			<div class="ui segment teal segment-padding">
-		  				@yield('content')
-		  			</div>
+		  			@yield('content')
 		  			<div class="ui segment secondary text-center">  @include('partials._credits_footer')</div>
 		    	</div>
 		    </div>

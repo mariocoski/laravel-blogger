@@ -55,26 +55,26 @@ Route::group(['prefix' => 'filemanager', 'middleware' => 'role:editor'], functio
 });
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
-    Route::get('/', 'Backend\DashboardController@index');
-    Route::get('profile', 'Backend\ProfileController@edit');
+    Route::get('/', ['as' => 'backend.dashboard', 'uses' => 'Backend\DashboardController@index']);
+    Route::get('profile', ['as' => 'backend.profile', 'uses' => 'Backend\ProfileController@edit']);
     Route::put('profile', 'Backend\ProfileController@update');
 
-    Route::get('favourite-articles', 'Backend\ArticleController@favouriteArticles');
+    Route::get('favourite-articles', ['as' => 'articles.favourites', 'uses' => 'Backend\ArticleController@favouriteArticles']);
 
-    Route::get('avatar', 'Backend\AvatarController@edit');
+    Route::get('avatar', ['as' => 'backend.avatar', 'uses' => 'Backend\AvatarController@edit']);
     Route::post('avatar', 'Backend\AvatarController@update');
 
     //admin only
     Route::group(['middleware' => 'role:admin'], function () {
         Route::resource('users', 'Backend\UserController');
 
-        Route::get('tools', 'Backend\ToolsController@index');
+        Route::get('tools', ['as' => 'backend.tools', 'uses' => 'Backend\ToolsController@index']);
         Route::post('clear-cache', 'Backend\ToolsController@clearCache');
         Route::post('maintenance-mode', 'Backend\ToolsController@maintenanceMode');
         Route::post('reset-search-index', 'Backend\ToolsController@resetIndex');
 
         Route::get('impersonate/{id}', 'Backend\ImpersonificationController@impersonate');
-        Route::get('settings', 'Backend\SettingsController@index');
+        Route::get('settings', ['as' => 'backend.settings', 'uses' => 'Backend\SettingsController@index']);
         Route::post('settings/update', 'Backend\SettingsController@update');
     });
 
@@ -88,8 +88,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     });
 
     Route::get('/back-to-admin-mode', 'Backend\ImpersonificationController@backToAdminMode');
-    Route::get('subscriptions', 'Backend\SubscriptionController@index');
+    Route::get('subscriptions', ['as' => 'backend.subscriptions', 'uses' => 'Backend\SubscriptionController@index']);
 
-    Route::get('media', 'Backend\MediaController@index');
-    Route::get('help', 'Backend\HelpController@index');
+    Route::get('media', ['as' => 'backend.media', 'uses' => 'Backend\MediaController@index']);
+    Route::get('help', ['as' => 'backend.help', 'uses' => 'Backend\HelpController@index']);
 });

@@ -3,6 +3,11 @@
 @section('title', 'Page Title')
 
 @section('content')
+<div class="ui segment large">
+  {!! Breadcrumbs::render('backend.categories.index') !!}
+</div><!--end of segment-->
+
+<div class="ui segment teal padded">
 @include('partials._success',['flashSuccess'=>'status'])
 <h2>Categories
 	&nbsp;
@@ -58,5 +63,5 @@
 	</table>
 <div class="list-pagination bottom-list-pagination"></div>
 </div>
-
+</div>
 @endsection
