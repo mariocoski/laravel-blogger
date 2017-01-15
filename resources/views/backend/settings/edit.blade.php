@@ -3,7 +3,11 @@
 @section('title', 'Page Title')
 
 @section('content')
+<div class="ui segment large">
+  {!! Breadcrumbs::render('backend.settings') !!}
+</div><!--end of segment-->
 
+<div class="ui segment teal padded">
 <h2>Update Settings</h2>
 <form class="ui form" method="POST" action="{{url('dashboard/settings/update')}}">
 
@@ -74,6 +78,6 @@
       Update Settings
    </button>
 </form>
-
+</div>
 
 @endsection

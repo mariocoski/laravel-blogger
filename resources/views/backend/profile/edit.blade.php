@@ -4,6 +4,11 @@
 
 @section('content')
 
+<div class="ui segment large">
+  {!! Breadcrumbs::render('backend.profile') !!}
+</div><!--end of segment-->
+
+<div class="ui segment teal padded">
 <h2>Update profile</h2>
 <form class="ui form" method="POST" action="{{url('dashboard/profile')}}">
 {{method_field('PUT')}}
@@ -120,6 +125,7 @@
     </div>
    </div>
 
+
     <div class="field fluid">
     <label for="twitter_name">Twitter Name (optional)</label>
     <div class="ui input">
@@ -151,6 +157,6 @@
       Update profile
    </button>
 </form>
-
+</div>
 
 @endsection

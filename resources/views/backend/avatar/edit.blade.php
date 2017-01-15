@@ -3,7 +3,11 @@
 @section('title', 'Page Title')
 
 @section('content')
+<div class="ui segment large">
+  {!! Breadcrumbs::render('backend.avatar') !!}
+</div><!--end of segment-->
 
+<div class="ui segment teal padded">
 <h2>Upload Avatar</h2>
 
 <img class="ui centered middle aligned tiny image circular" src="{{(!empty(Auth::user()->avatar))? url('images/avatars/'.Auth::user()->avatar) : url('images/avatars/avatar_default.png') }}">
@@ -36,7 +40,7 @@
   </div>
 
 </div>
-
+</div>
 @endsection
 
 @section('scripts')

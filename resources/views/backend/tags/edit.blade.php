@@ -1,10 +1,18 @@
 edit.blade.php
 @extends('layouts.backend')
 
-@section('title', 'Page Title')
+@section('title', 'Tag')
 
 @section('content')
+<div class="ui segment large">
+@if(!empty($tag))
+  {!! Breadcrumbs::render('backend.tags.edit',$tag) !!}
+@else
+  {!! Breadcrumbs::render('backend.tags.create') !!}
+@endif
+</div><!--end of segment-->
 
+<div class="ui segment teal padded">
 @if(!empty($tag))
 <h2>Update a Tag</h2>
 <form class="ui form" method="POST" action="{{url('dashboard/tags/'.$tag->id)}}">
@@ -39,6 +47,6 @@ edit.blade.php
      tag
    </button>
 </form>
-
+</div>
 
 @endsection

@@ -1,9 +1,13 @@
 @extends('layouts.backend')
 
-@section('title', 'Page Title')
-
+@section('title', 'Articles')
 
 @section('content')
+<div class="ui segment large">
+  {!! Breadcrumbs::render('backend.articles.index') !!}
+</div><!--end of segment-->
+
+<div class="ui segment teal padded">
 @include('partials._success',['flashSuccess'=>'status'])
 <h2>Articles
   &nbsp;
@@ -68,6 +72,6 @@
 <div class="list-pagination bottom-list-pagination"></div>
 </div>
 
-
+</div>
 
 @endsection

@@ -3,7 +3,15 @@
 @section('title', 'Page Title')
 
 @section('content')
+<div class="ui segment large">
+@if(!empty($user))
+  {!! Breadcrumbs::render('backend.users.edit',$user) !!}
+@else
+  {!! Breadcrumbs::render('backend.users.create') !!}
+@endif
+</div><!--end of segment-->
 
+<div class="ui segment teal padded">
 @if(!empty($user))
 <h2>Update a User</h2>
 <form class="ui form" method="POST" action="{{url('dashboard/users/'.$user->id)}}">
@@ -173,6 +181,6 @@
     User
    </button>
 </form>
-
+</div>
 
 @endsection

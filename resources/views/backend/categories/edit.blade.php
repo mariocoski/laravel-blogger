@@ -3,7 +3,15 @@
 @section('title', 'Page Title')
 
 @section('content')
+<div class="ui segment large">
+@if(!empty($category))
+  {!! Breadcrumbs::render('backend.categories.edit',$category) !!}
+@else
+  {!! Breadcrumbs::render('backend.categories.create') !!}
+@endif
+</div><!--end of segment-->
 
+<div class="ui segment teal padded">
 @if(!empty($category))
 <h2>Update a Category</h2>
 <form class="ui form" method="POST" action="{{url('dashboard/categories/'.$category->id)}}">
@@ -39,6 +47,6 @@
     Category
    </button>
 </form>
-
+</div>
 
 @endsection

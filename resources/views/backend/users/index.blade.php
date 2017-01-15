@@ -5,6 +5,11 @@
 
 
 @section('content')
+<div class="ui segment large">
+  {!! Breadcrumbs::render('backend.users.index') !!}
+</div><!--end of segment-->
+
+<div class="ui segment teal padded">
 @include('partials._success',['flashSuccess'=>'status'])
 <h2>Users
 	&nbsp;
@@ -67,5 +72,5 @@
 	</table>
 <div class="list-pagination bottom-list-pagination"></div>
 </div>
-
+</div>
 @endsection
