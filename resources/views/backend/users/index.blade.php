@@ -17,31 +17,29 @@
 	   	<i class="user add icon"></i> Add New User
 	</a>
 </h2>
-
-<div class="ui left icon input table-list-search-input">
-	<input type="text" placeholder="Search users..." id="user-list-search">
-	 <i class="users icon"></i>
-</div>
-
 <div id="user-table-list">
-<div class="list-pagination top-list-pagination"></div>
+	<div class="ui left icon input table-list-search-input">
+		<input type="text" class="search" placeholder="Search users..." id="user-list-search">
+		 <i class="users icon"></i>
+	</div>
+
+	<div class="list-pagination top-list-pagination"></div>
 	<table  class="ui celled table" cellspacing="0" width="100%">
 	 	<thead>
 	        <tr class="text-center">
-	            <th>Id</th>
-	            <th>Role</th>
-	            <th>Email</th>
-	            <th>Display Name</th>
-	            <th>Created at</th>
+	            <th class="sortable" data-sort="user-table-id">Id <i class="sort icon"></i></th>
+	            <th class="sortable" data-sort="user-table-role">Role <i class="sort icon"></i></th>
+	            <th class="sortable" data-sort="user-table-email">Email <i class="sort icon"></i></th>
+	            <th class="sortable" data-sort="user-table-display-name">Display Name <i class="sort icon"></i></th>
+	            <th class="sortable" data-sort="user-table-created-at">Created at <i class="sort icon"></i></th>
 	            <th>Actions</th>
 	        </tr>
 	    </thead>
-	    <tbody class="list text-center">
+	    <tbody class="listable text-center">
 	    @if(count($users))
 	    	@foreach($users as $user)
 		    	<tr>
 		    		<td class="user-table-id">{{$user->id}}</td>
-
 		    		<td class="user-table-role">{{$user->getRoleDisplayName()}}</td>
 		    		<td class="user-table-email">{{$user->email}}</td>
 		    		<td class="user-table-display-name">{{$user->display_name}}</td>

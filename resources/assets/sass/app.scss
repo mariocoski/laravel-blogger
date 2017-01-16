@@ -6,6 +6,19 @@
 $open-sans: 'Open Sans', serif; 
 $roboto-slab: 'Roboto Slab', serif; 
 
+.sortable {
+  cursor: pointer !important;
+}
+
+.sortable:hover {
+  background-color: #e2e2e2 !important;
+}
+
+.table-list-search-input {
+  display: block !important;
+}
+
+
 .short-segment{
   height: 350px;
 }

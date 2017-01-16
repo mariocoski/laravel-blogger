@@ -16,26 +16,27 @@
   </a>
 </h2>
 
-<div class="ui left icon input table-list-search-input">
-  <input type="text" placeholder="Search articles..." id="article-list-search">
-   <i class="file text outline icon"></i>
-</div>
+
 
 <div id="article-table-list">
+<div class="ui left icon input table-list-search-input">
+  <input type="text" class="search" placeholder="Search articles..." id="article-list-search">
+   <i class="file text outline icon"></i>
+</div>
 <div class="list-pagination top-list-pagination"></div>
   <table  class="ui celled table" cellspacing="0" width="100%">
     <thead>
           <tr class="text-center">
-              <th>Id</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Author</th>
-              <th>Status</th>
-              <th>Created at</th>
+              <th class="sortable" data-sort="article-table-id"> Id <i class="sort icon"></i></th>
+              <th class="sortable" data-sort="article-table-title">Title <i class="sort icon"></i></th>
+              <th class="sortable" data-sort="article-table-category-name">Category <i class="sort icon"></i></th>
+              <th class="sortable" data-sort="article-table-author-name">Author <i class="sort icon"></i></th>
+              <th class="sortable" data-sort="article-table-status">Status <i class="sort icon"></i></th>
+              <th class="sortable" data-sort="article-table-created-at">Created at <i class="sort icon"></i></th>
               <th>Actions</th>
           </tr>
       </thead>
-      <tbody class="list text-center">
+      <tbody class="listable text-center">
       @if(isset($articles) && count($articles))
         @foreach($articles as $article)
           <tr>
