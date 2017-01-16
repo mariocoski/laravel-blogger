@@ -62,8 +62,8 @@ Breadcrumbs::register('backend.articles.index', function ($breadcrumbs) {
 
 // Articles > Favourites
 Breadcrumbs::register('backend.articles.favourites', function ($breadcrumbs) {
-    $breadcrumbs->parent('backend.articles.index');
-    $breadcrumbs->push('Favourites', route('articles.favourites'));
+    $breadcrumbs->parent('dashboard');
+    $breadcrumbs->push('Favoutite articless', route('articles.favourites'));
 });
 
 // Articles > Create Article
@@ -75,7 +75,7 @@ Breadcrumbs::register('backend.articles.create', function ($breadcrumbs) {
 // Articles > [Article Name]
 Breadcrumbs::register('backend.articles.show', function ($breadcrumbs, $article) {
     $breadcrumbs->parent('backend.articles.index');
-    $breadcrumbs->push($article->title, route('articles.show', $article->id));
+    $breadcrumbs->push($article->id, route('articles.show', $article->id));
 });
 
 // Articles > [Article Name] > Edit Article

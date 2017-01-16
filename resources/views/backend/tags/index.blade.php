@@ -16,25 +16,27 @@
 	</a>
 </h2>
 
-<div class="ui left icon input table-list-search-input">
-	<input type="text" placeholder="Search tags..." id="tag-list-search">
-	 <i class="tags icon"></i>
-</div>
+
 
 <div id="tag-table-list">
+
+<div class="ui left icon input table-list-search-input">
+	<input type="text" class="search" placeholder="Search tags..." id="tag-list-search">
+	 <i class="tags icon"></i>
+</div>
 <div class="list-pagination top-list-pagination"></div>
 	<table  class="ui celled table" cellspacing="0" width="100%">
 	 	<thead>
 	        <tr class="text-center">
-	            <th>Id</th>
-	            <th>Name</th>
-	            <th>Slug</th>
-	            <th>Number of articles</th>
-	            <th>Created at</th>
+	            <th class="sortable" data-sort="tag-table-id"> Id <i class="sort icon"></i></th>
+	            <th class="sortable" data-sort="tag-table-name">Name <i class="sort icon"></i></th>
+	            <th class="sortable" data-sort="tag-table-slug">Slug <i class="sort icon"></i></th>
+	            <th class="sortable" data-sort="tag-table-articles-count">Number of articles <i class="sort icon"></i></th>
+	            <th class="sortable" data-sort="tag-table-created-at">Created at <i class="sort icon"></i></th>
 	            <th>Actions</th>
 	        </tr>
 	    </thead>
-	    <tbody class="list text-center">
+	    <tbody class="listable text-center">
 	    @if(isset($tags) && count($tags))
 	    	@foreach($tags as $tag)
 		    	<tr>

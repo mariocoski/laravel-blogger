@@ -136,6 +136,8 @@ var userOptions = {
     'user-table-display-name',
     'user-table-created-at',
   ],
+  sortClass: "sortable",
+  listClass: "listable",
   page: 5,
   item: "user-table-no-results",
   plugins: [
@@ -150,10 +152,12 @@ var categoryOptions = {
   valueNames: [ 
     'category-table-id',
     'category-table-name',
+    'category-table-slug',
     'category-table-articles-count',
-    'category-table-email',
     'category-table-created-at',
   ],
+  sortClass: "sortable",
+  listClass: "listable",
   page: 5,
   item: "category-table-no-results",
   plugins: [
@@ -172,6 +176,8 @@ var tagOptions = {
     'tag-table-created-at',
   ],
   page: 5,
+  sortClass: "sortable",
+  listClass: "listable",
   item: "tag-table-no-results",
   plugins: [
     ListPagination(topPaginationOptions),
@@ -189,6 +195,8 @@ var articleOptions = {
     'article-table-status',
     'article-table-created-at',
   ],
+  sortClass: "sortable",
+  listClass: "listable",
   page: 5,
   item: "article-table-no-results",
   plugins: [
@@ -197,29 +205,6 @@ var articleOptions = {
   ]
 };
 var articleTableList = new List('article-table-list', articleOptions);
-
-
-$('#user-list-search').keyup(function(){
-  let needle = $(this).val();
-  userTableList.search(needle);
-});
-
-
-$('#category-list-search').keyup(function(){
-  let needle = $(this).val();
-  categoryTableList.search(needle);
-});
-
-$('#tag-list-search').keyup(function(){
-  let needle = $(this).val();
-  tagTableList.search(needle);
-});
-
-
-$('#article-list-search').keyup(function(){
-  let needle = $(this).val();
-  articleTableList.search(needle);
-});
 
 if (window.location.hash == '#_=_'){  
     history.replaceState 
