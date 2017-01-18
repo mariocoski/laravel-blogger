@@ -10,7 +10,7 @@
 <div class="ui segment teal padded">
 <h2>Upload Avatar</h2>
 
-<img class="ui centered middle aligned tiny image circular" src="{{(!empty(Auth::user()->avatar))? url('images/avatars/'.Auth::user()->avatar) : url('images/avatars/avatar_default.png') }}">
+<img class="ui centered middle aligned image avatar-sm" src="{{(!empty(Auth::user()->avatar))? url('images/avatars/'.Auth::user()->avatar) : url('images/avatars/avatar_default.png') }}">
 
 <span><button class="ui button orange" id="upload-avatar">Upload avatar</button></span>
 

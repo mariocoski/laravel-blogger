@@ -40,11 +40,10 @@
      }
 
 
-     var pickImage = document.querySelector('#article-pick-image');
-     pickImage.onclick = function(){
+     $('#article-pick-image').click(function(){
      	BrowseServer('article-image-path');
       return false;
-     }
+     });
 
 
 

@@ -21,7 +21,7 @@ class HomepageController extends Controller
         $response['results'] = $articles->map(function ($item) {
             return [
                 "title" => $item->title,
-                'url'   => '/blog/' . $item->slug,
+                'url' => '/blog/' . $item->slug,
                 'image' => config('app.url') . "/" . config('blogger.filemanager.upload_path') . "/" . $item->article_image,
             ];
         });
@@ -42,11 +42,18 @@ class HomepageController extends Controller
         return view('frontend.about', compact('authors'));
     }
 
+    public function author($slug)
+    {
+        $author = User::where('slug', $slug)->with('articles')->firstOrFail();
+
+        return view('frontend.author', compact('author'));
+    }
+
     public function contact(Request $request)
     {
         $this->validate($request, [
-            'name'    => 'required',
-            'email'   => 'required|email',
+            'name' => 'required',
+            'email' => 'required|email',
             'message' => 'required',
         ]);
 
@@ -60,7 +67,7 @@ class HomepageController extends Controller
         if (empty(request('query'))) {
             return view('frontend.search', ['articles' => []]);
         }
-        $articles = Article::search(request('query'))->where('is_published', 1)->paginate(config('blogger.pagination.articles_per_page'));
+        $articles = Article::search(request('query'))->paginate(config('blogger.pagination.articles_per_page'));
 
         return view('frontend.search', compact('articles'));
     }

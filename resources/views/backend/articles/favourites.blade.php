@@ -10,7 +10,7 @@
 <div class="ui segment teal padded">
 <h2>Favourite Articles</h2>
 
-@if($articles)
+@if($articles && count($articles)>0)
   <div class="ui relaxed divided list">
 	<div class="ui divided items">
 	@foreach($articles as $article)
@@ -23,7 +23,7 @@
 		    </div>
 		    <div class="middle aligned content">
 	            <a class="header" href="{{url('/blog/'.$article->slug)}}"><h3>{{ $article->title }} </h3></a>
-	            <div class="description"><a href="">{{ $article->author_name }}</a> <span class=" item-mute">| {{$article->published_at->diffForHumans()}}</span></div>
+	            <div class="description"><a href="{{url('about/'.$article->author->slug)}}">{{ $article->author_name }}</a> <span class=" item-mute">| {{$article->published_at->diffForHumans()}}</span></div>
 	        </div>
 		    <div class="middle aligned content right floated">
 				<a class="ui right floated tiny primary icon button no-wrap"  href="{{url('/blog/'.$article->slug)}}">
@@ -35,6 +35,8 @@
 	@endforeach
 	</div>
 	</div>
+@else
+	<div class="ui message yellow">You don't have any favourite articles yet</div>
 @endif
 </div>
 @endsection

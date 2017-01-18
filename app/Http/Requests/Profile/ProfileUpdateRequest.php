@@ -30,7 +30,9 @@ class ProfileUpdateRequest extends FormRequest
             'first_name' => 'required',
             'last_name' => 'required',
             'display_name' => 'required',
+            'slug' => 'required|unique:users,slug,' . Auth::user()->slug,
             'date_of_birth' => 'sometimes|date',
+            'website_url' => 'sometimes|url',
         ];
     }
 
@@ -47,6 +49,7 @@ class ProfileUpdateRequest extends FormRequest
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'display_name' => $this->display_name,
+            'slug' => str_slug($this->slug),
             'address' => $this->address,
             'postcode' => $this->postcode,
             'town' => $this->town,

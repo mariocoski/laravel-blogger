@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\User;
 
+use App\Models\User;
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -30,8 +31,10 @@ class UserCreateRequest extends FormRequest
             'first_name' => 'required',
             'last_name' => 'required',
             'display_name' => 'required',
+            'slug' => 'required|unique:users',
             'role' => 'required|numeric',
             'date_of_birth' => 'sometimes|date',
+            'website_url' => 'sometimes|url',
         ];
     }
 
@@ -43,6 +46,7 @@ class UserCreateRequest extends FormRequest
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'display_name' => $this->display_name,
+            'slug' => str_slug($this->slug),
             'address' => $this->address,
             'postcode' => $this->postcode,
             'town' => $this->town,

@@ -38,6 +38,7 @@ class UserTest extends TestCase
             ->type('foo', 'first_name')
             ->type('bar', 'last_name')
             ->type('foo bar', 'display_name')
+            ->type('foo bar', 'slug')
             ->select($role->id, 'role')
             ->press('submit');
 
@@ -56,13 +57,14 @@ class UserTest extends TestCase
             ->type('foo', 'first_name')
             ->type('bar', 'last_name')
             ->type('foo bar', 'display_name')
+            ->type('foo bar', 'slug')
             ->select($role->id, 'role')
             ->press('submit');
 
         $this->seeInDatabase('users', [
-            'email'        => 'foo@bar.com',
-            'first_name'   => 'foo',
-            'last_name'    => 'bar',
+            'email' => 'foo@bar.com',
+            'first_name' => 'foo',
+            'last_name' => 'bar',
             'display_name' => 'foo bar',
         ]);
 
@@ -87,6 +89,7 @@ class UserTest extends TestCase
             ->type('foo', 'first_name')
             ->type('bar', 'last_name')
             ->type('foo bar', 'display_name')
+            ->type('foo bar', 'slug')
             ->select($role->id, 'role')
             ->press('submit');
 
@@ -101,7 +104,7 @@ class UserTest extends TestCase
     public function test_if_can_edit_user_role()
     {
         $currentRoleId = $this->user->getTheHighestRoleId();
-        $adminRoleId   = Role::admin()->id;
+        $adminRoleId = Role::admin()->id;
 
         $this->actingAs($this->admin)
             ->visit('/dashboard/users')

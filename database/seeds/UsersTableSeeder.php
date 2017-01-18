@@ -14,41 +14,37 @@ class UsersTableSeeder extends Seeder
     {
 
         DB::table('users')->truncate();
-        DB::table('users')->insert([
+        $admin = factory(App\Models\User::class)->create([
             'email' => 'admin@blogger.com',
-            'password' => bcrypt('password'),
             'first_name' => 'John',
             'last_name' => 'Doe',
             'display_name' => 'John Doe',
+            'slug' => 'john-doe',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
-        $admin = User::findByEmail('admin@blogger.com');
-        $admin->toggleRoles([Role::user(), Role::editor(), Role::admin()]);
+        $admin->resolveRole(Role::admin()->id);
 
-        DB::table('users')->insert([
+        $editor = factory(App\Models\User::class)->create([
             'email' => 'editor@blogger.com',
-            'password' => bcrypt('password'),
             'first_name' => 'Jane',
             'last_name' => 'Doe',
+            'slug' => 'jane-doe',
             'display_name' => 'Jane Doe',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
-        $editor = User::findByEmail('editor@blogger.com');
-        $editor->toggleRoles([Role::user(), Role::editor()]);
+        $editor->resolveRole(Role::editor()->id);
 
-        DB::table('users')->insert([
+        $user = factory(App\Models\User::class)->create([
             'email' => 'user@blogger.com',
-            'password' => bcrypt('password'),
             'first_name' => 'Jack',
             'last_name' => 'Doe',
             'display_name' => 'Jack Doe',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
-        $user = User::findByEmail('user@blogger.com');
-        $user->toggleRoles([Role::user()]);
+        $user->resolveRole();
 
     }
 }

@@ -4,7 +4,7 @@
 </a>
 <a class="item" href="{{ url('/dashboard/favourite-articles') }}">
     <i class="star icon"></i>
-    Favourite articles
+    Favourite Articles
 </a>
 @if(Auth::user()->hasRole('admin'))
 <a class="item" href="{{ url('/dashboard/settings') }}">
