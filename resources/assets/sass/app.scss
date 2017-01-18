@@ -6,6 +6,9 @@
 $open-sans: 'Open Sans', serif; 
 $roboto-slab: 'Roboto Slab', serif; 
 
+
+
+
 .sortable {
   cursor: pointer !important;
 }
@@ -122,8 +125,8 @@ div.ui.input.table-list-search-input{
 }
 
 .avatar-sm{
-  max-width: 60px;
-  width: 100%;
+  width: 50px;
+  height: 50px; 
   height: auto;
   border-radius: 50%;
   -moz-border-radius: 50%;

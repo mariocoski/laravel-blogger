@@ -6,6 +6,8 @@ use App\Notifications\ResetPasswordNotification;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Image;
+use Storage;
 
 class User extends Authenticatable
 {
@@ -37,7 +39,7 @@ class User extends Authenticatable
 
     public static function findByEmail($email)
     {
-        return static::where('email', $email)->first();
+        return static::where('email', $email)->firstOrFail();
     }
 
     public function getDisplayName()
@@ -58,7 +60,7 @@ class User extends Authenticatable
 
     public function articles()
     {
-        return $this->hasMany('App\Models\Article');
+        return $this->hasMany('App\Models\Article', 'author_id', 'id');
     }
 
     public function getRoleDisplayName()
@@ -141,7 +143,7 @@ class User extends Authenticatable
             return null;
         }
 
-        $dateToSet                         = Carbon::createFromFormat('Y-m-d', $value);
+        $dateToSet = Carbon::createFromFormat('Y-m-d', $value);
         $this->attributes['date_of_birth'] = ($dateToSet !== false) ? $dateToSet : null;
     }
 
@@ -150,4 +152,31 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Role', 'user_role', 'user_id', 'role_id');
     }
 
+    public function updateOAuthData($authUser)
+    {
+        $this->fill([
+            'display_name' => $authUser->name,
+            'email' => $authUser->email,
+        ])->save();
+
+    }
+
+    public function saveAvatar($avatar = null)
+    {
+        if ($avatar) {
+            $this->update(['avatar' => $this->getAvatarName($avatar)]);
+        }
+    }
+
+    protected function getAvatarName($avatar)
+    {
+        $image = Image::make($avatar)->encode('png');
+
+        $filename = $this->id . ".png";
+
+        Storage::disk('avatars')->put("/" . $filename, $image->getEncoded());
+
+        return $filename;
+
+    }
 }

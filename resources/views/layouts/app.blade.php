@@ -27,8 +27,8 @@
           @yield('content')
         </div>
       </div>
-
       @include('partials._footer')
+
     </div>
 
     @include('partials._contact_form_modal')

@@ -36,6 +36,7 @@ Route::get("tags/{slug}", ['as' => 'frontend.tags.show', 'uses' => 'Frontend\Tag
 
 Route::post('contact', 'Frontend\HomepageController@contact');
 Route::get('about', ['as' => 'frontend.about', 'uses' => 'Frontend\HomepageController@about']);
+Route::get('about/{slug}', ['as' => 'frontend.about.author', 'uses' => 'Frontend\HomepageController@author'])->where('slug', '[\w\d\-\_]+');
 Route::get('search', ['as' => 'frontend.search', 'uses' => 'Frontend\HomepageController@search']);
 Route::get('blog/{slug}', ['as' => 'frontend.articles.show', 'uses' => 'Frontend\ArticleController@show'])->where('slug', '[\w\d\-\_]+');
 

@@ -18,6 +18,15 @@ class Article extends Model
         return 'articles_index';
     }
 
+    public function toSearchableArray()
+    {
+        if ($this->is_published === 1 && $this->published_at < Carbon::now()) {
+            return $this->toArray();
+        }
+
+        return [];
+    }
+
     public function fans()
     {
         return $this->belongsToMany(User::class, 'favourites');
@@ -57,7 +66,7 @@ class Article extends Model
 
     public function setContentAttribute($value)
     {
-        $this->attributes['content']      = $value;
+        $this->attributes['content'] = $value;
         $this->attributes['html_content'] = ParsedownService::toHTML($value);
     }
 

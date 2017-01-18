@@ -10,6 +10,8 @@ window.rrssb = require('rrssb');
 
 $(document).ready(function() {
 
+
+
  const ROOT_DIR = "http://blogger.dev"; 
 
  $.ajaxSetup({

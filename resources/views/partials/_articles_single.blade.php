@@ -2,7 +2,7 @@
 <div class="ui card blogger-card fluid teal">
   <div class="content">
     <div class="right floated meta">{{ $article->published_at->diffForHumans()}}</div>
-    <a href="{{url('about/'.$article->id)}}"><img class="ui avatar mini image" src="{{(!empty($article->author->avatar))? url('images/avatars/'.$article->author->avatar) : url('images/avatars/avatar_default.png')}}">
+    <a href="{{url('about/'.$article->author->slug)}}"><img class="ui avatar mini image" src="{{(!empty($article->author->avatar))? url('images/avatars/'.$article->author->avatar) : url('images/avatars/avatar_default.png')}}">
         {{$article->author_name}} {{ (!empty($article->author->job))? ', '.$article->author->job : "" }}
     </a>
   </div><!--end of content-->

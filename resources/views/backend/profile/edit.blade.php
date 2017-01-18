@@ -64,6 +64,13 @@
     </div>
   </div>
 
+    <div class="field fluid {{ $errors->has('slug') ? 'error' : '' }}">
+    <label for="slug">Slug</label>
+    <div class="ui input">
+      <input type="text" name="slug" id="slug" placeholder="Slug" value="{{ ($user->slug) ?? old('slug') }}" >
+    </div>
+  </div>
+
   <div class="field fluid {{ $errors->has('date_of_birth') ? 'error' : '' }}">
     <label for="date_of_birth">Date Of Birth (optional)</label>
     <div class="ui input">
@@ -150,7 +157,7 @@
    <div class="field fluid">
     <label for="website_url">Website Url (optional)</label>
     <div class="ui input">
-      <input type="text" name="website_url" id="website_url" placeholder="www.example.com" value="{{ ($user->website_url) ?? old('website_url') }}" >
+      <input type="text" name="website_url" id="website_url" placeholder="http://www.example.com" value="{{ ($user->website_url) ?? old('website_url') }}" >
     </div>
    </div>
    <button class="ui fluid fluid orange submit button" type="submit" name="submit">

@@ -45,10 +45,10 @@
              <td class="article-table-category-name">{{$article->category_name}}</td>
             <td class="article-table-author-name">{{$article->author_name}}</td>
             <td class="article-table-status">
-              @if($article->is_draft)
-               <span class="ui label grey">Draft</span>
+              @if($article->is_published && $article->published_at !== null &&  $article->published_at < Carbon\Carbon::now())
+               <span class="ui label green">Published</span>
               @else
-                <span class="ui label green">Published</span>
+                <span class="ui label grey">Draft</span>
               @endif
             </td>
             <td class="article-table-created-at">{{$article->created_at->format('d M Y')}}</td>

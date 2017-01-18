@@ -5,16 +5,14 @@
 <div class="ui segments raised">
 
   <div class="ui segment large">
-    {!! Breadcrumbs::render('frontend.about') !!}
+    {!! Breadcrumbs::render('frontend.about.author',$author) !!}
   </div><!--end of segment-->
 
   <div class="ui segment teal padded">
-    <h2>Authors</h2>
-    @if(isset($authors))
+    <h2>Author</h2>
+    @if(isset($author))
 		 <div class="ui divided items">
-			@foreach($authors as $author)
 				<div class="item">
-
 					<div class="ui image">
 	                    <a href="{{url('/blog/'.$author->display_name)}}">
 	                        <img class="ui image avatar-sm" src="{{(!empty($author->avatar))? url('images/avatars/'.$author->avatar): url('images/avatars/avatar_default.png')}}">
@@ -35,17 +33,35 @@
 	                    </div>
 
 	                </div><!--end of content-->
-
-	                <div class="middle aligned content right floated">
-						<a class="ui right floated tiny  primary icon button no-wrap" href="{{url('/about/'.$author->slug)}}">
-		                     <i class="eye icon"></i> Read more
-		                </a>
-					</div><!--end of right content-->
-
 	            </div><!--end of item-->
+	    </div><!--end of item-->
+	    @endif
+
+	    <h2>Author Articles</h2>
+	    @if(count($author->articles) > 0 )
+		<div class="ui divided items">
+			@foreach($author->articles as $article)
+				  <div class="item">
+				    <div class="ui tiny image">
+				        <a href="{{url('/blog/'.$article->slug)}}">
+				          <img class="ui tiny image" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}">
+				        </a>
+				    </div>
+				    <div class="middle aligned content">
+			            <a class="header" href="{{url('/blog/'.$article->slug)}}"><h3>{{ $article->title }} </h3></a>
+			            <div class="description"><a href="">{{ $article->author_name }}</a> <span class=" item-mute">| {{$article->published_at->diffForHumans()}}</span></div>
+			        </div>
+				    <div class="middle aligned content right floated">
+						<a class="ui right floated tiny primary icon button no-wrap"  href="{{url('/blog/'.$article->slug)}}">
+				            <i class="eye icon"></i> Read article
+				    	 </a>
+					</div>
+				</div>
+			</div>
 			@endforeach
-		</div><!--end of items-->
-	@endif
+	    @else
+	        <div class="ui message yellow">Author does not have any articles yet</div>
+	    @endif
     </div><!--end of segment-->
 </div><!--end of segments-->
 @endsection

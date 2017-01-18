@@ -52,6 +52,7 @@ class ProfileTest extends TestCase
             ->type('foo', 'first_name')
             ->type('bar', 'last_name')
             ->type('foo bar', 'display_name')
+            ->type('foo bar', 'slug')
             ->press('submit');
 
         $updatedUser = User::find($this->admin->id);
@@ -60,12 +61,14 @@ class ProfileTest extends TestCase
         $this->assertNotEquals($this->user->first_name, $updatedUser->first_name);
         $this->assertNotEquals($this->user->last_name, $updatedUser->last_name);
         $this->assertNotEquals($this->user->display_name, $updatedUser->display_name);
+        $this->assertNotEquals($this->user->slug, $updatedUser->slug);
 
         $this->seeInDatabase('users', [
-            'email'      => 'foo@bar.com',
+            'email' => 'foo@bar.com',
             'first_name' => 'foo',
-            'last_name'  => 'bar',
-            'foo bar'    => 'foo bar',
+            'last_name' => 'bar',
+            'display_name' => 'foo bar',
+            'slug' => 'foo-bar',
         ]);
 
     }

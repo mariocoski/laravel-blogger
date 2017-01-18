@@ -35,10 +35,16 @@ Breadcrumbs::register('frontend.tags.show', function ($breadcrumbs, $tag) {
     $breadcrumbs->push($tag->name, route('frontend.tags.show', $tag->slug));
 });
 
-//About`
+//About
 Breadcrumbs::register('frontend.about', function ($breadcrumbs) {
     $breadcrumbs->push('Home', route('home'));
     $breadcrumbs->push('About', route('frontend.about'));
+});
+
+//About Author
+Breadcrumbs::register('frontend.about.author', function ($breadcrumbs, $author) {
+    $breadcrumbs->parent('frontend.about');
+    $breadcrumbs->push($author->display_name, route('frontend.about.author', $author->slug));
 });
 
 //Search
@@ -63,7 +69,7 @@ Breadcrumbs::register('backend.articles.index', function ($breadcrumbs) {
 // Articles > Favourites
 Breadcrumbs::register('backend.articles.favourites', function ($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push('Favoutite articless', route('articles.favourites'));
+    $breadcrumbs->push('Favoutite Articles', route('articles.favourites'));
 });
 
 // Articles > Create Article

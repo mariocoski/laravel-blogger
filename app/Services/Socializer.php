@@ -1,7 +1,6 @@
 <?php
 namespace App\Services;
 
-use App\Models\Role;
 use App\Models\User;
 use Auth;
 use Redirect;
@@ -44,50 +43,35 @@ class Socializer
     public function callback()
     {
         try {
-            $user = Socialite::driver($this->providerName)->user();
+            $authUser = Socialite::driver($this->providerName)->user();
         } catch (\Exception $e) {
             return Redirect::to($this->errorRedirectPath);
         }
-        $authUser = $this->findOrUpdate($user);
-        Auth::login($authUser, true);
+        $user = $this->findOrCreate($authUser);
+
+        Auth::login($user, true);
+
         return Redirect::to($this->successRedirectPath);
     }
 
-    private function findOrUpdate($user)
+    private function findOrCreate($authUser)
     {
-        if (!empty($user->email)) {
-            return $this->findByEmailOrCreate($user);
-        }
-        return $this->findByIdOrCreate($user);
-    }
-
-    private function findByEmailOrCreate($user)
-    {
-        if ($authUser = User::where('email', $user->email)->first()) {
-            $authUser[$this->providerColumnName] = $user->id;
-            $authUser->save();
-            return $authUser;
-        }
-        return $this->createuser($user);
-    }
-
-    private function findByIdOrCreate($user)
-    {
-        if ($authUser = User::where($this->providerColumnName, $user->id)->first()) {
-            return $authUser;
-        }
-        return $this->createuser($user);
-    }
-
-    private function createUser($user)
-    {
-        $user = User::create([
-            'display_name' => $user->name,
-            'email' => $user->email,
-            $this->providerColumnName => $user->id,
-            'avatar' => $user->avatar,
+        $user = User::firstOrNew([
+            $this->providerColumnName => $authUser->id,
         ]);
-        $user->resolveRole(Role::user()->id);
+
+        if ($user->exists) {
+            return $user;
+        }
+
+        $user->updateOAuthData($authUser);
+
+        $user->saveAvatar($authUser->avatar);
+
+        $user->resolveRole();
+
         return $user;
+
     }
+
 }
