@@ -7,6 +7,12 @@ Breadcrumbs::register('home', function ($breadcrumbs) {
 
 // FRONTEND
 
+//Subscription
+Breadcrumbs::register('frontend.subscription', function ($breadcrumbs, $email) {
+    $breadcrumbs->push('Home', route('home'));
+    $breadcrumbs->push('Subscription', route('frontend.subscription', $email));
+});
+
 //Article
 Breadcrumbs::register('frontend.articles.show', function ($breadcrumbs, $article) {
     $breadcrumbs->parent('home', route('home'));
@@ -190,12 +196,6 @@ Breadcrumbs::register('backend.profile', function ($breadcrumbs) {
 Breadcrumbs::register('backend.media', function ($breadcrumbs) {
     $breadcrumbs->parent('dashboard');
     $breadcrumbs->push('Media', route('backend.media'));
-});
-
-// Help
-Breadcrumbs::register('backend.help', function ($breadcrumbs) {
-    $breadcrumbs->parent('dashboard');
-    $breadcrumbs->push('Help', route('backend.help'));
 });
 
 // Avatar

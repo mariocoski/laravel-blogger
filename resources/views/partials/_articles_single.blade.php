@@ -26,9 +26,9 @@
       <a href="{{url('/blog/'.$article->slug)}}">
         <img class="ui fluid image lazy hoverable " data-original="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}"
                   src="images/placeholder.gif" height="480" width="640" alt="picture">
-        <noscript>
+       <!--  <noscript>
           <img class="ui fluid image hoverable" height="480" width="640" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}">
-        </noscript>
+        </noscript> -->
       </a>
 
     </div><!--end of image-->
@@ -36,17 +36,18 @@
   </div><!--end of content-->
 
   <div class="extra content">
-          @include('partials._share_buttons',['article' => $article])
+      @include('partials._share_buttons',['article' => $article])
   </div><!--end of content-->
 
 </div><!--end of card-->
 @endforeach
-    <div class="ui card blogger-card fluid no-box-shadow text-center">
-      {{ $articles->links() }}
-    </div>
 
-    <div class="ui card blogger-card fluid ">
-      <div class="ui content text-center brand-teal">
-      @include('partials._subscribe')
-      </div>
-    </div>
+<div class="ui card blogger-card fluid no-box-shadow text-center">
+  {{ $articles->links() }}
+</div>
+
+<div class="ui card blogger-card fluid ">
+  <div class="ui content text-center brand-teal">
+    @include('partials._subscribe')
+  </div>
+</div>

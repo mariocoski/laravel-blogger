@@ -10,7 +10,7 @@
 
   <div class="ui segment teal padded">
     <h2>Search articles</h2>
-      <form class="search-form-sm" action="search">
+      <form class="search-form-sm" action="search articles...">
         <div class="ui search fluid">
           <div class="ui icon input">
             <input class="prompt" type="text" name="query" value="{{ request('query') }}" placeholder="Search...">

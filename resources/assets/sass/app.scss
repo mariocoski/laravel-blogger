@@ -235,16 +235,21 @@ ul.list-unstyled {
   text-align: center;
 }
 
-img.lazy.ui.fluid {
+/*img.lazy.ui.fluid {
   display: none;
-}
+}*/
 
 .search-form-sm{
   margin-bottom: 0;
 }
-
-.ui.search .prompt {
+.ui.message ul.list:not(.ui){
+    list-style: none;
+}
+.ui.search .prompt{
   border-radius: 4px;
+}
+
+.ui.search .prompt.top {
   width: 300px;
 }
 

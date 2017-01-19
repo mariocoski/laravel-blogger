@@ -30,7 +30,7 @@ class ProfileUpdateRequest extends FormRequest
             'first_name' => 'required',
             'last_name' => 'required',
             'display_name' => 'required',
-            'slug' => 'required|unique:users,slug,' . Auth::user()->slug,
+            'slug' => 'required|unique:users,slug,' . Auth::user()->id,
             'date_of_birth' => 'sometimes|date',
             'website_url' => 'sometimes|url',
         ];

@@ -25,8 +25,66 @@ $(".date-of-birth").flatpickr({
 $(".published-at").flatpickr({
    enableTime: true
 });
+
+$("#subscribtion-submit").click(function(){
+  let email = $('#subscribtion-email').val();
+  
+  $('.ui.form.subscribtion-form').form({
+    fields: {
+      'subscribtion-email' : {
+        identifier: 'subscribtion-email',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Email field is required'
+          },
+          {
+            type : 'email',
+            prompt: 'Email must be a valid email address'
+          }
+        ]
+      }
+    }
+  });
+
+  $('.ui.form.subscribtion-form').form("validate form");
+
+  if(!$('.ui.form.subscribtion-form').form('is valid')){
+    return false;
+  }
+  $(this).addClass("loading").addClass("disabled");
+  
+  $.ajax({
+    url : "subscribe",
+    type : "POST",
+    data: { email : email}
+  }).done((response) => {
+    if(response.success === true){
+      $('#subscribtion-success').removeClass("hidden");
+      setTimeout(()=>{
+        $('#subscribtion-success').addClass("hidden");
+      },4000);
+    }else if(response.success === false){
+       $('#subscribtion-errors').text("Your email address already exists in our database").show();
+      setTimeout(()=>{
+         $('#subscribtion-errors').text("").hide();
+      },4000);
+    }
+
+  }).fail((error) => {
+     
+      $('#subscribtion-errors').text("Your email address is invalid").show();
+      setTimeout(()=>{
+         $('#subscribtion-errors').text("").hide();
+      },4000);
+  }).always(()=>{
+     $(this).removeClass("loading").removeClass("disabled");
+      $('.ui.form.subscribtion-form').form('clear');
+  });
+});
  
-$("img.lazy.ui.fluid").show().lazyload({effect : "fadeIn",threshold : 500});
+//$("img.lazy.ui.fluid").show().lazyload({effect : "fadeIn",threshold : 500});
+$("img.lazy.ui.fluid").lazyload({effect : "fadeIn",threshold : 500});
 
 
 $('.form-delete-user').submit(function(){
