@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Mail\ContactFormMessage;
 use App\Models\Article;
+use App\Models\Subscription;
 use App\Models\User;
+use App\Notifications\SubscriptionNotification;
 use Illuminate\Http\Request;
 use Mail;
 
@@ -16,7 +18,7 @@ class HomepageController extends Controller
     {
         $response = [];
 
-        $articles = Article::search(request('query'))->where('is_published', 1)->get();
+        $articles = Article::search(request('query'))->get();
 
         $response['results'] = $articles->map(function ($item) {
             return [
@@ -33,9 +35,42 @@ class HomepageController extends Controller
         return response()->json($response);
     }
 
+    public function subscribe(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|max:255|email',
+        ]);
+        $subscritionExists = Subscription::findByEmail(request('email'));
+
+        if ($subscritionExists) {
+            return response()->json(['success' => false, 'error' => 'This email already exists in our database']);
+        }
+
+        $subscription = Subscription::create([
+            'email' => request('email'),
+            'ip_address' => request()->ip(),
+        ]);
+        $subscription->notify(new SubscriptionNotification($request));
+
+        return response()->json(['success' => true]);
+
+    }
+
+    public function subscriptionConfirm($email = null)
+    {
+        $success = false;
+
+        $subscription = Subscription::findByEmail($email);
+        if ($subscription) {
+            $subscription->update(['is_confirmed' => true]);
+            $success = true;
+        }
+        return view('frontend.subscription_confirmation', compact('success'));
+
+    }
+
     public function about()
     {
-
         $authors = User::all()->filter(function ($user) {
             return $user->hasRole('editor');
         });

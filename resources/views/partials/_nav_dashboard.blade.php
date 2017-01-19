@@ -43,7 +43,3 @@
     Media
 </a>
 @endif
-<a class="item" href="{{ url('/dashboard/help') }}">
-    <i class="help circle icon"></i>
-    Help
-</a>

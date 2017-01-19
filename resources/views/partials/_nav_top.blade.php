@@ -24,7 +24,7 @@
       <div class="item">
         <div class="ui search">
           <div class="ui icon input">
-            <input class="prompt" type="text" name="query" placeholder="Search...">
+            <input class="prompt top" type="text" name="query" placeholder="Search articles...">
             <i class="search icon"></i>
           </div>
           <div class="results"></div>

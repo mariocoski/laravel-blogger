@@ -53,13 +53,18 @@
         </div>
 
         <footer>
+          <div class="article-share">
+              <h4>Share:</h4>
+             @include('partials._share_buttons',['article' => $article])
+          </div>
+          <br />
           <div class="article-tags">
             <h4>Tags:</h4>
             @foreach($article->tags as $tag)
              <a class="ui large label" href="{{ url('tags/'.$tag->slug) }}">{{ $tag->name }}</a>
             @endforeach
           </div>
-
+          <br />
           @include('partials._disqus',['url'=>url('blog/'.$article->slug), 'identifier' => $article->id])
         </footer>
 

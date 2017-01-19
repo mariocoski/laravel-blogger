@@ -22,8 +22,8 @@ class ContactFormMessage extends Mailable
      */
     public function __construct(Request $request)
     {
-        $this->email          = $request->input('email');
-        $this->name           = $request->input('name');
+        $this->email = $request->input('email');
+        $this->name = $request->input('name');
         $this->contactMessage = $request->input('message');
     }
 
@@ -34,7 +34,7 @@ class ContactFormMessage extends Mailable
      */
     public function build()
     {
-        return $this->to(config('mail.to.address'))
+        return $this->to(config('mail.admin.address'))
             ->subject('New message from ' . config('app.name'))
             ->from($this->email)
             ->view('emails.contact');

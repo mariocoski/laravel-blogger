@@ -28,6 +28,9 @@ Route::get('auth/google/callback', "OAuth\GoogleController@callback");
 
 Route::get("/", ['as' => 'home', 'uses' => 'Frontend\ArticleController@index']);
 
+Route::post('subscribe', 'Frontend\HomepageController@subscribe');
+Route::get('subscription/confirm/{email}', ['as' => 'frontend.subscription', 'uses' => 'Frontend\HomepageController@subscriptionConfirm']);
+
 Route::get("categories", ['as' => 'frontend.categories', 'uses' => 'Frontend\CategoryController@index']);
 Route::get("categories/{slug}", ['as' => 'frontend.categories.show', 'uses' => 'Frontend\CategoryController@show'])->where('slug', '[\w\d\-\_]+');
 
@@ -92,5 +95,4 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     Route::get('subscriptions', ['as' => 'backend.subscriptions', 'uses' => 'Backend\SubscriptionController@index']);
 
     Route::get('media', ['as' => 'backend.media', 'uses' => 'Backend\MediaController@index']);
-    Route::get('help', ['as' => 'backend.help', 'uses' => 'Backend\HelpController@index']);
 });
