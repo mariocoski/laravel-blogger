@@ -3,7 +3,7 @@
     Profile
 </a>
 <a class="item" href="{{ url('/dashboard/favourite-articles') }}">
-    <i class="star icon"></i>
+    <i class="heart icon"></i>
     Favourite Articles
 </a>
 @if(Auth::user()->hasRole('admin'))

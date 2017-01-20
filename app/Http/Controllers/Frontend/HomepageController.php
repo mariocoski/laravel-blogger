@@ -69,6 +69,21 @@ class HomepageController extends Controller
 
     }
 
+    public function sitemap()
+    {
+        return view('frontend.sitemap');
+    }
+
+    public function termsAndConditions()
+    {
+        return view('frontend.terms_and_conditions');
+    }
+
+    public function privacyPolicy()
+    {
+        return view('frontend.privacy_policy');
+    }
+
     public function about()
     {
         $authors = User::all()->filter(function ($user) {
@@ -99,16 +114,13 @@ class HomepageController extends Controller
 
     public function search()
     {
-        if (empty(request('query'))) {
+        $query = trim(request('query'));
+        if (empty($query)) {
             return view('frontend.search', ['articles' => []]);
         }
-        $articles = Article::search(request('query'))->paginate(config('blogger.pagination.articles_per_page'));
+        $articles = Article::search($query)->paginate(config('blogger.pagination.articles_per_page'));
 
         return view('frontend.search', compact('articles'));
     }
 
-    public function terms()
-    {
-        return view('welcome');
-    }
 }

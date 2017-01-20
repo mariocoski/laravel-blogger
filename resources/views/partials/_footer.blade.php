@@ -4,18 +4,19 @@
        <div class="five wide column">
          <h4 class="ui inverted header">Shortcuts</h4>
          <div class="ui inverted link list">
-           <a href="#" class="item">Blog</a>
-           <a href="#" class="item">Authors</a>
-           <a href="#" class="item">Contact</a>
-           <a href="#" class="item">Login</a>
-           <a href="#" class="item">Registration</a>
+           <a href="{{ url('/') }}" class="item">Blog</a>
+           <a href="{{ url('about') }}" class="item">About</a>
+           @if(!Auth::check())
+           <a href="{{ url('login') }}" class="item">Login</a>
+           <a href="{{ url('register') }}" class="item">Registration</a>
+           @endif
          </div>
        </div>
        <div class="five wide column">
          <h4 class="ui inverted header">Address</h4>
          <div class="ui inverted link list">
-           <div class="item"><i class="users icon"></i> Blogger</div>
-           <div class="item"><i class="marker icon"></i>  London, United Kingdom</div>
+           <div class="item"><i class="users icon"></i>Laravel-Blogger</div>
+           <div class="item"><i class="marker icon"></i>  Oxford, United Kingdom</div>
            <a class="item" href="mailto:mariuszrajczakowski@gmail.com"><i class="mail icon"></i> mariuszrajczakowski@gmail.com</a>
             <a class="item" href="http://www.github.com/mariocoski"><i class="github icon"></i> http://www.github.com/mariocoski</a>
            <a class="item" href="http://www.example.com"><i class="linkify icon"></i> http://www.example.com</a>
@@ -28,14 +29,13 @@
        </div>
      </div>
      <div class="ui inverted section divider"></div>
-     <a href="/">
+     <a href="{{ url('/') }}">
        <img src="{{ url('images/logo_sm.png') }}" class="ui centered mini image" alt="{{config('app.name')}}">
      </a>
      <div class="ui horizontal inverted small divided link list">
-       <a class="item" href="#">Site Map</a>
-       <a class="item" href="#">Contact</a>
-       <a class="item" href="#">Terms and Conditions</a>
-       <a class="item" href="#">Privacy Policy</a>
+       <a class="item" href="{{ url('sitemap') }}">Site Map</a>
+       <a class="item" href="{{ url('terms-and-conditions') }}">Terms and Conditions</a>
+       <a class="item" href="{{ url('privacy-policy') }}">Privacy Policy</a>
      </div>
      @include('partials._credits_footer')
    </div>

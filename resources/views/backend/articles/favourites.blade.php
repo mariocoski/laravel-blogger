@@ -18,7 +18,7 @@
 		  <div class="item">
 		    <div class="ui tiny image">
 		        <a href="{{url('/blog/'.$article->slug)}}">
-		          <img class="ui tiny image" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}">
+		          <img class="ui hoverable tiny image" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}">
 		        </a>
 		    </div>
 		    <div class="middle aligned content">

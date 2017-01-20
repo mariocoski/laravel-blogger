@@ -2,14 +2,32 @@
 
 // Home
 Breadcrumbs::register('home', function ($breadcrumbs) {
-    $breadcrumbs->push('Home', route('home'));
+    $breadcrumbs->push('Blog', route('home'));
 });
 
 // FRONTEND
 
+//Sitemap
+Breadcrumbs::register('frontend.sitemap', function ($breadcrumbs) {
+    $breadcrumbs->parent('home', route('home'));
+    $breadcrumbs->push('Sitemap', route('frontend.sitemap'));
+});
+
+//Terms and Conditions
+Breadcrumbs::register('frontend.terms-and-conditions', function ($breadcrumbs) {
+    $breadcrumbs->parent('home', route('home'));
+    $breadcrumbs->push('Terms and Conditions', route('frontend.terms-and-conditions'));
+});
+
+//Privacy Policy
+Breadcrumbs::register('frontend.privacy-policy', function ($breadcrumbs) {
+    $breadcrumbs->parent('home', route('home'));
+    $breadcrumbs->push('Privacy Policy', route('frontend.privacy-policy'));
+});
+
 //Subscription
 Breadcrumbs::register('frontend.subscription', function ($breadcrumbs, $email) {
-    $breadcrumbs->push('Home', route('home'));
+    $breadcrumbs->parent('home', route('home'));
     $breadcrumbs->push('Subscription', route('frontend.subscription', $email));
 });
 
@@ -21,7 +39,7 @@ Breadcrumbs::register('frontend.articles.show', function ($breadcrumbs, $article
 
 // Categories
 Breadcrumbs::register('frontend.categories', function ($breadcrumbs) {
-    $breadcrumbs->push('Home', route('home'));
+    $breadcrumbs->parent('home', route('home'));
     $breadcrumbs->push('Categories', route('frontend.categories'));
 });
 
@@ -32,7 +50,7 @@ Breadcrumbs::register('frontend.categories.show', function ($breadcrumbs, $categ
 
 // Tags
 Breadcrumbs::register('frontend.tags', function ($breadcrumbs) {
-    $breadcrumbs->push('Home', route('home'));
+    $breadcrumbs->parent('home', route('home'));
     $breadcrumbs->push('Tags', route('frontend.tags'));
 });
 
@@ -43,7 +61,7 @@ Breadcrumbs::register('frontend.tags.show', function ($breadcrumbs, $tag) {
 
 //About
 Breadcrumbs::register('frontend.about', function ($breadcrumbs) {
-    $breadcrumbs->push('Home', route('home'));
+    $breadcrumbs->parent('home', route('home'));
     $breadcrumbs->push('About', route('frontend.about'));
 });
 
@@ -55,7 +73,7 @@ Breadcrumbs::register('frontend.about.author', function ($breadcrumbs, $author) 
 
 //Search
 Breadcrumbs::register('frontend.search', function ($breadcrumbs) {
-    $breadcrumbs->push('Home', route('home'));
+    $breadcrumbs->parent('home', route('home'));
     $breadcrumbs->push('Search', route('frontend.search'));
 });
 

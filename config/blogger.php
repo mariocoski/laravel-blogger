@@ -11,7 +11,7 @@ return [
     | process.
     |
      */
-    'version'              => 'v1.0.0',
+    'version' => 'v1.0.0',
 
     /*
     |--------------------------------------------------------------------------
@@ -32,7 +32,7 @@ return [
     |
     |
      */
-    'filemanager'          => [
+    'filemanager' => [
         'upload_path' => 'filemanager/userfiles',
     ],
 
@@ -43,7 +43,7 @@ return [
     |
     |
      */
-    'pagination'           => [
+    'pagination' => [
         'articles_per_page' => 10,
     ],
 
@@ -55,7 +55,7 @@ return [
     | Defines layout of the article
     |
      */
-    'article_layout'       => 'layouts.article',
+    'article_layout' => 'layouts.article',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
     | Defines excluded ips for the maintenance mode (your computer ip)
     |
      */
-    'maintenace_mode'      => [
+    'maintenace_mode' => [
         'excluded_ips' => [
             '192.168.10.1',
         ],
@@ -81,8 +81,8 @@ return [
     | Supported: "ElasticSearch"
     |
      */
-    'search_engine'        => [
-        'enabled'    => true,
+    'search_engine' => [
+        'enabled' => true,
         'searchable' => [
             "App\\Models\\Article",
         ],
@@ -97,8 +97,8 @@ return [
     |
     |
      */
-    'auth'                 => [
-        'success'           => 'dashboard',
+    'auth' => [
+        'success' => 'dashboard',
         'impersonification' => [
             'session_name' => 'back_to_admin',
         ],
@@ -113,21 +113,21 @@ return [
     |
     |
      */
-    'social_login'         => [
-        'enabled'   => true,
+    'social_login' => [
+        'enabled' => true,
         'providers' => [
             'facebook' => [
                 'enabled' => true,
             ],
-            'twitter'  => [
+            'twitter' => [
                 'enabled' => true,
             ],
-            'google'   => [
+            'google' => [
                 'enabled' => true,
             ],
         ],
 
     ],
-    'github_repository'    => "https://github.com/mariocoski/laravel-blogger",
+    'github_repository' => "https://github.com/mariocoski/laravel-blogger",
 
 ];

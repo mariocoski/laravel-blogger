@@ -76,6 +76,14 @@ class Article extends Model
             return $tag->id;
         })->implode(',');
     }
+
+    public function getReadingTimeAttribute()
+    {
+        $words = str_word_count(strip_tags($this->attributes['content']));
+        $min = ceil($words / 200);
+        return $min . ' min read';
+    }
+
     public function author()
     {
         return $this->belongsTo('App\Models\User', 'author_id');

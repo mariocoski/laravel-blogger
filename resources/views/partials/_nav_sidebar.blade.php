@@ -20,7 +20,7 @@
   @if(Session::has( config('blogger.auth.impersonification.session_name')))
     <a class="item" href="{{ url('/dashboard/back-to-admin-mode') }}" name="back-to-admin-mode"><i class="spy icon"></i> Back to Admin Mode</a>
   @endif
-  <a class="item" href="/">
+  <a class="item" href="{{ url('/')}}">
      <i class="newspaper icon"></i>
     Blog
   </a>
@@ -33,7 +33,7 @@
       </div>
      </div>
   </div>
-  <a class="item" href="about">
+  <a class="item" href="{{url('about')}}">
     <i class="info circle icon"></i>
     About
   </a>

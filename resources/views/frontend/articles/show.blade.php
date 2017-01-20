@@ -1,6 +1,6 @@
 @extends('layouts.article')
 
-@section('title', 'About')
+@section('title', $article->title)
 @section('content')
 <div class="ui segments raised">
 
@@ -13,28 +13,32 @@
       @if($article)
       <article>
         <header>
-          @if(Auth::user() && Auth::user()->hasRole('editor'))
-          <div class="middle aligned content right floated">
-            <a class="ui right floated tiny primary icon button no-wrap"  href="{{ url('dashboard/articles/'.$article->id.'/edit') }}">
-                <i class="edit icon"></i> Edit
+          <div class="ui divided items">
+
+          <div class="item">
+
+            <a class="ui image tiny" href="{{ url('about/'.$article->author->slug) }}">
+                 <img class="ui avatar-sm" src="{{(!empty($article->author->avatar))? url('images/avatars/'.$article->author->avatar) : url('images/avatars/avatar_default.png')}}">
             </a>
-          </div>
-          @endif
-          <div class="ui horizontal list">
-            <div class="item">
-              <img class="ui circular tiny image" src="{{(!empty($article->author->avatar))? url('images/avatars/'.$article->author->avatar) : url('images/avatars/avatar_default.png')}}">
-              <div class="content">
-                <a class="ui header item-mute" href="">{{ $article->author_name }}</a>
-                <div class="item-mute">{{ (!empty($article->author->job))? $article->author->job : "Editor" }}</div>
 
-                <div class="item-mute">{{ $article->published_at->diffForHumans()}}</div>
-              </div>
+            <div class="middle aligned content">
+                  <a class="ui header item-mute" href="{{ url('about/'.$article->author->slug) }}">{{ $article->author_name }}</a>
+                  <div><strong>{{ (!empty($article->author->job))? $article->author->job : "Editor" }}</strong></div>
+                  <div class="item-mute"><i class="clock icon"></i>{{ $article->reading_time}} | {{ $article->published_at->diffForHumans()}}</div>
+
             </div>
+
+                  @if(Auth::user() && Auth::user()->hasRole('editor'))
+            <div class="middle aligned content ">
+              <a class="ui right floated tiny primary icon button no-wrap"  href="{{ url('dashboard/articles/'.$article->id.'/edit') }}">
+                  <i class="edit icon"></i> Edit
+              </a>
+            </div>
+            @endif
+           <!--  <h3>{{ $article->subtitle }}</h3> -->
           </div>
-
-          <h1 class="article-title"><a href="">{{ $article->title }}</a></h1>
-
-         <!--  <h3>{{ $article->subtitle }}</h3> -->
+          </div>
+            <h1 class="article-title"><a href="">{{ $article->title }}</a></h1>
         </header>
 
         <div class="article-content">
@@ -50,6 +54,7 @@
                <img class="ui fluid image" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}" alt="picture">
           </div>
           {!!html_entity_decode($article->html_content)!!}
+
         </div>
 
         <footer>

@@ -14,6 +14,8 @@ $(document).ready(function() {
 
  const ROOT_DIR = "http://blogger.dev"; 
 
+$('.ui.accordion').accordion();
+
  $.ajaxSetup({
     headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
  });
@@ -146,6 +148,12 @@ function updateCategorySlug(){
   $('#category-slug').attr('value', newValue);
 }
 
+function updateUserSlug(){
+  let name = $('#display_name').val().trim();
+  let newValue = (name)? convertToSlug(name) : "";
+  $('#slug').attr('value', newValue);
+}
+
 function updateTagSlug(){
   let name = $('#tag-name').val().trim();
   let newValue = (name)? convertToSlug(name) : "";
@@ -166,6 +174,11 @@ $('#last_name').change(() => {
   updateDisplayName();
 });
 
+$('#display_name').change(()=>{
+    console.log("changed");
+    updateUserSlug();
+ });
+
 $('#category-name').change(() => {
   updateCategorySlug();
 });
@@ -173,6 +186,7 @@ $('#category-name').change(() => {
 $('#article-title').change(() => {
   updateArticleSlug();
 });
+
 
 
 var topPaginationOptions = {
