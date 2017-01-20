@@ -10,10 +10,10 @@
 
   <div class="ui segment teal padded">
     <h2>Search articles</h2>
-      <form class="search-form-sm" action="search articles...">
+      <form class="search-form-sm" action="search">
         <div class="ui search fluid">
           <div class="ui icon input">
-            <input class="prompt" type="text" name="query" value="{{ request('query') }}" placeholder="Search...">
+            <input class="prompt" type="text" name="query" value="{{ request('query') }}" placeholder="Search articles...">
             <i class="search icon"></i>
           </div><!--end of input-->
         </div><!--end of search fluid-->
@@ -36,7 +36,7 @@
               <div class="middle aligned content">
                 <a class="header" href="{{url('/blog/'.$article->slug)}}"><h3>{{ $article->title }} </h3></a>
                 <div class="description">
-                  <a href="">{{ $article->author_name }}</a>
+                  <a href="{{url('about/'.$article->author->slug)}}">{{ $article->author_name }}</a>
                   <span class=" item-mute">| {{$article->published_at->diffForHumans()}}</span>
                 </div>
               </div><!--end of content-->

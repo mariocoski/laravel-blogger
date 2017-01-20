@@ -37,14 +37,14 @@
 	    </div><!--end of item-->
 	    @endif
 
-	    <h2>Author Articles</h2>
+	    <h2>Articles</h2>
 	    @if(count($author->articles) > 0 )
 		<div class="ui divided items">
 			@foreach($author->articles as $article)
 				  <div class="item">
 				    <div class="ui tiny image">
 				        <a href="{{url('/blog/'.$article->slug)}}">
-				          <img class="ui tiny image" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}">
+				          <img class="ui tiny image hoverable" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}">
 				        </a>
 				    </div>
 				    <div class="middle aligned content">

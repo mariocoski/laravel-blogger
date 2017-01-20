@@ -28,6 +28,10 @@ Route::get('auth/google/callback', "OAuth\GoogleController@callback");
 
 Route::get("/", ['as' => 'home', 'uses' => 'Frontend\ArticleController@index']);
 
+Route::get("sitemap", ['as' => 'frontend.sitemap', 'uses' => 'Frontend\HomepageController@sitemap']);
+Route::get("terms-and-conditions", ['as' => 'frontend.terms-and-conditions', 'uses' => 'Frontend\HomepageController@termsAndConditions']);
+Route::get("privacy-policy", ['as' => 'frontend.privacy-policy', 'uses' => 'Frontend\HomepageController@privacyPolicy']);
+
 Route::post('subscribe', 'Frontend\HomepageController@subscribe');
 Route::get('subscription/confirm/{email}', ['as' => 'frontend.subscription', 'uses' => 'Frontend\HomepageController@subscriptionConfirm']);
 

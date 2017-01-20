@@ -16,7 +16,7 @@
 				<div class="item">
 
 					<div class="ui image">
-	                    <a href="{{url('/blog/'.$author->display_name)}}">
+	                    <a href="{{url('/about/'.$author->slug)}}">
 	                        <img class="ui image avatar-sm" src="{{(!empty($author->avatar))? url('images/avatars/'.$author->avatar): url('images/avatars/avatar_default.png')}}">
 	                    </a>
 	                </div><!--end of image-->

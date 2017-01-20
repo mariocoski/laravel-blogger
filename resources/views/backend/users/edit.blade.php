@@ -87,14 +87,14 @@
   <div class="field fluid {{ $errors->has('slug') ? 'error' : '' }}">
     <label for="slug">Slug</label>
     <div class="ui input">
-      <input type="text" name="slug" id="slug" placeholder="Slug" value="{{ ($user->slug) ?? old('slug') }}" >
+      <input type="text" name="slug" id="slug" placeholder="Slug" value="{{ ($user->slug) ?? str_slug(old('slug')) }}" >
     </div>
   </div>
 
   <div class="field fluid {{ $errors->has('date_of_birth') ? 'error' : '' }}">
     <label for="date_of_birth">Date Of Birth (optional)</label>
     <div class="ui input">
-      <input type="text" name="date_of_birth" class="date-of-birth" id="date_of_birth" placeholder="YYYY-MM-DD" value="{{ ($user->date_of_birth) ?? old('date_of_birth') }}" >
+      <input type="text" name="date_of_birth" class="date-of-birth" data-allow-input="true"  id="date_of_birth" placeholder="YYYY-MM-DD" value="{{ ($user->date_of_birth) ?? old('date_of_birth') }}" >
     </div>
   </div>
 

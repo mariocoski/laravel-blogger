@@ -23,7 +23,7 @@
 
 	                    <div class="middle aligned content">
 	                        <a class="header" href="{{url('/blog/'.$article->slug)}}"><h3>{{ $article->title }} </h3></a>
-	                        <div class="description"><a href="">{{ $article->author_name }}</a> <span class=" item-mute">| {{$article->published_at->diffForHumans()}}</span></div>
+	                        <div class="description"><a href="{{ url('about/'.$article->author->slug) }}">{{ $article->author_name }}</a> <span class="item-mute">| {{$article->published_at->diffForHumans()}} </span></div>
 
 	                    </div><!--end of content-->
 
