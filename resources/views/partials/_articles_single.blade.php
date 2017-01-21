@@ -8,7 +8,7 @@
   </div><!--end of content-->
 
   <div class="content">
-    <h2><a href="{{url('/blog/'.$article->slug)}}">{{$article->title}}</a></h2>
+    <h2><a href="{{url('/blog/'.$article->slug)}}" >{{$article->title}}</a></h2>
     <div class="ui fluid image">
 
       <div class="ui teal ribbon label z-index-top">

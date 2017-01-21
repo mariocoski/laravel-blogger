@@ -1,16 +1,19 @@
 @import "node_modules/flatpickr/dist/flatpickr.min";
 @import "node_modules/croppie/croppie";
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
 // Font Variables
-$open-sans: 'Open Sans', serif; 
 $roboto-slab: 'Roboto Slab', serif; 
+
+.ui.cards > .card > .content.content-limit, .ui.card > .content.content-limit{
+  height: 60px;
+}
+
 
 .ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless) > .container > .item:not(.right):not(.borderless):first-child{
   border: none;
 }
 
-.ui.menu .item:before{
+.ui.menu.menu-top .item:before{
   width: 0;
 }
 
@@ -202,8 +205,7 @@ article {
      font-size: 17px !important;
      letter-spacing: +0.2;
      line-height: 1.6;
-     margin: 20px 15px !important;
-     
+     margin: 15px 15px !important;
      word-break: break-word;
      word-wrap: break-word;
     }
@@ -393,6 +395,9 @@ div#contact-form-modal{
         width: 95% !important;
       }
 
+      .ui.items > .item.item-article {
+        flex-direction: row;
+      }
       .ui.segment.segment-padding{
         padding-left: 10px;
         padding-right: 10px;

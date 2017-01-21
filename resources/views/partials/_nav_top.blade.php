@@ -1,5 +1,5 @@
 <!--FULL SIZE MENU -->
-<div class="ui fixed inverted menu">
+<div class="ui fixed inverted menu menu-top">
   <div class="ui container">
 
     <a href="/" class="item">

@@ -12,7 +12,7 @@
 
 <img class="ui centered middle aligned image avatar-sm" src="{{(!empty(Auth::user()->avatar))? url('images/avatars/'.Auth::user()->avatar) : url('images/avatars/avatar_default.png') }}">
 
-<span><button class="ui button orange" id="upload-avatar">Upload avatar</button></span>
+<span><button class="ui button orange" id="upload-avatar"><i class="upload icon"></i> Upload avatar</button></span>
 
 <div class="ui modal small" id="avatar-modal">
   <i class="close icon"></i>

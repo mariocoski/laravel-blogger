@@ -34,9 +34,9 @@
           </div>
         </div>
         <button type="submit" class="ui fluid large orange button" name="submit">Register</button>
-        <div>By registering, you agree to the <a href="/terms">Terms of Service</a></div>
+        <div>By registering, you agree to the <a href="{{ url('terms-and-conditions') }}">Terms of Service</a></div>
         <div class="ui divider"></div>
-        <div class="ui "><a href="/login">Already have an account?</a></div>
+        <div class="ui "><a href="{{ url('login') }}">Already have an account?</a></div>
       </div>
     </form>
 

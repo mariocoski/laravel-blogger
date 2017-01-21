@@ -15,9 +15,9 @@
         <header>
           <div class="ui divided items">
 
-          <div class="item">
+          <div class="item item-article">
 
-            <a class="ui image tiny" href="{{ url('about/'.$article->author->slug) }}">
+            <a class="ui avatar-sm item-image" href="{{ url('about/'.$article->author->slug) }}">
                  <img class="ui avatar-sm" src="{{(!empty($article->author->avatar))? url('images/avatars/'.$article->author->avatar) : url('images/avatars/avatar_default.png')}}">
             </a>
 
@@ -66,7 +66,7 @@
           <div class="article-tags">
             <h4>Tags:</h4>
             @foreach($article->tags as $tag)
-             <a class="ui large label" href="{{ url('tags/'.$tag->slug) }}">{{ $tag->name }}</a>
+             <a class="ui large teal label" href="{{ url('tags/'.$tag->slug) }}">{{ $tag->name }}</a>
             @endforeach
           </div>
           <br />
@@ -79,4 +79,35 @@
 
     </div><!--end of segment-->
 </div><!--end of segments-->
+@if($relatedArticles)
+<div class="ui segments raised center">
+  <div class="ui segment">
+  <h2><i class="empty heart icon"></i> Related reads</h2>
+  <div class="ui relaxed grid">
+      <div class="three column row stackable">
+        @foreach($relatedArticles as $article)
+        <div class="column text-center">
+           <a href="{{url('blog/'.$article->slug)}}">
+            <div class="ui card">
+              <div class="content content-limit">{{str_limit($article->title, $limit = 50, $end = '...')}}</div>
+              <div class="image">
+                 <img class="ui image floated" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}" alt="picture" />
+              </div>
+              <div class="content">
+
+                <img class="ui avatar mini image" src="{{(!empty($article->author->avatar))? url('images/avatars/'.$article->author->avatar) : url('images/avatars/avatar_default.png')}}"> {{$article->author->display_name}}
+              </div>
+
+              <div class="extra content">
+                     <div class="item-mute"><i class="clock icon"></i>{{ $article->reading_time}}  |  {{ $article->published_at->diffForHumans()}}</div>
+              </div>
+            </div>
+          </a>
+        </div>
+        @endforeach
+      </div>
+  </div>
+  </div>
+</div><!--end of segments-->
+@endif
 @endsection

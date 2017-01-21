@@ -4,6 +4,7 @@
 /public/filemanager
 /public/tinymce
 /public/js/tinymce
+/public/images/avatars/*
 /vendor
 /.idea
 Homestead.json
