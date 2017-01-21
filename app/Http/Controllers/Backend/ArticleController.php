@@ -9,11 +9,14 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\User;
+use App\Traits\RelatedArticles;
 use Auth;
 use View;
 
 class ArticleController extends Controller
 {
+    use RelatedArticles;
+
     public function index()
     {
         $articles = Article::with('tags', 'author')->orderBy('created_at')->get();
@@ -96,7 +99,9 @@ class ArticleController extends Controller
     {
         $article = Article::with('tags', 'author', 'category')->findOrFail($id);
 
-        return View::make('frontend.articles.show', compact('article', 'users', 'categories', 'tags'));
+        $relatedArticles = ($this->getRelatedArticles($article)->count() > 3) ? $this->getRelatedArticles($article)->random(3) : $this->getRelatedArticles($article);
+
+        return View::make('frontend.articles.show', compact('article', 'relatedArticles'));
 
     }
 }

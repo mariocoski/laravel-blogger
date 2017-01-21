@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
 .flatpickr-calendar {
   background: transparent;
@@ -812,11 +811,15 @@ span.flatpickr-weekday {
   content: '↻';
 }
 
+.ui.cards > .card > .content.content-limit, .ui.card > .content.content-limit {
+  height: 60px;
+}
+
 .ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless) > .container > .item:not(.right):not(.borderless):first-child {
   border: none;
 }
 
-.ui.menu .item:before {
+.ui.menu.menu-top .item:before {
   width: 0;
 }
 
@@ -1013,7 +1016,7 @@ article .article-content ul > li, article .article-content ol > li, article .art
   font-size: 17px !important;
   letter-spacing: +0.2;
   line-height: 1.6;
-  margin: 20px 15px !important;
+  margin: 15px 15px !important;
   word-break: break-word;
   word-wrap: break-word;
 }
@@ -1197,6 +1200,11 @@ div#contact-form-modal {
 @media only screen and (max-width: 767px) {
   .ui.container.narrowed {
     width: 95% !important;
+  }
+  .ui.items > .item.item-article {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
   }
   .ui.segment.segment-padding {
     padding-left: 10px;

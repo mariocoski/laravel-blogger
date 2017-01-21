@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Article;
 use App\Models\Category;
+use Cache;
 use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Scout\Console\FlushCommand;
@@ -20,8 +21,13 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('partials._nav_categories', function ($view) {
             $view->with([
-                'categories' => Category::getFiveMostPopularOnes(),
-                'numberOfCategories' => Category::all()->count(),
+                'categories' => Cache::remember('top-five-categories', 600, function () {
+                    return Category::getFiveMostPopularOnes();
+                }),
+                'numberOfCategories' => Cache::remember('number-of-categories', 600, function () {
+                    return Category::all()->count();
+                }),
+
             ]);
         });
 
