@@ -50,6 +50,7 @@ class HomepageController extends Controller
             'email' => request('email'),
             'ip_address' => request()->ip(),
         ]);
+
         $subscription->notify(new SubscriptionNotification($request));
 
         return response()->json(['success' => true]);

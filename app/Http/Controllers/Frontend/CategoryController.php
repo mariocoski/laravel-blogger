@@ -20,6 +20,7 @@ class CategoryController extends Controller
     public function show($slug)
     {
         $category = Category::where('slug', $slug)->with('articles')->firstOrFail();
+
         return view('frontend.categories.show', compact('category'));
     }
 

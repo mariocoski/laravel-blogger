@@ -18,9 +18,7 @@ class TagController extends Controller
 
     public function show($id)
     {
-        $tag = Tag::findOrFail($id);
-
-        return View::make('backend.tags.edit', compact('tag'));
+        return redirect()->action('Backend\TagController@edit', $id);
     }
 
     public function edit($id)

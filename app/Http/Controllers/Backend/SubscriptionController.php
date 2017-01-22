@@ -11,6 +11,7 @@ class SubscriptionController extends Controller
     public function index()
     {
         $subscribers = Subscription::all();
+
         return View::make('backend.subscriptions.index', compact('subscribers'));
     }
 }

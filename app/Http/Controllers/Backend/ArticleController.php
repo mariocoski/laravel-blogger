@@ -20,20 +20,13 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::with('tags', 'author')->orderBy('created_at')->get();
+
         return View::make('backend.articles.index', compact('articles'));
     }
 
     public function show($id)
     {
-        $users = User::all();
-
-        $tags = Tag::all();
-
-        $categories = Category::all();
-
-        $article = Article::with('tags', 'author', 'category')->findOrFail($id);
-
-        return View::make('backend.articles.edit', compact('article', 'users', 'categories', 'tags'));
+        return redirect()->action('Backend\ArticleController@edit', $id);
     }
 
     public function edit($id)

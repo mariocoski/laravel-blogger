@@ -28,7 +28,7 @@ class ArticleUpdateRequest extends FormRequest
     {
         return [
             'title' => ['required', Rule::unique('articles', 'title')->ignore($this->title, 'title')],
-            'title' => ['required', Rule::unique('articles', 'slug')->ignore($this->slug, 'slug')],
+            'slug' => ['required', Rule::unique('articles', 'slug')->ignore($this->slug, 'slug')],
             'category' => 'required|numeric',
             'author_id' => 'required|numeric',
             'content' => 'required',

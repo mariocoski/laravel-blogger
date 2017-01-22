@@ -27,6 +27,7 @@ class DashboardController extends Controller
             'google_analytics_enabled' => (empty(Settings::getGoogleAnalyticsId()) === true) ? 0 : 1,
             'site_enabled' => (app()->isDownForMaintenance() != true),
         ];
+
         return View::make('backend.dashboard.index', compact('dashboard'));
     }
 

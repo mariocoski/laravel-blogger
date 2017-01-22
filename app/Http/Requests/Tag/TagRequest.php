@@ -4,6 +4,7 @@ namespace App\Http\Requests\Tag;
 
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class TagRequest extends FormRequest
 {
@@ -25,8 +26,8 @@ class TagRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:tags,name',
-            'slug' => 'required|unique:tags,slug',
+            'name' => ['required', Rule::unique('tags', 'name')->ignore($this->name, 'name')],
+            'slug' => ['required', Rule::unique('tags', 'slug')->ignore($this->slug, 'slug')],
         ];
     }
 
