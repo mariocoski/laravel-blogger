@@ -26,7 +26,10 @@ abstract class OAuthController extends Controller
     {
         return config('blogger.auth.success');
     }
+
     abstract public function getProviderErrorRedirectPath();
+
     abstract public function getProviderColumnName();
+
     abstract public function getProviderName();
 }

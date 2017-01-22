@@ -1,6 +1,6 @@
 <!-- SIDEBAR MENU -->
 <div class="ui left vertical menu sidebar">
-  <a href="/" class="item">
+  <a href="{{ url('/') }}" class="item">
     <img src="{{ url('images/logo_sm.png') }}" alt="{{config('app.name')}}">
   </a>
   <a href="#" class="item sidebar-trigger"><i class="close icon"></i> Close menu</a>
@@ -18,7 +18,7 @@
     </div>
   @endif
   @if(Session::has( config('blogger.auth.impersonification.session_name')))
-    <a class="item" href="{{ url('/dashboard/back-to-admin-mode') }}" name="back-to-admin-mode"><i class="spy icon"></i> Back to Admin Mode</a>
+    <a class="item" href="{{ url('dashboard/back-to-admin-mode') }}" name="back-to-admin-mode"><i class="spy icon"></i> Back to Admin Mode</a>
   @endif
   <a class="item" href="{{ url('/')}}">
      <i class="newspaper icon"></i>
@@ -40,7 +40,7 @@
   @if(Auth::check())
     @include('partials._nav_dashboard')
   @endif
-  <a class="item" href="{{ url('/logout') }}" name="logout">
+  <a class="item" href="{{ url('logout') }}" name="logout">
     <i class="power icon"></i> Log out
   </a>
  </div>

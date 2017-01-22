@@ -21,11 +21,7 @@ class UserController extends Controller
 
     public function show($id)
     {
-        $user = User::with('roles')->findOrFail($id);
-
-        $roles = Role::all();
-
-        return View::make('backend.users.edit', compact('user', 'roles'));
+        return redirect()->action('Backend\UserController@edit', $id);
     }
 
     public function edit($id)

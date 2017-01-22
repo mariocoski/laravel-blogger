@@ -57,9 +57,9 @@ Route::post("favourites", 'Frontend\ArticleController@favourites')->middleware('
  */
 
 Route::group(['prefix' => 'filemanager', 'middleware' => 'role:editor'], function () {
-    Route::get('show', 'Backend\FilemanagerLaravelController@getShow');
-    Route::get('connectors', 'Backend\FilemanagerLaravelController@getConnectors');
-    Route::post('connectors', 'Backend\FilemanagerLaravelController@postConnectors');
+    Route::get('show', 'FilemanagerLaravelController@getShow');
+    Route::get('connectors', 'FilemanagerLaravelController@getConnectors');
+    Route::post('connectors', 'FilemanagerLaravelController@postConnectors');
 });
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {

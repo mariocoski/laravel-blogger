@@ -2,7 +2,7 @@
 <div class="ui fixed inverted menu menu-top">
   <div class="ui container">
 
-    <a href="/" class="item">
+    <a href="{{ url('/') }}" class="item">
       <img src="{{ url('images/logo_sm.png') }}" alt="{{config('app.name')}}">
     </a>
     <div class="item hidden-large-desktop hidden-small-desktop">
@@ -35,14 +35,14 @@
 
     @if (Auth::guest())
 
-      <a class="ui right item" href="{{ url('/login') }}">Login</a>
+      <a class="ui right item" href="{{ url('login') }}">Login</a>
       <a class="ui item" href="{{ url('register') }}">Register</a>
 
     @else
 
-    <a class="ui right item"  href="{{ url('/dashboard') }}"> <img class="ui avatar mini image  hidden-mobile" src="{{(!empty(Auth::user()->avatar))? url('images/avatars/'.Auth::user()->avatar) : url('images/avatars/avatar_default.png') }}">&nbsp;Dashboard</a>
+    <a class="ui right item"  href="{{ url('dashboard') }}"> <img class="ui avatar mini image  hidden-mobile" src="{{(!empty(Auth::user()->avatar))? url('images/avatars/'.Auth::user()->avatar) : url('images/avatars/avatar_default.png') }}">&nbsp;Dashboard</a>
     @if(Session::has( config('blogger.auth.impersonification.session_name')))
-       <a class="item hidden-mobile hidden-tablet" href="{{ url('/dashboard/back-to-admin-mode') }}" name="back-to-admin-mode"><i class="spy icon"></i> Back to Admin Mode</a>
+       <a class="item hidden-mobile hidden-tablet" href="{{ url('dashboard/back-to-admin-mode') }}" name="back-to-admin-mode"><i class="spy icon"></i> Back to Admin Mode</a>
     @endif
     <a class="item" href="{{ url('/logout') }}" name="logout"><i class="power icon"></i> Log out</a>
 

@@ -19,9 +19,7 @@ class CategoryController extends Controller
 
     public function show($id)
     {
-        $category = Category::findOrFail($id);
-
-        return View::make('backend.categories.edit', compact('category'));
+        return redirect()->action('Backend\CategoryController@edit', $id);
     }
 
     public function edit($id)

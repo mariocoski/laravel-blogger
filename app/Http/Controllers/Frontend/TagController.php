@@ -20,6 +20,7 @@ class TagController extends Controller
     public function show($slug)
     {
         $tag = Tag::where('slug', $slug)->with('articles')->firstOrFail();
+
         return view('frontend.tags.show', compact('tag'));
     }
 

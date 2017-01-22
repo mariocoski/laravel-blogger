@@ -14,6 +14,7 @@ class ToolsController extends Controller
         $settings = [
             'isMaintenanceModeEnabled' => app()->isDownForMaintenance(),
         ];
+
         return View::make('backend.tools.index', $settings);
     }
 
@@ -36,13 +37,9 @@ class ToolsController extends Controller
     {
         try {
             if (app()->isDownForMaintenance()) {
-
                 Artisan::call('up');
-
             } else {
-
                 Artisan::call('down');
-
             }
 
             $message = 'Maintenance mode was ' . ((app()->isDownForMaintenance()) ? "enabled" : "disabled");

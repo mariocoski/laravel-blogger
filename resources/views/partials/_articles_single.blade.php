@@ -8,7 +8,7 @@
   </div><!--end of content-->
 
   <div class="content">
-    <h2><a href="{{url('/blog/'.$article->slug)}}" >{{$article->title}}</a></h2>
+    <h2><a href="{{url('/blog/'.$article->slug)}}">{{$article->title}}</a></h2>
     <div class="ui fluid image">
 
       <div class="ui teal ribbon label z-index-top">
@@ -19,7 +19,7 @@
 
       @if(Auth::check())
         <a class="ui right  teal corner label favorite" href="javascript:void(0)" data-id="{{ $article->id }}" data-content="Add to favourites" data-variation="inverted">
-          <i class="{{($article->isFavourite())? 'yellow active ': 'white '}}star icon"></i>
+          <i class="{{($article->isFavourite())? 'yellow active': 'white'}} star icon"></i>
         </a>
       @endif
 

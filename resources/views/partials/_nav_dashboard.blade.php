@@ -15,7 +15,6 @@
     <i class="wrench layout icon"></i>
     Tools
 </a>
-
 <a class="item" href="{{ url('/dashboard/users') }}">
     <i class="users icon"></i>
     Users
@@ -25,6 +24,7 @@
     Subscriptions
 </a>
 @endif
+
 @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('editor'))
 <a class="item" href="{{ url('/dashboard/articles') }}">
     <i class="file text outline icon"></i>
