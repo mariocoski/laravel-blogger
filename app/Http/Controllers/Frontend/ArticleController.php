@@ -15,7 +15,7 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $articles = Article::published()->paginate(config('blogger.pagination.articles_per_page'));
+        $articles = Article::published()->paginate(config('blogger.articles_per_page'));
 
         return view('frontend.articles.index', compact('articles'));
     }

@@ -9,6 +9,7 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
+        "larapack/config-writer": "^1.0",
         "tamayo/laravel-scout-elastic": "^1.0",
         "laravel/socialite": "^2.0",
         "pqb/filemanager-laravel": "2.*",

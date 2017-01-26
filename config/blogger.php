@@ -23,7 +23,7 @@ return [
     | Supported: "single", "multiple"
     |
      */
-    'articles_render_type' => "single",
+    'articles_render_type' => 'single',
 
     /*
     |--------------------------------------------------------------------------
@@ -38,14 +38,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Pagination
+    | Articles per page
     |--------------------------------------------------------------------------
     |
     |
      */
-    'pagination' => [
-        'articles_per_page' => 10,
-    ],
+
+    'articles_per_page' => '10',
 
     /*
     |--------------------------------------------------------------------------
@@ -128,6 +127,6 @@ return [
         ],
 
     ],
-    'github_repository' => "https://github.com/mariocoski/laravel-blogger",
+    'github_repository' => 'https://github.com/mariocoski/laravel-blogger',
 
 ];
