@@ -21,7 +21,8 @@
     "laravel-elixir-webpack-official": "^1.0.2"
   },
   "dependencies": {
-    "bower": "^1.7.9",
+    "list.pagination.js": "^0.1.1",
+    "filemanager-ui": "git+https://github.com/guillermomartinez/filemanager-ui",
     "croppie": "^2.4.0",
     "flatpickr": "^2.0.8",
     "jquery-lazyload": "^1.9.7",
@@ -29,7 +30,6 @@
     "prismjs": "^1.5.1",
     "rrssb": "^1.11.0",
     "semantic-ui": "^2.2.4",
-    "tinymce": "^4.5.0",
-    "toastr": "^2.1.2",
+    "tinymce": "^4.5.0"
   }
 }
