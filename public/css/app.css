@@ -16,11 +16,11 @@
   line-height: 24px;
   border-radius: 5px;
   position: absolute;
-  width: 293.75px;
+  width: 315px;
   box-sizing: border-box;
   -webkit-transition: top 0.1s cubic-bezier(0, 1, 0.5, 1);
   transition: top 0.1s cubic-bezier(0, 1, 0.5, 1);
-  z-index: 99999999;
+  z-index: 999;
   background: #fff;
   box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6, 0 -1px 0 #e6e6e6, 0 3px 13px rgba(0, 0, 0, 0.08);
 }
@@ -45,8 +45,8 @@
 }
 
 .flatpickr-calendar.static {
-  position: relative;
-  top: 2px;
+  position: absolute;
+  top: calc(100% + 2px);
 }
 
 .flatpickr-calendar.static.open {
@@ -114,6 +114,11 @@
 
 .flatpickr-calendar.arrowBottom:after {
   border-top-color: #fff;
+}
+
+.flatpickr-wrapper {
+  position: relative;
+  display: inline-block;
 }
 
 .flatpickr-month {
@@ -266,7 +271,12 @@
   font-weight: 700;
   color: inherit;
   display: inline-block;
-  padding-left: 7px;
+  margin-left: 7px;
+  padding: 0;
+}
+
+.flatpickr-current-month span.cur-month:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .flatpickr-current-month .numInputWrapper {
@@ -323,10 +333,10 @@
 }
 
 .flatpickr-days {
-  padding: 0 2.375px;
+  padding: 0;
   outline: 0;
   text-align: left;
-  width: 293.75px;
+  width: 315px;
   box-sizing: border-box;
   display: inline-block;
   display: -webkit-box;
@@ -345,9 +355,9 @@
   font-weight: 400;
   width: 14.2857143%;
   flex-basis: 14.2857143%;
-  max-width: 38px;
-  height: 38px;
-  line-height: 38px;
+  max-width: 40px;
+  height: 40px;
+  line-height: 40px;
   margin: 0;
   display: inline-block;
   position: relative;
@@ -389,7 +399,7 @@
 
 .flatpickr-day.inRange {
   border-radius: 0;
-  box-shadow: -3.75px 0 0 #e6e6e6,3.75px 0 0 #e6e6e6;
+  box-shadow: -5px 0 0 #e6e6e6,5px 0 0 #e6e6e6;
 }
 
 .flatpickr-day.disabled, .flatpickr-day.disabled:hover {
@@ -407,7 +417,7 @@ span.flatpickr-weekday {
   cursor: default;
   font-size: 90%;
   color: rgba(0, 0, 0, 0.54);
-  height: 27.166666666666668px;
+  height: 27.333333333333332px;
   line-height: 24px;
   background: transparent;
   text-align: center;
@@ -416,7 +426,7 @@ span.flatpickr-weekday {
   width: 14.28%;
   font-weight: 700;
   margin: 0;
-  padding-top: 3.166666666666667px;
+  padding-top: 3.333333333333333px;
 }
 
 .rangeMode .flatpickr-day {
@@ -821,6 +831,10 @@ span.flatpickr-weekday {
 
 .ui.menu.menu-top .item:before {
   width: 0;
+}
+
+.cookies-message {
+  display: none;
 }
 
 .img-responsive {

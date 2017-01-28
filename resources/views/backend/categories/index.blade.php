@@ -46,12 +46,14 @@
 			    		<td class="category-table-created-at">{{$category->created_at->format('d M Y')}}</td>
 			    		<td>
 			    			<a href="{{url('dashboard/categories/'.$category->id.'/edit')}}" id="edit-category-{{$category->id}}"  class="mini ui button orange"><i class="edit icon"></i> Edit</a>
+			    			 @if(Auth::user()->hasRole('admin'))
 			    			<form class="form-inline form-delete-category" method="POST" action="/dashboard/categories/{{$category->id}}">
 			    				{{csrf_field()}}
 			    				 <input name="_method" type="hidden" value="DELETE">
 			    				 <button class="ui mini button red" id="delete-category-{{$category->id}}" type="submit"><i class="icon remove category"></i> Delete</button>
 
 			    			</form>
+			    			@endif
 			    		</td>
 			    	</tr>
 

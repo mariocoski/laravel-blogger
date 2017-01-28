@@ -13,3 +13,8 @@
 <iframe src="{{url('filemanager/show')}}" class="media-manager-frame"></iframe>
 </div>
 @endsection
+
+
+@section('scripts')
+   @include('partials._filemanager_scripts')
+@stop

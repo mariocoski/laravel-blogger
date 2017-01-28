@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('title', 'Articles')
 @section('content')
     @if(isset($articles))
       @if(config('blogger.articles_render_type') === 'single')
         @include('partials._articles_single')
-      @elseif(config('blogger.articles_render_type') === 'multi')
+      @elseif(config('blogger.articles_render_type') === 'multiple')
         @include('partials._articles_multiple')
       @else
       <div class="ui grid">

@@ -6,13 +6,24 @@ import List from 'list.js';
 import ListPagination from './libs/list.pagination';
 import flatpickr from 'flatpickr';
 import lazyload from 'jquery-lazyload';
+import Cookies from 'js-cookie';
 window.rrssb = require('rrssb');
 
 $(document).ready(function() {
 
 
-
  const ROOT_DIR = "http://blogger.dev"; 
+
+
+if(Cookies.get('accept_cookies') != 1){
+  $('.cookies-message').show();
+}
+
+$('.message.cookies-message .close').click(function() {
+    $('.cookies-message').hide();
+    Cookies.set('accept_cookies', 1, { expires: 7 });
+    return false;
+});
 
 $('.ui.accordion').accordion();
 
@@ -391,9 +402,10 @@ function toggleFavorite(articleId){
 
 $('.favorite').click(function(){
   var star = $(this).children().first();
+
   if(star.hasClass('yellow active')){
         star.removeClass('yellow active');
-      }else{
+  }else{
         star.addClass('yellow active');
   }
   var articleId = $(this).attr('data-id');

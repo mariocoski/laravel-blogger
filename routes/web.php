@@ -5,12 +5,13 @@
 | Auth routes
 |--------------------------------------------------------------------------
  */
+
 //Authentication routes
 Route::auth();
 Route::get('logout', 'Auth\LoginController@logout');
 Route::get('password/reset/{token}/{email}', 'Auth\ResetPasswordController@showResetForm');
 
-//OAuth routes
+//OAuth2 routes
 Route::get('auth/facebook', 'OAuth\FacebookController@login');
 Route::get('auth/facebook/callback', "OAuth\FacebookController@callback");
 
@@ -50,6 +51,7 @@ Route::get('blog/{slug}', ['as' => 'frontend.articles.show', 'uses' => 'Frontend
 Route::get('autocomplete', 'Frontend\HomepageController@autocomplete');
 
 Route::post("favourites", 'Frontend\ArticleController@favourites')->middleware('auth');
+
 /*
 |--------------------------------------------------------------------------
 | Back-end routes
@@ -63,6 +65,8 @@ Route::group(['prefix' => 'filemanager', 'middleware' => 'role:editor'], functio
 });
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
+
+    //auth only
     Route::get('/', ['as' => 'backend.dashboard', 'uses' => 'Backend\DashboardController@index']);
     Route::get('profile', ['as' => 'backend.profile', 'uses' => 'Backend\ProfileController@edit']);
     Route::put('profile', 'Backend\ProfileController@update');
@@ -95,7 +99,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
         Route::get('preview/{id}', 'Backend\ArticleController@preview');
     });
 
-    Route::get('/back-to-admin-mode', 'Backend\ImpersonificationController@backToAdminMode');
+    Route::get('back-to-admin-mode', 'Backend\ImpersonificationController@backToAdminMode');
     Route::get('subscriptions', ['as' => 'backend.subscriptions', 'uses' => 'Backend\SubscriptionController@index']);
 
     Route::get('media', ['as' => 'backend.media', 'uses' => 'Backend\MediaController@index']);
