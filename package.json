@@ -30,7 +30,6 @@
     "prismjs": "^1.5.1",
     "rrssb": "^1.11.0",
     "semantic-ui": "^2.2.4",
-    "tinymce": "^4.5.0",
-    "toastr": "^2.1.2"
+    "tinymce": "^4.5.0"
   }
 }
