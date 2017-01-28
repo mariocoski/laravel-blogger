@@ -13,7 +13,7 @@ elixir.extend('semanticBuild', () => {
 
 //run all essential tasks
 elixir(mix => {
-    mix.copy('./bower_components/list.pagination.js/dist/list.pagination.js','resources/assets/js/libs/list.pagination.js')
+    mix.copy('./node_modules/list.pagination.js/dist/list.pagination.js','resources/assets/js/libs/list.pagination.js')
        .copy('./node_modules/tinymce','public/js/tinymce')
        .copy('./node_modules/croppie/croppie.min.js','public/js/croppie.min.js')
        .copy('./node_modules/rrssb/css/rrssb.css','resources/assets/sass/rrssb.css')
