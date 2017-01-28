@@ -22,7 +22,6 @@
           <i class="{{($article->isFavourite())? 'yellow active': 'white'}} star icon"></i>
         </a>
       @endif
-
       <a href="{{url('/blog/'.$article->slug)}}">
         <img class="ui fluid image lazy hoverable " data-original="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}"
                   src="images/placeholder.gif" height="480" width="640" alt="picture">

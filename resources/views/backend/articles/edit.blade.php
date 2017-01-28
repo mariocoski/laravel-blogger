@@ -167,3 +167,7 @@
 </div><!--end of segment-->
 
 @endsection
+
+@section('scripts')
+   @include('partials._filemanager_scripts')
+@stop

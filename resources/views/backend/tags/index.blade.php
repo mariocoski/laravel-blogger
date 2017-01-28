@@ -47,12 +47,14 @@
 		    		<td class="tag-table-created-at">{{$tag->created_at->format('d M Y')}}</td>
 		    		<td>
 		    			<a href="{{url('dashboard/tags/'.$tag->id.'/edit')}}" id="edit-tag-{{$tag->id}}"  class="mini ui button orange"><i class="edit icon"></i> Edit</a>
+		    			@if(Auth::user()->hasRole('admin'))
 		    			<form class="form-inline form-delete-tag" method="POST" action="/dashboard/tags/{{$tag->id}}">
 		    				{{csrf_field()}}
 		    				 <input name="_method" type="hidden" value="DELETE">
 		    				 <button class="ui mini button red" id="delete-tag-{{$tag->id}}" type="submit"><i class="icon remove tag"></i> Delete</button>
 
 		    			</form>
+		    			@endif
 		    		</td>
 		    	</tr>
 

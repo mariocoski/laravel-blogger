@@ -187,12 +187,14 @@ class BloggerInstall extends Command
 
     protected function createAdmin()
     {
+        $displayName = $this->adminFirstName . " " . $this->adminLastName;
         $user = User::create([
             'email' => $this->adminEmail,
             'password' => bcrypt($this->adminPassword),
             'first_name' => $this->adminFirstName,
             'last_name' => $this->adminLastName,
-            'display_name' => $this->adminFirstName . " " . $this->adminLastName,
+            'display_name' => $displayName,
+            'slug' => str_slug($displayName),
         ]);
 
         $user->resolveRole(Role::admin()->id);

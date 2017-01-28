@@ -1,3 +1,5 @@
+
+
 <script src="{{url('js/tinymce/tinymce.js')}}"></script>
   <script type="text/javascript">
 
@@ -26,7 +28,7 @@
           sOptions += ",left=" + iLeft ;
           sOptions += ",top=" + iTop ;
           oWindow = window.open( url, "BrowseWindow", sOptions ) ;
-          console.log(oWindow);
+
 
      }
 

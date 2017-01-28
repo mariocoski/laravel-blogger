@@ -1,6 +1,7 @@
-@extends('layouts.article')
+@extends('layouts.frontend')
 
 @section('title', $article->title)
+
 @section('content')
 <div class="ui segments raised">
 
@@ -35,7 +36,6 @@
               </a>
             </div>
             @endif
-           <!--  <h3>{{ $article->subtitle }}</h3> -->
           </div>
           </div>
             <h1 class="article-title"><a href="">{{ $article->title }}</a></h1>
