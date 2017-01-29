@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Tag;
+namespace App\Http\Requests\Category;
 
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class TagRequest extends FormRequest
+class CategoryCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,8 @@ class TagRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', Rule::unique('tags', 'name')->ignore($this->name, 'name')],
-            'slug' => ['required', Rule::unique('tags', 'slug')->ignore($this->slug, 'slug')],
+            'name' => ['required', Rule::unique('categories', 'name')],
+            'slug' => ['required', Rule::unique('categories', 'slug')],
         ];
     }
 

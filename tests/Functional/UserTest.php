@@ -5,7 +5,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class UserTest extends TestCase
+class UserTest extends BrowserKitTest
 {
     use DatabaseMigrations;
     use DatabaseTransactions;
@@ -129,7 +129,6 @@ class UserTest extends TestCase
             ->press('submit');
 
         $updatedUser = $this->user->fresh();
-
         $this->assertTrue(Hash::check($newPassword, $updatedUser->password));
     }
 

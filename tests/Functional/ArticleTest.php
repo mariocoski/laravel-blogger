@@ -5,7 +5,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ArticleTest extends TestCase
+class ArticleTest extends BrowserKitTest
 {
     use DatabaseMigrations;
     use DatabaseTransactions;
@@ -61,7 +61,7 @@ class ArticleTest extends TestCase
     public function test_if_can_update_an_article()
     {
         $this->actingAs($this->admin)
-            ->visit('/dashboard/articles/' . $this->article->id)
+            ->visit('/dashboard/articles/' . $this->article->id . '/edit')
             ->type("new title", 'title')
             ->type("new subtitle", 'subtitle')
             ->type("new slug", "slug")
@@ -71,7 +71,7 @@ class ArticleTest extends TestCase
             ->type($this->tag->id, "tags")
             ->press('submit');
 
-        $this->seePageIs('/dashboard/articles/' . $this->article->id);
+        $this->seePageIs('/dashboard/articles/' . $this->article->id . '/edit');
         $this->see('Article has been updated');
 
         $this->seeInDatabase('articles', [

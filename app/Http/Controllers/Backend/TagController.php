@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Tag\TagRequest;
+use App\Http\Requests\Tag\TagCreateRequest;
+use App\Http\Requests\Tag\TagUpdateRequest;
 use App\Models\Tag;
 use View;
 
@@ -33,14 +34,14 @@ class TagController extends Controller
         return View::make('backend.tags.edit');
     }
 
-    public function store(TagRequest $request)
+    public function store(TagCreateRequest $request)
     {
         $tag = Tag::create($request->getValidRequest());
 
         return redirect('dashboard/tags')->with('status', 'New Tag has been created');
     }
 
-    public function update(TagRequest $request, $id)
+    public function update(TagUpdateRequest $request, $id)
     {
 
         $tag = Tag::findOrFail($id)->update($request->getValidRequest());
