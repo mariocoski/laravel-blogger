@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class CategoryTest extends TestCase
+class CategoryTest extends BrowserKitTest
 {
     use DatabaseMigrations;
     use DatabaseTransactions;

@@ -16,7 +16,7 @@ class Settings extends Model
     public static function getByName($name)
     {
         $setting = static::where('name', $name)->first();
-        return $setting->value;
+        return (!is_null($setting)) ? $setting->value : "";
     }
 
     public static function setByName($name, $value = null)

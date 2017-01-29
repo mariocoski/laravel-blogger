@@ -181,8 +181,9 @@ return [
         ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Pqb\FilemanagerLaravel\FilemanagerLaravelServiceProvider::class,
-        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
     ],
 
     /*
@@ -234,9 +235,8 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'FilemanagerLaravel' => Pqb\FilemanagerLaravel\Facades\FilemanagerLaravel::class,
         'Settings' => App\Models\Settings::class,
-        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Image' => Intervention\Image\Facades\Image::class,
-
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
     ],
 
 ];

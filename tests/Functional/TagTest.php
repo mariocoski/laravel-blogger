@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class TagTest extends TestCase
+class TagTest extends BrowserKitTest
 {
     use DatabaseMigrations;
     use DatabaseTransactions;

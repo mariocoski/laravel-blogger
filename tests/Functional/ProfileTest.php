@@ -5,7 +5,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ProfileTest extends TestCase
+class ProfileTest extends BrowserKitTest
 {
     use DatabaseMigrations;
     use DatabaseTransactions;
