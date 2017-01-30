@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Login')
+@section('title', 'Remind Password')
 
 @section('content')
 
@@ -9,7 +9,7 @@
   <div class="column column-auth">
 
     <h2 class="ui white header">
-    <a href="/" class="image"><img src="../images/logo_sm.png" alt="Blogger"></a>
+    <a href="{{ url('/') }}" class="image"><img src="{{ url('images/logo_sm.png') }}" alt="{{ config('app.name') }}"></a>
       <div class="content white">
         Remind password
       </div>
@@ -26,8 +26,8 @@
             <input type="text" name="email" placeholder="E-mail address" autofocus>
           </div>
         </div>
-        <button class="ui fluid large orange submit button" name="submit"> Send Password Reset Link</button>
-        <div class="ui "><a href="/login" name="login">Reminded yourself a password?</a></div>
+        <button class="ui fluid large primary submit button" name="submit"> Send Password Reset Link</button>
+        <div class="ui "><a href="{{ url('login') }}" name="login">Reminded yourself a password?</a></div>
       </div>
     </form>
 
