@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Login')
+@section('title', 'Reset Password')
 
 @section('content')
 
@@ -9,7 +9,7 @@
   <div class="column column-auth">
 
     <h2 class="ui white header">
-    <a href="/" class="image"><img src="{{url('images/logo_sm.png')}}" ></a>
+    <a href="{{ url('/') }}" class="image"><img src="{{url('images/logo_sm.png')}}" ></a>
       <div class="content white">
         Set up a new password
       </div>
@@ -30,7 +30,7 @@
           <div class="ui input left icon action">
             <i class="lock icon"></i>
             <input type="password" name="password" class="show-new-password-field" placeholder="Password" autofocus>
-            <button class="ui icon orange button show-new-password" tabindex="-1">
+            <button class="ui icon primary button show-new-password" tabindex="-1">
              <i class="eye icon"></i>
            </button>
           </div>
@@ -39,14 +39,14 @@
           <div class="ui input left icon action">
             <i class="lock icon"></i>
             <input type="password"  name="password_confirmation" class="show-new-password-confirmation-field" placeholder="Password Confirmation">
-            <button class="ui icon orange button show-new-password-confirmation" tabindex="-1">
+            <button class="ui icon primary button show-new-password-confirmation" tabindex="-1">
              <i class="eye icon"></i>
            </button>
           </div>
         </div>
-        <button type="submit" name="submit" class="ui fluid large orange submit button">Change my password</button>
+        <button type="submit" name="submit" class="ui fluid large primary submit button">Change my password</button>
         <div class="ui divider"></div>
-        <div class="ui "><a href="/login">Reminded yourself a password?</a></div>
+        <div class="ui "><a href="{{ url('login') }}">Reminded yourself a password?</a></div>
 
       </div>
     </form>
