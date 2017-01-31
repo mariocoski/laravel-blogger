@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
             ]);
         });
 
-        if (!$this->app->runningUnitTests()) {
+        if (!app()->runningUnitTests()) {
             Article::created(function ($article) {
                 if ($article->is_published === 1 && ($this->published_at < Carbon::now())) {
                     $article->searchable();
