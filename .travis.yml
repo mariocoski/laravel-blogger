@@ -1,0 +1,22 @@
+language: php
+php:
+  - 7.0
+
+matrix:
+  fast_finish: true
+
+before_install:
+  - curl -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.3.0/elasticsearch-2.3.0.deb && sudo dpkg -i --force-confnew elasticsearch-2.3.0.deb && sudo service elasticsearch restart
+
+services:
+  - elasticsearch
+
+before_script:
+  - cp .env.travis .env
+  - sleep 10
+install:
+  - travis_retry composer install --no-interaction --prefer-source
+
+script:
+  - php artisan optimize
+  - vendor/bin/phpunit
