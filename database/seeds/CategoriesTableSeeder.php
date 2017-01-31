@@ -13,7 +13,7 @@ class CategoriesTableSeeder extends Seeder
     {
 
         DB::table('categories')->truncate();
-        factory(App\Models\Category::class, 3)->create();
+        factory(App\Models\Category::class, 1)->create();
 
     }
 }

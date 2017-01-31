@@ -1,7 +1,12 @@
-edit.blade.php
 @extends('layouts.backend')
 
-@section('title', 'Tag')
+@section('title')
+  @if(!empty($tag))
+    Tag - Edit
+  @else
+    Tag - Create
+  @endif
+@stop
 
 @section('content')
 <div class="ui segment large">

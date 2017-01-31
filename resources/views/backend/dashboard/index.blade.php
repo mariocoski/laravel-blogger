@@ -1,9 +1,7 @@
 @extends('layouts.backend')
 
-@section('title', 'Page Title')
+@section('title', 'Dashboard')
 
-
-@section('content')
 @section('content')
 <div class="ui segment large">
   {!! Breadcrumbs::render('dashboard') !!}

@@ -1,13 +1,5 @@
 @extends('layouts.master')
 
-@section('head_title')
-  @yield('title')
-@stop
-
-@section('head_meta_tags')
-  @yield('meta_tags')
-@stop
-
 @section('body_content')
   @include('partials._nav_sidebar')
 

@@ -13,8 +13,8 @@ return array(
     |
     | Supported: "gd", "imagick"
     |
-    */
+     */
 
-    'driver' => 'gd'
+    'driver' => 'gd',
 
 );

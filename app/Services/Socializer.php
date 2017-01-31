@@ -47,6 +47,7 @@ class Socializer
         } catch (\Exception $e) {
             return Redirect::to($this->errorRedirectPath);
         }
+
         $user = $this->findOrCreate($authUser);
 
         Auth::login($user, true);

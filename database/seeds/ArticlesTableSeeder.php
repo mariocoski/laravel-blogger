@@ -13,7 +13,7 @@ class ArticlesTableSeeder extends Seeder
     {
 
         DB::table('articles')->truncate();
-        factory(App\Models\Article::class, 50)->create();
+        factory(App\Models\Article::class, 3)->create();
     }
 
 }

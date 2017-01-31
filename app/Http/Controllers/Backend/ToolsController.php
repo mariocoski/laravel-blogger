@@ -21,8 +21,9 @@ class ToolsController extends Controller
     public function clearCache()
     {
         try {
-
             Artisan::call('cache:clear');
+            Artisan::call('config:clear');
+            Artisan::call('view:clear');
             Artisan::call('route:clear');
             Artisan::call('optimize');
 

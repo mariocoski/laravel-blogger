@@ -1,6 +1,12 @@
 @extends('layouts.backend')
 
-@section('title', 'Page Title')
+@section('title')
+  @if(!empty($user))
+    User - Edit
+  @else
+    User - Create
+  @endif
+@stop
 
 @section('content')
 <div class="ui segment large">

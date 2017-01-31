@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 
-@section('title', 'Tag')
+@section('title', 'Tag - '.$tag->name)
+
 @section('content')
 <div class="ui segments raised">
 

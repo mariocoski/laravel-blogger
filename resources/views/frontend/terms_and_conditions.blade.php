@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title', 'Terms and Conditions')
+
 @section('content')
 <div class="ui segments raised">
 

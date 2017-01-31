@@ -1,6 +1,12 @@
 @extends('layouts.backend')
 
-@section('title', 'Page Title')
+@section('title')
+  @if(!empty($article))
+    Article - Edit
+  @else
+    Article - Create
+  @endif
+@stop
 
 @section('content')
 

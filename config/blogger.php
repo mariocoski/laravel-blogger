@@ -54,7 +54,7 @@ return [
     | Defines layout of the article
     |
      */
-    'article_layout' => 'layouts.article',
+    'article_layout' => 'layouts.frontend',
 
     /*
     |--------------------------------------------------------------------------
