@@ -1,0 +1,13 @@
+language: php
+php:
+  - 7.0
+
+matrix:
+  fast_finish: true
+  
+install:
+  - travis_retry composer install --no-interaction --prefer-source
+
+script:
+  - php artisan optimize
+  - vendor/bin/phpunit
