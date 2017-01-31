@@ -31,21 +31,24 @@ class AppServiceProvider extends ServiceProvider
             ]);
         });
 
-        Article::created(function ($article) {
-            if ($article->is_published === 1 && ($this->published_at < Carbon::now())) {
-                $article->searchable();
-            } else {
-                $article->unsearchable();
-            }
-        });
+        if ($this->app->runningUnitTests()) {
+            Article::created(function ($article) {
+                if ($article->is_published === 1 && ($this->published_at < Carbon::now())) {
+                    $article->searchable();
+                } else {
+                    $article->unsearchable();
+                }
+            });
 
-        Article::updated(function ($article) {
-            if ($article->is_published === 1 && ($article->published_at < Carbon::now())) {
-                $article->searchable();
-            } else {
-                $article->unsearchable();
-            }
-        });
+            Article::updated(function ($article) {
+                if ($article->is_published === 1 && ($article->published_at < Carbon::now())) {
+                    $article->searchable();
+                } else {
+                    $article->unsearchable();
+                }
+            });
+        }
+
     }
 
     /**
