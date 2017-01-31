@@ -12,6 +12,7 @@ services:
   - elasticsearch
 
 before_script:
+  - cp .env.travis .env
   - sleep 10
 install:
   - travis_retry composer install --no-interaction --prefer-source
