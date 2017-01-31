@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title', 'Articles')
+
 @section('content')
     @if(isset($articles))
       @if(config('blogger.articles_render_type') === 'single')

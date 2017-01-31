@@ -16,7 +16,6 @@ class DashboardController extends Controller
 
     public function index()
     {
-
         $dashboard = [
             'number_of_users' => $this->getNumberOfUsers(),
             'number_of_articles' => $this->getNumberOfArticles(),

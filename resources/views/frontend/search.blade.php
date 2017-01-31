@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title', 'Search')
+
 @section('content')
 <div class="ui segments raised">
 

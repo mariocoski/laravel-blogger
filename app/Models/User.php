@@ -28,7 +28,6 @@ class User extends Authenticatable
 
     public function scopeFavouritesArticles($query)
     {
-
         return $this->favourites();
     }
 
@@ -52,7 +51,7 @@ class User extends Authenticatable
 
     public static function articlesAssignable()
     {
-        return (new static )->all()->filter(function ($user) {
+        return static::all()->filter(function ($user) {
             //at least editor is required to edit the articles
             return $user->hasRole('editor');
         });

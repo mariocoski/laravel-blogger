@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'Page Title')
+@section('title', 'Subscriptions')
 
 @section('content')
 <div class="ui segment large">

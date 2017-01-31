@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title', 'Subscribtion Confirmation')
+
 @section('content')
 <div class="ui segments raised">
 

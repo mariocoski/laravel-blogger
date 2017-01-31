@@ -116,9 +116,11 @@ class HomepageController extends Controller
     public function search()
     {
         $query = trim(request('query'));
+
         if (empty($query)) {
             return view('frontend.search', ['articles' => []]);
         }
+
         $articles = Article::search($query)->paginate(config('blogger.articles_per_page'));
 
         return view('frontend.search', compact('articles'));

@@ -1,6 +1,23 @@
-@extends('layouts.frontend')
+@extends(config('blogger.article_layout'),[
+  'meta_keywords' => $article->meta_keywords,
+  'meta_description' => $article->meta_description,
+])
 
 @section('title', $article->title)
+
+@section('og-title')
+  <meta property="og:title" content="{{ $article->title }}"/>
+@stop
+
+@section('og-description')
+  <meta property="og:description" content="{{ $article->meta_description }}"/>
+@stop
+
+@if(!empty($article->article_image))
+    @section('og-image')
+      <meta property="og:image" content="{{ url(config('blogger.filemanager.upload_path').'/'.$article->article_image) }}">
+    @stop
+@endif
 
 @section('content')
 <div class="ui segments raised">

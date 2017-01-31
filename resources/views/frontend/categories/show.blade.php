@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 
-@section('title', 'Categories')
+@section('title', 'Category - '.$category->name)
+
 @section('content')
 <div class="ui segments raised">
 

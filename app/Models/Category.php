@@ -17,7 +17,7 @@ class Category extends Model
 
     public static function getFiveMostPopularOnes()
     {
-        return (new static )->with('articles')->get()->sortByDesc(function ($category, $key) {
+        return static::with('articles')->get()->sortByDesc(function ($category, $key) {
             return count($category->articles);
         })->take(5)->mapWithKeys(function ($item) {
             return [$item['id'] => ['slug' => $item['slug'], 'name' => $item['name']]];

@@ -1,13 +1,5 @@
 @extends('layouts.master')
 
-@section('head_title')
-  @yield('title')
-@stop
-
-@section('head_meta_tags')
-  @yield('meta_tags')
-@stop
-
 @section('body_content')
 
   @include('partials._nav_sidebar')
@@ -26,11 +18,11 @@
 			  </div>
 
 			  <div class="ui center aligned">
-				<a href="{{url('/dashboard/avatar')}}" data-position="bottom center" data-tooltip="Change your avatar" data-inverted=""><img class="avatar-sm" src="{{(!empty(Auth::user()->avatar))? url('images/avatars/'.Auth::user()->avatar) : url("images/avatars/avatar_default.png")}}"></a>
+				<a href="{{url('dashboard/avatar')}}" data-position="bottom center" data-tooltip="Change your avatar" data-inverted=""><img class="avatar-sm" src="{{(!empty(Auth::user()->avatar))? url('images/avatars/'.Auth::user()->avatar) : url("images/avatars/avatar_default.png")}}"></a>
 			  </div>
 
 			  <div class="menu">
-				<a class="item">{{Auth::user()->getRoleDisplayName()}}</a>
+				<a class="item">{{ Auth::user()->getRoleDisplayName() }}</a>
 			  </div>
 
 			</div><!--end of item-->
