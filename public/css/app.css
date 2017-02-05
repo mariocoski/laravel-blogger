@@ -825,6 +825,28 @@ span.flatpickr-weekday {
   height: 60px;
 }
 
+.ui.grid.grid-auth {
+  text-align: center;
+  margin: 0;
+  height: 100%;
+}
+
+.column-auth {
+  max-width: 450px;
+}
+
+.credits-info {
+  margin-top: 15px;
+  color: #434343;
+  padding: 20px;
+}
+
+.body-auth {
+  width: 100%;
+  height: 100%;
+  background-color: #00A8AA;
+}
+
 .ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless) > .container > .item:not(.right):not(.borderless):first-child {
   border: none;
 }

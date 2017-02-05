@@ -35,7 +35,7 @@
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{ url('semantic/semantic.css') }}">
     <link href="{{ url('css/app.css') }}" rel="stylesheet">
-    @yield('head_css')
+
 </head>
 
 <body>
