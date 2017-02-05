@@ -1,24 +1,2 @@
-/*
-* layout
-*/
-body {
-  background-color: #00A8AA;
-}
-
-.grid-auth {
-  text-align: center;
-  margin: auto;
-  height: 100%;
-}
-
-.column-auth {
-  max-width: 450px;
-}
-
-.credits-info {
-  margin-top: 15px;
-  color: #252525;
-  padding: 20px;
-}
 
 /*# sourceMappingURL=auth.css.map */
