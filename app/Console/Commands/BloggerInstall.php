@@ -6,7 +6,7 @@ use App\Models\Role;
 use App\Models\Settings;
 use App\Models\User;
 use Artisan;
-use Config;
+use ConfigWriter;
 use Illuminate\Console\Command;
 use Schema;
 use Validator;
@@ -119,13 +119,14 @@ class BloggerInstall extends Command
         $this->getAdminFirstName();
         $this->getAdminLastName();
         $this->createAdmin();
+        $this->saveAdminEmailInConfigWriter();
     }
 
     protected function updateApplicationName()
     {
         $name = $this->ask("Choose your application name (default: Blogger)", "Blogger");
         if (!empty($name)) {
-            Config::write('app', ['name' => trim($name)]);
+            ConfigWriter::write('app', ['name' => trim($name)]);
         }
     }
 
@@ -163,7 +164,7 @@ class BloggerInstall extends Command
         $numberOfArticles = trim($this->ask("Choose number of articles per page", 10));
 
         if (is_numeric($numberOfArticles) && $numberOfArticles !== 10) {
-            Config::write('blogger', ['articles_per_page' => $numberOfArticles]);
+            ConfigWriter::write('blogger', ['articles_per_page' => $numberOfArticles]);
         }
     }
 
@@ -198,6 +199,11 @@ class BloggerInstall extends Command
         ]);
 
         $user->resolveRole(Role::admin()->id);
+    }
+
+    protected function saveAdminEmailInConfigWriter()
+    {
+        ConfigWriter::write('blogger', ['admin_email' => $this->adminEmail]);
     }
 
     protected function getAdminEmail()

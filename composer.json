@@ -27,6 +27,7 @@
         "larapack/config-writer": "^1.0",
         "tamayo/laravel-scout-elastic": "^1.0",
         "laravel/socialite": "^3.0",
+        "intervention/image" : "2.*",
         "pqb/filemanager-laravel": "2.*",
         "erusev/parsedown": "^1.6",
         "laravel/tinker": "^1.0",
