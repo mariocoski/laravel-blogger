@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Mail\ContactFormMessage;
 use App\Models\Article;
 use App\Models\Subscription;
 use App\Models\User;
+use App\Notifications\ContactFormNotification;
 use App\Notifications\SubscriptionNotification;
 use Illuminate\Http\Request;
-use Mail;
 
 class HomepageController extends Controller
 {
@@ -108,7 +107,9 @@ class HomepageController extends Controller
             'message' => 'required',
         ]);
 
-        Mail::send(new ContactFormMessage($request));
+        $admin = User::where('email', config('blogger.admin_email'))->firstOrFail();
+
+        $admin->notify(new ContactFormNotification($request));
 
         return response()->json(['success' => true]);
     }
