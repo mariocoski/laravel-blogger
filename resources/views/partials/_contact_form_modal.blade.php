@@ -24,7 +24,7 @@
          <div class="ui success message hidden" id="contact-success">
             <p>Your message has been send successfuly!</p>
           </div>
-         <button class="ui orange fluid button submit" id="contact-form-submit">
+         <button class="ui primary fluid button submit" id="contact-form-submit">
            Send!
         </button>
     </div>

@@ -119,7 +119,6 @@ class BloggerInstall extends Command
         $this->getAdminFirstName();
         $this->getAdminLastName();
         $this->createAdmin();
-        $this->saveAdminEmailInConfigWriter();
     }
 
     protected function updateApplicationName()
@@ -201,11 +200,6 @@ class BloggerInstall extends Command
         $user->resolveRole(Role::admin()->id);
     }
 
-    protected function saveAdminEmailInConfigWriter()
-    {
-        ConfigWriter::write('blogger', ['admin_email' => $this->adminEmail]);
-    }
-
     protected function getAdminEmail()
     {
         $this->adminEmail = $this->getInput(
@@ -213,6 +207,7 @@ class BloggerInstall extends Command
             'email',
             ['email', 'unique:users,email']
         );
+        ConfigWriter::write('blogger', ['admin_email' => $this->adminEmail]);
 
     }
 

@@ -68,7 +68,7 @@
                   <i class="{{($article->isFavourite())? 'yellow active ': 'white '}}star icon"></i>
                 </a>
                 @endif
-               <img class="ui fluid image" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}" alt="picture">
+               <img class="ui fluid image" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder_640x480.png')}}" alt="picture">
           </div>
           {!!html_entity_decode($article->html_content)!!}
 
@@ -96,7 +96,7 @@
 
     </div><!--end of segment-->
 </div><!--end of segments-->
-@if($relatedArticles)
+@if($relatedArticles && count($relatedArticles) > 0)
 <div class="ui segments raised center">
   <div class="ui segment">
   <h2><i class="empty heart icon"></i> Related reads</h2>
@@ -108,7 +108,7 @@
             <div class="ui card">
               <div class="content content-limit">{{str_limit($article->title, $limit = 50, $end = '...')}}</div>
               <div class="image">
-                 <img class="ui image floated" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}" alt="picture" />
+                 <img class="ui image floated" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder_640x480.png')}}" alt="picture" />
               </div>
               <div class="content">
 

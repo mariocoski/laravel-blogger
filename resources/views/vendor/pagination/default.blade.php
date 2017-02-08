@@ -2,7 +2,7 @@
  <div class="ui segments">
     @if($paginator->hasMorePages())
     <div class="ui segment">
-         <a class="ui orange fluid button" href="{{ $paginator->nextPageUrl() }}" rel="next">Next Page</a>
+         <a class="ui primary fluid button" href="{{ $paginator->nextPageUrl() }}" rel="next">Next Page</a>
     </div>
     @endif
     <div class="ui segment">

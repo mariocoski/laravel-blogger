@@ -40,17 +40,13 @@ $factory->define(App\Models\Tag::class, function (Faker\Generator $faker) {
 $factory->define(App\Models\Article::class, function ($faker) use ($factory) {
 
     return [
-        'author_id' => function () {
-            return factory(App\Models\User::class)->create()->id;
-        },
-        'category_id' => function () {
-            return factory(App\Models\Category::class)->create()->id;
-        },
+        'author_id' => 1,
+        'category_id' => 1,
         'title' => $title = $faker->sentence,
         'slug' => str_slug($title),
         'subtitle' => $faker->sentence,
-        'content' => $faker->paragraph,
-        'article_image' => 'fox_unsplash.jpeg',
+        'content' => $faker->paragraph(10),
+        'article_image' => '',
         'is_published' => true,
         'published_at' => date('Y-m-d H:i:s'),
     ];

@@ -19,7 +19,7 @@
                 <i class="eye icon"></i> See articles
               </a>
 
-              <i class="large folder {{ ($category->getArticlesCountAttribute() === 0 )? 'outline' : ''}} orange middle aligned icon"></i>
+              <i class="large folder {{ ($category->getArticlesCountAttribute() === 0 )? 'outline' : ''}} primary middle aligned icon"></i>
 
               <div class="content">
                 <a class="header" href="{{ url('categories/'.$category->slug) }}"><h3>{{ $category->name }} </h3></a>

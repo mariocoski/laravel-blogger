@@ -8,7 +8,7 @@
   <div class="ui action input fluid">
 
 	    <input type="text" name="subscribtion-email" id="subscribtion-email" placeholder="johndoe@example.com">
-	    <button class="ui orange right button" id="subscribtion-submit">
+	    <button class="ui primary right button" id="subscribtion-submit">
 	      Subscribe Now
 	    </button>
 

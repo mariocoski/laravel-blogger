@@ -23,10 +23,10 @@
         </a>
       @endif
       <a href="{{url('/blog/'.$article->slug)}}">
-        <img class="ui fluid image lazy hoverable " data-original="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}"
-                  src="images/placeholder.gif" height="480" width="640" alt="picture">
+        <img class="ui fluid image lazy hoverable " data-original="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder_640x480.png')}}"
+                  src="images/placeholder_640x480.png" height="480" width="640" alt="picture">
        <!--  <noscript>
-          <img class="ui fluid image hoverable" height="480" width="640" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}">
+          <img class="ui fluid image hoverable" height="480" width="640" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder_640x480.png')}}">
         </noscript> -->
       </a>
 

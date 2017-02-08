@@ -30,7 +30,7 @@
 
               <div class="ui tiny image">
                 <a href="{{url('/blog/'.$article->slug)}}">
-                  <img class="ui tiny hoverable image" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder.gif')}}">
+                  <img class="ui tiny hoverable image" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder_640x480.png')}}">
                 </a>
               </div><!--end of image-->
 

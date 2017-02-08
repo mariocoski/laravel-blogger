@@ -25,7 +25,7 @@
        <div class="six wide column">
         <h4 class="ui inverted header">Support this free open-source project</h4>
         <p>All help comes directly from the community</p>
-        <p><button class="ui button orange"><i class="paypal icon"></i> Donate now!</button></p>
+        <p><button class="ui button primary"><i class="paypal icon"></i> Donate now!</button></p>
        </div>
      </div>
      <div class="ui inverted section divider"></div>
@@ -37,6 +37,8 @@
        <a class="item" href="{{ url('terms-and-conditions') }}">Terms and Conditions</a>
        <a class="item" href="{{ url('privacy-policy') }}">Privacy Policy</a>
      </div>
-     @include('partials._credits_footer')
+     <div>
+       @include('partials._credits_footer')
+     </div>
    </div>
  </div>
