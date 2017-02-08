@@ -46,7 +46,7 @@
 		    		<td class="tag-table-articles-count">{{$tag->articles_count}}</td>
 		    		<td class="tag-table-created-at">{{$tag->created_at->format('d M Y')}}</td>
 		    		<td>
-		    			<a href="{{url('dashboard/tags/'.$tag->id.'/edit')}}" id="edit-tag-{{$tag->id}}"  class="mini ui button orange"><i class="edit icon"></i> Edit</a>
+		    			<a href="{{url('dashboard/tags/'.$tag->id.'/edit')}}" id="edit-tag-{{$tag->id}}"  class="mini ui button primary"><i class="edit icon"></i> Edit</a>
 		    			@if(Auth::user()->hasRole('admin'))
 		    			<form class="form-inline form-delete-tag" method="POST" action="/dashboard/tags/{{$tag->id}}">
 		    				{{csrf_field()}}

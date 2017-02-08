@@ -43,7 +43,7 @@
 		    		<td class="user-table-display-name">{{$user->display_name}}</td>
 		    		<td class="user-table-created-at">{{$user->created_at->format('d M Y')}}</td>
 		    		<td>
-		    			<a href="{{url('dashboard/users/'.$user->id.'/edit')}}" id="edit-user-{{$user->id}}"  class="mini ui button orange"><i class="edit icon"></i> Edit</a>
+		    			<a href="{{url('dashboard/users/'.$user->id.'/edit')}}" id="edit-user-{{$user->id}}"  class="mini ui button primary"><i class="edit icon"></i> Edit</a>
 		    			@if(Auth::user()->id !== $user->id)
 		    				<a href="{{url('dashboard/impersonate/'.$user->id)}}" id="impersonate-user-{{$user->id}}" class="ui mini button "><i class="icon spy"></i> Login</a>
 		    			@endif

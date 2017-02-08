@@ -53,7 +53,7 @@
             </td>
             <td class="article-table-created-at">{{$article->created_at->format('d M Y')}}</td>
             <td>
-              <a href="{{url('dashboard/articles/'.$article->id.'/edit')}}" id="edit-article-{{$article->id}}"  class="mini ui button orange"><i class="edit icon"></i> Edit</a>
+              <a href="{{url('dashboard/articles/'.$article->id.'/edit')}}" id="edit-article-{{$article->id}}"  class="mini ui button primary"><i class="edit icon"></i> Edit</a>
               @if(Auth::user()->hasRole('admin'))
               <form class="form-inline form-delete-article" method="POST" action="/dashboard/articles/{{$article->id}}">
                 {{csrf_field()}}

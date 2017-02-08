@@ -1,5 +1,225 @@
 @charset "UTF-8";
+/***** CUSTOM THEME (files I have changed) IN SEMANTIC UI *****/
+/**
+  
+  You can modify those files however you want and the run `gulp` command 
+  making sure that `.semanticBuild();` is not commented out in your `gulpfile.js` which will force to rebuild
+  
+  semantic/src/site/elements/button.variables
+  semantic/src/site/elements/segment.variables
+  semantic/src/site/collections/menu.variables
+  semantic/src/site/globals/site.variables
+
+  **/
+/********** OTHER STYLESHEETS **********/
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
+.croppie-container {
+  width: 100%;
+  height: 100%;
+}
+
+.croppie-container .cr-image {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  max-width: none;
+}
+
+.croppie-container .cr-boundary {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.croppie-container .cr-viewport {
+  position: absolute;
+  border: 2px solid #fff;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  box-shadow: 0 0 2000px 2000px rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.croppie-container .cr-original-image {
+  display: none;
+}
+
+.croppie-container .cr-vp-circle {
+  border-radius: 50%;
+}
+
+.croppie-container .cr-overlay {
+  z-index: 1;
+  position: absolute;
+  cursor: move;
+}
+
+.croppie-container .cr-slider-wrap {
+  width: 75%;
+  margin: 15px auto;
+  text-align: center;
+}
+
+.croppie-result {
+  position: relative;
+  overflow: hidden;
+}
+
+.croppie-result img {
+  position: absolute;
+}
+
+.croppie-container .cr-image,
+.croppie-container .cr-overlay,
+.croppie-container .cr-viewport {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/*************************************/
+/***** STYLING RANGE INPUT ***********/
+/*************************************/
+/*http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html */
+/*************************************/
+.cr-slider {
+  -webkit-appearance: none;
+  /*removes default webkit styles*/
+  /*border: 1px solid white; */
+  /*fix for FF unable to apply focus style bug */
+  width: 300px;
+  /*required for proper track sizing in FF*/
+  max-width: 100%;
+}
+
+.cr-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-radius: 3px;
+}
+
+.cr-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ddd;
+  margin-top: -6px;
+}
+
+.cr-slider:focus {
+  outline: none;
+}
+
+/*
+.cr-slider:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+*/
+.cr-slider::-moz-range-track {
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-radius: 3px;
+}
+
+.cr-slider::-moz-range-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ddd;
+  margin-top: -6px;
+}
+
+/*hide the outline behind the border*/
+.cr-slider:-moz-focusring {
+  outline: 1px solid white;
+  outline-offset: -1px;
+}
+
+.cr-slider::-ms-track {
+  width: 300px;
+  height: 5px;
+  background: transparent;
+  /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+  border-color: transparent;
+  /*leave room for the larger thumb to overflow with a transparent border */
+  border-width: 6px 0;
+  color: transparent;
+  /*remove default tick marks*/
+}
+
+.cr-slider::-ms-fill-lower {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.cr-slider::-ms-fill-upper {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.cr-slider::-ms-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ddd;
+  margin-top: 1px;
+}
+
+.cr-slider:focus::-ms-fill-lower {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.cr-slider:focus::-ms-fill-upper {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/*******************************************/
+/***********************************/
+/* Rotation Tools */
+/***********************************/
+.cr-rotate-controls {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  z-index: 1;
+}
+
+.cr-rotate-controls button {
+  border: 0;
+  background: none;
+}
+
+.cr-rotate-controls i:before {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.cr-rotate-l i:before {
+  content: '↺';
+}
+
+.cr-rotate-r i:before {
+  content: '↻';
+}
+
 .flatpickr-calendar {
   background: transparent;
   overflow: hidden;
@@ -614,215 +834,29 @@ span.flatpickr-weekday {
   }
 }
 
-.croppie-container {
+/********** FONTS *********************/
+/********** OTHER SEMANTIC-UI OVERRIDES *****/
+/***** GRID *****/
+.body-auth {
   width: 100%;
   height: 100%;
+  background-color: #00A8AA;
 }
 
-.croppie-container .cr-image {
-  z-index: -1;
+.pushable > .pusher {
+  width: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  max-width: none;
 }
 
-.croppie-container .cr-boundary {
-  position: relative;
-  overflow: hidden;
+.ui.container.narrowed {
+  max-width: 750px !important;
+  width: 100% !important;
   margin: 0 auto;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
 }
 
-.croppie-container .cr-viewport {
-  position: absolute;
-  border: 2px solid #fff;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  box-shadow: 0 0 2000px 2000px rgba(0, 0, 0, 0.5);
-  z-index: 0;
-}
-
-.croppie-container .cr-original-image {
-  display: none;
-}
-
-.croppie-container .cr-vp-circle {
-  border-radius: 50%;
-}
-
-.croppie-container .cr-overlay {
-  z-index: 1;
-  position: absolute;
-  cursor: move;
-}
-
-.croppie-container .cr-slider-wrap {
-  width: 75%;
-  margin: 15px auto;
-  text-align: center;
-}
-
-.croppie-result {
-  position: relative;
-  overflow: hidden;
-}
-
-.croppie-result img {
-  position: absolute;
-}
-
-.croppie-container .cr-image,
-.croppie-container .cr-overlay,
-.croppie-container .cr-viewport {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
-/*************************************/
-/***** STYLING RANGE INPUT ***********/
-/*************************************/
-/*http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html */
-/*************************************/
-.cr-slider {
-  -webkit-appearance: none;
-  /*removes default webkit styles*/
-  /*border: 1px solid white; */
-  /*fix for FF unable to apply focus style bug */
-  width: 300px;
-  /*required for proper track sizing in FF*/
-  max-width: 100%;
-}
-
-.cr-slider::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 3px;
-  background: rgba(0, 0, 0, 0.5);
-  border: 0;
-  border-radius: 3px;
-}
-
-.cr-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: none;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: #ddd;
-  margin-top: -6px;
-}
-
-.cr-slider:focus {
-  outline: none;
-}
-
-/*
-.cr-slider:focus::-webkit-slider-runnable-track {
-    background: #ccc;
-}
-*/
-.cr-slider::-moz-range-track {
-  width: 100%;
-  height: 3px;
-  background: rgba(0, 0, 0, 0.5);
-  border: 0;
-  border-radius: 3px;
-}
-
-.cr-slider::-moz-range-thumb {
-  border: none;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: #ddd;
-  margin-top: -6px;
-}
-
-/*hide the outline behind the border*/
-.cr-slider:-moz-focusring {
-  outline: 1px solid white;
-  outline-offset: -1px;
-}
-
-.cr-slider::-ms-track {
-  width: 300px;
-  height: 5px;
-  background: transparent;
-  /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
-  border-color: transparent;
-  /*leave room for the larger thumb to overflow with a transparent border */
-  border-width: 6px 0;
-  color: transparent;
-  /*remove default tick marks*/
-}
-
-.cr-slider::-ms-fill-lower {
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-.cr-slider::-ms-fill-upper {
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-.cr-slider::-ms-thumb {
-  border: none;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: #ddd;
-  margin-top: 1px;
-}
-
-.cr-slider:focus::-ms-fill-lower {
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.cr-slider:focus::-ms-fill-upper {
-  background: rgba(0, 0, 0, 0.5);
-}
-
-/*******************************************/
-/***********************************/
-/* Rotation Tools */
-/***********************************/
-.cr-rotate-controls {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  z-index: 1;
-}
-
-.cr-rotate-controls button {
-  border: 0;
-  background: none;
-}
-
-.cr-rotate-controls i:before {
-  display: inline-block;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 22px;
-}
-
-.cr-rotate-l i:before {
-  content: '↺';
-}
-
-.cr-rotate-r i:before {
-  content: '↻';
-}
-
-.ui.cards > .card > .content.content-limit, .ui.card > .content.content-limit {
-  height: 60px;
+.content-wrapper {
+  padding-top: 73px;
+  padding-bottom: 20px;
 }
 
 .ui.grid.grid-auth {
@@ -831,20 +865,78 @@ span.flatpickr-weekday {
   height: 100%;
 }
 
+.grid-with-margin {
+  min-height: 100%;
+  padding-top: 80px !important;
+  padding-bottom: 50px !important;
+}
+
 .column-auth {
   max-width: 450px;
 }
 
-.credits-info {
-  margin-top: 15px;
-  color: #434343;
-  padding: 20px;
+.short-segment {
+  height: 350px;
 }
 
-.body-auth {
-  width: 100%;
-  height: 100%;
-  background-color: #00A8AA;
+.ui.segment.segment-margin {
+  margin: 1em 0 1em 0;
+}
+
+.ui.cards > .card > .content.content-limit, .ui.card > .content.content-limit {
+  height: 60px;
+}
+
+.ui.left.sidebar {
+  z-index: 1000;
+}
+
+.ui.segment.segment-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.ui.label > a.white-font {
+  color: #FFFFFF;
+  opacity: 0.9;
+}
+
+.item-image {
+  margin: 0 15px;
+}
+
+.item-mute {
+  color: #8c8a8a;
+}
+
+.search-form-sm {
+  margin-bottom: 0;
+}
+
+.ui.message ul.list:not(.ui) {
+  list-style: none;
+}
+
+.ui.search .prompt {
+  border-radius: 4px;
+}
+
+.ui.search .prompt.top {
+  width: 300px;
+}
+
+div.ui.card.blogger-card {
+  max-width: 500px;
+  margin: 0 auto 25px;
+}
+
+div.no-box-shadow {
+  box-shadow: none !important;
+}
+
+/***** MENU *****/
+.ui.menu.fixed {
+  box-shadow: 0px 2px 3px 0 #434343;
 }
 
 .ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless) > .container > .item:not(.right):not(.borderless):first-child {
@@ -855,43 +947,28 @@ span.flatpickr-weekday {
   width: 0;
 }
 
+/** MODAL **/
+.ui.modal .actions > .button {
+  margin-left: 0;
+}
+
+.menu-sidebar > .item {
+  width: 200px;
+}
+
+/********** CUSTOM CSS ***************/
+.credits-info {
+  margin: 5px 0;
+  color: #434343;
+}
+
 .cookies-message {
   display: none;
 }
 
-.img-responsive {
-  max-width: 100%;
-  height: auto;
-}
-
-.main-content {
-  display: -webkit-box;
-  display: flex;
-  min-height: 100vh;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-}
-
-.ui.segment.footer {
-  -webkit-box-flex: 1;
-  flex: 1;
-}
-
-.sortable {
-  cursor: pointer !important;
-}
-
-.sortable:hover {
-  background-color: #e2e2e2 !important;
-}
-
-.table-list-search-input {
-  display: block !important;
-}
-
-.short-segment {
-  height: 350px;
+.brand-teal {
+  color: #FFFFFF;
+  background-color: #00A8AA !important;
 }
 
 .hidden {
@@ -902,8 +979,15 @@ span.flatpickr-weekday {
   white-space: nowrap;
 }
 
-.ui.modal .actions > .button {
-  margin-left: 0;
+.text-center {
+  text-align: center;
+}
+
+.italic-description {
+  font-style: italic;
+  font-size: 0.9em;
+  color: #838587;
+  padding-bottom: 0.5em;
 }
 
 .white {
@@ -917,39 +1001,122 @@ span.flatpickr-weekday {
   z-index: -1;
 }
 
-.italic-description {
-  font-style: italic;
-  font-size: 0.9em;
-  color: #838587;
-  padding-bottom: 0.5em;
-}
-
 .media-manager-frame {
   width: 100%;
   min-height: 500px;
   border: none;
 }
 
-.ui.segment.segment-margin {
-  margin: 1em 0 1em 0;
+.z-index-top {
+  z-index: 10;
 }
 
+ul.list-unstyled {
+  list-style: none;
+  padding-left: 0;
+}
+
+/***** SCROLLER ******/
+a.scroller {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 9999;
+  background-color: #595454;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 50%;
+  display: none;
+  cursor: pointer;
+  box-shadow: 0px 4px 3px 0 #000000;
+}
+
+a.scroller i {
+  margin: 0em;
+}
+
+a.scroller:hover {
+  background-color: #434343;
+}
+
+/***** IMAGES *****/
+.hoverable:hover {
+  opacity: 0.8;
+  background-color: #434343;
+}
+
+.avatar-sm {
+  width: 50px;
+  height: 50px;
+  height: auto;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+/***** CONTACT FORM *****/
+a#contact-form-trigger {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 10;
+  background-color: #F27F13;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 50%;
+  display: none;
+  cursor: pointer;
+  box-shadow: 0px 4px 3px 0 #434343;
+}
+
+a#contact-form-trigger i {
+  margin: 0em;
+}
+
+a#contact-form-trigger:hover {
+  box-shadow: 0px 6px 5px 0px #434343;
+}
+
+div#contact-form-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  bottom: 70px;
+  height: 320px;
+  left: 10px;
+  width: 100%;
+  max-width: 300px;
+  padding: 12px;
+  box-shadow: 0px 6px 5px 0px #434343;
+}
+
+/***** FORM *****/
 form.form-inline {
   display: inline-block;
   margin: 0;
 }
 
-.pushable > .pusher {
-  width: 100%;
-  position: absolute;
+/***** DATA TABLES *****/
+.sortable {
+  cursor: pointer !important;
+}
+
+.sortable:hover {
+  background-color: #e2e2e2 !important;
+}
+
+.table-list-search-input {
+  display: block !important;
 }
 
 div.ui.input.table-list-search-input {
   margin-bottom: 10px;
-}
-
-.menu-sidebar > .item {
-  width: 200px;
 }
 
 .list-pagination {
@@ -985,51 +1152,31 @@ div.ui.input.table-list-search-input {
   border-radius: 0.26666667rem 0em   0em 0.26666667rem;
 }
 
-.ui.left.sidebar {
-  z-index: 1000;
+/***** KEEPING FOOTER AT THE BOTTOM OF THE PAGE *****/
+.main-content {
+  display: -webkit-box;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
 }
 
-.ui.segment.segment-padding {
-  padding-left: 20px;
-  padding-right: 20px;
+.ui.segment.footer {
+  -webkit-box-flex: 1;
+  flex: 1;
 }
 
-.avatar-sm {
-  width: 50px;
-  height: 50px;
-  height: auto;
-  border-radius: 50%;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
+.footer {
+  box-shadow: 0px -3px 5px 0 rgba(34, 36, 38, 0.15) !important;
 }
 
-.item-image {
-  margin: 0 15px;
+.footer-container {
+  margin-top: 40px !important;
+  margin-bottom: 20px;
 }
 
-.item-mute {
-  color: #8c8a8a;
-}
-
-.z-index-top {
-  z-index: 10;
-}
-
-.ui.label > a.white-font {
-  color: #FFFFFF;
-  opacity: 0.9;
-}
-
-.ui.container.narrowed {
-  max-width: 750px !important;
-  width: 100% !important;
-  margin: 0 auto;
-}
-
-.ui.segment.segment-padding {
-  padding: 50px;
-}
-
+/***** ARTICLES *****/
 article {
   color: #333333;
 }
@@ -1066,9 +1213,9 @@ article h3 {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin-top: 0;
   margin-bottom: 20px !important;
-  font-weight: 800;
 }
 
+/***** BACKEND DASHBOARD *****/
 .backend-dashboard {
   width: 100%;
   height: 100%;
@@ -1096,143 +1243,12 @@ article h3 {
   background-color: #fff;
 }
 
-ul.list-unstyled {
-  list-style: none;
-  padding-left: 0;
+.backend-dashboard > .view > .segments form {
+  max-width: 600px;
 }
 
-.text-center {
-  text-align: center;
-}
-
-/*img.lazy.ui.fluid {
-  display: none;
-}*/
-.search-form-sm {
-  margin-bottom: 0;
-}
-
-.ui.message ul.list:not(.ui) {
-  list-style: none;
-}
-
-.ui.search .prompt {
-  border-radius: 4px;
-}
-
-.ui.search .prompt.top {
-  width: 300px;
-}
-
-.content-wrapper {
-  padding-top: 73px;
-  padding-bottom: 20px;
-}
-
-div.ui.card.blogger-card {
-  max-width: 500px;
-  margin: 0 auto 25px;
-}
-
-div.no-box-shadow {
-  box-shadow: none !important;
-}
-
-.hoverable:hover {
-  opacity: 0.8;
-  background-color: #434343;
-}
-
-/* overriding css */
-.toast {
-  border: 1px solid #fff;
-  opacity: 1 !important;
-}
-
-a.scroller {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 9999;
-  background-color: #595454;
-  color: #ffffff;
-  padding: 20px;
-  border-radius: 50%;
-  display: none;
-  cursor: pointer;
-  box-shadow: 0px 4px 3px 0 #000000;
-}
-
-a.scroller i {
-  margin: 0em;
-}
-
-a.scroller:hover {
-  background-color: #434343;
-}
-
-.ui.menu.fixed {
-  box-shadow: 0px 2px 3px 0 #434343;
-}
-
-a#contact-form-trigger {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-  z-index: 10;
-  background-color: #F27F13;
-  color: #ffffff;
-  padding: 20px;
-  text-align: center;
-  border-radius: 50%;
-  display: none;
-  cursor: pointer;
-  box-shadow: 0px 4px 3px 0 #434343;
-}
-
-a#contact-form-trigger i {
-  margin: 0em;
-}
-
-.brand-teal {
-  color: #FFFFFF;
-  background-color: #00A8AA !important;
-}
-
-a#contact-form-trigger:hover {
-  box-shadow: 0px 6px 5px 0px #434343;
-}
-
-div#contact-form-modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  bottom: 70px;
-  height: 320px;
-  left: 10px;
-  width: 100%;
-  max-width: 300px;
-  padding: 12px;
-  box-shadow: 0px 6px 5px 0px #434343;
-}
-
-.grid-with-margin {
-  min-height: 100%;
-  padding-top: 80px !important;
-  padding-bottom: 50px !important;
-}
-
-.footer {
-  /*box-shadow: 0 -3px 10px 0 rgba(0,0,0,.0785) !important;*/
-  box-shadow: 0px -3px 5px 0 rgba(34, 36, 38, 0.15) !important;
-}
-
-.footer-container {
-  margin-top: 40px !important;
-  margin-bottom: 20px;
-}
-
-/* Mobile */
+/********** MEDIA QUERIES ***************/
+/***** MOBILE *****/
 @media only screen and (max-width: 767px) {
   .ui.container.narrowed {
     width: 95% !important;
@@ -1258,7 +1274,7 @@ div#contact-form-modal {
   }
 }
 
-/* Tablet */
+/***** TABLET *****/
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .hidden-tablet {
     display: none !important;
@@ -1272,14 +1288,14 @@ div#contact-form-modal {
   }
 }
 
-/* Small Monitor */
+/***** SMALL MONITOR *****/
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .hidden-small-desktop {
     display: none !important;
   }
 }
 
-/* Large Monitor */
+/***** Large Monitor *****/
 @media only screen and (min-width: 1200px) {
   .hidden-large-desktop {
     display: none !important;

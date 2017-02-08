@@ -34,7 +34,11 @@
 		<div class="view">
 		  <div class="ui raised segments">
 		    @yield('content')
-		    <div class="ui segment secondary text-center">  @include('partials._credits_footer')</div>
+		    <div class="ui segment secondary text-center">
+		      <div class="credits-info">
+		        @include('partials._credits_footer')
+		      </div>
+		    </div>
 		  </div><!--end of segments-->
 		</div><!--end of view-->
 

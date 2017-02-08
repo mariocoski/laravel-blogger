@@ -20,10 +20,16 @@ class HomepageController extends Controller
         $articles = Article::search(request('query'))->get();
 
         $response['results'] = $articles->map(function ($item) {
+            if (!empty($item->article_image)) {
+                $articleImage = config('app.url') . "/" . config('blogger.filemanager.upload_path') . "/" . $item->article_image;
+            } else {
+                $articleImage = config('app.url') . "/images/placeholder_640x480.png";
+            }
+
             return [
                 "title" => $item->title,
                 'url' => '/blog/' . $item->slug,
-                'image' => config('app.url') . "/" . config('blogger.filemanager.upload_path') . "/" . $item->article_image,
+                'image' => $articleImage,
             ];
         });
 

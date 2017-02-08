@@ -14,16 +14,16 @@ class UsersTableSeeder extends Seeder
     {
 
         DB::table('users')->truncate();
-        $admin = factory(App\Models\User::class)->create([
-            'email' => 'admin@blogger.com',
-            'first_name' => 'John',
-            'last_name' => 'Doe',
-            'display_name' => 'John Doe',
-            'slug' => 'john-doe',
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ]);
-        $admin->resolveRole(Role::admin()->id);
+        // $admin = factory(App\Models\User::class)->create([
+        //     'email' => 'admin@blogger.com',
+        //     'first_name' => 'John',
+        //     'last_name' => 'Doe',
+        //     'display_name' => 'John Doe',
+        //     'slug' => 'john-doe',
+        //     'created_at' => date('Y-m-d H:i:s'),
+        //     'updated_at' => date('Y-m-d H:i:s'),
+        // ]);
+        // $admin->resolveRole(Role::admin()->id);
 
         $editor = factory(App\Models\User::class)->create([
             'email' => 'editor@blogger.com',

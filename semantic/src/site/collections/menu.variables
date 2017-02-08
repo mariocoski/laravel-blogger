@@ -1,1 +1,1 @@
-@invertedBackground: @brandTeal;
+@invertedBackground: @invertedBackgroundColor;

@@ -27,7 +27,7 @@
     <label for="password">Password</label>
     <div class="ui input action">
       <input type="password" id="password" name="password" class="show-new-password-field" placeholder="Password" >
-      <button class="ui icon orange button show-new-password" tabindex="-1">
+      <button class="ui icon primary button show-new-password" tabindex="-1">
         <i class="eye icon"></i>
       </button>
     </div>
@@ -37,7 +37,7 @@
     <label for="password_confirmation">Password Confirmation</label>
     <div class="ui input action">
       <input type="password" id="password_confirmation"  name="password_confirmation" class="show-new-password-confirmation-field" placeholder="Password Confirmation">
-      <button class="ui icon orange button show-new-password-confirmation" tabindex="-1">
+      <button class="ui icon primary button show-new-password-confirmation" tabindex="-1">
         <i class="eye icon"></i>
       </button>
     </div>
@@ -160,7 +160,7 @@
       <input type="text" name="website_url" id="website_url" placeholder="http://www.example.com" value="{{ ($user->website_url) ?? old('website_url') }}" >
     </div>
    </div>
-   <button class="ui fluid fluid orange submit button" type="submit" name="submit">
+   <button class="ui fluid fluid primary submit button" type="submit" name="submit">
       Update profile
    </button>
 </form>

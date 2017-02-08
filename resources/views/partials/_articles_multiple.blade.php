@@ -8,7 +8,7 @@
   <div class="row center aligned">
     <div class="five wide olive column"><h1>A</h1></div>
     <div class="five wide green column"><h1>B</h1></div>
-    <div class="five wide orange column"><h1>C</h1></div>
+    <div class="five wide primary column"><h1>C</h1></div>
   </div>
 
   <div class="row center aligned">

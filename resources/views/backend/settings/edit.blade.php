@@ -74,7 +74,7 @@
       <input type="text" name="google_analytics_id" id="google_analytics_id" placeholder="Google Analytics Id" value="{{  ($settings['google_analytics_id']) ?? old('google_analytics_id') }}" >
     </div>
   </div>
-   <button class="ui fluid fluid orange submit button" type="submit" name="submit">
+   <button class="ui fluid fluid primary submit button" type="submit" name="submit">
       Update Settings
    </button>
 </form>

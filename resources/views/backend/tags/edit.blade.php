@@ -43,7 +43,7 @@
     </div>
   </div>
 
-    <button class="ui fluid fluid orange submit button" type="submit" name="submit">
+    <button class="ui fluid fluid primary submit button" type="submit" name="submit">
     @if(!empty($tag))
       Update
     @else

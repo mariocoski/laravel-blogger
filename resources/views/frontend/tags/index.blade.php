@@ -19,7 +19,7 @@
                   <i class="eye icon"></i> See articles
               </a>
 
-              <i class="large folder {{ ($tag->getArticlesCountAttribute() === 0 )? 'outline' : 'orange'}} middle aligned icon"></i>
+              <i class="large folder {{ ($tag->getArticlesCountAttribute() === 0 )? 'outline' : 'primary'}} middle aligned icon"></i>
 
               <div class="content">
                 <a class="header" href="{{ url('tags/'.$tag->slug) }}">
