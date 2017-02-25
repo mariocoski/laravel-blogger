@@ -65,22 +65,29 @@ Laravel-Blogger is open-sourced software licensed under the [MIT license](https:
 ## Why not to try install laravel-blogger now?
 
 * Fully featured dashboard for admin and editor
+
 <img src="/public/images/screenshot_dashboard.png?raw=true" alt="Laravel Blogger" width="600">
 
 * Easy to manage articles section
+
 <img src="/public/images/screenshot_articles.png?raw=true" alt="Laravel Blogger" width="600">
 
 * The most powerfull markdown editor - TinyMce
+
 <img src="/public/images/screenshot_article.png?raw=true" alt="Laravel Blogger" width="600">
 
 * Fully featured media manager allows you to upload your images
+
 <img src="/public/images/screenshot_media_manager.png?raw=true" alt="Laravel Blogger" width="600">
 
 * Advanced settings section helps you to control your SEO, Google Analytics and Disqus Comments
+
 <img src="/public/images/screenshot_settings.png?raw=true" alt="Laravel Blogger" width="600">
 
 * Amazing, blazing fast full-text searching with Elastic Search
+
 <img src="/public/images/screenshot_search.png?raw=true" alt="Laravel Blogger" width="600">
 
 * Responsive Layout
+
 <img src="/public/images/screenshot_mobile.png?raw=true" alt="Laravel Blogger" width="300">
