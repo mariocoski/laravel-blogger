@@ -12,7 +12,7 @@ window.rrssb = require('rrssb');
 $(document).ready(function() {
 
 
- const ROOT_DIR = "http://blogger.dev"; 
+const ROOT_DIR = window.Blogger.url || "http://localhost"; 
 
 
 if(Cookies.get('accept_cookies') != 1){
