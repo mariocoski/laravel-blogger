@@ -18,6 +18,29 @@ class Article extends Model
         return 'articles_index';
     }
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        if (config('blogger.search_engine.enabled') && !app()->runningUnitTests()) {
+            static::created(function ($article) {
+                if ($article->is_published === 1 && ($this->published_at < Carbon::now())) {
+                    $article->searchable();
+                } else {
+                    $article->unsearchable();
+                }
+            });
+
+            static::updated(function ($article) {
+                if ($article->is_published === 1 && ($article->published_at < Carbon::now())) {
+                    $article->searchable();
+                } else {
+                    $article->unsearchable();
+                }
+            });
+        }
+    }
+
     public function toSearchableArray()
     {
         if ($this->is_published === 1 && $this->published_at < Carbon::now()) {

@@ -87,6 +87,7 @@ class BloggerInstall extends Command
 
         $this->comment(PHP_EOL . 'Finishing up an application...' . PHP_EOL);
 
+        ConfigWriter::write('blogger', ['admin_email' => $this->adminEmail]);
         // Generating App Key
         $this->comment('Creating a unique application key...');
         Artisan::call('key:generate');
@@ -207,7 +208,6 @@ class BloggerInstall extends Command
             'email',
             ['email', 'unique:users,email']
         );
-        ConfigWriter::write('blogger', ['admin_email' => $this->adminEmail]);
 
     }
 

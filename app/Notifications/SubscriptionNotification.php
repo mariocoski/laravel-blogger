@@ -3,11 +3,12 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class SubscriptionNotification extends Notification
+class SubscriptionNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -44,7 +45,6 @@ class SubscriptionNotification extends Notification
         return (new MailMessage)
             ->greeting('Hello ' . $this->email . '!')
             ->subject('Subscription Confirmation at ' . config('app.name'))
-            ->to($this->email)
             ->line('Do you confirm your sign up to our mailing list?')
             ->line('You have received this message because you signed up to our mailing list. Please confirm your interest by clicking of the link below:')
             ->action('Yes, add me to the list', url('subscription/confirm/' . $this->email))
