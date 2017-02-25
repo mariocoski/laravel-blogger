@@ -3,10 +3,10 @@
 <script src="{{url('js/tinymce/tinymce.js')}}"></script>
   <script type="text/javascript">
 
-  	 // File Picker modification for FCK Editor v2.0 - www.fckeditor.net
+     // File Picker modification for FCK Editor v2.0 - www.fckeditor.net
      // by: Pete Forde <pete@unspace.ca> @ Unspace Interactive
      var urlobj;
-     var pathAbsolute = "http://blogger.dev/";
+     var pathAbsolute = window.Blogger.url + "/";
      var oWindow;
 
      function BrowseServer(obj)
@@ -35,7 +35,7 @@
      function SetUrl( url, width, height, alt )
      {
 
-     	   document.getElementById('article-image-preview').src = url;
+         document.getElementById('article-image-preview').src = url;
             url = url.replace(pathAbsolute+"filemanager/userfiles/", "");
            document.getElementById("article-image-path").value = url ;
 
@@ -43,7 +43,7 @@
 
 
      $('#article-pick-image').click(function(){
-     	BrowseServer('article-image-path');
+      BrowseServer('article-image-path');
       return false;
      });
 
@@ -107,7 +107,7 @@
      };
      editor_config.selector = "#article-content";
      // editor_config.path_absolute = "http://php-filemanager.rhcloud.com/examples/basic.html";
-     editor_config.path_absolute = "http://blogger.dev/filemanager/show";
+     editor_config.path_absolute = window.Blogger.url +"/filemanager/show";
      tinymce.init(editor_config);
 
 
