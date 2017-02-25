@@ -22,9 +22,10 @@
         }
     ],
     "require": {
-        "php": ">=5.6.4",
+        "php": ">=7.0",
         "laravel/framework": "5.4.*",
         "larapack/config-writer": "^1.0",
+        "laravel/scout" : "^1.0.0",
         "tamayo/laravel-scout-elastic": "^1.0",
         "laravel/socialite": "^3.0",
         "intervention/image" : "2.*",
