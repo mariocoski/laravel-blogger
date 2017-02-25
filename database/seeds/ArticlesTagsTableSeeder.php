@@ -13,7 +13,6 @@ class ArticlesTagsTableSeeder extends Seeder
      */
     public function run()
     {
-
         DB::table('articles_tags')->truncate();
         $articles = Article::all();
         $tags = Tag::all()->toArray();

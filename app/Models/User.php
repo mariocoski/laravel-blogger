@@ -21,6 +21,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function routeNotificationForMail()
+    {
+        return $this->email;
+    }
+
     public function favourites()
     {
         return $this->belongsToMany(Article::class, 'favourites');
