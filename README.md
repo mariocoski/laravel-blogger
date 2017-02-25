@@ -26,10 +26,10 @@ PHP extensions (PDO, SQLite, OpenSSL, Mbstring, Tokenizer)
 PDO compliant database (SQL / MySQL / PostgreSQL / SQLite)
 
 1. Two ways of downloading a project
-* use github to clone a project:
-`git clone https://github.com/mariocoski/laravel-blogger`
-* use a packagist: 
-`composer create-project mariocoski/laravel-blogger`
+  - use github to clone a project:
+    `git clone https://github.com/mariocoski/laravel-blogger`
+  - use a packagist: 
+    `composer create-project mariocoski/laravel-blogger`
 
 2. Go to the root of your project and run `composer install`
 
@@ -45,7 +45,7 @@ PDO compliant database (SQL / MySQL / PostgreSQL / SQLite)
 7. Make sure you have an env file copied `cp .env.example .env`
 
 8. Install Elastic Search on your server by running shell script `sh elastic.sh` or following online solutions like:
-[Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-16-04) or 
+[Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-16-04) 
 
 9. Run `php artisan blogger:install` to finish up the installation
 
