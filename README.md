@@ -1,6 +1,9 @@
 # Laravel-Blogger
 [![Build Status](https://travis-ci.org/mariocoski/laravel-blogger.svg?branch=master)](https://travis-ci.org/mariocoski/laravel-blogger)
 
+## Demo
+[Blog](http://gamechanger.diet)
+
 ## About
 
 Laravel-blogger is simple, easy-to-start blog platform powered by laravel framework, heavily inspired by [Canvas](https://canvas.toddaustin.io) blogging platform.
