@@ -1,6 +1,10 @@
 # Laravel-Blogger
 [![Build Status](https://travis-ci.org/mariocoski/laravel-blogger.svg?branch=master)](https://travis-ci.org/mariocoski/laravel-blogger)
 
+## Demo
+<p>http://gamechanger.diet</p>
+<p>http://withjavascript.com</p>
+
 ## About
 
 Laravel-blogger is simple, easy-to-start blog platform powered by laravel framework, heavily inspired by [Canvas](https://canvas.toddaustin.io) blogging platform.
@@ -48,10 +52,6 @@ PDO compliant database (SQL / MySQL / PostgreSQL / SQLite)
 [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-16-04) 
 
 9. Run `php artisan blogger:install` to finish up the installation
-
-## Additional configuration
-
-...
 
 ## Supporting
 
