@@ -2,7 +2,8 @@
 [![Build Status](https://travis-ci.org/mariocoski/laravel-blogger.svg?branch=master)](https://travis-ci.org/mariocoski/laravel-blogger)
 
 ## Demo
-[Blog](http://gamechanger.diet)
+[www.gamechanger.diet](http://gamechanger.diet)
+[www.withjavascript.com](http://withjavascript.com)
 
 ## About
 
@@ -51,10 +52,6 @@ PDO compliant database (SQL / MySQL / PostgreSQL / SQLite)
 [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-16-04) 
 
 9. Run `php artisan blogger:install` to finish up the installation
-
-## Additional configuration
-
-...
 
 ## Supporting
 
