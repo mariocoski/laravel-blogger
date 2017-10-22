@@ -45,7 +45,7 @@ class ProfileUpdateRequest extends FormRequest
     {
         return [
             'email' => $this->email,
-            'password' => $this->password,
+            'password' => bcrypt($this->password),
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'display_name' => $this->display_name,
