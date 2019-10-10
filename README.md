@@ -2,8 +2,8 @@
 [![Build Status](https://travis-ci.org/mariocoski/laravel-blogger.svg?branch=master)](https://travis-ci.org/mariocoski/laravel-blogger)
 
 ## Demo
-<p>https://gamechanger.diet</p>
-<p>https://withjavascript.com</p>
+<p>https://gamechanger.mariuszrajczakowski.me</p>
+<p>https://withjavascript.mariuszrajczakowski.me</p>
 
 ## About
 
